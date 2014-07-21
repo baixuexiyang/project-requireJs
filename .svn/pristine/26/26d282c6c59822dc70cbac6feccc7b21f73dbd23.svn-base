@@ -1,0 +1,14 @@
+<!--#include file="include-dialog-head.php"-->
+<!--注册弹出框-->
+<div class="pop-box h-auto bg-ff">
+    <p class="cen-p">
+    	<label><input name="radio" type="radio" value="">&nbsp;IVF</label>
+        <label><input name="radio" type="radio" value="">&nbsp;OD（卵供体）</label>
+        <label><input name="radio" type="radio" value="">&nbsp;ICSI</label>
+        <label><input name="radio" type="radio" value="">&nbsp;OD（卵冷冻）</label>
+        <label><input name="radio" type="radio" value="">&nbsp;IU（代孕）</label>
+        <label><input name="radio" type="radio" value="">&nbsp;OT（其他）</label>
+    </p>
+    <div class="text-c mar-b20"><a href="#" class="green-but">确定</a></div>
+</div>
+<!--#include file="include-dialog-foot.php"-->

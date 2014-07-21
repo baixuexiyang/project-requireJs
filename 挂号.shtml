@@ -1,0 +1,83 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="register" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20">
+            <form action="get-patient-list.php" method="" id="form-patient-search">
+            	<h2>挂号<cite>（带&nbsp;<b>*</b>&nbsp;为必填项）</cite></h2>
+                <div class="h-auto list-seach">
+                	<label class="f-l"><i>医保卡号：</i><input name="" type="text"/></label><label class="f-l"><i>患者姓名：</i><input name="" type="text"/></label><input class="green-but f-l" type="submit" value="搜索"/>
+                </div>
+            </form>
+            <div class="error-text">错误提示</div>
+            <form id="form-patient-info">
+        	<div class="h-auto">
+            	<div class="hr-div mar-t20">
+                    <span>患者信息</span>
+                    <hr/>
+            	</div>
+            	<ul class="h-auto three-list">
+                	<li><i>医保卡号：</i><label><input name="" type="text" id="" maxlength="5" class="validate"></label></li>
+                    <li><i><b>*</b>患者姓名：</i><label><input name="" type="text" class="validate" id="patientName"></label></li>
+                    <li><i><b>*</b>患者性质：</i><label><select name=""><option>是</option><option>否</option></select></label></li>
+                    <li><i><b>*</b>性别：</i><label><select name="" id="spouse-sex"><option>男</option><option>女</option></select></label></li>
+                    <li><i><b>*</b>出生日期：</i><label><input name="" type="text" class="validate Wdate" id="birthday"></label></li>
+                    <li><i>年龄：</i><label><input name="" type="text" id="patient-age" maxlength="5" class="validate"></label></li>
+                    <li><i>手机号码：</i><label><input name="" type="text" id="phone" class="validate"></label></li>
+                    <li class="textarea-li"><i>家庭住址：</i><label><textarea name="" cols="" rows="" maxlength="10"></textarea></label></li>
+                </ul>
+                <div class="h-auto add-family">
+                	<span class="add-family-but"><a href="#" class="f-l add"><b></b>&nbsp;补充信息</a><a href="#" class="f-r delete" title="关闭" style="display:none;"></a></span>
+                    <div class="spouse-info" style="display:none;">
+                        <ul class="h-auto three-list">
+                            <li><i>婚否：</i><label><select name=""><option>是</option><option>否</option></select></label></li>
+                            <li><i>血型：</i><label><select name=""><option>A</option><option>B</option></select></label></li>
+                            <li><i>过敏史：</i><label><select name=""><option>有</option><option>无</option></select></label></li>
+                            <li><i>民族：</i><label><select name=""><option>汉族</option><option>少数民族</option></select></label></li>
+                            <li><i>身份证号：</i><label><input name="" type="text" id="spouse-registerCredentialsNum" class="validate"></label></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="hr-div mar-t20">
+                    <span>挂号信息</span>
+                    <hr/>
+            	</div>
+            	<ul class="h-auto three-list">
+                    <li><i><b>*</b>挂号科室：</i><label><select name="" id="department" data-href="js/mock-data/add-department-doctor.json"><option value="1">科室一</option><option value="2">科室二</option></select></label></li>
+                    <li><i>挂号医生：</i><label><input type="hidden" name="" id="doctorName"><select name="" id="doctor" class="validate"><option>——</option><option>医生一</option></select></label></li>
+                    <li><i><b>*</b>挂号类型：</i><label><select name="" id="register-type"><option value="1" data-id="123" data-name="asdfasdf" data-money="10">类型一</option><option data-money="20">类型二</option></select></label></li>
+					<li><i>患者来院：</i><label><select name="" id=""><option>来源一</option><option>来源二</option></select></label></li>
+                    <li><i>初复诊：</i><label><input name="" type="radio" value="">&nbsp;初诊&nbsp;</label><label><input name="" type="radio" value="">&nbsp;复诊</label></li>
+                    <li><i><b>*</b>发票号：</i><label class="reg-lab num">123</label><input type="hidden" value="123" id="receiptNo"><input type="hidden" id="max-num" value="125"><a href="javascript:;" class="green-but changenumber">跳号</a></li>
+                    <li class="other-fee"><i>其他收费：</i><label><input name="" type="checkbox" id="fee-1" value="" class="chack-box-auto">&nbsp;医疗卡&nbsp;&nbsp;</label><label><input name="" type="checkbox" id="fee-2" value="" class="chack-box-auto">&nbsp;病历费</label></li>
+                </ul>
+                <div class="hr-div mar-t20">
+                    <span>费用信息</span>
+                    <hr/>
+            	</div>
+            	<ul class="h-auto three-list fee-list">
+                    <li><i>挂号费：</i><label>￥<span class="registerFell" data-id="1" data-feeCatlogId="11" data-feeCatlogName="" data-name=""></span>元</label></li>
+                    <li style="display:none;" class="fee-1"><i>医疗卡：</i><label>￥<span data-id="2" data-feeCatlogId="11" data-feeCatlogName="" data-name="">123123123.00</span>元</label></li>
+                    <li style="display:none;" class="fee-2"><i>病例费：</i><label>￥<span data-id="3" data-feeCatlogId="11" data-feeCatlogName="" data-name="">123123123.00</span>元</label></li>
+                    <li><i>费用总计：</i><label class="red-font">￥<span id="total-price">123123123.00</span>元</label><input type="hidden" value="" id="rel-total-price"></li>
+                </ul>
+                <div class="text-r mar-t10 list-bottom-div mar-b20">
+                    <a href="javascript:;" class="green-but" id="saveRegister" data-action="js/mock-data/add-patient-register.json" data-href="include-confirm-register.php">确认挂号</a>
+                </div>
+            </div>
+            <input type="hidden" id="getReceipt" value="门诊收费-票据领用列表.shtml">
+        </form>
+        </div>
+        <!--中部结束-->
+</div>
+<div id="dialogContent" style="display:none;"></div>
+<!--#include file="include-foot.php"-->

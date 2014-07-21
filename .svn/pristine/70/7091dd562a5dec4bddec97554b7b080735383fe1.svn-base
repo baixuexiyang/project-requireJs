@@ -1,0 +1,181 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="adjuvant-therapy" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 patientList-process">
+            <form id="form-add-terpay">
+        	<h2 class="h-auto"><i class="f-l">冷冻储存记录</i><a href="#" class="f-r yellow-but2">历史解冻记录</a></h2>
+            <div class="error-text" style="display:none;"></div>
+            <!--疗程信息-->
+            <div class="h-auto mar-t10 add-ylfa-list">
+            	<h3 class="add-ylfa-hov hov-bg-green">患者信息</h3>
+				<ul class="h-auto three-list"> 
+                	<li><i><b>*</b>医疗号：</i><label><input name="" type="text" maxlength="64"></label></li>
+                    <li><i><b>*</b>姓名：</i><label><input name="" type="text" maxlength="64"></label></li>
+					<li><i><b>*</b>出生日期：</i><label><input name="" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="validate Wdate" id="birthday"></label></li>
+                    
+                    <li><i>解冻日期：</i><label><input name="" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="validate Wdate" id="#"></label></li>
+					<li><i><b>*</b>麦管编号：</i><label><input name="" type="text" maxlength="64"></label></li>
+                     <li><i><b>*</b>麦管颜色：</i><label><select name="" id="">
+                            <option value="0">请选择</option>
+                            </select></label></li>
+                     <li>
+                     	<i><b>*</b>存放于：</i><label><a href="#" class="blue-font">请选择存放目录</a></label>
+                     </li>				
+					<li class="beizhu">
+                     <i>备注：</i>
+                     <label><textarea name="" cols="" rows="2"></textarea></label>
+					</li>
+                    <div class="text-r mar-b10" style=" clear:both;">
+                    <a href="javascript:;" class="green-but" id="saveTerpay">保存</a>
+                    </div>
+                </ul>
+            </div>
+            <!--分割线-------------------------------------------------------->
+            <div class=" h-auto list-seach mar-t10">
+                <label><i>姓名：</i><input type="text" name=""></label><input class="green-but" type="submit" value="搜索">                    
+			</div>
+            <!--循环开始-->
+            <div class="h-auto mar-t10 w958-border">
+                <div class="bill-list-title">
+                    <a href="javascript:;" class="f-l close" title="点击收缩"></a>
+                    <span class="f-l"><em class="green-font">123456789液态罐</em></span>
+                    <span class="f-l"><i>吊桶存放数：</i><em>12/13</em></span>
+                    <span class="f-l"><i>套管存放数：</i><em>10/20</em></span>
+                    <span class="f-l"><i>麦管存放数：</i><em>100/100</em></span>
+                    <a href="javascript:;" class="f-r red-but delete-all" data-action="js/mock-data/include-data-example.json">删除</a>
+                </div>
+                <!--表单开始-->
+                <div class="h-auto pad5">                   
+                    <table cellpadding="0" cellspacing="1" class="table-list">
+                        <thead>
+                            <tr>
+                                <td width="12%">医疗号</td>
+                                <td width="10%">姓名</td>
+                                <td width="10%">出生年月</td>                                
+                                <td width="14%">麦管</td>
+                                <td width="14%">套管</td>
+                                <td width="14%">吊桶</td>                                
+                                <td width="12%">操作</td>
+                          </tr>
+                        </thead>
+                        <tr class="tr-hover pos-re copy">
+                            <td>1234567890</td>
+                            <td>什么名字</td>                         
+                            <td>2012-12-12</td>
+                            <td>12345678红色</td>
+                            <td>12345678红色</td>
+                            <td>12345678红色</td>
+                            <td><a href="javascript:;" class="green-but" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item" title="删除">删除</a></td>
+                         </tr>
+                    </table>                
+                </div>
+                
+            </div>
+            <!--循环结束-->
+            
+            <!--循环开始-->
+            <div class="h-auto mar-t10 w958-border">
+                <div class="bill-list-title">
+                    <a href="javascript:;" class="f-l open" title="点击展开"></a>
+                    <span class="f-l"><em>123456790液态罐</em></span>
+                    <span class="f-l"><i>吊桶存放数：</i><em>12/13</em></span>
+                    <span class="f-l"><i>套管存放数：</i><em>10/20</em></span>
+                    <span class="f-l"><i>麦管存放数：</i><em>100/100</em></span>
+                    <a href="javascript:;" class="f-r red-but delete-all" data-action="js/mock-data/include-data-example.json">删除</a>
+                </div>
+                <!--表单开始-->
+                <div class="h-auto pad5" style="display:none;">                   
+                    <table cellpadding="0" cellspacing="1" class="table-list">
+                        <thead>
+                            <tr>
+                                <td width="12%">医疗号</td>
+                                <td width="10%">姓名</td>
+                                <td width="10%">出生年月</td>                                
+                                <td width="14%">麦管</td>
+                                <td width="14%">套管</td>
+                                <td width="14%">吊桶</td>                                
+                                <td width="12%">操作</td>
+                          </tr>
+                        </thead>
+                        <tr class="tr-hover pos-re copy">
+                            <td>1234567890</td>
+                            <td>什么名字</td>                         
+                            <td>2012-12-12</td>
+                            <td>12345678红色</td>
+                            <td>12345678红色</td>
+                            <td>12345678红色</td>
+                            <td><a href="javascript:;" class="green-but" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item" title="删除">删除</a></td>
+                         </tr>
+                    </table>                
+                </div>                
+            </div>
+            <!--循环结束-->
+            
+            </form>
+            <div class="text-r mar-t10 mar-b10 list-bottom-div">
+                <a href="javascript:;" class="green-but" id="saveTerpay" >打印预览</a>
+            </div>
+        </div>
+        <!--中部结束-->
+</div>
+<script id="compile" type="text/x-jquery-tmpl">
+<tr class="tr-hover">
+    <td><input name="" type="checkbox" value=""></td>
+    <td {{if stageid == '1'}} 
+            class="orange-font text-l" 
+        {{else}} {{if stageid == '2'}} 
+            class="red-font text-l"
+                {{else}} {{if stageid == '3'}}
+                    class="blue-font text-l"
+                        {{else}} {{if stageid == '4'}}
+                            class="blue2-font text-l"
+                                {{else}} {{if stageid == '5'}}
+                                    class="blue3-font text-l"
+                                {{/if}}
+                        {{/if}}
+                {{/if}}
+        {{/if}}
+    {{/if}}
+    ><i {{if stageid == '1'}} 
+            class="orange-block"
+        {{else}} {{if stageid == '2'}} 
+            class="red-block"
+                {{else}} {{if stageid == '3'}}
+                    class="blue-block"
+                        {{else}} {{if stageid == '4'}}
+                            class="blue2-block"
+                                {{else}} {{if stageid == '5'}}
+                                    class="blue3-block"
+                                {{/if}}
+                        {{/if}}
+                {{/if}}
+        {{/if}}
+    {{/if}}
+    ></i>${stage}<input type="hidden" class="stageid" value="${stageid}"></td>
+    <td class="date">${date}</td>
+    <td class="processday">${processday}</td>
+    <td><span class="hour">${hour}</span>:<span class="min">${min}</span></td>
+    <td>${type}<input type="hidden" class="typeid" value="${typeid}"></td>
+    <td>${item}<input type="hidden" class="itemid" value="${itemid}"></td>
+    <td class="status">${status}</td>
+    <td class="result">${result}</td>
+    <td><a href="javascript:;" data-href="include-add-terapy.php" class="green-but editProject" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+    <input type="hidden" class="agentsid" value="${agentsid}">
+    <input type="hidden" class="usemethodid" value="${usemethodid}">
+    <input type="hidden" class="drugtimes" value="${drugtimes}">
+    <input type="hidden" class="singledose" value="${singledose}">
+    <input type="hidden" class="unitid" value="${unitid}">
+    <input type="hidden" class="note" value="${note}">
+</tr>
+</script>
+<!--#include file="include-foot.php"-->

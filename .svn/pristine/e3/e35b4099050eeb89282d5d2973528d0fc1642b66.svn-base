@@ -1,0 +1,96 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="admin" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 UserManagement">
+            <form action="" method="" id="form-add-patient">
+        	<h2>新增入库单<cite>（带&nbsp;<b>*</b>&nbsp;为必填项）</cite></h2>
+            <div class="error-text">错误提示</div>
+        	<div class="h-auto add-user">
+                <!--信息开始-->
+            	<ul class="h-auto three-list">
+                    <input type="hidden" value="" name="" id="departmentName">
+                    <li><i>编号：</i><label>123456678</label></li>
+                    <li><i><b>*</b>经办人：</i><label><input name="" type="text" id=""></label></li>
+                    <li><i><b>*</b>入库日期：</i><label><input name="" type="text" class="validate Wdate" id=""></label></li>
+                    <li><i><b>*</b>入库仓库：</i><label><select name="" id="department">
+                        <option value="0">仓库1</option>
+                        <option value="1">仓库2</option></select>
+                        </label>
+                    </li>                    
+                    <li><i>供应商：</i><label><select name="" id="">
+                        <option>供应商</option>
+                        <option>供应商2</option></select>
+                        </label>
+                    </li>
+                    <li><i><b>*</b>发票号：</i><label><input name="" type="text" id=""></label></li>
+                    <li class="textarea-li"><i>备注：</i><label><textarea name="" cols="" rows="" maxlength="500"></textarea></label></li>
+                </ul>
+                <!--信息结束-->
+                <!--明细开始-->
+                <div class="hr-div mar-t10">
+                    <span>药品明细</span>
+                    <hr/>
+            	</div>
+            	<!--表单开始-->
+                <div class="h-auto">
+                    <table cellpadding="0" cellspacing="1" class="table-list">
+                        <thead>
+                            <tr>
+                                <td width="6%">标记</td>
+                                <td width="22%">品名</td>
+                                <td width="8%">规格</td>
+                                <td width="6%">单位</td>
+                                <td width="8%">单价</td>
+                                <td width="9%">数量</td>
+                                <td width="10%">总价</td>
+                                <td width="13%">生产批号</td>
+                                <td width="10%">有效期</td>
+                                <td width="8%">操作</td>
+                          </tr>
+                        </thead>
+                        <tr class="tr-hover">
+                            <td><a href="#" class="signImg-a" title="标记"></a></td>
+                            <td><div class="white-space">品名品名品名品名品名品名品名品名品名品名品名品名</div></td>
+                            <td>1500ML</td>
+                            <td>瓶</td>
+                            <td>1234.00</td>
+                            <td>100</td>
+                            <td>123400.00</td>
+                            <td>12345678</td>
+                            <td>2140/12/12</td>
+                            <td><a href="javascript:;" class="red-but delete-item" title="删除">删除</a></td>
+                         </tr>
+                         <tr class="tr-hover">
+                            <td><a href="#" class="signImg-b" title="取消标记"></a></td>
+                            <td><label><input name="" type="text" id="" class="w94-100 input-add"></label></td>
+                            <td><label><input name="" type="text" id="" class="w90-100 input-add"></label></td>
+                            <td>瓶</td>
+                            <td><label><input name="" type="text" id="" class="w90-100 input-add"></label></td>
+                            <td class="quantity-text"><a href="#" class="less-text" title="减少"></a><label><input name="" type="text" id="" class="input-add" style="width:45px;"></label><a href="#" class="add-text" title="增加"></a></td>
+                            <td><label><input name="" type="text" id="" class="w90-100 input-add"></label></td>
+                            <td><label><input name="" type="text" id="" class="w90-100 input-add"></label></td>
+                            <td><label><input name="" type="text" id="" class="w90-100 input-add"></label></td>
+                            <td><a href="javascript:;" class="red-but delete-item" title="删除">删除</a></td>
+                         </tr>
+                    </table>
+                </div>                
+
+                <div class="text-r mar-t10 list-bottom-div mar-b20">
+                	<a href="javascript:;" class="green-but" id="saveLogin" data-action="js/mock-data/add-patient-register.json">保存</a>&nbsp;<a href="#" class="black-but">取消</a>
+                </div>
+            </div>
+        </form>
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

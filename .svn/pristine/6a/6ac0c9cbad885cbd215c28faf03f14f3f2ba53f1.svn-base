@@ -1,0 +1,24 @@
+{
+    // appDir: "../js",
+    baseUrl: "../js",
+    dir: "../dist",
+    optimize: "uglify",
+    optimizeCss: "standard.keepLines",
+    mainConfigFile: "../js/main.js",
+    removeCombined: true,
+    fileExclusionRegExp: /^\./,
+    modules: [
+        {
+            name: "app/admin",
+            exclude: [
+                'jquery',
+                'app/common',
+                'app/util',
+                'jqtmpl',
+                'pkg/DatePicker/app',
+                'pkg/DateFormat/app',
+                'json'
+            ]
+        }
+    ]
+}

@@ -1,0 +1,72 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="adjuvant-therapy" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+            <ul class="f-l">
+                <li>今日登记：<i>10</i>人</li>
+                <li>今日预约：<i>10</i>人</li>
+                <li class="last-no">今日注册：<i>10</i>人</li>
+            </ul>
+            <p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+            <p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 patientList-analysis">
+            <h2 class="h-auto"><i class="f-l">疗程记录</i></h2>
+            <!--表单开始-->
+            <div class="h-auto mar-t20">
+                <!--左侧菜单开始-->
+                <!--#include file="include-static-left.php"-->
+                <!--左侧菜单结束-->
+                <!--右边信息开始-->
+                <div class="h-auto f-r help-doctor-r">
+                    <!--中部模板开始-->
+                    <!--#include file="include-static-middle.php"-->
+                    <!--中部模板结束-->
+                    <div class="h-auto add-lcfa">
+                        <p class="f-l">
+                            <span>疗程方案：
+                            <label><select name="" id="choose_scheme" data-action="js/mock-data/include-data-example.json">
+                            <option value="0">请选择疗程方案</option>
+                            <option value="1">疗程方案一</option>
+                            </select></label></span>
+                            <span>疗程次数：1</span>
+                        </p>                                                
+                    </div>
+                    <div class="hr-div mar-t10">
+                        <span>收集列表</span>
+                        <a href="javascript:;" id="addSperm" data-href="include-collect-sperm.php" class="yellow-but f-r">新增精液收集</a>
+                        <hr/>
+                    </div>                    
+                   <!--表单开始-->
+                    <div class="h-auto mar-t10">
+                        <table cellpadding="0" cellspacing="1" class="table-list">
+                            <thead>
+                                <tr>
+                                    <td width="14%">收集时间</td>
+                                    <td width="12%">样精号</td>
+                                    <td width="16%">精液类型</td>
+                                    <td width="16%">收集方式</td>
+                                    <td width="12%">分装数</td>
+                                    <td width="30%">操作</td>
+                              </tr>
+                            </thead>                            
+                            <tr class="tr-hover">
+                                <td>2010/12/13</td>
+                                <td>5</td>
+                                <td>计划</td>
+                                <td>一声叹息</td>
+                                <td>5</td>
+                                <td><a href="辅助治疗-患者列表-疗程记录-精液分析-查看.shtml" class="blue-but" target="_blank" title="查看详细">查看操作</a><a href="javascript:;" data-href="include-collect-sperm.php" class="green-but edit" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item" data-action="js/mock-data/include-data-example.json" title="删除">删除</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!--表单结束-->
+                </div>
+                <!--右边信息结束-->
+            </div>
+            <!--表单结束-->
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

@@ -1,0 +1,66 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="clinic-charge" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20">
+        	<h2 class="h-auto"><i class="f-l">门诊收费</i></h2>
+            <!--搜索开始-->
+        <form method="post" action="">
+            <input type="hidden" id="offset" name="offset" value="">
+            <div class=" h-auto list-seach">
+            	<label><i>日期：</i><input class="Wdate" id="start-date" name="startDate" type="text" placeholder="起始时间" value="">&nbsp;至&nbsp;<input class="Wdate" id="end-date" name="endDate" type="text" placeholder="结束时间" value=""></label><label><i>患者姓名：</i><input name="" type="text"></label><label><i>收费状态：</i><select name=""><option>
+                已收费
+                </option><option>
+                未收费
+                </option></select></label><input type="submit" class="green-but" value="搜索"/>
+            </div>
+        </form>
+            <!--搜索结束-->
+            <!--表单开始-->
+            <div class="h-auto mar-t10">
+            	<table cellpadding="0" cellspacing="1" class="table-list">
+                	<thead>
+                    	<tr>
+                        	<td width="15%">患者姓名</td>
+                       	  <td width="8%">性别</td>
+                       	  <td width="8%">年龄</td>
+                       	  <td width="14%">手机号码</td>
+                       	  <td width="14%">接诊医生</td>
+                       	  <td width="14%">收费员</td>
+                       	  <td width="13%">收费时间</td>
+                            <td width="12%">操作</td>
+                      </tr>
+                    </thead>
+                    <tr class="tr-hover">
+                        <td>格尔勒巴拉子</td>
+                        <td>女</td>
+                        <td>99</td>                        
+                        <td>13588888888</td>
+                        <td>5</td>
+                        <td>欧阳芬芬</td>
+                        <td>2012.12.12</td>
+                        <td><a href="门诊收费-收费记录.shtml" class="green-but">查看</a></td>
+                     </tr>
+                     
+                </table>
+                <!--分页开始-->
+                <div class="page">
+                     <span>共<i>120条/10页</i></span><span><a href="javascript:;" class="now">1</a></span><span><a href="javascript:;">2</a></span><span><a href="javascript:;">3</a></span><span>...</span><span><a href="javascript:;">10</a></span><span><a href="javascript:;">下一页</a></span>
+                </div>
+               <!--分页结束-->
+            </div>
+            <!--表单结束-->
+            <!--收费项目结束-->
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

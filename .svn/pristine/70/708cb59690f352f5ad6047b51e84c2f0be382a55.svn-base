@@ -1,0 +1,1444 @@
+define('app/admin', [
+	'jquery',
+	'app/common',
+	'app/util',
+	'jqtmpl',
+	'pkg/DatePicker/app',
+	'pkg/DateFormat/app',
+	'json'
+], function($, common) {
+
+	"use strict";
+
+	/****************系统配置-字典类别配置**************************/
+	var Type = {
+		init: function() {
+
+			// 新增字典类别配置
+			$(document).delegate('#addType', 'click', function() {
+				art.dialog.open($(this).attr("data-href"), {
+					width: 380,
+					height: 270,
+					title: '新增字典类别配置',
+					lock: true
+				});
+			}).
+			delegate('.edit', 'click', function() {
+				art.dialog.open($(this).attr("data-href"), {
+					width: 380,
+					height: 270,
+					title: '编辑字典类别',
+					lock: true,
+					init: function() {
+						var iframe = this.iframe.contentWindow.document;
+						var editable = $('#isEdit', iframe).val();
+						if (editable == 'false')
+							$('#typeValue', iframe).attr('readonly', true);
+					}
+				});
+			});
+			$("#determine").click(function() {
+				var tarForm = $("#add-Type");
+				if (!tarForm.doValidate())
+					return;
+
+				var api = $(this).attr("data-action");
+				$.ajax(common.ajaxCall({
+					url: api,
+					type: 'post',
+					data: tarForm.serialize(),
+					success: function() {
+						top.location.reload();
+					},
+					error: function(msg) {
+						if ($('.error-text').is(":hidden")) {
+							$('.error-text').show();
+						}
+						$('.error-text').html(msg);
+					}
+				}));
+			});
+			// 弹窗取消
+			$("#cancel").click(function() {
+				art.dialog.close();
+			});
+
+			// 点击删除
+			$(document).delegate('.delete-item', 'click', function() {
+				var api = $(this).attr('data-href');
+				var callback = function() {
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						success: function() {
+							top.location.reload();
+						},
+						error: function(msg) {
+							alert(msg);
+						}
+					}));
+				};
+				$(this).dialogConfirm(callback);
+			});
+		}
+	};
+
+	/****************系统配置-字典配置*************************/
+	var Configure = {
+		init: function() {
+
+			// 新增字典配置
+			$(document).delegate('#addConfigure', 'click', function() {
+				art.dialog.open($(this).attr("data-href"), {
+					width: 380,
+					height: 320,
+					title: '新增字典配置',
+					lock: true
+				});
+			}).
+			delegate('.edit', 'click', function() {
+				art.dialog.open($(this).attr("data-href"), {
+					width: 380,
+					height: 320,
+					title: '编辑字典配置',
+					lock: true,
+					init: function() {
+						var iframe = this.iframe.contentWindow.document;
+						var editable = $('#isEdit', iframe).val();
+						if (editable == 'false')
+							$('#dictionaryValue', iframe).attr('readonly', true);
+					}
+				});
+			});
+			$("#determine").click(function() {
+				var tarForm = $("#add-Dictionary");
+				if (!tarForm.doValidate())
+					return;
+
+				var api = $(this).attr("data-action");
+				$.ajax(common.ajaxCall({
+					url: api,
+					type: 'post',
+					data: tarForm.serialize(),
+					success: function() {
+						top.location.reload();
+					},
+					error: function(msg) {
+						if ($('.error-text').is(":hidden")) {
+							$('.error-text').show();
+						}
+						$('.error-text').html(msg);
+					}
+				}));
+			});
+			// 弹窗取消
+			$("#cancel").click(function() {
+				art.dialog.close();
+			});
+
+			// 点击删除
+			$(document).delegate('.delete-item', 'click', function() {
+				var api = $(this).attr('data-href');
+				var callback = function() {
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						success: function() {
+							top.location.reload();
+						},
+						error: function(msg) {
+							alert(msg);
+						}
+					}));
+				};
+				$(this).dialogConfirm(callback);
+			});
+		}
+	};
+
+	/****************系统配置-医疗模板*****************************/
+	var MedicalTemplate = {
+		init: function() {
+
+			// 新增医疗模板
+			var addTemplate = $('.addTemplate');
+			if (addTemplate[0]) {
+				$(document).delegate('#first-next', 'click', function() {
+					var tarForm = $('#form-template');
+					if (!tarForm.doValidate())
+						return false;
+
+					var api = $(this).attr('data-action');
+					var name = $('#credentialsNum').val();
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						data: {
+							templateName: name
+						},
+						success: function(data) {
+							var ds = data.ds;
+							var url = $('#first-next').attr('data-href') + '?templateId=' + ds[0].templateId;
+							location.href = url;
+						},
+						error: function(msg) {
+							alert(msg);
+						}
+					}));
+				});
+			}
+
+
+			// 编辑医疗模板
+			if (!addTemplate[0]) {
+				$(document).delegate('#first-next', 'click', function() {
+					var tarForm = $('#form-template');
+					if (!tarForm.doValidate())
+						return false;
+
+					var api = $(this).attr('data-action');
+					var name = $('#credentialsNum').val();
+					var templateId = $('#templateId').val();
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						data: {
+							templateId: templateId,
+							templateName: name
+						},
+						success: function(data) {
+							var url = $('#first-next').attr('data-href') + '?templateId=' + templateId;
+							location.href = url;
+						},
+						error: function(msg) {
+							alert(msg);
+						}
+					}));
+				});
+			}
+
+
+			var tree = $('#template-tree');
+			if (tree.length > 0) {
+				var templateId = $('#templateId').val();
+				var api = tree.attr('data-href') + '?templateId=' + templateId;
+				$.ajax(common.ajaxCall({
+					url: api,
+					type: 'post',
+					success: function(data) {
+						var problemInfo = data.ds;
+						var a = [];
+						var b = [];
+						var c = [];
+						for (var i = 0; i < problemInfo.length; i++) {
+							var item = problemInfo[i];
+							switch (item.label) {
+								case 0:
+									a.push(item);
+									break;
+								case 1:
+									b.push(item);
+									break;
+								case 2:
+									c.push(item);
+									break;
+								default:
+									break;
+							}
+						}
+						$('.organize-tree').empty();
+						for (var j = 0; j < a.length; j++) {
+							$('.organize-tree').append('<dt data-id="' + a[j].catlogId + '" data-cfg={"catlogName":"' + a[j].catlogName + '","orderNum":"' + a[j].orderNum + '","preCatlogId":"' + a[j].preCatlogId + '","catlogId":"' + a[j].catlogId + '","label":"' + a[j].label + '","templateId":"' + a[j].templateId + '"}><span class="tree-more"><a href="javascript:;">' + a[j].catlogName + '</a></span></dt>');
+						}
+						for (var m = 0; m < b.length; m++) {
+							$('.organize-tree dt[data-id=' + b[m].preCatlogId + ']').after('<dd data-id="' + b[m].catlogId + '"><span class="tree-more" data-cfg={"catlogName":"' + b[m].catlogName + '","orderNum":"' + b[m].orderNum + '","preCatlogId":"' + b[m].preCatlogId + '","catlogId":"' + b[m].catlogId + '","label":"' + b[m].label + '","templateId":"' + b[m].templateId + '"}><a href="javascript:;">' + b[m].catlogName + '</a></span>');
+						}
+						for (var n = 0; n < c.length; n++) {
+							$('.organize-tree dd[data-id=' + c[n].preCatlogId + ']').append('<cite data-id="' + c[n].catlogId + '" data-cfg={"catlogName":"' + c[n].catlogName + '","orderNum":"' + c[n].orderNum + '","preCatlogId":"' + c[n].preCatlogId + '","catlogId":"' + c[n].catlogId + '","label":"' + c[n].label + '","templateId":"' + c[n].templateId + '"}><a href="javascript:;">' + c[n].catlogName + '</a></cite>');
+						}
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+				$(document).delegate('.organize-tree dt,.organize-tree dd span,.organize-tree dd cite', 'click', function() {
+					$('.organize-tree dt').removeClass('mark');
+					$('.organize-tree dd').removeClass('mark');
+					var message = $.parseJSON($(this).attr("data-cfg"));
+					$('#name').val(message.catlogName);
+					$('#previousNode').children('option[value="' + message.preCatlogId + '"]').prop('selected', true);
+					$('#orderNum').val(message.orderNum);
+					$('#catlogId').val(message.catlogId);
+					$('#label').val(message.label);
+					$('#templateId').val(message.templateId);
+				}).
+				delegate('.organize-tree dt', 'click', function() {
+					$(this).addClass('mark').find('span').toggleClass('tree-more');
+					var dd = $(this).nextUntil('dt');
+					dd.toggle();
+
+				}).
+				delegate('.organize-tree dd span', 'click', function() {
+					$(this).toggleClass('tree-more').addClass('mark');
+					var cite = $(this).siblings('cite');
+					cite.toggle();
+				}).
+				delegate('.organize-tree dd cite', 'click', function() {
+					$('.organize-tree dd cite a').removeClass('now');
+					$(this).children('a').addClass('now');
+				});
+
+				// 添加子类别
+				$(document).delegate('#addCategory', 'click', function() {
+					$('#name').val('');
+					$('#catlogId').val('');
+					$('#orderNum').val('');
+					var mark = $('.organize-tree').find('.mark');
+					if (mark.length > 0) {
+						var item = $.parseJSON(mark.attr('data-cfg'));
+						$('#previousNode').children('option[value="' + item.catlogId + '"]').prop('selected', true);
+					}
+				}) //保存
+				.delegate('#saveProblem', 'click', function() {
+					var tarForm = $('#form-add-template');
+					if (!tarForm.doValidate())
+						return false;
+					var lab = $('#previousNode').children('option:selected').attr('data-label');
+					$('#label').val(lab);
+					var api = $(this).attr('data-href');
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						data: tarForm.serialize(),
+						success: function() {
+							location.reload();
+						},
+						error: function(msg) {
+							// $(this).dialogError(msg);
+							alert(msg);
+						}
+					}));
+				}) //删除
+				.delegate('#delete', 'click', function() {
+					var callback = function() {
+						var api = $("#delete").attr("data-href");
+						var mark = $('.organize-tree').find('.mark');
+						if (!mark[0])
+							return;
+						var item = $.parseJSON(mark.attr('data-cfg'));
+						api = api + '?catlogId=' + item.catlogId + '&templateId=' + item.templateId;
+						$.ajax(common.ajaxCall({
+							url: api,
+							type: 'post',
+							success: function() {
+								art.dialog({
+									content: '操作成功！',
+									icon: 'success',
+									time: 1
+								});
+								setTimeout(function() {
+									art.dialog.close();
+									top.location.reload();
+								}, 1200);
+							},
+							error: function(msg) {
+								alert(msg);
+							}
+						}));
+
+					};
+					$(this).dialogConfirm(callback);
+				});
+			}
+
+			$('#problem-type').change(function() {
+				// var catlogId = $(this).children('option:selected').val();
+				$('#problem').submit();
+			});
+
+
+			$("#addProblem").click(function() {
+				art.dialog.open($(this).attr("data-href"), {
+					width: 400,
+					height: 450,
+					title: '新增问题',
+					lock: true
+				});
+			});
+			$(".edit").click(function() {
+				art.dialog.open($(this).attr("data-href"), {
+					width: 400,
+					height: 450,
+					title: '编辑问题',
+					lock: true,
+					init: function() {
+						/*var iframe = this.iframe.contentWindow.document;
+							var username = iframe.document.getElementById('answerType');
+							alert($('#answerType', iframe).children().length);*/
+					}
+				});
+			});
+			$('.delete-item').click(function() {
+				var api = $(this).attr("data-href");
+				var callback = function() {
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						success: function() {
+							top.location.reload();
+						},
+						error: function(msg) {
+							alert(msg);
+						}
+					}));
+
+				};
+				$(this).dialogConfirm(callback);
+			});
+
+			var answerCatlog = $('#answerCatlog').val();
+			var chooseValue = $('#chooseValue').val();
+			var defaultValue = $('#defaultValue').val();
+			if (answerCatlog)
+				$('#answerType').children('option:contains(' + answerCatlog + ')').prop('selected', true);
+			if (chooseValue)
+				$('#selecteValue textarea').val(chooseValue).trigger('blur');
+			if (defaultValue)
+				$('#default').children('option[value="' + defaultValue + '"]').prop('selected', true);
+			// 判断答案类别
+			$('#answerType').change(function() {
+				var answer = $(this).children('option:selected').text();
+				if (answer === '是/否') {
+					$('#selecteValue,#text,#Date').hide();
+					$('#default').empty().append('<option value="1">是</option><option value="0">否</option>').show();
+				} else if (answer === '文本框') {
+					$('#selecteValue,#default,#Date').hide();
+					// $('#defaultValue').empty().append('<input type="text" maxlength="36">');
+					$('#text').show().attr('maxlength', 36).removeClass('numeral');
+				} else if (answer === '数字') {
+					$('#selecteValue,#default,#Date').hide();
+					// $('#defaultValue').empty().append('<input type="text" maxlength="12" class="numeral">');
+					$('#text').show().attr('maxlength', 12).addClass('numeral');
+				} else if (answer === '日期') {
+					$('#selecteValue,#default,#text').hide();
+					$('#Date').show();
+				} else {
+					$('#selecteValue,#default').show();
+					$('#Date,#text').hide();
+					$('#selecteValue textarea').blur(function() {
+						var str = '';
+						var key = $(this).val();
+						var answer = key.split(';');
+						for (var i = 0; i < answer.length; i++) {
+							str += '<option value="' + answer[i] + '">' + answer[i] + '</option>';
+						}
+						$('#default').empty().append(str);
+					});
+				}
+				if (chooseValue)
+					$('#selecteValue textarea').trigger('blur');
+				if ($('#default').is(':visible')) {
+					var valu = $('#default').children('option:selected').val();
+					$('#real-defaultvalue').val(valu);
+				}
+				if ($('#Date').is(':visible')) {
+					$('#real-defaultvalue').val($('#Date').val());
+				}
+				if ($('#text').is(':visible')) {
+					$('#real-defaultvalue').val($('#text').val());
+				}
+			}).trigger('change');
+
+
+			var dt = $('#Date');
+			dt.datePicker({
+				dateFmt: 'yyyy-MM-dd'
+			});
+
+			/*if (!dt.val()) {
+					dt.val($.formatDate(new Date(), 'yyyy-MM-dd'));
+				}*/
+
+
+
+			$(document).delegate('#determine', 'click', function() {
+				var tarForm = $("#form-add-problem");
+				if (!tarForm.doValidate())
+					return;
+
+				$('#real-defaultvalue').val($('#default').children('option:selected').val());
+
+				var api = $(this).attr("data-action");
+				$.ajax(common.ajaxCall({
+					url: api,
+					type: 'post',
+					data: tarForm.serialize(),
+					success: function() {
+						top.location.reload();
+					},
+					error: function(msg) {
+						if ($('.error-text').is(":hidden")) {
+							$('.error-text').show();
+						}
+						$('.error-text').html(msg);
+					}
+				}));
+			}).
+			delegate('#cancel', 'click', function() {
+				art.dialog.close();
+			});
+
+
+		}
+	};
+
+	/****************系统配置-用户管理******************************/
+	var UserManagement = {
+		init: function() {
+
+
+			$('#resetPassword').click(function() {
+				$('.add-user-system').show();
+			});
+
+
+			if ($('#avaUpload').length > 0) {
+				$("#avaUpload").on("click", function() {
+					var urlUploadHdpic = $(this).attr("data-href");
+					$.ajax({
+						type: "GET",
+						url: urlUploadHdpic,
+						cache: false,
+						// data : {r : Math.random()},
+						success: function(resp) {
+							$("#dialogContent").empty().html(resp);
+							art.dialog({
+								id: "uploadHdpicDialog",
+								lock: true,
+								background: '#000',
+								width: 690,
+								height: 510,
+								esc: true,
+								drag: true,
+								padding: 3,
+								resize: false,
+								opacity: 0.75,
+								title: '上传头像',
+								content: document.getElementById('dialogContent'),
+								cancel: false
+							});
+						},
+						error: function(xhr, s, err) {
+							return false;
+						}
+					});
+				});
+			}
+
+
+			$("#closeDialog").on("click", function() {
+				art.dialog.list["uploadHdpicDialog"].close();
+			});
+
+
+
+			var birthday = $("#birthday");
+			birthday.datePicker({
+				dateFmt: 'yyyy-MM-dd'
+			});
+
+			$(document).delegate('#saveLogin', 'click', function() {
+				var tarForm = $("#form-add-patient");
+				if (!tarForm.doValidate())
+					return;
+
+				var text = $('#department').children('option:selected').text();
+				$('#departmentName').val(text);
+
+				var api = $(this).attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					type: 'post',
+					data: tarForm.serialize(),
+					success: function() {
+						$(this).dialogSuccess('操作成功！');
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			})
+				.delegate('#saveEditLogin', 'click', function() {
+					var tarForm = $("#form-edit-patient");
+					if (!tarForm.doValidate())
+						return;
+
+					$('#departmentName').val($('#department').children('option:selected').text());
+
+					var api = $(this).attr('data-action');
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						data: tarForm.serialize(),
+						success: function() {
+							location.href = $('#saveEditLogin').attr('data-href');
+						},
+						error: function(msg) {
+							alert(msg);
+						}
+					}));
+				});
+
+
+			// 点击删除
+			$(document).delegate('.delete-item', 'click', function() {
+				var api = $(this).attr('data-href');
+				var callback = function() {
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						success: function() {
+							top.location.reload();
+						},
+						error: function(msg) {
+							alert(msg);
+						}
+					}));
+				};
+				$(this).dialogConfirm(callback);
+			});
+		}
+	};
+
+	/****************系统配置-组织架构建设************************************/
+	var Structure = {
+		init: function() {
+
+
+			// 树形结构
+			var api = $('#structure-tree').attr('data-href');
+			$.ajax(common.ajaxCall({
+				url: api,
+				type: 'post',
+				success: function(data) {
+					var orgInfo = data.ds;
+					var a = [];
+					var b = [];
+					var c = [];
+					for (var i = 0; i < orgInfo.length; i++) {
+						var item = orgInfo[i];
+						switch (item.label) {
+							case 0:
+								a.push(item);
+								break;
+							case 1:
+								b.push(item);
+								break;
+							case 2:
+								c.push(item);
+								break;
+							default:
+								break;
+						}
+					}
+					$('.organize-tree').empty();
+					for (var j = 0; j < a.length; j++) {
+						$('.organize-tree').append('<dt data-id="' + a[j].orgId + '" data-cfg={"orgName":"' + a[j].orgName + '","charCode":"' + a[j].charCode + '","preOrgId":"' + a[j].preOrgId + '","orgId":"' + a[j].orgId + '","label":"' + a[j].label + '"}><span class="tree-more"><a href="javascript:;">' + a[j].orgName + '</a></span></dt>');
+					}
+					for (var m = 0; m < b.length; m++) {
+						$('.organize-tree dt[data-id=' + b[m].preOrgId + ']').after('<dd data-id="' + b[m].orgId + '"><span class="tree-more" data-cfg={"orgName":"' + b[m].orgName + '","charCode":"' + b[m].charCode + '","preOrgId":"' + b[m].preOrgId + '","orgId":"' + b[m].orgId + '","label":"' + b[m].label + '"}><a href="javascript:;">' + b[m].orgName + '</a></span>');
+					}
+					for (var n = 0; n < c.length; n++) {
+						$('.organize-tree dd[data-id=' + c[n].preOrgId + ']').append('<cite data-id="' + c[n].orgId + '" data-cfg={"orgName":"' + c[n].orgName + '","charCode":"' + c[n].charCode + '","preOrgId":"' + c[n].preOrgId + '","orgId":"' + c[n].orgId + '","label":"' + c[n].label + '"}><a href="javascript:;">' + c[n].orgName + '</a></cite>');
+					}
+				},
+				error: function(msg) {
+					alert(msg);
+				}
+			}));
+			$(document).delegate('.organize-tree dt,.organize-tree dd span,.organize-tree dd cite', 'click', function() {
+				$('.organize-tree dt').removeClass('mark');
+				$('.organize-tree dd').removeClass('mark');
+				var message = $.parseJSON($(this).attr("data-cfg"));
+				$('#name').val(message.orgName);
+				$('#label').val(message.label);
+				$('#orgId').val(message.orgId);
+				$('#previousNode').children('option[value="' + message.preOrgId + '"]').prop('selected', true);
+				$('#spell').val(message.charCode);
+			}).
+			delegate('.organize-tree dt', 'click', function() {
+				$(this).addClass('mark').find('span').toggleClass('tree-more');
+				var dd = $(this).nextUntil('dt');
+				dd.toggle();
+
+			}).
+			delegate('.organize-tree dd span', 'click', function() {
+				$(this).toggleClass('tree-more').addClass('mark');
+				var cite = $(this).siblings('cite');
+				cite.toggle();
+			}).
+			delegate('.organize-tree dd cite', 'click', function() {
+				$('.organize-tree dd cite a').removeClass('now');
+				$(this).children('a').addClass('now');
+			});
+
+			// 添加子类别
+			$(document).delegate('#addCategory', 'click', function() {
+				$('#name').val('');
+				$('#spell').val('');
+				$('#orgId').val('');
+				var mark = $('.organize-tree').find('.mark');
+				if (mark.length > 0) {
+					var item = $.parseJSON(mark.attr('data-cfg'));
+					$('#previousNode').children('option[value="' + item.orgId + '"]').prop('selected', true);
+				}
+			}) //保存
+			.delegate('#saveCategory', 'click', function() {
+				var tarForm = $('#form-add-category');
+				if (!tarForm.doValidate())
+					return false;
+
+				var label = '';
+				var text = $('#previousNode').children('option:selected').text();
+				if (text == '') {
+					label = -1;
+				} else {
+					label = parseInt($('#previousNode').children('option:selected').attr('data-label'), 10);
+				}
+				$('#label').val(label);
+
+				var api = $('#saveCategory').attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					type: 'post',
+					data: tarForm.serialize(),
+					success: function(data) {
+						$(this).dialogSuccess('操作成功！');
+						return false;
+					},
+					error: function(msg) {
+						alert(msg);
+						return false;
+					}
+				}));
+			}) //删除
+			.delegate('#delete', 'click', function() {
+				var callback = function() {
+					var api = $("#delete").attr("data-href");
+					var mark = $('.organize-tree').find('.mark');
+					if (!mark[0])
+						return;
+					var item = $.parseJSON(mark.attr('data-cfg'));
+					api += item.orgId;
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						success: function() {
+							art.dialog({
+								content: '操作成功！',
+								icon: 'success',
+								time: 1
+							});
+							setTimeout(function() {
+								art.dialog.close();
+								top.location.reload();
+							}, 1100);
+						},
+						error: function(msg) {
+							alert(msg);
+						}
+					}));
+
+				};
+				$(this).dialogConfirm(callback);
+			});
+
+		}
+	};
+
+	/******************************基本配置-药品管理*******************************************/
+	var Medicine = {
+		init: function() {
+
+
+			$('#retail-price,#trade-price').on('propertychange input', function() {
+				var valu = $(this).val();
+				if (/\./.test(valu)) {
+					var len = valu.substr(valu.indexOf('.') + 1).length;
+					if (len > 2) {
+						$(this).val(valu.substring(0, valu.indexOf('.') + 3));
+						$(this).tips('error', '只能输入两位小数！');
+					}
+				}
+			});
+
+
+			// 点击保存
+			$('#saveMedicine').click(function() {
+				/*var min = parseFloat($("#min").val());
+				var max = parseFloat($("#max").val());
+				if(max && min && max <= min) {
+					art.dialog.alert("库存下限不能大于等于库存上限！");
+					return;
+				}*/
+				var tarForm = $('#form-add-medicine');
+				if (!tarForm.doValidate())
+					return;
+
+
+				var feeType = $('#select-feeType').children('option:selected').text();
+				var unit = $('#select-unit').children('option:selected').text();
+				var defaultUsage = $('#select-defaultUsage').children('option:selected').text();
+				var defaultFrequency = $('#select-defaultFrequency').children('option:selected').text();
+				$('#feeType').val(feeType);
+				$('#unit').val(unit);
+				$('#defaultUsage').val(defaultUsage);
+				$('#defaultFrequency').val(defaultFrequency);
+
+
+				var api = $(this).attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					type: 'post',
+					data: tarForm.serialize(),
+					success: function() {
+						$(this).tips('success', '操作成功！');
+						setTimeout(function() {
+							top.location.href = $('#saveMedicine').attr('data-href');
+						}, 500);
+					},
+					error: function(msg) {
+						$(this).tips('error', msg);
+					}
+				}));
+			});
+
+
+			// 点击删除
+			$('.delete-item').click(function() {
+				var api = $(this).attr('data-href');
+				var callback = function() {
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						success: function() {
+							top.location.reload();
+						},
+						error: function() {
+							$(this).dialogError(msg);
+						}
+					}));
+				};
+				$(this).dialogConfirm(callback);
+			});
+		}
+		/*inputValue: function() {
+			$("#min").blur(function() {
+				var min = parseFloat($(this).val());
+				var max = parseFloat($("#max").val());
+				if (max) {
+					if (max <= min) {
+						art.dialog.alert("库存下限不能大于等于库存上限！");
+						$("#min").val('');
+					}
+				}
+			});
+			$("#max").blur(function() {
+				var min = parseFloat($("#min").val());
+				var max = parseFloat($(this).val());
+				if (min) {
+					if (max <= min) {
+						art.dialog.alert("库存上限不能小于等于库存下限！");
+						$("#max").val('');
+					}
+				}
+			});
+		}*/
+	};
+
+	/********************基本配置-收费项目*********************************************/
+	var Charge = {
+		init: function() {
+
+			$('#addCharge').click(function() {
+				var url = $(this).attr('data-href');
+				art.dialog.open(url, {
+					width: 400,
+					height: 370,
+					title: '新增收费项目',
+					lock: true
+				});
+			});
+
+			$('.edit').click(function() {
+				var url = $(this).attr('data-href');
+				art.dialog.open(url, {
+					width: 400,
+					height: 370,
+					title: '编辑收费项目',
+					lock: true
+				});
+			});
+
+			$('#saveCharge').click(function() {
+				var tarForm = $('#form-add-charge');
+				if (!tarForm.doValidate())
+					return;
+
+				var feeCatlogId = $('#feeCatlogId').children('option:selected').text();
+				var unitId = $('#unitId').children('option:selected').text();
+				$('#feeCatlog').val(feeCatlogId);
+				$('#unit').val(unitId);
+
+				var api = $(this).attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					type: 'post',
+					data: tarForm.serialize(),
+					success: function() {
+						top.location.reload();
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+			$(document).delegate('#cancel', 'click', function() {
+				art.dialog.close();
+			})
+				.delegate('.delete-item', 'click', function() {
+					var api = $(this).attr('data-href');
+					var callback = function() {
+						$.ajax(common.ajaxCall({
+							url: api,
+							type: 'post',
+							success: function() {
+								top.location.reload();
+							},
+							error: function(msg) {
+								alert(msg);
+							}
+						}));
+					};
+					$(this).dialogConfirm(callback);
+				});
+
+		}
+	};
+
+	/***********************基本配置-仓库管理*********************************************/
+	var Storage = {
+		init: function() {
+
+
+
+			$('#select-departmentId').change(function() {
+				var doctorId = $('#doctorId').val();
+				var departmentId = $(this).children('option:selected').val();
+				var api = $(this).attr('data-href');
+				$.ajax(common.ajaxCall({
+					url: api,
+					type: 'post',
+					data: {
+						departmentId: departmentId
+					},
+					success: function(data) {
+						var ds = data.ds,
+							html;
+						for (var i = 0; i < ds.length; i++) {
+							var item = ds[i];
+							if (item.doctorId == doctorId) {
+								html += '<option value="' + item.doctorId + '" selected="selected">' + item.doctorName + '</option>';
+								continue;
+							}
+							html += '<option value="' + item.doctorId + '">' + item.doctorName + '</option>';
+						}
+						$('#select-inChangedId').empty().append(html);
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			}).trigger('change');
+
+
+
+			$('#addStorage').click(function() {
+				var url = $(this).attr('data-href');
+				art.dialog.open(url, {
+					width: 400,
+					height: 420,
+					title: "新增仓库管理",
+					lock: true
+				});
+			});
+
+			$(document).delegate('#saveStorage', 'click', function() {
+				var tarForm = $('#form-add-storage');
+				if (!tarForm.doValidate())
+					return;
+
+				$('#departmentName').val($('#select-departmentId').children('option:selected').text());
+				$('#inChangedMan').val($('#select-inChangedId').children('option:selected').text());
+
+				var api = $(this).attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					type: 'post',
+					data: tarForm.serialize(),
+					success: function() {
+						top.location.reload();
+					},
+					error: function(msg) {
+						$(this).dialogError(msg);
+					}
+				}));
+			})
+				.delegate('#cancel', 'click', function() {
+					art.dialog.close();
+				})
+				.delegate('.edit', 'click', function() {
+					var url = $(this).attr('data-href');
+					art.dialog.open(url, {
+						width: 400,
+						height: 420,
+						title: "编辑仓库管理",
+						lock: true,
+						init: function() {
+							var iframe = this.iframe.contentWindow.document;
+							var doctorId = $('#doctorId', iframe).val();
+							$('#select-inChangedId', iframe).children('option[value="' + doctorId + '"]').prop('selected', true);
+						}
+					});
+				})
+				.delegate('.delete-item', 'click', function() {
+					var api = $(this).attr('data-action');
+					var callback = function() {
+						$.ajax(common.ajaxCall({
+							url: api,
+							type: 'post',
+							success: function() {
+								top.location.reload();
+							},
+							error: function(msg) {
+								alert(msg);
+							}
+						}));
+					};
+					$(this).dialogConfirm(callback);
+				});
+		}
+	};
+
+
+	/******************基本配置-系统参数*****************************************************/
+	var Parameter = {
+		init: function() {
+			$(document).delegate('#addParameter', 'click', function() {
+				var url = $(this).attr('data-href');
+				art.dialog.open(url, {
+					width: 400,
+					height: 400,
+					title: '新增系统参数',
+					lock: true
+				});
+			})
+				.delegate('#saveParameter', 'click', function() {
+					var tarForm = $('#form-add-parameter');
+					if (!tarForm.doValidate())
+						return;
+
+					var api = $(this).attr('data-action');
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						data: tarForm.serialize(),
+						success: function() {
+							top.location.reload();
+						},
+						error: function(msg) {
+							alert(msg);
+						}
+					}));
+				})
+				.delegate('#cancel', 'click', function() {
+					art.dialog.close();
+				})
+				.delegate('.edit', 'click', function() {
+					var url = $(this).attr('data-href');
+					art.dialog.open(url, {
+						width: 400,
+						height: 400,
+						title: '编辑系统参数',
+						lock: true
+					});
+				})
+				.delegate('.delete-item', 'click', function() {
+					var api = $(this).attr('data-action');
+					var callback = function() {
+						$.ajax(common.ajaxCall({
+							url: api,
+							type: 'post',
+							success: function() {
+								top.location.reload();
+							},
+							error: function(msg) {
+								alert(msg);
+							}
+						}));
+					};
+					$(this).dialogConfirm(callback);
+				});
+		}
+	};
+
+	/*****************基本配置-供应商管理************************************************/
+	var Supplier = {
+		init: function() {
+
+
+			//选择省
+			if ($("#outProvince").length > 0)
+				$("#outProvince").selectProvince();
+			//选择地区
+			if ($("#province").length > 0)
+				$("#province").selectArea();
+
+			$(document).delegate('#addSupplier', 'click', function() {
+				var url = $(this).attr('data-href');
+				art.dialog.open(url, {
+					width: 400,
+					height: 470,
+					title: '新增供应商',
+					lock: true
+				});
+			})
+				.delegate('#saveSupplier', 'click', function() {
+					var tarForm = $('#form-add-supplier');
+					if (!tarForm.doValidate())
+						return;
+
+					var api = $(this).attr('data-action');
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						data: tarForm.serialize(),
+						success: function() {
+							$(this).tips('success', '添加成功！');
+							setTimeout(function() {
+								top.location.reload();
+							}, 500);
+						},
+						error: function(msg) {
+							alert(msg);
+						}
+					}));
+				})
+				.delegate('#cancel', 'click', function() {
+					art.dialog.close();
+				})
+				.delegate('.edit', 'click', function() {
+					var url = $(this).attr('data-href');
+					art.dialog.open(url, {
+						width: 400,
+						height: 470,
+						title: '编辑供应商',
+						lock: true
+					});
+				})
+				.delegate('.delete-item', 'click', function() {
+					var api = $(this).attr('data-action');
+					var callback = function() {
+						$.ajax(common.ajaxCall({
+							url: api,
+							type: 'post',
+							success: function() {
+								top.location.reload();
+							},
+							error: function(msg) {
+								alert(msg);
+							}
+						}));
+					};
+					$(this).dialogConfirm(callback);
+				});
+
+			var address = function() {
+				$(".address").each(function() {
+					var me = $(this);
+					var api = me.attr("data-href");
+					var code = me.attr("value");
+					var provinceCode = code.substring(0, 3) + '000';
+					code = parseInt(code, 10);
+					provinceCode = parseInt(provinceCode, 10);
+					$.ajax({
+						url: api,
+						dataType: 'json',
+						cache: false,
+						success: function(data) {
+							me.next().empty();
+							for (var key in data) {
+								if (data[key].code == provinceCode) {
+									var child = data[key].children;
+									for (var ind in child) {
+										if (child[ind].code == code) {
+											me.next().text(data[key].name + '-' + child[ind].name);
+										}
+									}
+								}
+
+							}
+						},
+						error: function(xhr, textstatus) {
+							// art.dialog.tips(textstatus);
+							art.dialog({
+								content: textstatus,
+								icon: 'error',
+								time: 1
+							});
+						}
+					});
+				});
+			};
+			address();
+		}
+	};
+
+
+	/******************************权限配置***********************************/
+	var Permission = {
+		init: function() {
+
+
+			// 选择所有角色
+			/*$('#check_all_role').click(function() {
+				var ck = this.checked;
+				$(this).parents('table:first').find('input[type="checkbox"]').prop('checked', ck);
+			});*/
+
+			// 选择权限
+			$('.permissions .f-l').each(function() {
+				$(this).find('span input[type="checkbox"]').click(function() {
+					var ck = this.checked;
+					$(this).parents('.f-l:first').find('input[type="checkbox"]').prop('checked', ck);
+				});
+			});
+
+			// 点击保存
+			$('#savePermission').click(function() {
+				var tarForm = $('#form_add_permission');
+				var api = $(this).attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					data: tarForm.serialize(),
+					success: function() {},
+					error: function() {}
+				}));
+			});
+		}
+	};
+
+	/*********************角色管理***********************************/
+	var RoleManage = {
+		init: function() {
+			var bindingUser = [],
+				flag;
+
+			$('#add_role').click(function() {
+				var url = $(this).attr('data-href');
+				art.dialog.open(url, {
+					width: 400,
+					height: 330,
+					title: '新增角色'
+				});
+			});
+
+			$('.edit').click(function() {
+				var url = $(this).attr('data-href');
+				art.dialog.open(url, {
+					width: 400,
+					height: 330,
+					title: '编辑角色'
+				});
+			});
+
+			$(document).delegate('#saveRole', 'click', function() {
+				var tarForm = $('#form-add-role');
+				if (!tarForm.doValidate())
+					return;
+
+				var api = $(this).attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					data: tarForm.serialize(),
+					type: 'post',
+					success: function() {
+						top.location.reload();
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			})
+				.delegate('#cancel', 'click', function() {
+					art.dialog.close();
+				});
+
+
+			$('.blue-but').click(function() {
+				var url = $(this).attr('data-href');
+				art.dialog.open(url, {
+					widht: 640,
+					height: 620,
+					title: '绑定员工'
+				});
+			});
+
+			$(document).delegate('.all-close', 'click', function() {
+				$(this).toggleClass('all-open').toggleClass('all-close');
+				$(this).parents('.f-l:first').next().show().end().next().next().show();
+
+			})
+				.delegate('.all-open', 'click', function() {
+					$(this).toggleClass('all-open').toggleClass('all-close');
+					$(this).parents('.f-l:first').next().hide().end().next().next().hide();
+				})
+				.delegate('.binding-list li', 'mouseover', function() {
+					$(this).find('em').show();
+				})
+				.delegate('.binding-list li', 'mouseout', function() {
+					$(this).find('em').hide();
+				})
+				.delegate('.li-open p a', 'click', function() {
+					var userId = $(this).attr('data-id');
+					if (flag === undefined) { //第一次点击记录所有id
+						$('.binding-list li').each(function() {
+							var id = $(this).attr('data-id');
+							bindingUser.push(id);
+							if (userId === id)
+								flag = false;
+						});
+					} else {
+						for (var i = 0; i < bindingUser.length; i++) {
+							if (userId === bindingUser[i])
+								flag = false;
+						}
+					}
+					if (flag === false) {
+						flag = true;
+						return;
+					}
+					bindingUser.push(userId);
+					var html = '<li data-id="' + userId + '"><i class="f-l">' + $(this).text() + '</i><em class="f-r" style="display:none;"><a href="javascript:;" class="red-but" title="删除">&times;</a></em></li>';
+					$('.binding-list').append(html);
+					flag = true;
+				})
+				.delegate('.li-open em a', 'click', function() {
+					if (bindingUser.length === 0) {
+						$('.binding-list li').each(function() {
+							var id = $(this).attr('data-id');
+							bindingUser.push(id);
+						});
+					}
+					$(this).parents('.li-open:first').find('p a').each(function() {
+						var userId = $(this).attr('data-id');
+						for (var i = 0; i < bindingUser.length; i++) {
+							if (userId === bindingUser[i])
+								return;
+						}
+						var html = '<li data-id="' + userId + '"><i class="f-l">' + $(this).text() + '</i><em class="f-r" style="display:none;"><a href="javascript:;" class="red-but" title="删除">&times;</a></em></li>';
+						$('.binding-list').append(html);
+					});
+				})
+				.delegate('.binding-list em', 'click', function() {
+					$(this).parents('li:first').remove();
+				})
+				.delegate('.delete-item', 'click', function() {
+					var api = $(this).attr('data-action');
+					var callback = function() {
+						$.ajax(common.ajaxCall({
+							url: api,
+							type: 'post',
+							success: function() {
+								top.location.reload();
+							},
+							error: function(msg) {
+								alert(msg);
+							}
+						}));
+					};
+					$(this).dialogConfirm(callback);
+				});
+		}
+	};
+
+	/****************入口*****************************************************/
+	var Main = {
+		init: function() {
+			// 字典类别配置
+			if ($('.Type').length > 0) {
+				Type.init();
+			}
+
+			// 字典配置
+			if ($('.Configure').length > 0) {
+				Configure.init();
+			}
+
+			// 医疗模板
+			if ($('.MedicalTemplate').length > 0) {
+				MedicalTemplate.init();
+			}
+
+			// 用户管理
+			if ($('.UserManagement').length > 0) {
+				UserManagement.init();
+			}
+
+			// 组织架构建设
+			if ($('.Structure').length > 0) {
+				Structure.init();
+			}
+
+			// 药品管理
+			if ($('.Medicine').length > 0) {
+				Medicine.init();
+			}
+
+			// 收费项目
+			if ($('.Charge').length > 0) {
+				Charge.init();
+			}
+
+			// 仓库管理
+			if ($('.Storage').length > 0) {
+				Storage.init();
+			}
+
+			// 系统参数
+			if ($('.Parameter').length > 0) {
+				Parameter.init();
+			}
+
+			// 供应商
+			if ($('.Supplier').length > 0) {
+				Supplier.init();
+			}
+
+			// 权限配置
+			if ($('.Permission').length > 0) {
+				Permission.init();
+			}
+
+			// 角色管理
+			if ($('.RoleManage').length > 0) {
+				RoleManage.init();
+			}
+
+			// 只能输入数字
+			$('.numeral').numeral();
+		}
+	};
+
+	Main.init();
+});

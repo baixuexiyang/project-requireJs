@@ -1,0 +1,109 @@
+define([
+	'jquery',
+	'app/common',
+	'app/util',
+	'jqtmpl',
+	'pkg/DatePicker/app',
+	'pkg/DateFormat/app',
+	'json'
+], function($, common) {
+
+	"use strict";
+
+	/***********发药*****************************************/
+	var Drugstore = {
+		init: function() {
+
+
+			$(document).delegate('#confirm', 'click', function() {
+				var drug = [];
+				$('.tr-hover').each(function() {
+					var item = {
+						drugId: $(this).attr('data-id'),
+						drugNum: $(this).attr('data-num')
+					};
+					drug.push(item);
+				});
+				var data = JSON.stringify(drug);
+				var api = $(this).attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					type: 'post',
+					data: {
+						drug: data
+					},
+					success: function() {
+						$(this).tips('success', '发药成功！');
+						setTimeout(function() {
+							location.href = $('#confirm').attr('data-href');
+						},500);
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+		}
+	};
+
+	/*************采购入库********************************************************/
+	var InStorage = {
+		init: function() {
+
+
+			// 经办人
+			$("#userName").showlist({
+				keyID: 'userId',
+				bindSub: $('#userId'),
+				selectCallBack: function(d) {
+					$('#userId').val(d.userId);
+				},
+				buildHtml: function(ds) {
+					var html = '<table cellpadding="0" cellspacing="1" class="table-list ab-table-div-title"></tbody>';
+					for (var i = 0; i < ds.length; i++) {
+						var item = ds[i];
+						html += '<tr data-id="'+ item.userId +'" data-name="'+ item.userName +'" class="tr-hover"><td>'+ item.userName +'</td></tr>';
+					}
+					html += '</tbody></table>';
+					return html;
+				}
+			});
+
+			// 品名自动完成
+			$('.midicinesname').showlist({
+				width: 500,
+				keyID: 'midicinesid',
+				bindSub: $($(this).attr('data-id') + '-midicinesid'),
+				selectCallBack: function(d) {
+					if(!d)
+						return;
+					$('.midicinesid').val(d.midicinesid);
+
+				},
+				buildHtml: function(ds) {
+					var html = '<table cellpadding="0" cellspacing="1" class="table-list ab-table-div-title"><thead><tr><td width="60%">品名</td><td width="20%">规格</td><td width="20%">单位</td></tr></thead><tbody>';
+					for(var i = 0; i < ds.length; i++) {
+						var item = ds[i];
+						html += '<tr data-id="'+ item.midicinesid +'" data-name="'+ item.midicinesname +'" class="tr-hover"><td>'+ item.midicinesname +'</td><td>'+ item.rule +'</td><td>'+ item.unit +'</td></tr>';
+					}
+					html += '</tbody></table>';
+					return html;
+				}
+			});
+
+			$('.flag').click(function() {
+				$(this).toggleClass('signImg-a').toggleClass('signImg-b');
+			});
+		}
+	};
+
+	/**********入口*****************/
+	var Main = {
+		init: function() {
+			Drugstore.init();
+			InStorage.init();
+		}
+	};
+
+	Main.init();
+});

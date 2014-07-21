@@ -1,0 +1,311 @@
+define([
+	'jquery',
+	'app/common',
+	'app/util',
+	'jqtmpl',
+	'pkg/DatePicker/app',
+	'pkg/DateFormat/app',
+	'json'
+], function($, common) {
+
+	"use strict";
+
+	/*******************门诊开单**********************************/
+	var Bill = {
+		init: function() {
+
+
+			var startDate = $('#start-date');
+			var endDate = $('#end-date');
+			startDate.datePicker({
+				dateFmt: 'yyyy-MM-dd'
+			});
+			endDate.datePicker({
+				datePicker: 'yyyy-MM-dd'
+			});
+
+			$('#addBill').die('click').live('click', function() {
+				var content = $('.backups').clone(true).find('.billDate').text($.formatDate(new Date(), 'yyyy/MM/dd')).end().removeClass('backups').show();
+				$('.backups').after(content);
+			});
+
+
+			$('.open,.close').die('click').live('click', function() {
+				if ($(this).hasClass('open')) {
+					$('.close:visible').removeClass('close').addClass('open').parents('.w958-border').find('.pad5').hide(400);
+					$(this).parents('.w958-border:first').find('.pad5').show(400);
+				} else {
+					$(this).parents('.w958-border:first').find('.pad5').hide(400);
+				}
+				$(this).toggleClass('open').toggleClass('close');
+			});
+
+			var count = function(th) {
+				var _parents = $(th).parents('.tr-hover:first');
+				var total = parseFloat(_parents.find('.price').text()) * parseFloat(_parents.find('.Num').val());
+				if (!isNaN(total)) {
+					_parents.find('.totalAmt').text(total.toFixed(2));
+				} else {
+					_parents.find('.totalAmt').text('');
+				}
+			};
+			$(document).delegate('.less-text', 'click', function() {
+				var numNode = $(this).next('.Num');
+				var num = parseFloat(numNode.val(), 10) - 1;
+				if (num < 0 || isNaN(num))
+					num = 0;
+				numNode.val(num);
+				count(this);
+			})
+				.delegate('.add-text', 'click', function() {
+					var numNode = $(this).prev('.Num');
+					var num = parseFloat(numNode.val(), 10) + 1;
+					if (isNaN(num))
+						num = 1;
+					numNode.val(num);
+					count(this);
+				})
+				.delegate('.delete-item', 'click', function() {
+					if ($(this).parents('.table-list:first').find('.tr-hover:visible').length === 1)
+						return;
+					$(this).parents('.tr-hover:first').remove();
+				})
+				.delegate('.delete-all', 'click', function() {
+					var _this = $(this);
+					var diagnoseNo = _this.parents('.bill-list-title:first').find('.diagnoseNo').text();
+					if (diagnoseNo === '') {
+						_this.parents('.w958-border:first').remove();
+					} else {
+						var api = _this.attr('data-action');
+						$.ajax(common.ajaxCall({
+							url: api,
+							type: 'post',
+							data: {
+								diagnoseNo: diagnoseNo
+							},
+							success: function() {
+								$(this).tips('success', '删除成功！');
+								setTimeout(function() {
+									top.location.reload();
+								}, 500);
+							}
+						}));
+					}
+				});
+			$('.Num').bind('input propertychange', function() {
+				count(this);
+			});
+
+		},
+		showProduct: function() { // 品名自动完成
+			$('.medicinesName').showlist({
+				width: 500,
+				keyID: 'medicinesId',
+				bindSub: $($(this).attr('data-id') + '-medicinesId'),
+				selectCallBack: function(d) {
+					if (!d)
+						return;
+					if ($('.demo').parents('.tr-hover:first').index() === $('.tr-hover:visible').length) {
+						var text = $('.copy:first').clone(true).removeClass('copy').show();
+						$('.demo').parents('.table-list:first').append(text);
+					}
+					var _parents = $('.demo').parents('.tr-hover:first');
+					_parents.find('.medicinesId').val(d.medicinesId);
+					_parents.find('.price').text(d.tradePrice);
+				},
+				buildHtml: function(ds) {
+					var html = '<table cellpadding="0" cellspacing="1" class="table-list ab-table-div-title"><thead><tr><td width="60%">品名</td><td width="20%">单价</td><td width="20%">单位</td></tr></thead>';
+					for (var i = 0; i < ds.length; i++) {
+						var item = ds[i];
+						html += '<tr data-id="' + item.medicinesId + '" data-name="' + item.medicinesName + '" class="tr-hover"><td>' + item.medicinesName + '</td><td>' + item.tradePrice + '</td><td>' + item.unit + '</td></tr>';
+					}
+					html += '</table>';
+					return html;
+				}
+			});
+		},
+		edit: function() {
+
+			if (!$('#editBill').val())
+				return;
+
+			var me =  this;
+			$.get(common.refreshPage(window.PageCallBack.DetailPage($)), function(html) {
+				$('.Prescription').append(html);
+				// me.showProduct();
+			});
+			/*var api = $('#editBill').val();
+			$.ajax(common.ajaxCall({
+				url: api,
+				type: 'post',
+				success: function(data) {
+					var ds = data.ds,
+						flag;
+					for (var i = ds.length; i >= 0; i--) {
+						var item = ds[i];
+						if (('/;' + item.diagnoseNo + ';/').test(flag)) {
+
+						} else {
+							flag += item.diagnoseNo + ';';
+							var bill = $('.backups').clone(true).removeClass('.backups').show();
+							bill.find('diagnoseNo').text(item.diagnoseNo);
+						}
+					}
+				},
+				error: function(msg) {
+					alert(msg);
+				}
+			}));*/
+		},
+		saveBill: function() { //保存
+			$('.saveBill').die('click').live('click', function() {
+				var _parents = $(this).parents('.w958-border:first');
+				var medicine = [];
+				_parents.find('.tr-hover:visible').each(function() {
+					var _this = $(this);
+					if (!_this.find('.medicinesName').val())
+						return;
+					var item = {
+						medicinesName: _this.find('.medicinesName').val(),
+						medicinesId: _this.find('.medicinesId').val(),
+						price: _this.find('.price').text(),
+						num: _this.find('.Num').val(),
+						totalAmt: _this.find('.totalamt').text(),
+						methods: _this.find('.methods').children('option:selected').text(),
+						methodsId: _this.find('.methods').children('option:selected').val(),
+						frequency: _this.find('.frequency').children('option:selected').text(),
+						frequencyId: _this.find('.frequency').children('option:selected').val()
+					};
+					medicine.push(item);
+				});
+				var diagnoseNo = _parents.find('.diagnoseNo').text();
+				var note = _parents.find('.note').val();
+				var data;
+				if ($('#editBill').val()) {
+					data = {
+						patientName: $('#patientName').text(),
+						patientSex: $('#patientSex').text(),
+						patientAge: $('#patientAge').text(),
+						patientPhone: $('#patientPhone').text(),
+						registerDate: $('#registerDate').text(),
+						diagnoseNo: diagnoseNo,
+						note: note,
+						medicines: medicine
+					};
+				} else {
+					data = {
+						patientName: $('#patientName').text(),
+						patientSex: $('#patientSex').text(),
+						patientAge: $('#patientAge').text(),
+						patientPhone: $('#patientPhone').text(),
+						registerDate: $('#registerDate').text(),
+						diagnoseNo: diagnoseNo,
+						note: note,
+						medicines: medicine
+					};
+				}
+
+				var api = $(this).attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					type: 'post',
+					data: {
+						resultJson: data
+					},
+					success: function() {
+						$(this).tips('success', '保存成功！');
+						setTimeout(function() {
+							top.location.reload();
+						}, 500);
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+		}
+	};
+
+	/***************药物处方**********************************/
+	var Prescription = {
+		init: function() {
+
+
+			if (!$('.Prescription')[0])
+				return;
+			
+
+			Bill.showProduct();
+			Bill.saveBill();
+			Bill.edit();
+
+		}
+	};
+
+	/****************生化检验************************************/
+	var Biochemical = {
+		init: function() {
+
+			if (!$('.Biochemical')[0])
+				return;
+
+			$('#patient').showlist({
+				width: 300,
+				keyID: 'userid',
+				bindSub: $('#patientId'),
+				selectCallback: function(d) {
+
+				},
+				buildHtml: function(ds) {
+					var html = '<table cellpadding="0" cellspacing="1" class="table-list ab-table-div-title"></tbody>';
+					for (var i = 0; i < ds.length; i++) {
+						var item = ds[i];
+						html += '<tr data-id="'+ item.userid +'" data-name="' + item.username + '" class="tr-hover"><td style="width:50px;">' + item.username + '</td><td style="width:80px;">' + item.tellphone + '</td><td style="width:20px;">' + item.sex + '</td><td style="width:20px;">' + item.age + '</td></tr>';
+					}
+					html += '</tbody></table>';
+					return html;
+				}
+			});
+
+
+			Bill.showProduct();
+		}
+	};
+
+
+	/*****************治疗项目******************************************/
+	var Treatment = {
+		init: function() {
+
+			if (!$('.Treatment')[0])
+				return;
+			Bill.showProduct();
+			Bill.saveBill();
+		}
+	};
+
+	/******************其他项目***********************************/
+	var Other = {
+		init: function() {
+
+			if (!$('.Other')[0])
+				return;
+			Bill.showProduct();
+			Bill.saveBill();
+		}
+	};
+
+
+
+	/***********************入口********************************************/
+	var Main = {
+		init: function() {
+			Bill.init();
+			Prescription.init();
+			Biochemical.init();
+			Treatment.init();
+			Other.init();
+		}
+	};
+	Main.init();
+});

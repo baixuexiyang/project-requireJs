@@ -1,0 +1,40 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="admin" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 MedicalTemplate">
+        	<h2 class="h-auto"><i class="f-l">编辑医疗模板</i></h2>
+            <!--表单开始-->
+            <div class="h-auto mar-t20 demo-name">
+            	<!--左侧菜单开始-->
+                <div class="f-l l-nav text-c">
+                	<a href="基本配置-编辑医疗模板-模板名称.shtml" class="now">模板名称</a>
+                    <a href="基本配置-编辑医疗模板.shtml">设置问题类别</a>
+                    <a href="基本配置-编辑医疗模板-添加问题.shtml" class="last-no">添加问题</a>
+                </div>
+                <!--左侧菜单结束-->            	
+                <!--右侧开始-->
+                <form action="" method="" id="form-add-templateName">                
+                <ul class="h-auto three-list">
+                	<li><i><b>*</b>模板名称：</i><label><input name="" type="text" id="templateName" class="w215"></label></li>
+                    <div class="error-text" style="display:none"></div>
+                </ul>
+                
+				<!--右侧结束-->                
+                <div class="f-l text-c add-hop-b-but mar-b20"><a href="基本配置-编辑医疗模板.shtml" class="green-but" id="saveName">保存</a>&nbsp;<a href="基本配置-医疗模板配置.shtml" class="black-but">返回列表</a></div>
+            </from>
+            </div>
+            <!--表单结束-->
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

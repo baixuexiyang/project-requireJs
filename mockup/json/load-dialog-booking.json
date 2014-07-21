@@ -1,0 +1,19 @@
+{
+  "status": {
+    "code": "0",
+    "msg": "something error"
+  },
+  "ds": {
+	"patientId": "233223",
+	"patientName": "名字啊",
+	"patientSex": "1",
+	"patientAge": "26",
+	"officeId":"234234",
+	"officeName":"科室名称",
+	"userId":"233223",
+	"userName": "医生啊",
+	"patientMobi": "15888833755",
+	"appointmentContent": "预约内容",
+	"appointmentTime": "1386027900000"
+  }
+}

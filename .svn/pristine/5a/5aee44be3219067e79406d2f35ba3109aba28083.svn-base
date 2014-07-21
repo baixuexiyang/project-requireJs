@@ -1,0 +1,233 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="adjuvant-freeze" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20">
+        	<h2 class="h-auto"><i class="f-l">疗程记录</i></h2>
+            <!--表单开始-->
+            <div class="h-auto mar-t20">
+            	<!--左侧菜单开始-->
+                <!--#include file="include-static-left.php"-->
+                <!--左侧菜单结束-->
+                <!--右边信息开始-->
+                <div class="h-auto f-r help-doctor-r mar-b20">
+                    <!--中部模板开始-->
+                    <!--#include file="include-static-middle.php"-->
+                    <!--中部模板结束-->
+                    
+                    <div class="h-auto add-lcfa">
+                    	<p class="f-l">
+                            <span>疗程方案：
+                            <label><select name="" id="choose_scheme" data-action="js/mock-data/include-data-example.json">
+                            <option value="0">请选择疗程方案</option>
+                            <option value="1">疗程方案一</option>
+                            </select></label></span>
+                            <span>疗程次数：1</span>
+                        </p>                        
+                    </div>
+                     <!--tab切换开始-->
+            <div class="middle-tab mar-t20" style="width:808px;">
+                <span><a href="辅助治疗-患者列表-疗程记录-胚胎冷冻信息.shtml">胚胎冷冻/复苏</a><a href="辅助治疗-患者列表-疗程记录-胚胎冷冻信息-卵子冷冻.shtml" class="now">卵子冷冻</a><a href="辅助治疗-患者列表-疗程记录-胚胎冷冻信息-冷冻胚胎移植.shtml">冷冻胚胎移植</a></span>
+            </div>
+           <!--tab切换结束-->
+                    <!--总体信息开始-->
+                    <div class="hr-div mar-t10">
+                        <span>总体信息</span>                        
+                        <hr/>
+                    </div>
+                    <div class="h-auto Ovum">
+                        <div class="error-text"></div> 
+                        <form id="form-basic-info" data-action="js/mock-data/include-data-example.json">
+                        <ul class="h-auto three-list mar-t20">                       	
+							<li><i>出生日期：</i><label class="edit-info">2014-6-24</label></li>
+                            <li><i>储存年限：</i><label class="edit-info">10</label></li>
+                            <li><i>采卵日期：</i><label class="edit-info">2014-6-24</label></li>
+                            <li><i>冷冻人员：</i><label class="edit-info">张三</label></li>
+                            <li><i>冷冻方式：</i><label class="edit-info">不知道</label></li>
+                            <li style="clear:both;width: 100%;"><i style="width: 10%">备注：</i><label class="edit-info" style="width: 85%;">不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道</label></li>
+                        </ul>
+                        <ul class="h-auto three-list mar-t20 show-list" style="display:none;">                          
+                            <li><i>出生日期：</i><label><input name="" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="validate Wdate" id="birthday"></label></li>
+                            <li><i>储存年限：</i><label><input name="" type="text" id="storage_date" maxlength="64"></label></li>
+                            <li><i>采卵日期：</i><label><input name="" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="validate Wdate" id="collect_date"></label></li>
+                            <li><i>冷冻日期：</i><label><input name="" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="validate Wdate" id="forzen_date"></label></li>                           
+                            <li><i>冷冻人员：</i><label><input name="" type="text" id="forzen_oper" maxlength="64"></label></li>
+                            <li><i>冷冻方式：</i><label><input name="" type="text" id="forzen_method" maxlength="64"></label></li>
+                            <li style="clear:both;width: 100%;"><i>备注：</i><label><textarea name="" style="width:700px;height: 50px;"></textarea></label></li>
+                        </ul>
+                        </form>
+                	</div>
+                    <!--总体信息结束-->                    
+                    <!--冷冻信息开始-->
+                    <div class="hr-div">
+                        <span>冷冻信息</span>
+                        <hr/>
+                    </div>                    
+                    <div class="h-auto">
+                    	<div class="f-l add-ylfa-list" style="width:400px; ">
+                            <div class="hr-div">
+                            <a href="javascript:;" data-href="#" class="yellow-but f-r add_record">新增</a>
+                            </div>
+                            <table cellpadding="0" cellspacing="1" class="table-list">
+                                    <thead>
+                                        <tr>
+                                            <td width="10%">验证人</td>
+                                            <td width="13%">验证时间</td>
+                                            <td width="12%">操作</td>
+                                      </tr>
+                                    </thead>
+                                    <tr style="display:none;" class="copyRecord">
+                                        <td><input name="" type="text" class="w94-100 identifier" value=""></td>
+                                        <td><input name="" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})" type="text" class="w94-100 Wdate date" value=""></td>
+                                        <td><a href="javascript:;" data-action="js/mock-data/include-data-example.json" class="green-but saveIdentifier" title="保存">保存</a></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td><span class="pre">张三</span><span class="las" style="display:none"><input name="" type="text" class="w94-100 identifier" value=""></span></td>
+                                        <td><span class="pre">2014-06-25</span><span class="las" style="display:none"><input name="" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})" type="text" class="w94-100 Wdate date" value=""></span></td>
+                                        <td><span class="pre"><a href="javascript:;" class="green-but edit" title="编辑">编辑</a></span><span class="las" style="display:none;"><a href="javascript:;" data-action="js/mock-data/include-data-example.json" class="green-but saveIdentifier" title="保存">保存</a><a href="javascript:;" class="red-but cancel" title="取消">取消</a></span></td>
+                                    </tr>
+                             </table>
+                         </div>
+                         <div class="f-r add-ylfa-list" style="width:400px;">
+                             <div class="hr-div">
+                            <a href="javascript:;" class="yellow-but f-r add_record">新增</a>
+                            </div>
+                            <table cellpadding="0" cellspacing="1" class="table-list storage-info">
+                                    <thead>
+                                        <tr>
+                                            <td width="10%">储存验证人</td>
+                                            <td width="13%">验证时间</td>
+                                            <td width="12%">操作</td>
+                                      </tr>
+                                    </thead>
+                                    <tr style="display:none;" class="copyRecord">
+                                        <td><input name="" type="text" class="w94-100 storage_oper" value=""></td>
+                                        <td><input name="" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})" type="text" class="w94-100 Wdate identifiy_date" value=""></td>
+                                        <td><a href="javascript:;" data-action="js/mock-data/include-data-example.json" class="green-but saveOperator" title="保存">保存</a></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td><span class="pre">张三</span><span class="las" style="display:none"><input name="" type="text" class="w94-100 straw_number" value=""></span></td>
+                                        <td><span class="pre">2014-06-25</span><span class="las" style="display:none"><input name="" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})" type="text" class="w94-100 Wdate identifiy_date" value=""></span></td>
+                                        <td><span class="pre"><a href="javascript:;" class="green-but edit" title="编辑">编辑</a></span><span class="las" style="display:none;"><a href="javascript:;" data-action="js/mock-data/include-data-example.json" class="green-but saveOperator" title="保存">保存</a><a href="javascript:;" class="red-but cancel" title="取消">取消</a></span></td>
+                                        
+                                    </tr>
+                             </table>
+                         </div>
+                	</div>                  
+                    <div class="hr-div mar-t10">
+                        <a href="javascript:;" id="addRecord" class="yellow-but f-r">新增</a>
+                    </div> 
+                    <div class="h-auto add-ylfa-list">
+                            <table cellpadding="0" cellspacing="1" class="table-list storage-info">
+                                <thead>
+                                    <tr>
+                                        <td width="17%">卵编号</td>
+                                        <td width="15%">麦管颜色</td>
+                                        <td width="17%">麦管编号</td>
+                                        <td width="17%">吊桶编号</td>
+                                        <td width="17%">液氮罐编号</td>
+                                        <td width="17%">操作</td>
+                                  </tr>
+                                </thead>
+                                <tr class="tr-hover backups" style="display:none;">
+                                    <input type="hidden" class="storageid" value="">
+                                    <td><input name="" type="text" class="w94-100 ovum_code" value=""></td>
+                                    <td><input name="" type="text" class="w94-100 straw_color" value=""></td>
+                                    <td><select name="" class="w94-100 straw_code">
+                                    <option>选择</option>
+                                    <option>萌芽</option>
+                                    </select></td>
+                                    <td><input name="" type="text" class="w94-100 bucket_code" value=""></td>
+                                    <td><input name="" type="text" class="w94-100 tank_code" value=""></td>
+                                    <td><a href="javascript:;" data-action="js/mock-data/include-data-example.json" class="green-but saveInfo" title="保存">保存</a></td>
+                                </tr>
+                                <tr class="tr-hover">
+                                    <td><span class="pre">123456789</span><span class="las" style="display:none;"><input name="" type="text" class="w94-100 ovum_code" value=""></span></td>
+                                    <td><span class="pre">红色</span><span class="las" style="display:none;"><input name="" type="text" class="w94-100 straw_color" value=""></span</td>
+                                    <td><span class="pre">123456789</span><span class="las" style="display:none;"><select name="" class="w94-100 straw_code">
+                                    <option>选择</option>
+                                    <option>萌芽</option>
+                                    </select></span></td>
+                                    <td><span class="pre">123456789</span><span class="las" style="display:none;"><input name="" type="text" class="w94-100 bucket_code" value=""></span></td>
+                                    <td><span class="pre">123456789</span><span class="las" style="display:none;"><input name="" type="text" class="w94-100 tank_code" value=""></span></td>
+                                    <td><span class="pre"><a href="javascript:;" class="red-but edit" title="编辑">编辑</a></span><span class="las" style="display:none;"><a href="javascript:;" data-action="js/mock-data/include-data-example.json" class="green-but saveInfo" title="保存">保存</a><a href="javascript:;" class="red-but cancel" title="取消">取消</a></span></td>
+                                </tr>
+                            </table>
+                    </div>
+                    
+                    </form>
+                    <!--冷冻信息结束-->                    
+                    <!--复苏信息开始-->
+                    <div class="hr-div mar-t10">
+                        <span>复苏信息</span>
+                        <a href="javascript:;" id="add_relive" class="yellow-but f-r">新增</a>
+                        <hr/>
+                    </div>
+                    <div class="h-auto bg-f9-div mar-t10 relive-backups" style="display:none;">
+                        <ul class="h-auto three-list">                          
+                            <li><i>日期：</i><label><input name="" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="validate Wdate" id="birthday"></label></li>
+                            <li><i>时间：</i><label><input name="" type="text" maxlength="64" class="w60">&nbsp;:&nbsp;<input name="" type="text" maxlength="64" class="w60"></label></li>
+                            <li><i>胚胎人员：</i><label><input name="" type="text" maxlength="64"></label></li>                          
+                            <li><i>样本验证：</i><label><input name="" type="text" maxlength="64"></label></li>
+                            <li><i>卵状态：</i><label><input name="" type="text" maxlength="64"></label>
+</li> 
+                            <li><i>复苏皿验证：</i><label><input name="" type="text" maxlength="64"></label>
+</li>                       
+                            <li><i>培养皿验证：</i><label><input name="" type="text" maxlength="64"></label>
+</li>                            
+                            <li><i>卵遗弃验证：</i><label><input name="" type="text" maxlength="64"></label>
+</li>                          
+                        </ul>
+                        <div class="text-r mar-b10"><a href="javascript:;" data-action="js/mock-data/include-data-example.json" class="green-but saveBtn">保存</a>&nbsp;<a href="javascript:;" class="red-but cancelEdit">取消</a>&nbsp;</div>
+                    </div>
+                    <div class="h-auto bg-f9-div mar-t10">
+                        <ul class="h-auto three-list">                       	
+							<li><i>日期：</i><label>2012/12/12</label></li>
+                            <li><i>时间：</i><label>5:30</label></li>
+                            <li><i>胚胎人员：</i><label>刘德华</label></li>                          
+                            <li><i>样本验证：</i><label>张学友</label></li>
+                            <li><i>卵状态：</i><label>状态不错</label></li> 
+                            <li><i>复苏皿验证：</i><label>不错哦</label></li>                       
+                            <li><i>培养皿验证：</i><label>不错哦</label></li>                            
+                            <li><i>卵遗弃验证：</i><label>不错哦</label></li>                          
+                        </ul>
+                        <ul class="h-auto three-list edit-status" style="display:none;">                          
+                            <li><i>日期：</i><label><input name="" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="validate Wdate date" id="birthday"></label></li>
+                            <li><i>时间：</i><label><input name="" type="text" maxlength="64" class="w60 hour">&nbsp;:&nbsp;<input name="" type="text" maxlength="64" class="w60 minute"></label></li>
+                            <li><i>胚胎人员：</i><label><input name="" class="embryo_personnel" type="text" maxlength="64"></label></li>                          
+                            <li><i>样本验证：</i><label><input name="" class="sample_validation" type="text" maxlength="64"></label></li>
+                            <li><i>卵状态：</i><label><input name="" class="egg_state" type="text" maxlength="64"></label>
+</li> 
+                            <li><i>复苏皿验证：</i><label><input name="" class="recovery_validatio" type="text" maxlength="64"></label>
+</li>                       
+                            <li><i>培养皿验证：</i><label><input name="" class="petri_validatio" type="text" maxlength="64"></label>
+</li>                            
+                            <li><i>卵遗弃验证：</i><label><input name="" class="abandoned_validatio" type="text" maxlength="64"></label>
+</li>                          
+                        </ul>
+                        <div class="text-r mar-b10 editModule"><a href="javascript:;" class="green-but edit-relive">编辑</a>&nbsp;<a href="javascript:;" data-action="js/mock-data/include-data-example.json" class="red-but delete-relive">删除</a>&nbsp;</div>
+                        <div class="text-r mar-b10 saveModule" style="display:none;"><a href="javascript:;" data-action="js/mock-data/include-data-example.json" class="green-but saveBtn">保存</a>&nbsp;<a href="javascript:;" class="red-but cancelEdit">取消</a>&nbsp;</div>
+                	</div>
+                    
+                    
+                    <!--复苏信息结束-->
+                    
+                </div>
+                <!--右边信息结束-->
+            </div>
+            <!--表单结束-->
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

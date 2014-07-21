@@ -1,0 +1,13 @@
+<div class="pop-box h-auto bg-ff">
+    <form id="form-add-file">
+    <ul class="three-list">
+        <li><i><b>*</b>文件名：</i><label><input name="" id="filename" type="text"></label></li>
+        <li><i>上传附件：</i><label><input type="hidden" id="swf" value="images/uploadify.swf"/>
+                        <input type="hidden" id="file-url" name="fildUrl" value="" />
+                        <input type="file" style="width:460px;" name="report-file" id="file_upload" data-action="js/mock-data/upload-report-file.json"/></label></li>
+        <li id="operFile" style="display:none;"><i>上传附件：</i><a href="" id="loadFile"></a><a href="javascript:;" id="delete" style="margin: 0 5px;" class="black-but">删除</a></li>
+        <li class="error-out"><span class="error-text" style="display: none;">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="javascript:;" data-action="js/mock-data/include-data-example.json" id="saveFile" class="green-but">保存</a>&nbsp;<a href="javascript:;" id="cancel" class="black-but">取消</a></div>
+</form>
+</div>

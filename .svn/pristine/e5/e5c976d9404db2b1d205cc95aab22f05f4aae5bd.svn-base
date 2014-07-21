@@ -1,0 +1,156 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="register" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20">
+        	<h2 class="h-auto"><i class="f-l">库存盘点</i><a href="#" class="yellow-but f-r excel">导出Excel</a></h2>
+            <!--搜索开始-->
+        <form method="" action="">
+            <div class=" h-auto list-seach">
+            	<label><i>品名：</i><input name="" type="text"></label><label><i>截止时间：</i><input name="" type="text"></label><input type="submit" class="green-but" value="搜索"/>
+            </div>
+        </form>
+            <!--搜索结束-->
+            <!--表单开始-->
+            <div class="h-auto mar-t20">
+            	<table cellpadding="0" cellspacing="1" class="table-list">
+                	<thead>
+                    	<tr>
+                        	<td width="14%">入库仓库</td>
+                          	<td width="30%">品名</td>
+                          	<td width="9%">规格</td>
+                          	<td width="14%">产地</td>
+                          	<td width="11%">单价</td>
+                          	<td width="11%">库存数</td>
+                          	<td width="11%">总额</td>
+                      </tr>
+                    </thead>
+                    <tr class="tr-hover">                        
+                        <td>女女女女女女</td>
+                        <td><div class="white-space">任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐</div></td>
+                        <td>18</td>
+                        <td>11213238</td>
+                        <td>123.00</td>
+                        <td>12312312</td>
+                        <td>1231231.00</td>
+                     </tr>                     
+                     <tr class="tr-hover">                        
+                        <td>女女女女女女</td>
+                        <td><div class="white-space">任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐</div></td>
+                        <td>18</td>
+                        <td>11213238</td>
+                        <td>123.00</td>
+                        <td>12312312</td>
+                        <td>1231231.00</td>
+                     </tr>
+                     <tr class="tr-hover">                        
+                        <td>女女女女女女</td>
+                        <td><div class="white-space">任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐</div></td>
+                        <td>18</td>
+                        <td>11213238</td>
+                        <td>123.00</td>
+                        <td>12312312</td>
+                        <td>1231231.00</td>
+                     </tr>                     
+                     <tr class="tr-hover">                        
+                        <td>女女女女女女</td>
+                        <td><div class="white-space">任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐</div></td>
+                        <td>18</td>
+                        <td>11213238</td>
+                        <td>123.00</td>
+                        <td>12312312</td>
+                        <td>1231231.00</td>
+                     </tr>
+                     <tr class="tr-hover">                        
+                        <td>女女女女女女</td>
+                        <td><div class="white-space">任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐</div></td>
+                        <td>18</td>
+                        <td>11213238</td>
+                        <td>123.00</td>
+                        <td>12312312</td>
+                        <td>1231231.00</td>
+                     </tr>                     
+                     <tr class="tr-hover">                        
+                        <td>女女女女女女</td>
+                        <td><div class="white-space">任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐</div></td>
+                        <td>18</td>
+                        <td>11213238</td>
+                        <td>123.00</td>
+                        <td>12312312</td>
+                        <td>1231231.00</td>
+                     </tr>
+                     <tr class="tr-hover">                        
+                        <td>女女女女女女</td>
+                        <td><div class="white-space">任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐</div></td>
+                        <td>18</td>
+                        <td>11213238</td>
+                        <td>123.00</td>
+                        <td>12312312</td>
+                        <td>1231231.00</td>
+                     </tr>                     
+                     <tr class="tr-hover">                        
+                        <td>女女女女女女</td>
+                        <td><div class="white-space">任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐</div></td>
+                        <td>18</td>
+                        <td>11213238</td>
+                        <td>123.00</td>
+                        <td>12312312</td>
+                        <td>1231231.00</td>
+                     </tr>
+                     <tr class="tr-hover">                        
+                        <td>女女女女女女</td>
+                        <td><div class="white-space">任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐</div></td>
+                        <td>18</td>
+                        <td>11213238</td>
+                        <td>123.00</td>
+                        <td>12312312</td>
+                        <td>1231231.00</td>
+                     </tr>                     
+                     <tr class="tr-hover">                        
+                        <td>女女女女女女</td>
+                        <td><div class="white-space">任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐</div></td>
+                        <td>18</td>
+                        <td>11213238</td>
+                        <td>123.00</td>
+                        <td>12312312</td>
+                        <td>1231231.00</td>
+                     </tr>
+                     <tr class="tr-hover">                        
+                        <td>女女女女女女</td>
+                        <td><div class="white-space">任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐</div></td>
+                        <td>18</td>
+                        <td>11213238</td>
+                        <td>123.00</td>
+                        <td>12312312</td>
+                        <td>1231231.00</td>
+                     </tr>                     
+                     <tr class="tr-hover">                        
+                        <td>女女女女女女</td>
+                        <td><div class="white-space">任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐任贤齐</div></td>
+                        <td>18</td>
+                        <td>11213238</td>
+                        <td>123.00</td>
+                        <td>12312312</td>
+                        <td>1231231.00</td>
+                     </tr>
+                </table>
+                <!--分页开始-->
+                <div class="page">
+                     <span>共<i>120条/10页</i></span><span><a href="javascript:;" class="now">1</a></span><span><a href="javascript:;">2</a></span><span><a href="javascript:;">3</a></span><span>...</span><span><a href="javascript:;">10</a></span><span><a href="javascript:;">下一页</a></span>
+                </div>
+               <!--分页结束-->
+            </div>
+            <!--表单结束-->
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

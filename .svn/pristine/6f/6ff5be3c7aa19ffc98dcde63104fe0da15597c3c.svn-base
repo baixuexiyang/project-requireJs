@@ -1,0 +1,75 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="admin" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 UserManagement">
+            <form action="" method="" id="form-add-patient">
+        	<h2>新增用户<cite>（带&nbsp;<b>*</b>&nbsp;为必填项）</cite></h2>
+            <div class="error-text" style="display:none;"></div>
+        	<div class="h-auto add-user">
+            	<!--系统设置开始-->
+            	<div class="hr-div mar-t20">
+                    <span>系统设置</span>
+                    <hr/>
+            	</div>
+            	<ul class="h-auto three-list add-user-system">
+                    <li><i><b>*</b>帐号：</i><label><input name="" type="text" id="account" class="validate" maxlength="16"></label></li>
+					<li><i><b>*</b>密码：</i><label><input name="" type="text" id="password" class="validate" maxlength="20"></label></li>
+                    <li><i><b>*</b>确认密码：</i><label><input name="" type="text" id="repassword" class="validate" maxlength="20"></label></li>
+                </ul>
+                <!--系统设置结束-->
+                <!--科室信息开始-->
+                <div class="hr-div mar-t10">
+                    <span>科室信息</span>
+                    <hr/>
+            	</div>
+            	<ul class="h-auto three-list">
+                    <input type="hidden" value="" name="" id="departmentName">
+                    <li><i><b>*</b>所属科室：</i><label><select name="" id="department">
+                        <option value="0">科室1</option>
+                        <option value="1">科室2</option></select>
+                        </label>
+                    </li>
+                    <li><i>人员编码：</i><label><input name="" type="text" id="" maxlength="12"></label></li>
+                    <li><i>职务：</i><label><select name="" id="">
+                        <option>科员</option>
+                        <option>主任科员</option></select>
+                        </label>
+                    </li>
+                    <li class="textarea-li"><i>备注：</i><label><textarea name="" cols="" rows="" maxlength="512"></textarea></label></li>
+                </ul>
+                <!--科室信息结束-->
+                <!--科室信息开始-->
+                <div class="hr-div mar-t10">
+                    <span>个人信息</span>
+                    <hr/>
+            	</div>
+            	<ul class="h-auto three-list">
+                	<p class="reg-headImg f-l"><a href="#" title="上传照片"><img src="images/headImg/00.gif"></a></p>
+                    <li class="w215"><i><b>*</b>姓名：</i><label><input name="" type="text" id="name" class="validate" maxlength="5"></label></li>
+                    <li><i>性别：</i><label><select name="" id="sex"><option>男</option><option>女</option></select></label></li>
+                    <li><i>出生日期：</i><label><input name="" type="text" class="validate Wdate" id="birthday"></label></li>
+                    <li class="w215"><i><b>*</b>手机：</i><label><input name="" type="text" id="tellphone" class="validate" maxlength="11"></label></li>
+                    <li><i>办公电话：</i><label><input name="" type="text" id="phone" class="validate" maxlenth="20"></label></li>
+                    <li><i>电子邮箱：</i><label><input name="" type="text" id="email" class="validate" maxlength="36"></label></li>
+                    <li class="textarea-li"><i>家庭住址：</i><label><textarea name="" cols="" rows="" maxlength="500" id="address" class="validate" maxlength="128"></textarea></label></li>
+                </ul>
+
+                <div class="text-r mar-t10 list-bottom-div mar-b20">
+                	<a href="javascript:;" class="green-but" id="saveLogin" data-action="js/mock-data/add-patient-register.json">保存</a>&nbsp;<a href="#" class="black-but">取消</a>
+                </div>
+            </div>
+        </form>
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

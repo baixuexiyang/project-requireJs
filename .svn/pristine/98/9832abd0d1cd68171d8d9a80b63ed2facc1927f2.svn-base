@@ -1,0 +1,80 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="adjuvant-therapy" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 patientList-embryology">
+        	<h2 class="h-auto"><i class="f-l">新增治疗方案</i></h2>
+            <div class="error-text" style="display: none;"></div>
+            <!--疗程信息-->
+            <div class="h-auto add-ylfa-list">
+                <ul class="h-auto mar-t10 add-ylaf-ul">
+                	<li><cite>操作事件：</cite><label class="do-event"><a href="辅助治疗-患者列表-疗程记录-胚胎学-新增操作事件.shtml">剥卵</a><a href="辅助治疗-患者列表-疗程记录-胚胎学-新增操作事件-IVF.shtml">IVF</a><a href="javascript:;" class="now">ICSI</a><a href="辅助治疗-患者列表-疗程记录-胚胎学-新增操作事件-受精检查.shtml">受精检查</a><a href="辅助治疗-患者列表-疗程记录-胚胎学-新增操作事件-观察.shtml">观察</a><a href="辅助治疗-患者列表-疗程记录-胚胎学-新增操作事件-冷冻.shtml">冷冻</a><a href="辅助治疗-患者列表-疗程记录-胚胎学-新增操作事件-胚胎移植.shtml">胚胎移植</a><a href="辅助治疗-患者列表-疗程记录-胚胎学-新增操作事件-解冻.shtml">解冻</a></label></li>
+                    <form id="form-add-embryology">
+                	<li><cite>黄体Day0：</cite><label><input name="" id="first_day" type="text" class="w160 Wdate"></label></li>
+                    <li><cite>时间：</cite><label><input name="" id="start_date" type="text" class="w160 Wdate"></label><label><input id="start_date_hou" name="" type="text" class="w60">&nbsp;:&nbsp;<input name="" id="start_date_min" type="text" class="w60"></label></li>
+                    <li><cite>处理天：</cite><label><span id="deal_days"></span></label></li>
+                    <li><cite>实验人员：</cite><label><input name="" type="text" class="w160"></label></li>
+                    </form>                    
+                </ul>
+            </div>
+            <!--疗程详情-->
+            <div class="h-auto mar-t10 add-ylfa-list">
+                <!--表单开始-->
+                <div class="h-auto mar-t10">
+                    <table cellpadding="0" cellspacing="1" class="table-list">
+                        <thead>
+                            <tr>
+                                <td width="12%">卵胚编号</td>
+                                <td width="13%">存活</td>
+                                <td width="13%">操作情况</td>
+                                <td width="13%">命运</td>
+                                <td width="22%">见证</td>
+                                <td width="27%">备注</td>
+                          </tr>
+                        </thead>
+                        <tr class="tr-hover">
+                            <td class="number">1234567890</td>
+                            <td><select name="" class="w94-100 live">
+                            <option>选择</option>
+                            <option>萌芽</option>
+                            </select></td>
+                            <td><select name="" class="w94-100 operator">
+                            <option>选择</option>
+                            <option>萌芽</option>
+                            </select></td>
+                            <td><select name="" class="w94-100 fate">
+                            <option>选择</option>
+                            <option>萌芽</option>
+                            </select></td>
+                            <td><input name="" type="text" class="w94-100 witness" value="最多输入？个汉字"></td>
+                            <td><input name="" type="text" class="w94-100 note" value="最多输入20个汉字"></td>
+                        </tr>
+                        <tr class="tr-hover">
+                            <td>1234567890</td>
+                            <td>一声叹息一声叹息</td>
+                            <td>一声叹息</td>
+                            <td>一声叹息</td>
+                            <td>一声叹息</td>
+                            <td>一声叹息一声叹息一声叹息一声叹息一声叹息一声叹息</td>
+                        </tr>
+                    </table>
+                </div>
+                <!--表单结束-->
+                
+            </div>
+            <div class="text-r mar-t10 mar-b10 list-bottom-div">
+                <a href="javascript:;" data-action="js/mock-data/include-data-example.json" data-href="辅助治疗-患者列表-疗程记录-胚胎学-添加卵收集之后.shtml" class="green-but" id="save_event_three">保存</a>&nbsp;<a href="辅助治疗-患者列表-疗程记录-胚胎学.shtml" class="black-but">取消</a>
+            </div>
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

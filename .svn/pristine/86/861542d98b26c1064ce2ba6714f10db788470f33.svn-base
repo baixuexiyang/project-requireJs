@@ -1,0 +1,173 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="clinic-charge" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20">
+        	<h2 class="h-auto"><i class="f-l">票据领用</i><a href="#" class="yellow-but f-r">新增领用</a></h2>
+            <!--搜索开始-->
+        	<form method="" action="">
+            <div class="h-auto list-seach pos-re">
+            	<label><i>领用日期：</i><input class="Wdate" id="start-date" name="startDate" type="text" placeholder="起始时间" value="">&nbsp;至&nbsp;<input class="Wdate" id="end-date" name="endDate" type="text" placeholder="结束时间" value=""></label><label><i>票据类型：</i><select name=""><option>
+                票据类型
+                </option></select></label><input type="submit" class="green-but" value="搜索"/>
+            </div>
+        	</form>
+            <!--搜索结束-->
+            
+            <!--表单开始-->
+            <div class="h-auto mar-t10">
+            	<table cellpadding="0" cellspacing="1" class="table-list">
+                	<thead>
+                    	<tr>
+                        	<td width="16%">领用人</td>
+                       	  <td width="12%">领用日期</td>
+                       	  <td width="12%">票据类型</td>
+                       	  <td width="12%">开始票号</td>
+                       	  <td width="12%">结束票号</td>
+                       	  <td width="12%">当前票号</td>
+                       	  <td width="12%">状态</td>
+                            <td width="10%">操作</td>
+                      </tr>
+                    </thead>
+                    <tr class="tr-hover">
+                        <td>欧阳正好</td>
+                        <td>2010/12/13</td>
+                        <td>票据类型类型</td>                        
+                        <td>12345678</td>
+                        <td>12345678</td>
+                        <td>1234567890</td>
+                        <td>已领用</td>
+                        <td><a href="#" class="green-but edit" title="编辑">编辑</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>欧阳正好</td>
+                        <td>2010/12/13</td>
+                        <td>票据类型类型</td>                        
+                        <td>12345678</td>
+                        <td>12345678</td>
+                        <td>1234567890</td>
+                        <td>已领用</td>
+                        <td><a href="#" class="green-but edit" title="编辑">编辑</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>欧阳正好</td>
+                        <td>2010/12/13</td>
+                        <td>票据类型类型</td>                        
+                        <td>12345678</td>
+                        <td>12345678</td>
+                        <td>1234567890</td>
+                        <td>已领用</td>
+                        <td><a href="#" class="green-but edit" title="编辑">编辑</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>欧阳正好</td>
+                        <td>2010/12/13</td>
+                        <td>票据类型类型</td>                        
+                        <td>12345678</td>
+                        <td>12345678</td>
+                        <td>1234567890</td>
+                        <td>已领用</td>
+                        <td><a href="#" class="green-but edit" title="编辑">编辑</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>欧阳正好</td>
+                        <td>2010/12/13</td>
+                        <td>票据类型类型</td>                        
+                        <td>12345678</td>
+                        <td>12345678</td>
+                        <td>1234567890</td>
+                        <td>已领用</td>
+                        <td><a href="#" class="green-but edit" title="编辑">编辑</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>欧阳正好</td>
+                        <td>2010/12/13</td>
+                        <td>票据类型类型</td>                        
+                        <td>12345678</td>
+                        <td>12345678</td>
+                        <td>1234567890</td>
+                        <td>已领用</td>
+                        <td><a href="#" class="green-but edit" title="编辑">编辑</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>欧阳正好</td>
+                        <td>2010/12/13</td>
+                        <td>票据类型类型</td>                        
+                        <td>12345678</td>
+                        <td>12345678</td>
+                        <td>1234567890</td>
+                        <td>已领用</td>
+                        <td><a href="#" class="green-but edit" title="编辑">编辑</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>欧阳正好</td>
+                        <td>2010/12/13</td>
+                        <td>票据类型类型</td>                        
+                        <td>12345678</td>
+                        <td>12345678</td>
+                        <td>1234567890</td>
+                        <td>已领用</td>
+                        <td><a href="#" class="green-but edit" title="编辑">编辑</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>欧阳正好</td>
+                        <td>2010/12/13</td>
+                        <td>票据类型类型</td>                        
+                        <td>12345678</td>
+                        <td>12345678</td>
+                        <td>1234567890</td>
+                        <td>已领用</td>
+                        <td><a href="#" class="green-but edit" title="编辑">编辑</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>欧阳正好</td>
+                        <td>2010/12/13</td>
+                        <td>票据类型类型</td>                        
+                        <td>12345678</td>
+                        <td>12345678</td>
+                        <td>1234567890</td>
+                        <td>已领用</td>
+                        <td><a href="#" class="green-but edit" title="编辑">编辑</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>欧阳正好</td>
+                        <td>2010/12/13</td>
+                        <td>票据类型类型</td>                        
+                        <td>12345678</td>
+                        <td>12345678</td>
+                        <td>1234567890</td>
+                        <td>已领用</td>
+                        <td><a href="#" class="green-but edit" title="编辑">编辑</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>欧阳正好</td>
+                        <td>2010/12/13</td>
+                        <td>票据类型类型</td>                        
+                        <td>12345678</td>
+                        <td>12345678</td>
+                        <td>1234567890</td>
+                        <td>已领用</td>
+                        <td><a href="#" class="green-but edit" title="编辑">编辑</a></td>
+                     </tr>
+                </table>
+                <!--分页开始-->
+                <div class="page">
+                     <span>共<i>120条/10页</i></span><span><a href="javascript:;" class="now">1</a></span><span><a href="javascript:;">2</a></span><span><a href="javascript:;">3</a></span><span>...</span><span><a href="javascript:;">10</a></span><span><a href="javascript:;">下一页</a></span>
+                </div>
+               <!--分页结束-->
+            </div>
+            <!--表单结束-->
+
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

@@ -1,0 +1,15 @@
+{
+	"status": {
+		"code": 0,
+		"msg": "方案设置成功"
+	},
+	"ds": [{
+		"createTime": "",
+		"doctorName": "王五",
+		"orgId": 0,
+		"patientId": 0,
+		"schemeId": 21,
+		"schemeName": "OT(其他)",
+		"treateCourseNum": 2
+	}]
+}

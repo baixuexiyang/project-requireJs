@@ -1,0 +1,77 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="adjuvant-therapy" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 AppointmentList">
+        	<h2 class="h-auto"><i class="f-l">疗程记录</i></h2>
+            <input type="hidden" class="addTemplate">
+            <!--表单开始-->
+            <div class="h-auto mar-t20">
+            	<!--左侧菜单开始-->
+                <!--#include file="include-static-left.php"-->
+                <!--左侧菜单结束-->
+                <!--右边信息开始-->
+                <div class="h-auto f-r help-doctor-r">
+                    <!--#include file="include-static-middle.php"-->
+                    <div class="help-doctor-r-chack bg-f5">
+                    	<span><i>治疗方案：</i><label><select name="" data="123" id="home_scheme" data-action="js/mock-data/include-add-info.json">
+                        	<option value="0">请选择疗程方案</option>
+                            <option value="1">疗程方案一</option>
+                        </select></label><a href="辅助治疗-患者列表-疗程记录-治疗过程.shtml" class="green-font">查看疗程</a></span><span><i>主治医生：</i><em id="doctor">唐僧</em></span><span><i>疗程次数：</i><em id="times">123</em></span>
+                    </div>
+                    <div class="hr-div mar-t10">
+                        <span>约诊</span>
+                        <a href="javascript:;" data-href="include-edit-appointment.php" class="yellow-but f-r appointment">新增约诊</a>
+                        <hr/>
+                    </div>
+                    <!--bottom表单开始-->
+                    <div class="h-auto mar-t10">
+                        <table cellpadding="0" cellspacing="1" class="table-list">
+                            <thead>
+                                <tr>
+                                	<td width="4%"></td>                                 
+                                  <td width="14%">开始时间</td>
+                                  <td width="18%">预约项目</td>
+                                  <td width="11%">预约科室</td>
+                                  <td width="11%">主治医生</td>
+                                  <td width="7%">状态</td>
+                                  <td width="15%">操作</td>
+                              </tr>
+                            </thead>
+                            <tr class="tr-hover">
+                            	<td><input name="" type="checkbox" value=""></td>
+                                <td>2013/12/13&nbsp;12:12</td>                    
+                                <td><div class="white-space">预约项目预约项目预约项目预约项目预约项目</div></td>
+                                <td>5</td>
+                                <td>10000.00</td>
+                                <td>还好</td>
+                                <td><a href="javascript:;" data-href="include-edit-appointment.php" class="green-but edit" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item" data-action="js/mock-data/include-data-example.json" title="删除">删除</a></td>
+                             </tr>
+                             <tr>
+                            	<td colspan="7" class="text-l"><input name="" type="checkbox" value="" class="mar-l14">&nbsp;全选&nbsp;&nbsp;<a href="javascript:;" class="green-but" title="确认">确认</a></td>
+                             </tr> 
+                        </table>
+                        <!--分页开始-->
+                        <div class="page">
+                             <span>共<i>120条/10页</i></span><span><a href="javascript:;" class="now">1</a></span><span><a href="javascript:;">2</a></span><span><a href="javascript:;">3</a></span><span>...</span><span><a href="javascript:;">10</a></span><span><a href="javascript:;">下一页</a></span>
+                        </div>
+                       <!--分页结束-->
+                    </div>
+                    <!--bottom表单结束-->                   
+                </div>
+                <!--右边信息结束-->
+            </div>
+            <!--表单结束-->
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

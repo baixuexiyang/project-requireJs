@@ -1,0 +1,93 @@
+// 表单校验提示信息
+var SuperValidator = {
+    // 登记注册-登记
+    'form_register': {
+        'patientName': { 
+            required: "请输入病人姓名" ,
+            registerValidate: function(v) {
+                if(v && v.length > 5) {
+                    return '姓名长度不超过5个！';
+                }
+                return true;
+            }
+        },
+        'credentialsType': { required: "请选择证件类型"},
+        'credentialsNum': {
+            required: "请输入证件号码",
+            registerValidate: function(v) {
+                if(v && !/^\d{15}$|^\d{17}([0-9]|X)$/.test(v)) {
+                    return "证件号码格式不对";
+                }
+                return true;
+            }
+        },
+        'birthday': { required: "请输入出生日期！"}
+    },
+    'form-login': {
+        'username': {required: "请输入用户名！"},
+        'password': {required: "请输入密码！"},
+        'verificationCode': {required: "请输入验证码！"}
+    },
+    'form-patient-login': {
+        'name': {
+            required: '请输入姓名！',
+            registerValidate: function(v) {
+                if(v && v.length > 5) {
+                    return '姓名长度不超过5个！';
+                }
+                return true;
+            }
+        },
+        'birthday': { required: "请输入出生日期！"},
+        'registerNum': {required: '请输入注册证号'},
+        'phone': {
+            required: "请输入联系电话",
+            customValidate: function(v) {
+                if (v && !/^[1]([3458][0-9]{1})[0-9]{8}$|^[(]\d{3,4}[)]\d{7}$|^\d{3,4}[-]\d{7}$/.test(v)) {
+                    return "格式不对，只能输入数字、特殊字符-、(、)";
+                }
+                return true;
+            }
+        },
+        'credentialsType': {required: '请选择证件类型！'},
+        'credentialsNum': {
+            required: '请输入证件号码！',
+            registerValidate: function(v) {
+                if(v && !/^\d{15}$|^\d{17}([0-9]|X)$/.test(v)) {
+                    return "请输入正确的证件号码";
+                }
+                return true;
+            }
+        },
+        'spouse-name': {required: '请输入配偶姓名！'},
+        'spouse-birthday': {required: '请输入配偶出生日期！'},
+        'spouse-registerNum': {required: '请输入配偶注册证号！'},
+        'spouse-credentialsNum': {
+            required: '请输入配偶证件号码！',
+            registerValidate: function(v) {
+                if(v && !/^\d{15}$|^\d{17}([0-9]|X)$/.test(v)) {
+                    return "证件号码格式不对";
+                }
+                return true;
+            }
+        }
+    },
+    'add-Type': {
+        'typeName': {required: '请输入字典类别名称！'},
+        'typeValue': {required: '请输入字典类别值！'}
+    },
+    'add-Dictionary':{
+        'dictionaryName': {required: '请输入字典名称！'},
+        'dictionaryValue': {required: '请输入字典值！'}
+    },
+    'form-template': {
+        'credentialsNum': {required: '请输入模板名称！'}
+    },
+    'form-add-patient': {
+        'account': {required: '请输入账号！'},
+        'password': {required: '请输入密码！'},
+        'repassword': {required: '请再次输入密码！'},
+        'name': {required: '请输入姓名！'},
+        'address': {required: '请输入家庭住址！'}
+    }
+};

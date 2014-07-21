@@ -1,0 +1,15 @@
+<div class="pop-box h-auto bg-ff">
+    <form id="form-add-batch">
+    	<ul class="three-list">
+        	<li><i><b>*</b>产品批号：</i><label><input name="" type="text" id="batch"></label></li>
+            <li><i><b>*</b>到货日期：</i><label><input name="" type="text" id="arrive" class="Wdate"></label></li>
+            <li><i><b>*</b>有效日期：</i><label><input name="" type="text" id="validity" class="Wdate"></label></li>
+            <li><i>始用日期：</i><label><input name="" type="text" id="start_date" class="Wdate"></label></li>
+            <li><i>结束日期：</i><label><input name="" type="text" id="end_date" class="Wdate"></label></li>
+            <li><i>数量：</i><label><input name="" type="text"></label></li>
+            <li class="h65"><i>备注：</i><label><textarea name="" cols="" rows=""></textarea></label></li>
+            <li class="error-out"><span class="error-text" style="display:none;"></span></li>
+        </ul>
+        <div class="text-c mar-b20"><a href="javascript:;" data-action="js/mock-data/include-data-example.json" id="saveProject" class="green-but">保存</a>&nbsp;<a href="javascript:;" id="cancel" class="black-but">取消</a></div>
+    </form>
+</div>

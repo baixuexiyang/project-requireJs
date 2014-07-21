@@ -1,0 +1,7 @@
+{
+  "status": {
+    "code": "0",
+    "msg": "something error"
+  },
+  "fileUrl": "http://www.baidu.com/"
+}

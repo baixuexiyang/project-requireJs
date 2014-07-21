@@ -1,0 +1,103 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="register" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20">
+        	<h2>发药详情</h2> 
+            <!--搜索开始-->
+        	<form method="" action="">
+            <div class="h-auto list-seach">
+            	<label><i>患者姓名：</i><input name="" type="text"></label><input type="submit" class="green-but" value="搜索"/>&nbsp;&nbsp;<a href="#" class="green-font">查看历史记录</a>
+            </div>
+        	</form>
+            <!--搜索结束-->
+            <!--患者信息开始-->
+            <div class="hr-div mar-t10">
+                <span>患者信息</span>
+                <hr/>
+            </div>         
+            <ul class="h-auto three-list three-list-b">
+                    <li><i>姓名：</i><label>赵本山</label></li>
+                    <li><i>性别：</i><label>男</label></li>
+                    <li><i>年龄：</i><label>55</label></li>
+                    <li><i>手机号码：</i><label>123123123</label></li>
+                    <li><i>登记时间：</i><label>2013/12/12</label></li>                    
+            </ul>
+            <!--患者信息结束-->
+            <!--费用信息开始-->
+            <div class="hr-div">
+                <span>费用信息</span>
+                <hr/>
+            </div>
+            <ul class="h-auto three-list three-list-b">
+                    <li><i>处方药费：</i><label>123123.00</label></li>
+                    <li><i>深化检验费：</i><label>234234.00</label></li>
+                    <li><i>项目治疗费：</i><label>52324.005</label></li>
+                    <li><i>其他项目费：</i><label>123234.00</label></li>
+                    <li class="red-font"><i><b>费用总计：</b></i><label ><b>22342342.00</b></label></li>                    
+            </ul>
+            <div class="charge-but-div h-auto mar-t10">
+            	<ul>
+                    <li class="f-l"><i>打印内容：</i><label><select name="">
+                    <option>选择</option>
+                    </select></label>
+                    </li>
+                    <li class="f-l"><i>发票号：</i><label>1231545</label></li>
+                    <li class="f-l"><a href="#" class="green-but">发票跳号</a>&nbsp;&nbsp;<a href="#" class="green-font">补打发票</a></li>
+                    <li class="f-r"><a href="#" class="yellow-but">确认收费</a></li>        
+            	</ul>
+            </div>
+            <!--费用信息结束-->
+            <!--收费项目开始-->
+            <div class="hr-div mar-t10">
+                <span>收费项目</span>
+                <hr/>
+            </div>
+            <!--表单开始-->
+            <div class="h-auto mar-t10">
+            	<table cellpadding="0" cellspacing="1" class="table-list">
+                	<thead>
+                    	<tr>
+                        	<td width="17%">诊疗单号</td>
+                       	  <td width="18%">项目名称</td>
+                       	  <td width="7%">单位</td>
+                       	  <td width="12%">单价</td>
+                       	  <td width="8%">数量</td>
+                       	  <td width="12%">总金额</td>
+                       	  <td width="12%">费用类型</td>
+                            <td width="12%">接诊医生</td>
+                      </tr>
+                    </thead>
+                    <tr class="tr-hover">
+                        <td>1234567890</td>
+                        <td>项目名称项目名称</td>
+                        <td>次</td>                        
+                        <td>2000.00</td>
+                        <td>5</td>
+                        <td>10000.00</td>
+                        <td>每次300ml</td>
+                        <td>刘德华</td>
+                     </tr>
+                     
+                </table>
+                <!--分页开始-->
+                <div class="page">
+                     <span>共<i>120条/10页</i></span><span><a href="javascript:;" class="now">1</a></span><span><a href="javascript:;">2</a></span><span><a href="javascript:;">3</a></span><span>...</span><span><a href="javascript:;">10</a></span><span><a href="javascript:;">下一页</a></span>
+                </div>
+               <!--分页结束-->
+            </div>
+            <!--表单结束-->
+            <!--收费项目结束-->
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

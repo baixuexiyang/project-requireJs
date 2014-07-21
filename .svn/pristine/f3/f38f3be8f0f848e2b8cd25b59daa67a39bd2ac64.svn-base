@@ -1,0 +1,230 @@
+define([
+	'jquery',
+	'app/common',
+	'app/util',
+	'jqtmpl',
+	'pkg/DatePicker/app',
+	'pkg/DateFormat/app',
+	'json'
+], function($, common) {
+
+	"use strict";
+
+	/****************医生面诊*****************/
+
+	var Diagnose = {
+		init: function() {
+
+
+			var startDate = $('#start-date');
+			var endDate = $('#end-date');
+			if (startDate.length > 0) {
+				if (!startDate.val()) {
+					var d = (new Date()).getDate() - 7;
+					d = (new Date()).setDate(d);
+					startDate.val($.formatDate(new Date(d), 'yyyy-MM-dd'));
+				}
+				if (endDate.length > 0) {
+					startDate.datePicker({
+						// minDate: '#F{$dp.$D(\'end-date\',{d:-7})}',
+						// maxDate: '#F{$dp.$D(\'end-date\')}',
+						onpicked: function() {
+							if ($('#end-date').val() === "")
+								$dp.$('end-date').focus();
+						},
+						dateFmt: 'yyyy-MM-dd'
+					});
+				} else {
+					startDate.datePicker({
+						dateFmt: 'yyyy-MM-dd'
+					});
+				}
+			}
+
+			if (endDate.length > 0) {
+				if (!endDate.val()) {
+					endDate.val($.formatDate(new Date(), 'yyyy-MM-dd'));
+				}
+				if (startDate.length > 0) {
+					endDate.datePicker({
+						// minDate: '#F{$dp.$D(\'start-date\')}',
+						// maxDate: '#F{$dp.$D(\'start-date\',{d:7})}',
+						onpicked: function() {
+							if ($('#start-date').val() === "")
+								$dp.$('start-date').focus();
+						},
+						dateFmt: 'yyyy-MM-dd'
+					});
+				} else {
+					endDate.datePicker({
+						dateFmt: 'yyyy-MM-dd'
+					});
+				}
+			}
+
+
+
+			// 添加面诊
+			$('#addDisgnose').click(function() {
+				var api = $(this).attr('data-href');
+				art.dialog.open(api, {
+					width: 400,
+					height:280,
+					title: "添加面诊",
+					lock: true,
+				});
+			});
+			$('.add').click(function() {
+				top.location.href = $(this).attr('data-href');
+			});
+
+			$('.delete-item').click(function() {
+				var api = $(this).attr('data-action');
+				var callback = function() {
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						success: function() {
+							top.location.reload();
+						},
+						error: function(msg) {
+							alert(msg);
+						}
+					}));
+				};
+				$(this).dialogConfirm(callback);
+			});
+			// 结束面诊
+			$('#end-diagnose').click(function() {
+				var api = $(this).attr('data-action');
+				var patientId = $('#patientId').val();
+
+				$.ajax(common.ajaxCall({
+					url: api,
+					type: 'post',
+					data: {
+						patientId: patientId
+					},
+					success: function() {
+						location.href = $("#end-diagnose").attr("data-href");
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+
+			// 回到顶部
+			$(document).delegate('.return-top', 'click', function() {
+				document.body.scrollTop = document.documentElement.scrollTop = 0;
+			})
+			.delegate('.navigator', 'click', function() {
+				$(this).siblings().removeClass('now').end().addClass('now');
+			})
+			.delegate('.remark', 'click', function() {
+				var remark = $(this).parent().next('li');
+				if(remark.is(':hidden')) {
+					$(this).text('取消备注');
+					remark.show();
+				} else {
+					$(this).text('添加备注');
+					remark.hide(400).children().val('');
+				}
+			});
+
+			// 添加面诊
+			var disease = $('#disease-item');
+			if(disease.length > 0) {
+				var api = disease.attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					type: 'post',
+					success: function(data) {
+						var ds = data.ds;
+						var a = [], b = [], c = [];
+						for(var i = 0; i < ds.length; i++ ) {
+							var item = ds[i];
+							switch(item.label) {
+								case 0:
+									a.push(item);
+									break;
+								case 1:
+									b.push(item);
+									break;
+								case 2:
+									c.push(item);
+									break;
+							}
+						}
+						/*var html = '';
+						for(i = 0; i < a.length; i++) {
+							if(html)
+						}*/
+						// $('.fixed-nav').empty().append();
+						/*var cur,str = '';
+						for(i = 1; i <= a.length; i++) {
+							cur = a[i-1];
+							if(i === 1) {
+								str += '<h3 name="basic"><a href="javascript:;" id="basic" name="basic" class="green-font">'+ cur.catlogName +'</a></h3>';
+							}
+							switch(cur.answerCatlog) {
+								case 'a':
+									str += '<ul class="question-list mar-t10"><li>'+ i +'.'+ cur.problemDesc +'</li><li><input class="Wdate" id="Date" name="" value="'+ cur.defaultValue +'" style="" type="text"></li></ul>';
+									break;
+								case 'b':
+									str += '<ul class="question-list mar-t10"><li>'+ i +'.'+ cur.problemDesc +'</li><li class="h-auto"><label class="f-l"><select name="">';
+									var answer = cur.chooseValue.split(';');
+									for(var j = 0; j < answer.length; j++) {
+										if(answer[j] == cur.defaultValue){
+											str += '<option selected="selected">'+ answer[j] +'</option>';
+											continue;
+										}
+										str += '<option>'+ answer[j] +'</option>';
+									}
+									str += '</select></label><a href="#" class="f-r green-but">添加备注</a></li><li><textarea name="" cols="" rows="">12313</textarea></li></ul>';
+									break;
+							}
+						}
+						$('#disease-item').empty().append(str);*/
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			}
+
+
+			$('#saveDiagnose').click(function() {
+				var msg = [],item;
+				$('#disease-item ul').each(function() {
+					item = $.parseJSON($(this).attr('data-cfg'));
+					msg.push(item);
+				});
+				var api = $(this).attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					type: 'post',
+					data: JSON.stringify(msg),
+					success: function() {
+
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+
+		}
+	};
+
+	/**********入口************/
+	var Main = {
+		init: function() {
+			Diagnose.init();
+		}
+	};
+
+	Main.init();
+
+	$('.numeral').numeral();
+});

@@ -1,0 +1,146 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="clinic-bill" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20">
+        	<h2 class="h-auto"><i class="f-l">门诊开单</i></h2>
+            <!--患者信息开始-->
+            <div class="hr-div mar-t10">
+                <span>患者信息</span>
+                <hr/>
+            </div>         
+            <ul class="h-auto three-list three-list-b">
+                    <li><i>姓名：</i><label>赵本山</label></li>
+                    <li><i>性别：</i><label>男</label></li>
+                    <li><i>年龄：</i><label>55</label></li>
+                    <li><i>手机号码：</i><label>123123123</label></li>
+                    <li><i>登记时间：</i><label>2013/12/12</label></li>                    
+            </ul>
+            <!--患者信息结束-->
+            <!--tab切换开始-->
+            <div class="middle-tab mar-t10">
+            	<span><a href="javascript:;" class="now" data-id="1">药物处方</a><a href="门诊开单-开单列表-生化检验.shtml" data-id="2">生化检验</a><a href="门诊开单-开单列表-治疗项目.shtml" data-id="3">治疗项目</a><a href="门诊开单-开单列表-其他项目.shtml" data-id="4">其他项目</a></span>
+            </div>
+            <!--tab切换结束-->
+            <!--处方单开始-->
+            <div class="h-auto mar-t10 w958-border">
+            	<div class="bill-list-title">
+                	<a href="javascript:;" class="f-l close" title="点击收缩"></a>
+                    <span class="f-l"><i>诊疗单号：</i><em>123456789</em></span>
+                    <span class="f-l"><i>开单日期：</i><em>2013/12/13</em></span>
+                    <span class="f-l"><i>应缴费用：</i><em>10000.00</em></span>
+                    <span class="f-l"><i>缴费状态：</i><em class="red-font">未交费</em></span>
+                </div>
+            	<!--表单开始-->
+            	<div class="h-auto pad5">                	
+                    <table cellpadding="0" cellspacing="1" class="table-list">
+                        <thead>
+                            <tr>
+                                <td width="29%">品名</td>
+                                <td width="10%">单价</td>
+                                <td width="10%">数量</td>
+                                <td width="12%">总金额</td>
+                                <td width="13%">用法</td>
+                                <td width="13%">用药频率</td>
+                                <td width="13%">用量</td>                                
+                          </tr>
+                        </thead>
+                        <tr class="tr-hover">
+                            <td><div class="white-space">品名品名品名品名品名品名品名品名品名品名品名品名</div></td>
+                            <td>123132.00</td>
+                            <td>100</td>
+                            <td>31231312.00</td>
+                            <td>12345678</td>
+                            <td>12345678</td>
+                            <td>2140/12/12</td>
+                         </tr>
+                         <tr class="tr-hover">
+                            <td><div class="white-space">品名品名品名品名品名品名品名品名品名品名品名品名</div></td>
+                            <td>123132.00</td>
+                            <td>100</td>
+                            <td>31231312.00</td>
+                            <td>12345678</td>
+                            <td>12345678</td>
+                            <td>2140/12/12</td>
+                         </tr>
+                    </table>                
+                </div>
+                <!--表单结束-->
+                <div class="h-auto bill-list-save pad5">
+                	<span class="f-l">
+                    	<i>备注：</i><label>备注备注备注备注备注备注备注备注备注</label>
+                    </span>
+                </div>
+            </div>
+			<!--处方单结束-->
+            
+            <!--处方单开始-->
+            <div class="h-auto mar-t10 w958-border">
+            	<div class="bill-list-title">
+                	<a href="javascript:;" class="f-l open" title="点击展开"></a>
+                    <span class="f-l"><i>诊疗单号：</i><em>123456789</em></span>
+                    <span class="f-l"><i>开单日期：</i><em>2013/12/13</em></span>
+                    <span class="f-l"><i>应缴费用：</i><em>10000.00</em></span>
+                    <span class="f-l"><i>缴费状态：</i><em class="red-font">未交费</em></span>
+                </div>
+            	<!--表单开始-->
+            	<div class="h-auto pad5" style="display:none;">                	
+                    <table cellpadding="0" cellspacing="1" class="table-list">
+                        <thead>
+                            <tr>
+                                <td width="29%">品名</td>
+                                <td width="10%">单价</td>
+                                <td width="10%">数量</td>
+                                <td width="12%">总金额</td>
+                                <td width="13%">用法</td>
+                                <td width="13%">用药频率</td>
+                                <td width="13%">用量</td>                                
+                          </tr>
+                        </thead>
+                        <tr class="tr-hover">
+                            <td><div class="white-space">品名品名品名品名品名品名品名品名品名品名品名品名</div></td>
+                            <td>123132.00</td>
+                            <td>100</td>
+                            <td>31231312.00</td>
+                            <td>12345678</td>
+                            <td>12345678</td>
+                            <td>2140/12/12</td>
+                         </tr>
+                         <tr class="tr-hover">
+                            <td><div class="white-space">品名品名品名品名品名品名品名品名品名品名品名品名</div></td>
+                            <td>123132.00</td>
+                            <td>100</td>
+                            <td>31231312.00</td>
+                            <td>12345678</td>
+                            <td>12345678</td>
+                            <td>2140/12/12</td>
+                         </tr>
+                    </table>                
+                </div>
+                <!--表单结束-->
+                <div class="h-auto bill-list-save pad5" style="display:none;">
+                	<span class="f-l">
+                    	<i>备注：</i><label>备注备注备注备注备注备注备注备注备注</label>
+                    </span>
+                </div>
+            </div>
+			<!--处方单结束-->
+            <!--分页开始-->
+                <div class="page">
+                     <span>共<i>120条/10页</i></span><span><a href="javascript:;" class="now">1</a></span><span><a href="javascript:;">2</a></span><span><a href="javascript:;">3</a></span><span>...</span><span><a href="javascript:;">10</a></span><span><a href="javascript:;">下一页</a></span>
+                </div>
+               <!--分页结束-->
+            
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

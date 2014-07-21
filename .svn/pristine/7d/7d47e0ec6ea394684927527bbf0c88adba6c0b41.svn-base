@@ -1,0 +1,61 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="adjuvant-therapy" />
+    <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 patientList-record">
+        	<h2 class="h-auto"><i class="f-l">女性诊断信息表</i></h2>
+            <div class="mar-t10 div32">
+            	<span><i>病人姓名：</i><em>詹姆斯</em></span><span><i>年龄：</i><em>28</em></span><span><i>性别：</i><em>女</em></span>
+            </div>
+            <!--填写信息开始-->
+            <form id="form-patient-info">
+            	<ul class="h-auto three-list" style="padding-bottom:0;">                    
+                    <li><i>治疗方案：</i><label><select name="" id="">
+                        <option>治疗方案1</option>
+                        <option>治疗方案2</option></select>
+                        </label>
+                    </li>
+                    <li><i>附件：</i>
+                    <label><input type="hidden" id="swf" value="images/uploadify.swf"/>
+                        <input type="hidden" id="file-url" name="fildUrl" value="weewew" />
+                        <input type="file" style="width:460px;" name="report-file" id="file_upload" data-action="js/mock-data/upload-report-file.json"/>
+                    </label></li>
+                    <li class="textarea-li" style="padding-bottom:0;"><i>备注：</i><label><textarea name="" cols="" rows="" maxlength="500" style="height:100px;"></textarea></label></li>
+                </ul>
+            </form>
+                <!--填写信息结束-->
+            <input type="hidden" id="templateId" value="1">
+            <input type="hidden" id="templateName" value="不知道">
+            <input type="hidden" id="consultId" value="1">
+            <input type="hidden" id="disease-item" data-action="js/mock-data/include-add-disease.json">
+            <!--悬浮导航开始-->
+            <div class="problem-item">
+            <div class="fixed-nav">
+                <!-- <a href="#basic" class="now navigator">基本问题</a>
+                <a href="#detail" class="navigator">详细问题</a>
+                <a href="#other" class="navigator">其他问题</a>
+                <a href="javascript:;" class="last-no return-top" title="返回顶部"></a> -->
+            </div>
+            <!--悬浮导航结束-->
+            <!--医疗记录开始-->
+            
+            <!--表单结束-->
+            <!--底部按钮开始-->
+            </div>
+            <div class="text-r mar-t10 list-bottom-div mar-b20">
+                <a href="javascript:;" data-href="辅助治疗-患者列表-疗程记录-医疗记录.shtml" data-action="js/mock-data/include-data-example.json" id="saveDiagnose" class="green-but">保存</a>&nbsp;<a href="javascript:history.go(-1);" class="black-but">返回</a>
+            </div> 
+            <!--底部按钮结束-->
+        </div>
+    <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

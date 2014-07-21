@@ -1,0 +1,129 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="adjuvant-therapy" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 patientList-medicines">
+        	<h2 class="h-auto"><i class="f-l">疗程记录</i></h2>
+            <input type="hidden" class="addTemplate">
+            <!--表单开始-->
+            <div class="h-auto mar-t20">
+            	<!--左侧菜单开始-->
+                <!--#include file="include-static-left.php"-->
+                <!--左侧菜单结束-->
+                <!--右边信息开始-->
+                <div class="h-auto f-r help-doctor-r">
+                    <!--中部模板开始-->
+                    <!--#include file="include-static-middle.php"-->
+                    <!--中部模板结束-->
+                    <div class="h-auto add-lcfa">
+                    	<p class="f-l">
+                        	<span>疗程方案：
+                            <label><select name="" id="choose_scheme" data-action="js/mock-data/include-data-example.json">
+                            <option value="0">请选择疗程方案</option>
+                            <option value="1">疗程方案一</option>
+                            </select></label></span>
+                            <span>疗程次数：1</span>
+                        </p>
+                        <a href="javascript:;" id="chooseTemplate" data-href="choose-template-medicines.php" class="green-but f-r">选择治疗计划模板</a><a href="javascript:;" id="addMedicines" data-href="include-add-medicines.php" class="yellow-but f-r">新增药物</a>                        
+                    </div>
+                    <!--bottom表单开始-->
+                    <div class="h-auto mar-t10 mar-b10">
+                        <table cellpadding="0" cellspacing="1" class="table-list add-lcfa-tab">
+                            <thead>
+                                <tr>
+                                    <td width="7%">选择</td>
+                                  	<td width="11%">日期</td>
+                                  	<td width="7%">处理天</td>
+                                  	<td width="13%">药物名称</td>
+                                    <td width="7%">单位</td>
+                                    <td width="10%">用药次数</td>
+                                    <td width="10%">单次剂量</td>
+                                    <td width="10%">总量</td>
+                                  	<td width="7%">状态</td>
+                                  	<td width="18%">操作</td>
+                              </tr>
+                            </thead>
+                            <tr class="tr-hover">
+                                <td><input name="" type="checkbox" value=""></td>                                
+                                <td>2012/12/13</td>
+                                <td>99</td>
+                                <td><div class="white-space">药物名称药物名称药物名称</div></td>
+                                <td>ml</td>
+                                <td>计划</td>
+                                <td></td>
+                                <td></td>
+                                <td>好</td>
+                                <td><a href="javascript:;" data-href="include-add-medicines.php" class="green-but edit" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                             </tr>
+                             <tr class="tr-hover">
+                                <td><input name="" type="checkbox" value=""></td>                                
+                                <td>2012/12/13</td>
+                                <td>99</td>
+                                <td></td>
+                                <td>ml</td>
+                                <td></td>
+                                <td></td> 
+                                <td></td>                                                              
+                                <td></td>
+                                <td><a href="javascript:;" data-href="include-add-medicines.php" class="green-but edit" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                             </tr>
+                             <tr class="tr-hover">
+                                <td><input name="" type="checkbox" value=""></td>                                
+                                <td>2012/12/13</td>
+                                <td>99</td>
+                                <td></td>
+                                <td>ml</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>                                
+                                <td></td>
+                                <td><a href="javascript:;" data-href="include-add-medicines.php" class="green-but edit" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                             </tr>
+                             <tr class="tr-hover">
+                                <td><input name="" type="checkbox" value=""></td>                                
+                                <td>2012/12/13</td>
+                                <td>99</td>
+                                <td></td>
+                                <td>ml</td>                               
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><a href="javascript:;" data-href="include-add-medicines.php" class="green-but edit" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                             </tr>
+                             <tr class="tr-hover">
+                                <td><input name="" type="checkbox" value=""></td>                                
+                                <td>2012/12/13</td>
+                                <td>99</td>
+                                <td></td>
+                                <td>ml</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>                                
+                                <td></td>
+                                <td><a href="javascript:;" data-href="include-add-medicines.php" class="green-but edit" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                             </tr>
+                             <tr>
+                                <td><input name="" id="checkAll" type="checkbox" value="">&nbsp;全选</td>
+                                <td colspan="9" class="text-l"><a href="javascript:;" id="confirm_project" class="green-but w80" data-action="js/mock-data/include-data-example.json">确认项目</a>&nbsp;<a href="javascript:;" id="clinic_bill" data-action="js/mock-data/include-data-example.json" data-href="门诊开单-开单列表.shtml" class="yellow-but w80">门诊开单</a></td>
+                             </tr>
+                        </table>
+                    </div>
+                    <!--bottom表单结束-->                   
+                </div>
+                <!--右边信息结束-->
+            </div>
+            <!--表单结束-->
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

@@ -1,0 +1,107 @@
+{
+    "status": {
+    "code": 0,
+    "msg": "用户名不存在!"
+    },
+    "ds": [
+        {
+            "charCode": "25300",
+            "createTime": "2013-12-12 10:25:24",
+            "label": 0,
+            "orgId": 1,
+            "orgName": "杭州空腔",
+            "preOrgId": 0,
+            "totalNum": 0
+        },
+        {
+            "charCode": "12300",
+            "createTime": "2013-12-12 10:25:24",
+            "label": 0,
+            "orgId": 2,
+            "orgName": "杭州空腔",
+            "preOrgId": 0,
+            "totalNum": 0
+        },
+        {
+            "charCode": "45300",
+            "createTime": "2013-12-12 10:25:24",
+            "label": 0,
+            "orgId": 3,
+            "orgName": "杭州空腔",
+            "preOrgId": 0,
+            "totalNum": 0
+        },
+        {
+            "charCode": "67300",
+            "createTime": "2013-12-12 10:25:24",
+            "label": 0,
+            "orgId": 4,
+            "orgName": "杭州空腔",
+            "preOrgId": 0,
+            "totalNum": 0
+        },
+        {
+            "charCode": "1195",
+            "createTime": "2013-12-12 10:09:09",
+            "label": 1,
+            "orgId": 5,
+            "orgName": "二级节点",
+            "preOrgId": 1,
+            "totalNum": 0
+        },
+        {
+            "charCode": "1195",
+            "createTime": "2013-12-12 10:09:09",
+            "label": 1,
+            "orgId": 6,
+            "orgName": "二级节点",
+            "preOrgId": 1,
+            "totalNum": 0
+        },
+        {
+            "charCode": "1195",
+            "createTime": "2013-12-12 10:09:09",
+            "label": 1,
+            "orgId": 7,
+            "orgName": "二级节点",
+            "preOrgId": 2,
+            "totalNum": 0
+        },
+        {
+            "charCode": "1195",
+            "createTime": "2013-12-12 10:09:09",
+            "label": 1,
+            "orgId": 8,
+            "orgName": "二级节点",
+            "preOrgId": 2,
+            "totalNum": 0
+        },
+        {
+            "charCode": "1195",
+            "createTime": "2013-12-12 10:09:09",
+            "label": 2,
+            "orgId": 7,
+            "orgName": "三级节点",
+            "preOrgId": 5,
+            "totalNum": 0
+        },
+        {
+            "charCode": "1195",
+            "createTime": "2013-12-12 10:09:09",
+            "label": 2,
+            "orgId": 6,
+            "orgName": "三级节点",
+            "preOrgId": 5,
+            "totalNum": 0
+        },
+        {
+            "charCode": "1195",
+            "createTime": "2013-12-12 10:09:09",
+            "label": 2,
+            "orgId": 6,
+            "orgName": "三级节点",
+            "preOrgId": 6,
+            "totalNum": 0
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="register" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20">
+            <form action="" id="form_register">
+        	<h2>登记<cite>（带&nbsp;<b>*</b>&nbsp;为必填项）</cite></h2>
+            <div class="error-text">错误提示</div>
+            <div class="h-auto">
+            	<ul class="h-auto three-list">
+                	<li><i><b>*</b>病人姓名：</i><label><input id="patientName" name="" type="text" class="validate" maxlength="5"></label></li>
+                    <li><i><b>*</b>证件类型：</i><label><select name="" id="credentialsType"><option>居民身份证</option></select></label></li>
+                    <li><i><b>*</b>证件号码：</i><label><input name="" id="credentialsNum" type="text" class="validate" data-href="js/mock-data/add-patient-cardNum.json"></label></li>
+                    <li><i>手机号码：</i><label><input name="" type="text" id="phone" maxlength="11"></label></li>
+                    <li><i><b>*</b>出生日期：</i><label><input name="" type="text" class="validate Wdate" id="birthday"></label></li>
+                    <li><i>年龄：</i><label><input name="" type="text" id="patient-age"></label></li>
+                    <li><i>民族：</i><label><input name="" type="text"></label></li>
+                    <li><i>过敏史：</i><label><select name=""><option>有</option></select></label></li>
+                    <li><i>病人性质：</i><label><select name=""><option>自费</option></select></label></li>
+                    <li><i><b>*</b>面诊科室：</i><label><select name="" id="department" class="validate" data-href="js/mock-data/add-department-doctor.json"><option value="1">外科</option><option value="2">杭州空腔</option></select></label></li>
+                    <li><i><b>*</b>面诊医生：</i><label><input type="hidden" name="doctorName" id="doctorName"><select name="" id="doctor" class="validate"></select></label></li>
+                    <li><i><b>*</b>病人来源：</i><label><select name="" id="source" class="validate"><option>电视广告</option></select></label></li>
+                </ul>
+                <div class="text-r mar-t10 list-bottom-div">
+                	<a href="javascript:;" class="green-but" id="saveRegister" data-action="js/mock-data/add-patient-register.json">保存登记</a><br/><a href="登记注册-登记-列表.shtml">进入登记列表</a>
+                </div>
+            </div>
+        </form>
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

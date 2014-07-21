@@ -1,0 +1,16 @@
+{
+	"status": {
+		"code": 0,
+		"msg": "something error"
+	},
+	"ds": [
+		{
+			"name": "张三",
+			"cardNum": 123456789123456789
+		},
+		{
+			"name": "李四",
+			"cardNum": 987654321123456789
+		}
+	]
+}

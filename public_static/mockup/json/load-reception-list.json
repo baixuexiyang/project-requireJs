@@ -1,0 +1,25 @@
+{
+  "status": {
+    "code": "0",
+    "msg": "something error"
+  },
+  "ds": [
+  	{
+  		"receptionId": "1",
+		"receptionTime": "12:30",
+		"patientName": "张三",
+		"patientSex": "0",
+		"patientAge": "26",
+		"patientMobi": "15888833755"
+  	},
+  	{
+  		"receptionId": "2",
+		"receptionTime": "12:30",
+		"patientName": "李四",
+		"patientSex": "1",
+		"patientAge": "26",
+		"patientMobi": "15888833755"
+  	}
+  ]
+
+}

@@ -1,0 +1,48 @@
+{
+	"status": {
+		"code": 0,
+		"msg": "查询成功"
+	},
+	"ds": {
+		"receiptNo": "10000000",
+		"receiptType": 0,
+		"oldreceiptNo": "111111",
+		"list": [{
+			"consulttime": "2014-04-21",
+			"doctorName": "杨阳",
+			"feeItem": "",
+			"itemCode": "",
+			"itemName": "B超",
+			"num": 1,
+			"price": 100,
+			"receiptNo": "10000000",
+			"receiptType": 0,
+			"totalamt": 100,
+			"unit": "支"
+		}, {
+			"consulttime": "2014-04-21",
+			"doctorName": "杨阳",
+			"feeItem": "",
+			"itemCode": "",
+			"itemName": "麻醉",
+			"num": 1,
+			"price": 100,
+			"receiptNo": "10000000",
+			"receiptType": 0,
+			"totalamt": 100,
+			"unit": "瓶"
+		}, {
+			"consulttime": "2014-04-21",
+			"doctorName": "杨阳",
+			"feeItem": "",
+			"itemCode": "",
+			"itemName": "手术钳",
+			"num": 1,
+			"price": 30,
+			"receiptNo": "10000000",
+			"receiptType": 0,
+			"totalamt": 30,
+			"unit": "支"
+		}]
+	}
+}

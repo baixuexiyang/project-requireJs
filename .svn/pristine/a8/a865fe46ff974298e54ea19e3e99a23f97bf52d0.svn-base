@@ -1,0 +1,98 @@
+define([
+	'jquery',
+	'app/common',
+	'app/util',
+	'jqtmpl',
+	'pkg/DatePicker/app',
+	'pkg/DateFormat/app',
+	'json'
+], function($, common) {
+
+	"use strict";
+
+	/****************医生面诊*****************/
+
+	var Diagnose = {
+		init: function() {
+
+
+			var startDate = $('#start-date');
+			var endDate = $('#end-date');
+			if (startDate.length > 0) {
+				if (!startDate.val()) {
+					var d = (new Date()).setDate(1);
+					startDate.val($.formatDate(new Date(d), 'yyyy-MM-dd'));
+				}
+				if (endDate.length > 0) {
+					startDate.datePicker({
+						minDate: '#F{$dp.$D(\'end-date\',{M:-2, d:0})}',
+						maxDate: '#F{$dp.$D(\'end-date\')}',
+						onpicked: function() {
+							if ($('#end-date').val() === "")
+								$dp.$('end-date').focus();
+						},
+						dateFmt: 'yyyy-MM-dd'
+					});
+				} else {
+					startDate.datePicker({
+						dateFmt: 'yyyy-MM-dd'
+					});
+				}
+			}
+
+			if (endDate.length > 0) {
+				if (!endDate.val()) {
+					endDate.val($.formatDate(new Date(), 'yyyy-MM-dd'));
+				}
+				if (startDate.length > 0) {
+					endDate.datePicker({
+						minDate: '#F{$dp.$D(\'start-date\')}',
+						maxDate: '#F{$dp.$D(\'start-date\',{M:2, d:0})}',
+						onpicked: function() {
+							if ($('#start-date').val() === "")
+								$dp.$('start-date').focus();
+						},
+						dateFmt: 'yyyy-MM-dd'
+					});
+				} else {
+					endDate.datePicker({
+						dateFmt: 'yyyy-MM-dd'
+					});
+				}
+			}
+
+			// 结束面诊
+			$('#end-diagnose').click(function() {
+				var api = $(this).attr('data-action');
+				var patientId = $('#patientId').val();
+
+				$.ajax(common.ajaxCall({
+					url: api,
+					type: 'post',
+					data: {
+						patientId: patientId
+					},
+					success: function() {
+						location.href = $("#end-diagnose").attr("data-href");
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+
+			$(document).delegate('.delete-item', 'click', function() {
+				$(this).dialogConfirm();
+			});
+		}
+	};
+
+	/**********入口************/
+	var Main = {
+		init: function() {
+			Diagnose.init();
+		}
+	};
+
+	Main.init();
+});

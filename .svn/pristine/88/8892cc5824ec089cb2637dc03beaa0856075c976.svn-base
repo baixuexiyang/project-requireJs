@@ -1,0 +1,73 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="admin" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 MedicalTemplate">
+        	<h2 class="h-auto"><i class="f-l">编辑医疗模板</i></h2>
+            <!--表单开始-->
+            <div class="h-auto mar-t20">
+            	<!--左侧菜单开始-->
+                <div class="f-l l-nav text-c">
+                	<a href="基本配置-编辑医疗模板-模板名称.shtml">模板名称</a>
+                    <a href="基本配置-编辑医疗模板.shtml" class="now">设置问题类别</a>
+                    <a href="基本配置-编辑医疗模板-添加问题.shtml" class="last-no">添加问题</a>
+                </div>
+                <!--左侧菜单结束-->
+            	<!--左侧开始-->
+            	<div class="f-l organize-l">
+                	<p class="text-c">问题类别名称</p>
+                    <dl class="organize-tree">
+                    	<dt><span class="tree-more"><a href="#">一级目录</a></span></dt>
+                        <dd><span><a href="#">二级目录</a></span></dd>
+                        <dd>
+                        	<span class="tree-more"><a href="#">二级目录</a></span>
+                        	<cite><a href="#" class="now">三级目录</a></cite>
+                            <cite><a href="#">三级目录</a></cite>
+                            <cite><a href="#">三级目录</a></cite>
+                        </dd>
+                        <dd><span><a href="#">二级目录</a></span></dd>
+                        <dt><span><a href="#">一级目录</a></span></dt>
+                    </dl>
+                </div>
+                <!--左侧结束-->
+                <!--中间开始-->
+                <div class="f-l organize-c">
+                	<a href="#" class="green-but">添加子类别</a>
+                    <a href="#" class="red-but">删除类别</a>
+                </div>
+                <!--中间结束-->
+                <!--右侧开始-->
+                <div class="f-l organize-r">
+                	<ul class="three-list h-auto">
+                    	<li><i><b>*</b>问题类别：</i><label><input name="" type="text"></label></li>                        
+                        <li><i>上级类别：</i><label><select name=""><option>
+                        一级目录
+                        </option>
+                        <option>二级目录</option>
+                        </select></label></li>
+                        <li><i><b>*</b>类别排序：</i><label><select name=""><option>
+                        1
+                        </option>
+                        <option>2</option>
+                        </select></label></li>
+                        <li class="organize-r-error"><span class="error-text">错误提示</span></li>
+                        <li><input name="" type="submit" class="green-but" value="保存"></li>
+                    </ul>
+                </div>
+                <!--右侧结束-->
+                <div class="f-l text-c add-hop-b-but"><a href="基本配置-医疗模板配置.shtml" class="black-but">返回列表</a></div>
+            </div>
+            <!--表单结束-->
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

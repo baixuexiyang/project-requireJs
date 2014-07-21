@@ -1,0 +1,21 @@
+<?php include("include-dialog-head.php"); ?>
+<input type="hidden" id="dispatcher" value="clinic-charge">
+<div class="pop-box h-auto bg-ff">
+	<ul class="three-list">
+    	<li class="text-c red-font">费用合计：1234567.00</li>
+        <li>
+        	<div class="hr-div">
+                <span>付款方式</span>
+                <hr/>
+        	</div>
+        </li>
+    	<li><i>现金：</i><label><input name="" type="text"></label></li>
+        <li><i>刷卡：</i><label><input name="" type="text"></label></li>
+        <li><i>医保：</i><label><input name="" type="text"></label></li>
+        <li><i>找零：</i><label>123143242.00</label></li>        
+        <li class="error-out"><span class="error-text">123123</span></li>
+        
+    </ul>
+    <div class="text-c mar-b20"><a href="javascript:;" id="Charge" class="green-but">确定</a>&nbsp;<a href="javascript:;" class="black-but" id="cancel">取消</a></div>
+</div>
+<?php include("include-dialog-foot.php"); ?>

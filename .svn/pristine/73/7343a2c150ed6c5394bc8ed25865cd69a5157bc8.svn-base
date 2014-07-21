@@ -1,0 +1,81 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="admin" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 UserManagement">
+            <form action="" method="" id="form-edit-patient">
+        	<h2>编辑治疗模板<cite>（带&nbsp;<b>*</b>&nbsp;为必填项）</cite></h2>
+            <div class="error-text" style="display:none;"></div>
+        	<div class="h-auto add-user">
+                <!--填写信息开始-->
+            	<ul class="h-auto three-list">                    
+                    <li><i><b>*</b>模板名称：</i><label><input name="" type="text" id=""></label></li>
+                    <li><i><b>*</b>处理天：</i><label><input name="" type="text" id="" style="width:70px;"></label>&nbsp;-&nbsp;<label><input name="" type="text" id="" style="width:70px;"></label></li>
+                    <li><i><b>*</b>阶段：</i><label><select name="" id="">
+                        <option>阶段1</option>
+                        <option>阶段2</option></select>
+                        </label>
+                    </li>
+                    <li class="textarea-li"><i>备注：</i><label><textarea name="" cols="" rows="" maxlength="500"></textarea></label></li>
+                </ul>
+                <!--填写信息结束-->
+                <!--列表信息开始-->
+                <div class="hr-div mar-t10">
+                    <span>计划明细</span>
+                    <a href="#" class="yellow-but f-r" data-href="">新增计划</a>
+                    <hr/>
+            	</div>
+            	<!--表单开始-->
+                <div class="h-auto mar-t10">
+                    <table cellpadding="0" cellspacing="1" class="table-list">
+                        <thead>
+                            <tr>
+                            	<td width="8%">处理天</td>
+                                <td width="8%">时间</td>
+                                <td width="11%">治疗类型</td>
+                                <td width="10%">治疗项目</td>
+                                <td width="10%">药剂类型</td>
+                                <td width="9%">用药方法</td>
+                                <td width="8%">用药次数</td>
+                                <td width="8%">单次剂量</td>
+                                <td width="8%">总剂量</td>
+                                <td width="6%">单位</td>                            
+                                <td width="14%">操作</td>
+                          </tr>
+                        </thead>                    
+                        <tr class="tr-hover">
+                        	<td></td>
+                            <td>12:00</td>
+                            <td></td>
+                            <td>盒</td>
+                            <td>药剂类型A</td>
+                            <td>注射</td>
+                            <td>11</td>
+                            <td>500ml</td>
+                            <td>5500ml</td>
+                            <td>ml</td>
+                            <td><a href="#" class="green-but" title="编辑">编辑</a><a href="#" class="red-but delete-item" title="删除" data-href="js/mock-data/include-data-example.json">删除</a></td>
+                         </tr>
+                    </table>                    
+                </div>
+                <!--表单结束-->
+
+                <div class="text-r mar-t10 list-bottom-div mar-b20">
+                	<a href="javascript:;" class="green-but">保存</a>&nbsp;<a href="#" class="black-but">取消</a>
+                </div>
+            </div>
+        </form>
+        </div>
+        <!--中部结束-->
+</div>
+<div id="dialogContent" style="display:none;"></div>
+<!--#include file="include-foot.php"-->

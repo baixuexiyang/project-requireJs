@@ -1,0 +1,71 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="doctor-diagnose" />
+    <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20">
+        	<h2>面诊列表</h2>
+            <!--搜索开始-->
+            <form method="" id="form-serch-diagnose" action="#">
+                <div class=" h-auto list-seach">
+                	<label class="f-l"><input name="" type="checkbox" ><i>未面诊：</i><em><cite class="red-font">5</cite>人</em></label><label class="f-l"><input name="" type="checkbox"><i>已面诊：</i><em><cite class="red-font">5</cite>人</em></label><label class="f-l"><i>患者姓名：</i><input name="" type="text"></label>
+               	  <input type="submit" class="green-but f-l" value="搜索"/><a href="医生面诊-列表-历史面诊.shtml" class="f-r yellow-but2 w80">历史面诊</a><a href="#" class="f-r blue-but w60">叫号</a>
+                </div>
+            </form>
+            <!--搜索结束-->
+            <!--表单开始-->
+            <div class="h-auto mar-t20">
+            	<table cellpadding="0" cellspacing="1" class="table-list">
+                	<thead>
+                    	<tr>
+                        	<td width="11%">序号</td>
+                        	<td width="14%">姓名</td>                            
+                            <td width="12%">年龄</td>
+                            <td width="12%">初/复诊</td>
+                            <td width="13%">挂号时间</td>
+							<td width="13%">面诊医生</td>
+                            <td width="13%">面诊状态</td>
+                            <td width="12%">操作</td>
+                        </tr>
+                    </thead>
+                    <tr class="tr-hover">
+                    	<td>1234</td>
+                        <td>任贤齐</td>
+                        <td>18</td>
+                        <td class="blue-font">初诊</td>
+                        <td>2013/12/17</td>
+                        <td>神医扁鹊</td>
+                        <td class="red-font">未面诊</td>
+                        <td><a href="医生面诊-面诊.shtml" class="blue-but" title="面诊">面诊</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                    	<td>1234</td>
+                        <td>任贤齐</td>
+                        <td>18</td>
+                        <td class="green-font">复诊</td>
+                        <td>2013/12/17</td>
+                        <td>神医扁鹊</td>
+                        <td>已面诊</td>
+                        <td><a href="医生面诊-面诊.shtml" class="green-but" title="编辑">编辑</a></td>
+                     </tr>
+                </table>
+            <!--分页开始-->
+                <div class="page">
+                     <span>共<i>120条/10页</i></span><span><a href="javascript:;" class="now">1</a></span><span><a href="javascript:;">2</a></span><span><a href="javascript:;">3</a></span><span>...</span><span><a href="javascript:;">10</a></span><span><a href="javascript:;">下一页</a></span>
+                </div>
+               <!--分页结束-->   
+                
+            </div>
+            <!--表单结束-->
+        </div>
+    <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

@@ -1,0 +1,27 @@
+<?php include("include-dialog-head.php"); ?>
+<input type="hidden" id="dispatcher" value="adjuvant-therapy">
+<div class="pop-box h-auto bg-ff AppointmentList">
+    <form id="include-edit-appointment">
+	<ul class="three-list">
+    	<li><i>医疗号：</i><label>1234567890</label></li>
+        <li><i>患者姓名：</i><label>诺尔波斯</label></li>
+    	<li><i><b>*</b>手机号码：</i><label><input name="" type="text" id="phone" class="validate"></label></li>
+        <li><i><b>*</b>治疗科室：</i><label><select name="" class="validate" id="departments" data-href="js/mock-data/add-department-doctor.json"><option value="0">
+        	请选择
+        </option><option value="1">杭州空腔</option><option value="2">外科</option></select></label></li>
+        <li><i><b>*</b>主治医生：</i><label><select name="" class="validate" id="doctor"><option value="0">
+            请选择
+        </option></select></label></li>
+        <li><i><b>*</b>预约项目：</i><label><select name="" class="validate" id="project"><option value="0">
+            请选择
+        </option><option>刘德华</option></select></label></li>
+        <li><i><b>*</b>选址日期：</i><label><input name="" type="text" id="date" class="Wdate validate"></label></li>
+        <li><i><b>*</b>开始时间：</i><label><input name="" type="text" id="start-hours" class="w60 validate">：<input name="" type="text" id="start-minutes" class="w60 validate"></label></li>
+        <li><i>结束时间：</i><label><input name="" type="text" class="w60">：<input name="" type="text" class="w60"></label></li>
+        <li class="h65"><i>备注：</i><label><textarea name="" cols="" rows="">12323</textarea></label></li>
+        <li class="error-out"><span class="error-text" style="display:none;"></span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="javascript:;" data-action="js/mock-data/include-data-example.json" class="green-but" id="saveAppointment">保存</a>&nbsp;<a href="javascript:;" class="black-but" id="cancel">取消</a></div>
+</form>
+</div>
+<?php include("include-dialog-foot.php"); ?>

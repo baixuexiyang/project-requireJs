@@ -1,0 +1,16 @@
+{
+  "status": {
+    "code": "0",
+    "msg": "something error"
+  },
+  "ds": [
+    {
+      "id": 1,
+      "name": "会员卡"
+    },
+    {
+      "id": 12,
+      "name": "内部折扣"
+    }
+  ]
+}

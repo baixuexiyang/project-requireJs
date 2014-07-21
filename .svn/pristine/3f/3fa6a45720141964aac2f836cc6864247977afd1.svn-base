@@ -1,0 +1,57 @@
+<thead>
+    <tr>
+        <td width="12%">项目编号</td>
+      <td width="17%">项目名称</td>
+      <td width="8%">单位</td>
+      <td width="8%">单价</td>
+      <td width="8%">数量</td>
+      <td width="12%">总金额</td>
+      <td width="12%">费用类型</td>
+      <td width="12%">接诊医生</td>
+      <td width="11%">接诊时间</td>
+  </tr>
+</thead>
+<tr class="tr-hover">
+	<td>1234567890</td>
+    <td>格尔勒巴拉子</td>
+    <td>女</td>
+    <td>99</td>                        
+    <td>12345</td>
+    <td>5</td>
+    <td>欧阳芬芬</td>
+    <td>欧阳芬芬</td>
+    <td>2012-12-12</td>
+ </tr>
+ <tr class="tr-hover">
+    <td>1234567890</td>
+    <td>格尔勒巴拉子</td>
+    <td>女</td>
+    <td>99</td>                        
+    <td>12345</td>
+    <td>5</td>
+    <td>欧阳芬芬</td>
+    <td>欧阳芬芬</td>
+    <td>2012-12-12</td>
+ </tr>
+ <tr class="tr-hover">
+    <td>1234567890</td>
+    <td>格尔勒巴拉子</td>
+    <td>女</td>
+    <td>99</td>                        
+    <td>12345</td>
+    <td>5</td>
+    <td>欧阳芬芬</td>
+    <td>欧阳芬芬</td>
+    <td>2012-12-12</td>
+ </tr>
+ <tr class="tr-hover">
+    <td>1234567890</td>
+    <td>格尔勒巴拉子</td>
+    <td>女</td>
+    <td>99</td>                        
+    <td>12345</td>
+    <td>5</td>
+    <td>欧阳芬芬</td>
+    <td>欧阳芬芬</td>
+    <td>2012-12-12</td>
+ </tr>

@@ -1,0 +1,15 @@
+<?php include("include-dialog-head.php"); ?>
+<input type="hidden" id="dispatcher" value="admin">
+<!--新增字典类别-->
+<div class="pop-box h-auto bg-ff Type">
+	<form method="" action="" id="add-Type">
+	<ul class="three-list">
+    	<li><i>类别名称：</i><label><input name="" type="text" id="typeName" maxlength="36" class="validate"></label></li>
+        <li><i>类别值：</i><label><input name="" type="text" id="typeValue" maxlength="36" class="validate"></label></li>
+        <li><i>是否使用：</i><label><input name="radio" type="radio" checked="checked" value="1">&nbsp;是&nbsp;&nbsp;<input name="radio" type="radio" value="0">&nbsp;否</label></li>
+        <li class="error-out"><span class="error-text" style="display:none"></span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="javascript:;" class="green-but" id="determine" data-action="js/mock-data/admin-add-type.json">保存</a>&nbsp;<a href="javascript:;" class="black-but" id="cancel">取消</a></div>
+</form>
+</div>
+<?php include("include-dialog-foot.php"); ?>

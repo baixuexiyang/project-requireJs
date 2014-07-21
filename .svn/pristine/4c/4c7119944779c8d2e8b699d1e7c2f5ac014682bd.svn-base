@@ -1,0 +1,32 @@
+{
+	"status": {
+		"code": 0,
+		"msg": ""
+	},
+	"ds": [{
+		"pk_tuiid": 2,
+		"ui_common": "企业后台",
+		"ui_type": "C",
+		"has_role": 1
+	}, {
+		"pk_tuiid": 3,
+		"ui_common": "企业后台",
+		"ui_type": "C",
+		"has_role": 1
+	}, {
+		"pk_tuiid": 4,
+		"ui_common": "企业后台",
+		"ui_type": "C",
+		"has_role": 1
+	}, {
+		"pk_tuiid": 5,
+		"ui_common": "企业后台",
+		"ui_type": "C",
+		"has_role": 1
+	}, {
+		"pk_tuiid": 6,
+		"ui_common": "企业后台",
+		"ui_type": "C",
+		"has_role": 1
+	}]
+}

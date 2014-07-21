@@ -1,0 +1,107 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="doctor-diagnose" />
+    <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20">
+        	<h2 class="h-auto"><i class="f-l">女性诊断信息表</i></h2>
+            <div class="mar-t10 div32">
+            	<span><i>病人姓名：</i><em>詹姆斯</em></span><span><i>年龄：</i><em>28</em></span><span><i>性别：</i><em>女</em></span>
+            </div>
+            <!--医疗记录开始-->
+            <div class="hr-div mar-t10">
+            	<span>病史</span>
+            	<hr/>
+            </div>
+            <!--表单开始-->
+            <!--悬浮导航开始-->
+            <div class="fixed-nav">
+            	<a href="#basic" class="now navigator">基本问题</a>
+                <a href="#detail" class="navigator">详细问题</a>
+                <a href="#other" class="navigator">其他问题</a>
+                <a href="javascript:;" class="last-no return-top" title="返回顶部"></a>
+            </div>
+            <!--悬浮导航结束-->
+            <div class="h-auto mar-t10" id="disease-item" data-action="js/mock-data/include-add-disease.json">
+            	<h3 name="basic"><a href="javascript:;" id="basic" name="basic" class="green-font">基本问题：</a></h3>
+                <ul class="question-list mar-t10" data-cfg='{"templateId":1,"catlogName":"基本问题","catlogId":1,"problemId":1,"problemDesc":"开始怀孕多长时间？","answerCatlog":"b","chooseValue":"dd;cc;ss;gd;fgh;fdhg;wrw","defaultValue":"ss","orderNum":2,"label":0}'>
+                	<li>1.开始怀孕多长时间？</li>
+                    <li><label class="f-l"><input class="Wdate" id="" name="" value="" style="" type="text"></label></li>
+                </ul>
+                <ul class="question-list mar-t10" data-cfg='{"templateId":1,"catlogName":"基本问题","catlogId":1,"problemId":1,"problemDesc":"开始怀孕多长时间？","answerCatlog":"b","chooseValue":"dd;cc;ss;gd;fgh;fdhg;wrw","defaultValue":"ss","orderNum":2,"label":0}'>
+                	<li>2.开始怀孕多长时间？</li>
+                    <li class="h-auto"><label class="f-l"><select name="">
+                    <option>开始怀孕多长时间开始怀孕多长时间开始怀孕多长时间开始怀孕多长时间开始怀孕多长时间开始怀孕多长时间</option></select></label><a href="#" class="f-r green-but remark">添加备注</a></li>
+                    <li style="display:none"><textarea name="" cols="" rows="">12313</textarea></li>
+                </ul>
+                <ul class="question-list mar-t10" data-cfg='{"templateId":1,"catlogName":"基本问题","catlogId":1,"problemId":1,"problemDesc":"开始怀孕多长时间？","answerCatlog":"b","chooseValue":"dd;cc;ss;gd;fgh;fdhg;wrw","defaultValue":"ss","orderNum":2,"label":0}'>
+                	<li>3.是否开始怀孕多长时间？</li>
+                    <li><label class="f-l"><select name="">
+                    <option>是</option><option>否</option></select></label><a href="#" class="f-r green-but">添加备注</a></li>
+                    <li style="display:none"><textarea name="" cols="" rows="">12313</textarea></li>
+                </ul>
+                <ul class="question-list mar-t10" data-cfg='{"templateId":1,"catlogName":"基本问题","catlogId":1,"problemId":1,"problemDesc":"开始怀孕多长时间？","answerCatlog":"b","chooseValue":"dd;cc;ss;gd;fgh;fdhg;wrw","defaultValue":"ss","orderNum":2,"label":0}'>
+                    <li>1.开始怀孕多长时间？</li>
+                    <li><textarea name="" cols="" rows="" class="numeral">12313</textarea></li>
+                </ul>
+                <h3 name="detail"><a href="javascript:;" id="detail" name="detail" class="green-font">详细问题：</a></h3>
+                <ul class="question-list mar-t10" data-cfg='{"templateId":1,"catlogName":"基本问题","catlogId":1,"problemId":1,"problemDesc":"开始怀孕多长时间？","answerCatlog":"b","chooseValue":"dd;cc;ss;gd;fgh;fdhg;wrw","defaultValue":"ss","orderNum":2,"label":0}'>
+                    <li>1.开始怀孕多长时间？</li>
+                    <li><textarea name="" cols="" rows="">12313</textarea></li>
+                </ul>
+                <ul class="question-list mar-t10" data-cfg='{"templateId":1,"catlogName":"基本问题","catlogId":1,"problemId":1,"problemDesc":"开始怀孕多长时间？","answerCatlog":"b","chooseValue":"dd;cc;ss;gd;fgh;fdhg;wrw","defaultValue":"ss","orderNum":2,"label":0}'>
+                    <li>2.开始怀孕多长时间？</li>
+                    <li class="h-auto"><label class="f-l"><select name="">
+                    <option>开始怀孕多长时间开始怀孕多长时间开始怀孕多长时间开始怀孕多长时间开始怀孕多长时间开始怀孕多长时间</option></select></label><a href="#" class="f-r green-but">添加备注</a></li>
+                    <li><textarea name="" cols="" rows="">12313</textarea></li>
+                </ul>
+                <ul class="question-list mar-t10" data-cfg='{"templateId":1,"catlogName":"基本问题","catlogId":1,"problemId":1,"problemDesc":"开始怀孕多长时间？","answerCatlog":"b","chooseValue":"dd;cc;ss;gd;fgh;fdhg;wrw","defaultValue":"ss","orderNum":2,"label":0}'>
+                    <li>3.开始怀孕多长时间？</li>
+                    <li><label class="f-l"><select name="">
+                    <option>开始怀孕多长时间开始怀孕多长时间开始怀孕多长时间开始怀孕多长时间开始怀孕多长时间开始怀孕多长时间</option></select></label><a href="#" class="f-r green-but">取消备注</a></li>
+                    <li><textarea name="" cols="" rows="">12313</textarea></li>
+                </ul>
+                <ul class="question-list mar-t10" data-cfg='{"templateId":1,"catlogName":"基本问题","catlogId":1,"problemId":1,"problemDesc":"开始怀孕多长时间？","answerCatlog":"b","chooseValue":"dd;cc;ss;gd;fgh;fdhg;wrw","defaultValue":"ss","orderNum":2,"label":0}'>
+                    <li>1.开始怀孕多长时间？</li>
+                    <li><textarea name="" cols="" rows="">12313</textarea></li>
+                </ul>
+                <h3><a href="javascript:;" id="other" name="other" class="green-font">其他问题：</a></h3>
+                <ul class="question-list mar-t10" data-cfg='{"templateId":1,"catlogName":"基本问题","catlogId":1,"problemId":1,"problemDesc":"开始怀孕多长时间？","answerCatlog":"b","chooseValue":"dd;cc;ss;gd;fgh;fdhg;wrw","defaultValue":"ss","orderNum":2,"label":0}'>
+                    <li>1.开始怀孕多长时间？</li>
+                    <li><textarea name="" cols="" rows="">12313</textarea></li>
+                </ul>
+                <ul class="question-list mar-t10" data-cfg='{"templateId":1,"catlogName":"基本问题","catlogId":1,"problemId":1,"problemDesc":"开始怀孕多长时间？","answerCatlog":"b","chooseValue":"dd;cc;ss;gd;fgh;fdhg;wrw","defaultValue":"ss","orderNum":2,"label":0}'>
+                    <li>2.开始怀孕多长时间？</li>
+                    <li class="h-auto"><label class="f-l"><select name="">
+                    <option>开始怀孕多长时间开始怀孕多长时间开始怀孕多长时间开始怀孕多长时间开始怀孕多长时间开始怀孕多长时间</option></select></label><a href="#" class="f-r green-but">添加备注</a></li>
+                    <li><textarea name="" cols="" rows="">12313</textarea></li>
+                </ul>
+                <ul class="question-list mar-t10" data-cfg='{"templateId":1,"catlogName":"基本问题","catlogId":1,"problemId":1,"problemDesc":"开始怀孕多长时间？","answerCatlog":"b","chooseValue":"dd;cc;ss;gd;fgh;fdhg;wrw","defaultValue":"ss","orderNum":2,"label":0}'>
+                    <li>3.开始怀孕多长时间？</li>
+                    <li><label class="f-l"><select name="">
+                    <option>开始怀孕多长时间开始怀孕多长时间开始怀孕多长时间开始怀孕多长时间开始怀孕多长时间开始怀孕多长时间</option></select></label><a href="#" class="f-r green-but">取消备注</a></li>
+                    <li><textarea name="" cols="" rows="">12313</textarea></li>
+                </ul>
+                <ul class="question-list mar-t10" data-cfg='{"templateId":1,"catlogName":"基本问题","catlogId":1,"problemId":1,"problemDesc":"开始怀孕多长时间？","answerCatlog":"b","chooseValue":"dd;cc;ss;gd;fgh;fdhg;wrw","defaultValue":"ss","orderNum":2,"label":0}'>
+                    <li>1.开始怀孕多长时间？</li>
+                    <li><textarea name="" cols="" rows="">12313</textarea></li>
+                </ul>
+            </div>
+            <!--表单结束-->
+            <!--底部按钮开始-->
+            <div class="text-r mar-t10 list-bottom-div mar-b20">
+                <a href="javascript:;" data-href="医生面诊-面诊.shtml" data-action="js/mock-data/include-data-example.json" id="saveDiagnose" class="green-but">保存</a>&nbsp;<a href="javascript:history.go(-1);" class="black-but">返回</a>
+            </div> 
+            <!--底部按钮结束-->
+        </div>
+    <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

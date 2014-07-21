@@ -1,0 +1,88 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="adjuvant-therapy" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 patientList-assay">
+        	<h2 class="h-auto"><i class="f-l">疗程记录</i></h2>
+            <input type="hidden" class="addTemplate">
+            <!--表单开始-->
+            <div class="h-auto mar-t20">
+            	<!--左侧菜单开始-->
+                <!--#include file="include-static-left.php"-->
+                <!--左侧菜单结束-->
+                <!--右边信息开始-->
+                <div class="h-auto f-r help-doctor-r">
+                    <!--中部模板开始-->
+                    <!--#include file="include-static-middle.php"-->
+                    <!--中部模板结束-->
+                    <div class="h-auto add-lcfa">
+                    	<p class="f-l">
+                        	<span>疗程方案：
+                            <label><select name="" id="choose_scheme" data-action="js/mock-data/include-data-example.json">
+                            <option value="0">请选择疗程方案</option>
+                            <option value="1">疗程方案一</option>
+                            </select></label></span>
+                            <span>疗程次数：1</span>
+                        </p>                                                
+                    </div>
+                    <!--填写开始-->                    
+                    <div class="h-auto f-r help-doctor-r">
+                    	<!--疗程结果开始-->
+                    	<div class="hr-div mar-t10">
+                            <span>疗程结果</span>
+                            <hr/>
+                        </div>
+                        <form action="" method="" id="form-patient-login">
+                        <ul class="h-auto three-list">
+                        	<li><i>确认日期：</i><label><input name="" type="text" class="validate Wdate" id=""></label></li>
+                            <li><i>结果：</i><label><select name="" id="" class="validate"><option>好</option><option>很好</option></select></label></li>
+                            <li><i>妊娠周/天：</i><label><input name="" type="text" id="" value="周" class="validate w60">&nbsp;&nbsp;<input name="" type="text" id="" value="天数" class="validate w60"></label></li>
+                            <li><i>生产医院：</i><label><input name="" type="text" class="validate"></label></li>
+                            <li><i>生产方式：</i><label><select name=""><option>是</option><option>否</option></select></label></li>
+                       </ul>
+                       </form>
+                       <!--疗程结果结束-->                 
+                    	<!--新生儿信息开始-->
+                        <div class="hr-div">
+                            <span>新生儿信息</span>
+                            <hr/>
+                        </div>
+                        <form action="" method="" id="form-patient-login">
+                        <ul class="h-auto three-list">
+                        	<li><i>姓名：</i><label><input name="" type="text" class="validate Wdate" id=""></label></li>
+                            <li><i>性别：</i><label><select name="" id="" class="validate"><option>男</option><option>女</option></select></label></li>
+                            <li><i>出生重量：</i><label><input name="" type="text" id="" value="" class="validate"></label></li>
+                            <li><i>健康状况：</i><label><select name="" id="" class="validate"><option>好</option><option>很好</option></select></label></li>
+                            <li><i>死亡时间：</i><label><input name="" type="text" class="validate"></label></li>							
+                       </ul>
+                        </form>
+                        <form action="" method="" id="">
+                        <ul class="h-auto three-list">                        	
+							<li><i>疗程结果：</i><label><input name="" type="radio" value="">&nbsp;结束治疗&nbsp;&nbsp;<input name="" type="radio" value="">&nbsp;终止治疗</label></li>
+                            <li><i>医师：</i><label><select name="" id="" class="validate"><option>刘德华</option><option>郭富城</option></select></label></li>
+                            <li class="textarea-li" style="height:80px;"><i>原因：</i><label><textarea name="" cols="" rows="" maxlength="" style="height:78px;"></textarea></label></li>
+                       </ul>
+                        </form>
+                     <!--新生儿信息结束-->
+                     	<div class="text-r list-bottom-div mar-b20">
+                        	<a href="javascript:;" data-action="js/mock-data/include-data-example.json" class="green-but" id="saveInfor">保存</a>
+                    	</div>
+                    </div>                    
+                    <!--填写结束-->
+                </div>
+                <!--右边信息结束-->
+            </div>
+            <!--表单结束-->
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

@@ -1,0 +1,156 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="adjuvant-therapy" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 patientList-embryology">
+        	<h2 class="h-auto"><i class="f-l">疗程记录</i></h2>
+            <input type="hidden" class="addTemplate">
+            <!--表单开始-->
+            <div class="h-auto mar-t20">
+            	<!--左侧菜单开始-->
+                <!--#include file="include-static-left.php"-->
+                <!--左侧菜单结束-->
+                <!--右边信息开始-->
+                <div class="h-auto f-r help-doctor-r">
+                    <!--中部模板开始-->
+                    <!--#include file="include-static-middle.php"-->
+                    <!--中部模板结束-->
+                    <div class="h-auto add-lcfa">
+                    	<p class="f-l">
+                        	<span>疗程方案：
+                            <label><select name="" id="choose_scheme" data-action="js/mock-data/include-data-example.json">
+                            <option value="0">请选择疗程方案</option>
+                            <option value="1">疗程方案一</option>
+                            </select></label></span>
+                            <span>疗程次数：1</span>
+                        </p>
+                        <a href="辅助治疗-患者列表-疗程记录-胚胎学-新增操作事件.shtml" id="addOperator" class="yellow-but f-r">新增操作事件</a>                        
+                    </div>
+                    <!--bottom表单开始-->
+                    <div class="h-auto mar-t10">
+                        <table cellpadding="0" cellspacing="1" class="table-list add-lcfa-tab">
+                            <thead>
+                                <tr>
+                                    <td width="14%">日期</td>
+                                  	<td width="11%">时间</td>
+                                  	<td width="11%">处理天</td>
+                                  	<td width="14%">实验人员</td>
+                                    <td width="30%">操作事件</td>
+                                    <td width="18%">操作</td>
+                              </tr>
+                            </thead>
+                            <tr class="tr-hover">
+                                <td>2012/12/13</td>                                
+                                <td>08:30</td>
+                                <td>30</td>
+                                <td>欧阳正华</td>
+                                <td><div class="white-space">操作事件操作事件操作事件操作事件操作事件操作事件</div></td>
+                                <td><a href="辅助治疗-患者列表-疗程记录-胚胎学-新增操作事件.shtml" class="green-but" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                             </tr>
+                        </table>
+                    </div>
+                    <!--bottom表单结束-->
+                    <!--总结开始-->
+                    <div class="hr-div mar-t10">
+                        <span>总结</span>
+                        <hr/>
+                    </div>
+                    <!--bottom表单开始-->
+                    <div class="h-auto mar-b10">
+                        <table cellpadding="0" cellspacing="1" class="table-list add-lcfa-tab">
+                            <thead>
+                                <tr>
+                                    <td width="8%" rowspan="2">编号</td>
+                                  	<td width="12%" rowspan="2">采集日期</td>
+                                  	<td width="8%" rowspan="2">成熟</td>
+                                  	<td width="8%" rowspan="2">ICSI/IVF</td>
+                                    <td width="8%" rowspan="2">D1<br/>受精检查</td>
+                                    <td width="16%" colspan="2">D2</td>
+                                    <td width="16%" colspan="2">D3</td>
+                                    <td width="16%" colspan="2">D5</td>
+                                    <td width="8%"  rowspan="2">命运</td>
+                              </tr>
+                              <tr>
+                                    <td width="8%">时期</td>
+                                    <td width="8%">品级</td>
+                                    <td width="8%">时期</td>
+                                    <td width="8%">品级</td>
+                                    <td width="8%">时期</td>
+                                    <td width="8%">品级</td>  
+                                    
+                              </tr>
+                            </thead>
+                            <tr class="tr-hover">
+                                <td>01</td>                                
+                                <td>2012/12/13</td>
+                                <td>MLL</td>
+                                <td>四个汉字</td>
+                                <td>2PM</td>
+                                <td>2-4C</td>
+                                <td>优秀</td>
+                                <td>2-4C</td>
+                                <td>优秀</td>
+                                <td>2-4C</td>
+                                <td>优秀</td>
+                                <td>36</td>                              
+                             </tr>
+                        </table>
+                    </div>
+                    <!--bottom表单结束-->
+                    <!--总结结束-->
+                    <!--总计开始-->
+                    <div class="hr-div mar-t10">
+                        <span>总计</span>
+                        <hr/>
+                    </div>
+                    <!--bottom表单开始-->
+                    <div class="h-auto mar-b10">
+                        <table cellpadding="0" cellspacing="1" class="table-list add-lcfa-tab">
+                            <thead>
+                                <tr>
+                                    <td width="12%" rowspan="2">成熟卵(MII)</td>
+                                  	<td width="11%" rowspan="2">D1<br/>2PM</td>
+                                  	<td width="11%" rowspan="2">D2<br/>2-4C</td>
+                                  	<td width="11%" rowspan="2">D3<br/>4-8C</td>
+                                    <td width="11%" rowspan="2">D5<br/>囊胚</td>
+                                    <td width="45%" colspan="4">命运</td>
+                              </tr>
+                              <tr>
+                                    <td width="11%">冷冻</td>
+                                    <td width="11%">移植</td>
+                                    <td width="11%">遗弃</td>
+                                  	<td width="11%">其他</td>
+                              </tr>
+                            </thead>
+                            <tr class="tr-hover">
+                                <td>12</td>                                
+                                <td>13</td>
+                                <td>99</td>
+                                <td>12</td>
+                                <td>23</td>
+                                <td>33</td>
+                                <td>34</td>
+                                <td>35</td>
+                                <td>36</td>                                
+                             </tr>
+                        </table>
+                    </div>
+                    <!--bottom表单结束-->
+                    <!--总计结束-->                  
+                </div>
+                <!--右边信息结束-->
+            </div>
+            <!--表单结束-->
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

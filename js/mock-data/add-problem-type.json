@@ -1,0 +1,63 @@
+{
+  "status":   {
+   "code": 0,
+   "msg": "获取数据成功"
+  },
+  "ds":   [
+      {
+    "catlogId": 5,
+    "catlogName": "病史",
+    "createTime": "2013-12-12 19:09:09",
+    "delStatus": 0,
+    "label": 0,
+    "orderNum": 1,
+    "preCatlogId": 0,
+    "templateId": 2,
+    "totalNum": 0
+   },
+      {
+    "catlogId": 6,
+    "catlogName": "月经情况",
+    "createTime": "2013-12-12 19:09:09",
+    "delStatus": 0,
+    "label": 0,
+    "orderNum": 1,
+    "preCatlogId": 0,
+    "templateId": 2,
+    "totalNum": 0
+   },
+      {
+    "catlogId": 7,
+    "catlogName": "基本问题",
+    "createTime": "2013-12-12 19:09:09",
+    "delStatus": 0,
+    "label": 1,
+    "orderNum": 1,
+    "preCatlogId": 5,
+    "templateId": 2,
+    "totalNum": 0
+   },
+      {
+    "catlogId": 8,
+    "catlogName": "详细问题",
+    "createTime": "2013-12-12 19:09:09",
+    "delStatus": 0,
+    "label": 2,
+    "orderNum": 1,
+    "preCatlogId": 7,
+    "templateId": 2,
+    "totalNum": 0
+   },
+      {
+    "catlogId": 9,
+    "catlogName": "其他问题",
+    "createTime": "2013-12-12 19:09:09",
+    "delStatus": 0,
+    "label": 2,
+    "orderNum": 1,
+    "preCatlogId": 7,
+    "templateId": 2,
+    "totalNum": 0
+   }
+  ]
+ }

@@ -1,0 +1,21 @@
+{
+	"status": {
+    "code": 3,
+    "msg": "用户名不存在!"
+  },
+  "ds": [
+  	{
+  		"id":"one",
+  		"navname": "登记注册",
+  		"children": [
+  			{
+  				"tabname": "登记",
+  				"href": "登记注册-登记.shtml"
+  			},{
+  				"tabname": "注册",
+  				"href": "登记注册-注册.shtml"
+  			}
+  		]
+  	}
+  ]
+}

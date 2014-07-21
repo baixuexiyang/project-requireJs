@@ -1,0 +1,558 @@
+define([
+	'jquery',
+	'app/common',
+	'app/util',
+	'jqtmpl',
+	'pkg/DatePicker/app',
+	'pkg/DateFormat/app',
+	'pkg/Uploadify/app',
+	'json',
+	'artDialog',
+	'iframe'
+], function($, common) {
+
+	"use strict";
+	/****胚胎冷冻*******/
+	var Embryo = {
+		init: function() {
+			$('.editInfo').click(function() {
+				$('.show-list').hide();
+				$('.information').show();
+			});
+			$('.editOper').click(function() {
+				$('.oper-list').hide();
+				$('.operInfo').show();
+			});
+
+			$('.information input[type="text"]').blur(function() {
+				if ($('#choose_scheme').children('option:selected').val() === '0') {
+					if ($('.error-text').is(":hidden")) {
+						$('.error-text').show();
+					}
+					$('.error-text').html('请选择疗程方案！');
+					return;
+				}
+				var tarForm = $('#form-embryo-info');
+				if (!tarForm.doValidate())
+					return;
+				var api = tarForm.attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					data: {
+						schemeId: $('#choose_scheme').children('option:selected').val(),
+						info: tarForm.serialize(),
+						patientId: $('#patientId').val()
+					},
+					success: function() {
+						location.reload();
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+
+			$('.operInfo input[type="text"]').blur(function() {
+				if ($('#patientId').val() === '') {
+					if ($('.error-text').is(":hidden")) {
+						$('.error-text').show();
+					}
+					$('.error-text').html('请先完善总体信息！');
+					return;
+				}
+				var tarForm = $('#form-oper-info');
+				if (!tarForm.doValidate())
+					return;
+				var api = tarForm.attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					data: {
+						schemeId: $('#choose_scheme').children('option:selected').val(),
+						info: tarForm.serialize(),
+						patientId: $('#patientId').val()
+					},
+					success: function() {
+						location.reload();
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+
+			//  新增一条记录
+			$('#add_record').click(function() {
+				$('.backups').clone(true).show().removeClass('backups').appendTo($('.storage-info tbody'));
+			});
+
+			// 点击删除
+			$('.delete-item').click(function() {
+				var _parents = $(this).parents('.tr-hover:first');
+				var storageid = _parents.find('.storageid').val();
+				if (storageid === '') {
+					$(this).parents('.tr-hover:first').remove();
+				} else {
+					var api = $(this).attr('data-action');
+					var callback = function() {
+						$.ajax(common.ajaxCall({
+							url: api,
+							success: function() {
+								top.location.reload();
+							},
+							error: function(msg) {
+								alert(msg);
+							}
+						}));
+					};
+					$(this).dialogConfirm(callback);
+				}
+			});
+
+			// 点击保存
+			$('.save-item').click(function() {
+				if ($('#patientId').val() === '') {
+					if ($('.error-text').is(":hidden")) {
+						$('.error-text').show();
+					}
+					$('.error-text').html('请先完善总体信息！');
+					return;
+				}
+				var _parents = $(this).parents('.tr-hover:first');
+				var api = $(this).attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					data: {
+						straw_number: _parents.find('.straw_number').val(),
+						embryo_number: _parents.find('.embryo_number').val(),
+						level: _parents.find('.level').children('option:selected').val(),
+						stage: _parents.find('.stage').val(),
+						nitrogen: _parents.find('.nitrogen').val(),
+						sleeve_color: _parents.find('.sleeve_color').val(),
+						label_color: _parents.find('.label_color').val()
+					},
+					success: function() {
+						$(this).tips('success', '保存成功！', 1);
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+
+			// 新增一条复苏信息
+			$('#add_relive').click(function() {
+				$('.relive-backups').clone(true).show().removeClass('relive-backups').appendTo($('.help-doctor-r'));
+			});
+
+			// 编辑复苏信息
+			$('.edit-relive').click(function() {
+				$('.edit-status').prev('ul').hide().end().show();
+				$('.editModule').hide().next('div').show();
+			});
+			// 取消编辑
+			$('.cancelEdit').click(function() {
+				$('.edit-status').prev('ul').show().end().hide();
+				$('.editModule').show().next('div').hide();
+			});
+
+			// 取消新增
+			$('.cancelDel').click(function() {
+				$(this).parents('.add-ylfa-list:first').remove();
+			});
+
+			// 删除
+			$('.delete-relive').click(function() {
+				var _parents = $(this).parents('.tr-hover:first');
+				var storageid = _parents.find('.storageid').val();
+				if (storageid === '') {
+					$(this).parents('.tr-hover:first').remove();
+				} else {
+					var api = $(this).attr('data-action');
+					var callback = function() {
+						$.ajax(common.ajaxCall({
+							url: api,
+							success: function() {
+								top.location.reload();
+							},
+							error: function(msg) {
+								alert(msg);
+							}
+						}));
+					};
+					$(this).dialogConfirm(callback);
+				}
+			});
+			// 保存
+			$('.saveBtn').click(function() {
+				var _parents = $('.add-ylfa-list:first');
+				var api = $(this).attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					data: {
+						straw_number: $('.straw_number').val(),
+						embryo_number: $('.embryo_number').val(),
+						status: $('.status').children('option:selected').val(),
+						date: $('.date').val(),
+						hour: $('.hour').val(),
+						minute: $('.minute').val(),
+						recovery_personnel: $('.recovery_personnel').val(),
+						witness: $('.witness').val(),
+						abandoned: $('.abandoned').val()
+					},
+					success: function() {
+						location.reload();
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+
+		}
+	};
+
+	/******卵子冷冻************/
+	var Ovum = {
+		init: function() {
+			$('.edit-info').click(function() {
+				$('.show-list').show().prev('ul').hide();
+			});
+
+			$('.show-list input[type="text"]').blur(function() {
+				if ($('#choose_scheme').children('option:selected').val() === '0') {
+					if ($('.error-text').is(":hidden")) {
+						$('.error-text').show();
+					}
+					$('.error-text').html('请选择疗程方案！');
+					return;
+				}
+				var tarForm = $('#form-basic-info');
+				if (!tarForm.doValidate())
+					return;
+				var api = tarForm.attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					data: {
+						schemeId: $('#choose_scheme').children('option:selected').val(),
+						info: tarForm.serialize(),
+						patientId: $('#patientId').val()
+					},
+					success: function() {
+						location.reload();
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+
+			// 编辑复苏信息
+			$('.edit-relive').click(function() {
+				$('.edit-status').prev('ul').hide().end().show();
+				$('.editModule').hide().next('div').show();
+			});
+			// 取消编辑
+			$('.cancelEdit').click(function() {
+				$('.edit-status').prev('ul').show().end().hide();
+				$('.editModule').show().next('div').hide();
+			});
+			// 取消新增
+			$('.cancelDel').click(function() {
+				$(this).parents('.bg-f9-div:first').remove();
+			});
+
+			$('#add_relive').click(function() {
+				$('.relive-backups').clone(true).show().removeClass('relive-backups').appendTo($('.help-doctor-r'));
+			});
+			// 保存
+			$('.saveBtn').click(function() {
+				var _parents = $('.add-ylfa-list:first');
+				var api = $(this).attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					data: {
+						date: $('.date').val(),
+						hour: $('.hour').val(),
+						minute: $('.minute').val(),
+						embryo_personnel: $('.embryo_personnel').val(),
+						sample_validation: $('.sample_validation').val(),
+						egg_state: $('.egg_state').val(),
+						recovery_validatio: $('.recovery_validatio').val(),
+						petri_validatio: $('.petri_validatio').val(),
+						abandoned_validatio: $('.abandoned_validatio').val()
+					},
+					success: function() {
+						location.reload();
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+			// 删除
+			$('.delete-relive').click(function() {
+				var _parents = $(this).parents('.tr-hover:first');
+				var storageid = _parents.find('.storageid').val();
+				if (storageid === '') {
+					$(this).parents('.tr-hover:first').remove();
+				} else {
+					var api = $(this).attr('data-action');
+					var callback = function() {
+						$.ajax(common.ajaxCall({
+							url: api,
+							success: function() {
+								top.location.reload();
+							},
+							error: function(msg) {
+								alert(msg);
+							}
+						}));
+					};
+					$(this).dialogConfirm(callback);
+				}
+			});
+
+
+
+			$('.edit').click(function() {
+				var _parents = $(this).parents('tr:first');
+				_parents.find('.pre').hide();
+				_parents.find('.las').show();
+			});
+			$('.cancel').click(function() {
+				var _parents = $(this).parents('tr:first');
+				_parents.find('.las').hide();
+				_parents.find('.pre').show();
+			});
+			$('.add_record').click(function() {
+				var _parents = $(this).parents('.add-ylfa-list:first');
+				_parents.find('.copyRecord').clone(true).removeClass('copyRecord').show().appendTo(_parents.find('.table-list'));
+			});
+			$('#addRecord').click(function() {
+				$('.backups').clone(true).removeClass('backups').show().appendTo($('.backups').parents('.table-list:first'));
+			});
+
+
+			// 点击保存
+			$('.saveIdentifier').click(function() {
+				var _parents = $(this).parents('tr:first');
+				var api = $(this).attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					data: {
+						identifier: _parents.find('.identifier').val(),
+						date: _parents.find('.date').val()
+					},
+					success: function() {
+						location.reload();
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+
+			$('.saveOperator').click(function() {
+				var _parents = $(this).parents('tr:first');
+				var api = $(this).attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					data: {
+						storage: _parents.find('.storage_oper').val(),
+						date: _parents.find('.identifiy_date').val()
+					},
+					success: function() {
+						location.reload();
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+
+			$('.saveInfo').click(function() {
+				var _parents = $(this).parents('tr:first');
+				var api = $(this).attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					data: {
+						ovum_code: _parents.find('.ovum_code').val(),
+						straw_color: _parents.find('.straw_color').val(),
+						straw_code: _parents.find('.straw_code').children('option:selected').val(),
+						bucket_code: _parents.find('.bucket_code').val(),
+						tank_code: _parents.find('.tank_code').val()
+					},
+					success: function() {
+						location.reload();
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+		}
+	};
+
+	/********冷冻胚胎移植*****************/
+	var Transplant = {
+		init: function() {
+			$('.pre_inf').click(function() {
+				$('.pre_inf').hide();
+				$('.las_inf').show();
+			});
+
+			$('.pre').click(function() {
+				$('.pre').hide();
+				$('.las').show();
+			});
+
+			$('#form-total-info input[type="text"]').blur(function() {
+				if ($('#choose_scheme').children('option:selected').val() === '0') {
+					if ($('.error-text').is(":hidden")) {
+						$('.error-text').show();
+					}
+					$('.error-text').html('请选择疗程方案！');
+					return;
+				}
+				var tarForm = $('#form-total-info');
+				if(!tarForm.doValidate())
+					return;
+				var api = tarForm.attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					data: {
+						schemeId: $('#choose_scheme').children('option:selected').val(),
+						info: tarForm.serialize(),
+						patientId: $('#patientId').val()
+					},
+					success: function() {
+						location.reload();
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+
+			$('#form-embryo-transplant input[type="text"]').blur(function() {
+				if ($('#choose_scheme').children('option:selected').val() === '0') {
+					if ($('.error-text').is(":hidden")) {
+						$('.error-text').show();
+					}
+					$('.error-text').html('请选择疗程方案！');
+					return;
+				}
+				var tarForm = $('#form-embryo-transplant');
+				if(!tarForm.doValidate())
+					return;
+				var api = tarForm.attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					data: {
+						schemeId: $('#choose_scheme').children('option:selected').val(),
+						info: tarForm.serialize(),
+						patientId: $('#patientId').val()
+					},
+					success: function() {
+						location.reload();
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+
+			// 编辑
+			$('.editBtn').click(function() {
+				$('.sh').hide();
+				$('.hi').show();
+			});
+			$('.cancelBtn').click(function() {
+				$('.sh').show();
+				$('.hi').hide();
+			});
+
+			$('.delete-item').click(function() {
+				var api = $(this).attr('data-action');
+				var callback = function() {
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						success: function() {
+							top.location.reload();
+						},
+						error: function(msg) {
+							alert(msg);
+						}
+					}));
+				};
+				$(this).dialogConfirm(callback);
+			});
+
+			// 保存
+			$('.saveBtn').die('click').live('click', function() {
+				var _parents = $(this).parents('tr:first');
+				var api = $(this).attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					data: {
+						code: _parents.find('.code').val(),
+						num: _parents.find('.num').val(),
+						level: _parents.find('.level').val()
+					},
+					success: function() {
+						location.reload();
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+
+			$('#add_record').click(function() {
+				$('.backups').clone(true).removeClass('backups').show().appendTo($('.add-ylfa-list .table-list'));
+			});
+
+
+			$('.sho').click(function() {
+				$('.sho').hide();
+				$('.hid').show();
+			});
+
+			$('#form-summary input[type="text"]').blur(function() {
+				var tarForm = $('#form-summary');
+				var api = tarForm.attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					data: tarForm.serialize(),
+					success: function() {
+						location.reload();
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+		}
+	};
+
+	/********程序主入口****************/
+	var Main = {
+		init: function() {
+
+			// 胚胎冷冻
+			if($('.Embryo').length > 0)
+				Embryo.init();
+
+			// 卵子冷冻
+			if($('.Ovum').length > 0)
+				Ovum.init();
+			
+			// 冷冻胚胎移植
+			if($('.Transplant').length > 0)
+				Transplant.init();
+			
+		}
+	};
+	Main.init();
+});

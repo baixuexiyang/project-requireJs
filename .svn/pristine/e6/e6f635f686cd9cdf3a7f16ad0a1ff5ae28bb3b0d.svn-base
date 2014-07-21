@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ARIS 1.0</title>
+<link type="text/css" rel="stylesheet" href="css/mail.css">
+<!--[if lt IE 9]>
+<script type="text/javascript" src="js/lib/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<div class="bg-e8 bor-b">
+	<div class="head content">
+        <a href="javascript:;"  class="f-l"><img src="images/logo.png" alt="logo"></a>
+        <div class="f-r head-my">
+            <span><em><a href="个人信息-修改密码.shtml">李世明</a></em>医生，您好</span><a id="logout" class="green_btn" href="javascript:;" data-href="js/mock-data/include-data-example.json">退出</a>
+        </div>
+        <!-- <input type="hidden" id="navigate" data-href="js/mock-data/nav.json"> -->
+        <div class="nav content" id="top-tab">
+            <a href="javascript:;" class="now" id="one">挂号注册</a>
+            <a href="javascript:;" id="two">门诊开单</a>
+            <a href="javascript:;" id="three">门诊收费</a>
+            <a href="医生面诊-列表-未面诊.shtml" id="four">医生面诊</a>
+            <a href="javascript:;" id="five">辅助治疗</a>
+            <a href="javascript:;" id="six">门诊药房</a>
+            <a href="javascript:;" id="seven">基本配置</a>
+        </div>
+    </div>
+    <div class="nav-ab bor-b" id="list-item" style="display:none">
+    	<div class="content one">
+        	<span><a href="挂号.shtml">挂号</a></span>&nbsp;<span><a href="登记注册-注册.shtml">注册</a></span>
+        </div>
+        <div class="content two">
+        </div>
+        <div class="content three">
+        </div>
+        <div class="content four">
+        </div>
+        <div class="content five">
+        </div>
+        <div class="content six">
+        </div>
+        <div class="content seven">
+            <span><a href="基本配置-字典类别配置.shtml">字典类别配置</a></span>&nbsp;<span><a href="基本配置-字典配置.shtml">字典配置</a></span>&nbsp;<span><a href="基本配置-医疗模板配置.shtml">医疗模板配置</a></span>&nbsp;<span><a href="#">治疗模板配置</a></span>&nbsp;<span><a href="基本配置-用户管理.shtml">用户管理</a></span>&nbsp;<span><a href="基本配置-药品管理.shtml">药品管理</a></span>&nbsp;<span><a href="#">权限配置</a></span>&nbsp;<span><a href="基本配置-组织架构设置.shtml">组织架构设置</a></span>&nbsp;<span><a href="#">系统参数</a></span>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="address" value="">

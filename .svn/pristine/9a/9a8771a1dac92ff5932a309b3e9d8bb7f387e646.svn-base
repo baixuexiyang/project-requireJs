@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>弹出框</title>
+<link type="text/css" rel="stylesheet" href="css/mail.css">
+</head>
+
+<body>
+<!--注册弹出框-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">注册选择</i><a href="#" class="f-r"></a></h3>
+    <p class="cen-p">
+    	<label><input name="radio" type="radio" value="">&nbsp;IVF</label>
+        <label><input name="radio" type="radio" value="">&nbsp;OD（卵供体）</label>
+        <label><input name="radio" type="radio" value="">&nbsp;ICSI</label>
+        <label><input name="radio" type="radio" value="">&nbsp;OD（卵冷冻）</label>
+        <label><input name="radio" type="radio" value="">&nbsp;IU（代孕）</label>
+        <label><input name="radio" type="radio" value="">&nbsp;OT（其他）</label>
+    </p>
+    <div class="text-c mar-b20"><a href="#" class="green-but">确定</a></div>
+</div>
+
+<!--登记结果弹出框-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">提示</i><a href="#" class="f-r"></a></h3>
+    <p class="reg-p h-auto reg-ok text-c">登记成功！</p>
+    <div class="text-c mar-b20"><a href="#" class="black-but">确定</a></div>
+</div>
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">提示</i><a href="#" class="f-r"></a></h3>
+    <p class="reg-p h-auto reg-no text-c">登记失败！</p>
+    <div class="text-c mar-b20"><a href="#" class="black-but">确定</a></div>
+</div>
+</body>
+</html>

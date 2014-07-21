@@ -1,0 +1,91 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="admin" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 MedicalTemplate">
+        	<h2 class="h-auto"><i class="f-l">新增医疗模板</i></h2>
+            <!--表单开始-->
+            <div class="h-auto mar-t20">
+            	<!--左侧菜单开始-->
+                <div class="f-l l-nav text-c">
+                	<a href="基本配置-新增医疗模板-模板名称.shtml">模板名称</a>
+                    <a href="基本配置-新增医疗模板.shtml">设置问题类别</a>
+                    <a href="基本配置-新增医疗模板-添加问题.shtml" class="last-no now">添加问题</a>
+                </div>
+                <!--左侧菜单结束-->
+            	
+                <!--右侧开始-->                
+                <div class="content h-auto" style="width:810px;">
+                        <!--搜索开始-->
+                    <form method="" action="">
+                        <div class="h-auto list-seach">
+                            <label class="f-l"><i>所属类别：</i><select name="">
+                            <option>所属类别1</option>
+                            <option>所属类别2</option>
+                            </select>
+                            </label>
+                            <a href="javascript:;" class="yellow-but f-r add-problem" data-href="include-add-problem.php">添加问题</a>
+                        </div>
+                    </form>
+                        <!--搜索结束-->
+                        <!--表单开始-->
+                        <div class="h-auto mar-t20">
+                            <table cellpadding="0" cellspacing="1" class="table-list">
+                                <thead>
+                                    <tr>
+                                        <td width="50%">问题</td>
+                                        <td width="10%">答案类别</td>
+                                        <td width="21%">所属分类</td>
+                                        <td width="19%">操作</td>
+                                    </tr>
+                                </thead>
+                                <tr class="tr-hover">
+                                    <td><div class="white-space">从马丁路德金误入广告说文化差异</div></td>
+                                    <td>是</td>
+                                    <td>所属分类名称共12字</td>
+                                    <td><a href="javascript:;" class="green-but edit" title="编辑" data-href="include-add-problem.php">编辑</a><a href="#" class="red-but delete-item" title="删除">删除</a></td>
+                                 </tr>
+                                 <tr class="tr-hover">
+                                    <td><div class="white-space">从马丁路德金误入广告说文化差异从马丁路德金误入广告说文化差异从马丁路德金误入广告说文化差异</div></td>
+                                    <td>否</td>
+                                    <td>18</td>
+                                    <td><a href="javascript:;" class="green-but edit" title="编辑"data-href="include-add-problem.php">编辑</a><a href="#" class="red-but delete-item" title="删除">删除</a></td>
+                                 </tr>
+                                 <tr class="tr-hover">
+                                    <td><div class="white-space">从马丁路德金误入广告说文化差异</div></td>
+                                    <td>是</td>
+                                    <td>所属分类名称共12字</td>
+                                    <td><a href="登记注册-登记.shtml" class="green-but" title="编辑">编辑</a><a href="#" class="red-but delete-item" title="删除">删除</a></td>
+                                 </tr>
+                                 <tr class="tr-hover">
+                                    <td><div class="white-space">从马丁路德金误入广告说文化差异从马丁路德金误入广告说文化差异从马丁路德金误入广告说文化差异</div></td>
+                                    <td>否</td>
+                                    <td>18</td>
+                                    <td><a href="登记注册-登记.shtml" class="green-but" title="编辑">编辑</a><a href="#" class="red-but delete-item" title="删除">删除</a></td>
+                                 </tr>
+                            </table>
+                            <!--分页开始-->
+                            <div class="page">
+                                 <span>共<i>120条/10页</i></span><span><a href="javascript:;" class="now">1</a></span><span><a href="javascript:;">2</a></span><span><a href="javascript:;">3</a></span><span>...</span><span><a href="javascript:;">10</a></span><span><a href="javascript:;">下一页</a></span>
+                            </div>
+                           <!--分页结束-->   
+                        </div>
+                        <!--表单结束-->
+                    </div>
+					<!--右侧结束-->                
+                	<div class="f-l text-c add-hop-b-but mar-b20"><a href="#" class="green-but">完成模板</a></div>
+            </div>
+            <!--表单结束-->
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

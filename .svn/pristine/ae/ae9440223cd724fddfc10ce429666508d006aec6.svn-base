@@ -1,0 +1,269 @@
+/* globals define, require */
+
+define(['jquery', 'app/common'], function($, common) {
+
+	"use strict";
+
+	var dispatcher = $("#dispatcher").val();
+	switch (dispatcher) {
+		case 'register':
+			require(['app/register']);
+			break;
+		case 'clinic-bill':
+			require(['app/clinic-bill']);
+			break;
+		case 'clinic-charge':
+			require(['app/clinic-charge']);
+			break;
+		case 'clinic-drugstore':
+			require(['app/clinic-drugstore']);
+			break;
+		case 'adjuvant-therapy':
+			require(['adjuvant-therapy']);
+			break;
+		case 'doctor-diagnose':
+			require(['app/doctor-diagnose']);
+			break;
+		case 'admin':
+			require(['app/admin']);
+			break;
+		case 'login':
+			require(['app/login']);
+			break;
+		default:
+			break;
+	}
+	var dispatcherAdmin = $('#dispatcher-admin').val();
+	if(dispatcherAdmin == 'admin-public')
+		require(['app/admin-public']);
+	var dialog_admin_dispatcher = $('#dialog_admin_dispatcher').val();
+	if(dialog_admin_dispatcher == 'dialog-user-reg-info')
+		require(['app/dialog-user-upload']);
+	// 公共代码
+	(function() {
+
+		// 占位字符
+		require(['placeholder']);
+
+		// 显示登录用户名
+		if (!window.CommonAction) {
+			return;
+		}
+		$.ajax(common.ajaxCall({
+			url: window.CommonAction.Login(),
+			success: function(re) {
+				var ds = re.ds;
+				var name = ds[1].username;
+				if (!name) {
+					return;
+				}
+				// $('.user-logined em').html(name);
+			}
+		}));
+
+
+		// 退出
+		$('#logoutBtn').on('click', function(event) {
+			try {
+				window.external.CloseForm();
+			} catch (e) {
+				location.href = $(this).attr('url');
+			}
+			return false;
+		});
+
+		// 跳转到特定页
+		/*$('.go-page').click(function() {
+			var pageNum = parseInt($.trim($('.page-num').val()), 10);
+			if (!pageNum || isNaN(pageNum) || pageNum === 0) {
+				art.dialog.tips('请输入大于0的数字！', 1.5);
+				return false;
+			} else {
+				var action = $('form[name=paginator]').attr('action');
+				action = action.split(/pageIndex=\d+/g);
+				if(action.length === 0)
+					return;
+				action = action[0] + 'pageIndex=' + pageNum + (action[1]? action[1]: '');
+				location.href = action;
+				return false;
+			}
+		});*/
+
+		$('.page a').click(function() {
+			var pageNum = $(this).attr('data-page');
+			$('#offset').val(pageNum);
+			$('#form-submit').trigger('click');
+		});
+
+		var address = $('#address').val();
+
+
+		var nav = {
+			"status": {
+				"code": 0,
+				"msg": "error"
+			},
+			"ds":[
+			{
+				"href":"javascript:;",
+				"modid": "one",
+				"name":"登记/注册",
+            "navs":[
+                {
+                    "href": address + "patienteckin",
+                    "modid":1,
+                    "name":"登记",
+                    "ordernum":1
+                },
+                {
+                    "href": address + "patient/reglist",
+                    "modid":1,
+                    "name":"注册",
+                    "navs":[
+                        
+                    ],
+                    "ordernum":2
+                }
+            ],
+            "ordernum":1
+        },
+        {
+            "href":"javascript:;",
+            "modid": "two",
+            "name":"医生面诊",
+            "navs":[
+            {
+                "href": address + "医生面诊-列表-未面诊.shtml",
+                "modid":1,
+                "name":"医生面诊",
+                "ordernum":1
+            }
+            ],
+            "ordernum":1
+        },
+        {
+            "href":"javascript:;",
+            "modid": "three",
+            "name":"基本配置",
+            "navs":[
+                {
+                    "href": address + "dict/catlog",
+                    "modid":3,
+                    "name":"字典类别配置",
+                    "ordernum":1
+                },
+                {
+                    "href": address + "dict/dictionary",
+                    "modid":3,
+                    "name":"字典配置",
+                    "navs":[
+                        
+                    ],
+                    "ordernum":2
+                },
+                {
+                    "href": address + "templatest",
+                    "modid":3,
+                    "name":"医疗模板配置",
+                    "ordernum":3
+                },
+                {
+                    "href": address + "doctorst",
+                    "modid":3,
+                    "name":"用户管理",
+                    "navs":[
+                        
+                    ],
+                    "ordernum":4
+                },
+                {
+                    "href": address + "orgst",
+                    "modid":3,
+                    "name":"组织架构设置",
+                    "ordernum":5
+                }
+            ],
+            "ordernum":3
+        }
+    ]
+};
+
+				var ds = nav.ds,
+					html = '',
+					top = '';
+				var len = ds.length;
+				for (var i = 0; i < len; i++) {
+					var item = ds[i];
+					var child = item.navs;
+					var span = '';
+					top += '<a href="'+ item.href +'" id="'+ item.modid +'">'+ item.name +'</a>';
+					var leng = child.length;
+					for (var j = 0; j < leng; j++) {
+						var list = child[j];
+						span += '<span><a href="'+ list.href +'">'+ list.name +'</a></span>&nbsp;';
+					}
+					html += '<div class="content '+ item.modid +'" style="display:none">'+ span +'</div>';
+				}
+				$('#top-tab').empty().append(top);
+				$('#list-item').empty().append(html);
+
+
+				$('#top-tab a').live('mouseover', function() {
+					var order = $(this).attr('id');
+					$('#list-item .content').hide();
+					$('#list-item .'+ order +'').show();
+				});
+
+
+				$(document).click(function() {
+					$('#list-item .content').hide();
+				});
+
+
+
+
+
+
+		// 导航条
+		/*var api = $("#navigate").attr('data-href');
+		$.ajax({
+			url: api,
+			cache: false,
+			type: 'post',
+			success: function(data) {
+				var ds = data.ds,
+					html = '',
+					top = '';
+				var len = ds.length;
+				for (var i = 0; i < len; i++) {
+					var item = ds[i];
+					var child = item.navs;
+					var span = '';
+					top += '<a href="'+ item.href +'" id="'+ item.modid +'">'+ item.name +'</a>';
+					var leng = child.length;
+					for (var j = 0; j < leng; j++) {
+						var list = child[j];
+						span += '<span><a href="'+ list.href +'">'+ list.name +'</a></span>&nbsp;';
+					}
+					html += '<div class="content '+ item.modid +'" style="display:none">'+ span +'</div>';
+				}
+				$('#top-tab').empty().append(top);
+				$('#list-item').empty().append(html);
+			}
+		});
+
+		
+		$('#top-tab a').live('mouseover', function() {
+			var order = $(this).attr('id');
+			$('#list-item .content').hide();
+			$('#list-item .'+ order +'').show();
+		});
+
+
+		$(document).click(function() {
+			$('#list-item .content').hide();
+		});*/
+
+	})();
+
+});

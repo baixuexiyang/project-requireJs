@@ -1,0 +1,23 @@
+// 表单校验提示信息
+var SuperValidator = {
+    // 登记注册-登记
+    'form_register': {
+        'patientName': { required: "请输入病人姓名" },
+        'credentialsType': { required: "请选择证件类型"},
+        'credentialsNum': {
+            required: "请输入证件号码",
+            registerValidate: function(v) {
+                if(v && !/^\d{15}$|^\d{17}([0-9]|X)$/.test(v)) {
+                    return "证件号码格式不对";
+                }
+                return true;
+            }
+        },
+        'birthday': { required: "请输入出生日期！"}
+    },
+    'form-login': {
+        'username': {required: "请输入用户名！"},
+        'password': {required: "请输入密码！"},
+        'verificationCode': {required: "请输入验证码！"}
+    }
+};

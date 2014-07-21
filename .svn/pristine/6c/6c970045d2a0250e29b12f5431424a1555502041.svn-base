@@ -1,0 +1,171 @@
+<!--#include file="include-head.php"-->
+<div class="body noprint">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="adjuvant-storage" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20">
+        	<h2 class="h-auto"><i class="f-l">冷冻储存记录</i><a href="辅助治疗-历史解冻记录.shtml" class="f-r yellow-but2">历史解冻记录</a></h2>
+            <div class="error-text" style="display:none;"></div>
+            <!--疗程信息-->
+            <div class="h-auto mar-t10 add-ylfa-list">
+                <form id="form-storage-record">
+            	<h3 class="add-ylfa-hov hov-bg-green">患者信息</h3>
+				<ul class="h-auto three-list"> 
+                	<li><i><b>*</b>医疗号：</i><label><input name="" id="medicinesNum" data-action="js/mock-data/include-check-medicines.json" type="text" maxlength="64"></label></li>
+                    <li><i><b>*</b>姓名：</i><label><input name="" id="name" type="text" maxlength="64"></label></li>
+					<li><i><b>*</b>出生日期：</i><label><input name="" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="validate Wdate" id="birthday"></label></li>
+                    <li style="width:90%;">
+                        <i><b>*</b>存放于：</i><label><a href="javascript:;" id="chooseDirectory" class="blue-font" data-href="page-add-tank.shtml">请选择存放目录</a><a href="#" class="blue-font exploring" title="点击可编辑目录" style="display:none;">001液态罐&nbsp;&gt;&nbsp;001吊桶，颜色罐&nbsp;&gt;&nbsp;001套管，颜色</a></label>
+                        <input type="hidden" id="storageInfo" value="">
+                     </li>                    
+					<li><i><b>*</b>麦管编号：</i><label><input name="" id="strawCode" type="text" maxlength="64"></label></li>
+                    <li><i><b>*</b>麦管颜色：</i><label><select name="" id="strawColor">
+                            <option value="0">请选择</option>
+                            <option value="1">红</option>
+                            <option value="2">绿</option>
+                            <option value="3">黄</option>
+                            <option value="4">蓝</option>
+                            </select></label></li>
+                            <!-- <li><i>解冻日期：</i><label><input name="" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="validate Wdate"></label></li> -->			
+					<li class="beizhu">
+                     <i>备注：</i>
+                     <label><textarea name="" cols="" rows="2"></textarea></label>
+					</li>
+                    <div class="text-r mar-b10" style=" clear:both;">
+                    <a href="javascript:;" class="green-but" data-action="js/mock-data/include-data-example.json" id="saveStorage">保存</a>
+                    </div>
+                </ul>
+            </form>
+            </div>
+            <!--分割线-------------------------------------------------------->
+            <div class=" h-auto list-seach mar-t10">
+                <form method="" action="">
+                <label><i>姓名：</i><input type="text" name=""></label><input class="green-but" type="submit" value="搜索"></form>                    
+			</div>
+            <!--循环开始-->
+            <div class="h-auto mar-t10 w958-border">
+                <div class="bill-list-title">
+                    <a href="javascript:;" class="f-l close" title="点击收缩"></a>
+                    <span class="f-l"><em class="green-font">123456789液氮罐</em></span>
+                    <span class="f-l"><i>吊桶存放数：</i><em>12/13</em></span>
+                    <span class="f-l"><i>套管存放数：</i><em>10/20</em></span>
+                    <span class="f-l"><i>麦管存放数：</i><em>100/100</em></span>
+                    <a href="javascript:;" class="f-r red-but delete-all" data-action="js/mock-data/include-data-example.json">删除</a>
+                </div>
+                <!--表单开始-->
+                <div class="h-auto pad5">                   
+                    <table cellpadding="0" cellspacing="1" class="table-list">
+                        <thead>
+                            <tr>
+                                <td width="10%">医疗号</td>
+                                <td width="8%">姓名</td>
+                                <td width="8%">出生年月</td>                                
+                                <td width="14%">麦管</td>
+                                <td width="14%">套管</td>
+                                <td width="14%">吊桶</td>                                
+                                <td width="18%">操作</td>
+                          </tr>
+                        </thead>
+                        <tr class="tr-hover pos-re copy">
+                            <td>1234567890</td>
+                            <td>什么名字</td>                         
+                            <td>2012-12-12</td>
+                            <td>12345678红色</td>
+                            <td>12345678红色</td>
+                            <td>12345678红色</td>
+                            <td><a href="javascript:;" data-id="123" class="red-but unfreeze" data-href="page-unfreeze-date.shtml" title="解冻">解冻</a><a href="javascript:;" class="green-but" title="编辑">编辑</a><a href="javascript:;" class="red-but delete" data-action="js/mock-data/include-data-example.json" title="删除">删除</a></td>
+                         </tr>
+                    </table>                
+                </div>
+                
+            </div>
+            <!--循环结束-->
+            
+            <!--循环开始-->
+            <div class="h-auto mar-t10 w958-border">
+                <div class="bill-list-title">
+                    <a href="javascript:;" class="f-l open" title="点击展开"></a>
+                    <span class="f-l"><em>123456790液氮罐</em></span>
+                    <span class="f-l"><i>吊桶存放数：</i><em>12/13</em></span>
+                    <span class="f-l"><i>套管存放数：</i><em>10/20</em></span>
+                    <span class="f-l"><i>麦管存放数：</i><em>100/100</em></span>
+                    <a href="javascript:;" class="f-r red-but delete-all" data-action="js/mock-data/include-data-example.json">删除</a>
+                </div>
+                <!--表单开始-->
+                <div class="h-auto pad5" style="display:none;">                   
+                    <table cellpadding="0" cellspacing="1" class="table-list">
+                        <thead>
+                            <tr>
+                                <td width="12%">医疗号</td>
+                                <td width="10%">姓名</td>
+                                <td width="10%">出生年月</td>                                
+                                <td width="14%">麦管</td>
+                                <td width="14%">套管</td>
+                                <td width="14%">吊桶</td>                                
+                                <td width="12%">操作</td>
+                          </tr>
+                        </thead>
+                        <tr class="tr-hover pos-re copy">
+                            <td>1234567890</td>
+                            <td>什么名字</td>                         
+                            <td>2012-12-12</td>
+                            <td>12345678红色</td>
+                            <td>12345678红色</td>
+                            <td>12345678红色</td>
+                            <td><a href="javascript:;" class="green-but" title="编辑">编辑</a><a href="javascript:;" class="red-but delete" data-action="js/mock-data/include-data-example.json" title="删除">删除</a></td>
+                         </tr>
+                    </table>                
+                </div>                
+            </div>
+            <!--循环结束-->
+            <div class="text-r mar-t10 mar-b10 list-bottom-div">
+                <a href="javascript:;" class="green-but" id="preview-print" >打印预览</a>
+            </div>
+        </div>
+        <!--中部结束-->
+</div>
+<style media="print">
+.print-area {
+    display: block;
+}
+</style>
+<div class="print-area">
+    <div class="print">
+                <table cellpadding="0" cellspacing="1" class="table-list mar-t20">
+                    <thead>
+                        <tr>
+                            <td width="15%">液氮罐</td>
+                            <td width="15%">吊桶</td>
+                            <td width="10%">套管颜色</td>
+                            <td width="16%">医疗号</td>
+                            <td width="10%">姓名</td>
+                            <td width="11%">出生日期</td>
+                            <td width="11%">解冻日期</td>
+                            <td width="10%">麦管颜色</td>   
+                      </tr>
+                    </thead>
+                    <tr>
+                        <td><div class="w94-100">最多12个字</div></td>
+                        <td><div class="w94-100">最多12个字</div></td>
+                        <td>颜色</td>
+                        <td>123456789012</td>
+                        <td>一个姓名</td>
+                        <td>2012/12/12</td>
+                        <td>2012/12/12</td>
+                        <td>一个颜色</td>                        
+                    </tr>
+                </table>
+    <!-- <div class="text-c mar-t10 list-bottom-div mar-b20">
+     <a href="javascript:;" class="green-but" id="confirm">打印</a>&nbsp;&nbsp;<a href="javascript:;" id="cancel" class="black-but">取消</a>
+    </div> -->
+</div>
+</div>
+<!--#include file="include-foot.php"-->

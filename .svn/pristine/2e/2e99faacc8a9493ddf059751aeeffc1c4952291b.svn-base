@@ -1,0 +1,64 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="adjuvant-therapy" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+            <ul class="f-l">
+                <li>今日登记：<i>10</i>人</li>
+                <li>今日预约：<i>10</i>人</li>
+                <li class="last-no">今日注册：<i>10</i>人</li>
+            </ul>
+            <p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+            <p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 patientList-analysis">
+            <h2 class="h-auto"><i class="f-l">查看操作记录</i></h2>
+            <!--患者信息开始-->        
+            <ul class="h-auto three-list three-list-b">
+                    <li><i>收集时间：</i><label>2012/12/13&nbsp;08:00</label></li>
+                    <li><i>样精号：</i><label>1234567890</label></li>
+                    <li><i>精液类型：</i><label>55</label></li>
+                    <li><i>收集方式：</i><label>123123123</label></li>
+                    <li><i>分装数：</i><label>1234</label></li>
+                    <li class="w94-100"><i>备注：</i><label>2013/12/122013/12/122013/12/122013/12/122013/12/122013/12/122013/12/12</label></li>
+            </ul>
+            <!--患者信息结束-->           
+            <div class="hr-div mar-t10">
+                        <span>记录</span>
+                        <a href="javascript:;" id="addRecord" data-href="include-operator-record.php" class="yellow-but f-r">新增记录</a>
+                        <hr/>
+            </div>
+            <!--bottom表单开始-->
+            <div class="h-auto mar-t10">
+                        <table cellpadding="0" cellspacing="1" class="table-list">
+                            <thead>
+                                <tr>                                  
+                                  <td width="20%">样精号</td>
+                                  <td width="20%">操作日期</td>
+                                  <td width="20%">操作类型</td>
+                                  <td width="20%">分析医生</td>
+                                  <td width="20%">操作</td>
+                              </tr>
+                            </thead>
+                            <tr class="tr-hover">
+                                <td>123123</td>                      
+                                <td>2013/12/13</td>
+                                <td>5</td>
+                                <td>10000.00</td>
+                                <td><a href="辅助治疗-基础精液分析.shtml" class="green-but" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item" data-action="js/mock-data/include-data-example.json" title="删除">删除</a></td>
+                             </tr>                             
+                        </table>
+                        <!--分页开始-->
+                        <div class="page">
+                             <span>共<i>120条/10页</i></span><span><a href="javascript:;" class="now">1</a></span><span><a href="javascript:;">2</a></span><span><a href="javascript:;">3</a></span><span>...</span><span><a href="javascript:;">10</a></span><span><a href="javascript:;">下一页</a></span>
+                        </div>
+                       <!--分页结束-->
+                    <div style="text-align:center;">
+                       <a href="辅助治疗-患者列表-疗程记录-精液分析.shtml" class="black-but" title="返回">返回</a>
+                   </div>
+             </div>
+             <!--bottom表单结束-->     
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

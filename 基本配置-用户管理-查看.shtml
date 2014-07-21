@@ -1,0 +1,62 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="admin" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 UserManagement">
+            <form action="" method="" id="form-add-patient">
+        	<h2>用户信息</h2>
+            <div class="error-text" style="display:none;"></div>
+        	<div class="h-auto add-user">
+            	<!--系统设置开始-->
+            	<div class="hr-div mar-t20">
+                    <span>系统设置</span>
+                    <hr/>
+            	</div>
+            	<ul class="h-auto three-list add-user-system">
+                    <li><i>帐号：</i><label>123123131313123</label></li>
+                </ul>
+                <!--系统设置结束-->
+                <!--科室信息开始-->
+                <div class="hr-div mar-t10">
+                    <span>科室信息</span>
+                    <hr/>
+            	</div>
+            	<ul class="h-auto three-list">
+                    <input type="hidden" value="" name="" id="departmentName">
+                    <li><i>所属科室：</i><label>精神病研究科</label></li>
+                    <li><i>人员编码：</i><label>1234567</label></li>
+                    <li><i>职务：</i><label>被研究</label>
+                    </li>
+                    <li class="textarea-li"><i>备注：</i><label>被研究也需要职业精神</label></li>
+                </ul>
+                <!--科室信息结束-->
+                <!--科室信息开始-->
+                <div class="hr-div mar-t10">
+                    <span>个人信息</span>
+                    <hr/>
+            	</div>
+            	<ul class="h-auto three-list">
+                	<p class="reg-headImg f-l"><img src="images/headImg/00.gif"></p>
+                    <li class="w215"><i>姓名：</i><label>刘德华</label></li>
+                    <li><i>性别：</i><label>男</label></li>
+                    <li><i>出生日期：</i><label>1964/03/06</label></li>
+                    <li class="w215"><i>手机：</i><label>15999999999</label></li>
+                    <li><i>办公电话：</i><label>0571-88888888</label></li>
+                    <li><i>电子邮箱：</i><label>liudehua@qq.com</label></li>
+                    <li class="textarea-li"><i>家庭住址：</i><label>杭州市天目山路307号第七人民医院</label></li>
+                </ul>
+            </div>
+        </form>
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

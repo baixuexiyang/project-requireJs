@@ -1,0 +1,55 @@
+define([
+	'jquery',
+	'app/common',
+	'app/util',
+	'jqtmpl',
+	'pkg/DatePicker/app',
+	'pkg/DateFormat/app',
+	'json'
+], function($, common) {
+
+	"use strict";
+
+	/*******************门诊开单**********************************/
+	var Bill = {
+		init: function() {
+
+			$('#patientName').showlist({
+				width: 300,
+				keyID: 'userid',
+				bindSub: $('#patientId'),
+				selectCallback: function(d) {
+
+				},
+				buildHtml: function(ds) {
+					var html = '<table cellpadding="0" cellspacing="1" class="table-list ab-table-div-title"></tbody>';
+					for(var i = 0; i < ds.length; i++) {
+						var item = ds[i];
+						html += '<tr data-name="'+ item.username +'" class="tr-hover"><td style="width:50px;">'+ item.username +'</td><td style="width:80px;">'+ item.tellphone +'</td><td style="width:20px;">'+ item.sex +'</td><td style="width:20px;">'+ item.age +'</td></tr>';
+					}
+					html += '</tbody></table>';
+					return html;
+				}
+			});
+
+			$('.open,.close').click(function() {
+				if($(this).hasClass('open')) {
+					$(this).parents('.w958-border:first').find('.pad5').show(400);
+				} else {
+					$(this).parents('.w958-border:first').find('.pad5').hide(400);
+				}
+				$(this).toggleClass('open').toggleClass('close');
+			});
+
+		}
+	};
+
+
+	/***********************入口********************************************/
+	var Main = {
+		init: function() {
+			Bill.init();
+		}
+	};
+	Main.init();
+});

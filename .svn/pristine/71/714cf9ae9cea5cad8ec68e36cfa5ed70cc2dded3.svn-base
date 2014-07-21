@@ -1,0 +1,768 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>弹出框</title>
+<link type="text/css" rel="stylesheet" href="css/mail.css">
+</head>
+
+<body>
+<!--注册弹出框-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">注册选择</i><a href="#" class="f-r"></a></h3>
+    <p class="cen-p">
+    	<label><input name="radio" type="radio" value="">&nbsp;IVF</label>
+        <label><input name="radio" type="radio" value="">&nbsp;OD（卵供体）</label>
+        <label><input name="radio" type="radio" value="">&nbsp;ICSI</label>
+        <label><input name="radio" type="radio" value="">&nbsp;OD（卵冷冻）</label>
+        <label><input name="radio" type="radio" value="">&nbsp;IU（代孕）</label>
+        <label><input name="radio" type="radio" value="">&nbsp;OT（其他）</label>
+    </p>
+    <div class="text-c mar-b20"><a href="#" class="green-but">确定</a></div>
+</div>
+
+<!--登记结果弹出框-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">提示</i><a href="#" class="f-r"></a></h3>
+    <p class="reg-p h-auto reg-ok text-c">登记成功！</p>
+    <div class="text-c mar-b20"><a href="#" class="black-but">确定</a></div>
+</div>
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">提示</i><a href="#" class="f-r"></a></h3>
+    <p class="reg-p h-auto reg-no text-c">登记失败！</p>
+    <div class="text-c mar-b20"><a href="#" class="black-but">确定</a></div>
+</div>
+
+<!--删除提示-->
+<div class="pop-box h-auto bg-ff">
+    <p class="h-auto reg-p dele-choose text-c">是否确定删除当前记录？</p>
+    <div class="text-c mar-b20"><a href="#" class="green-but">确定</a>&nbsp;<a href="#" class="black-but">取消</a></div>
+</div>
+
+<!--新增字典类别-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">新增字典类别</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+    	<li><i><b>*</b>类别名称：</i><label><input name="" type="text"></label></li>
+        <li><i><b>*</b>类别值：</i><label><input name="" type="text"></label></li>
+        <li><i>是否使用：</i><label><input name="radio" type="radio" value="">&nbsp;是&nbsp;&nbsp;<input name="radio" type="radio" value="">&nbsp;否</label></li>
+        <li class="error-out"><span class="error-text">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="javascript:;" class="green-but" id="determine">保存</a>&nbsp;<a href="javascript:;" class="black-but" id="cancel">取消</a></div>
+</div>
+
+<!--新增字典-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">新增字典</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+    	<li><i><b>*</b>字典名称：</i><label><input name="" type="text"></label></li>
+        <li><i><b>*</b>字典值：</i><label><input name="" type="text"></label></li>
+        <li><i><b>*</b>所属类别：</i><label><select name=""><option>
+        	所属类别
+        </option></select></label></li>
+        <li><i>是否使用：</i><label><input name="radio" type="radio" value="">&nbsp;是&nbsp;&nbsp;<input name="radio" type="radio" value="">&nbsp;否</label></li>
+        <li class="error-out"><span class="error-text">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="#" class="green-but">保存</a>&nbsp;<a href="#" class="black-but">取消</a></div>
+</div>
+
+<!--新增问题-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">新增问题</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+    	<li class="h65"><i><b>*</b>问题标题：</i><label><textarea name="" cols="" rows="">12323</textarea></label></li>
+        <li><i><b>*</b>所属类别：</i><label><select name=""><option>
+        	所属类别
+        </option></select></label></li>
+        <li><i><b>*</b>答案类别：</i><label><select name=""><option>
+        	答案类别
+        </option></select></label></li>
+        <li class="h65"><i>选择值：</i><label><textarea name="" cols="" rows="">12323</textarea></label></li>
+        <li><i>默认值：</i><label><select name=""><option>
+        	默认值
+        </option></select></label></li>
+        <!--<li><i>默认值：</i><label><input name="" type="text"></label></li>-->
+        <li class="error-out"><span class="error-text">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="#" class="green-but">保存</a>&nbsp;<a href="#" class="black-but">取消</a></div>
+</div>
+
+<!--新增收费项目-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">新增项目</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+    	<li><i><b>*</b>项目名称：</i><label><input name="" type="text"></label></li>
+        <li><i><b>*</b>收费分类：</i><label><select name=""><option>
+        	收费分类
+        </option></select></label></li>
+        <li><i><b>*</b>单位：</i><label><select name=""><option>
+        	单位
+        </option></select></label></li>
+        <li><i><b>*</b>单价：</i><label><input name="" type="text"></label></li>
+        <li><i>是否启用：</i><label><input name="radio" type="radio" value="">&nbsp;是&nbsp;&nbsp;<input name="radio" type="radio" value="">&nbsp;否</label></li>
+        <li class="error-out"><span class="error-text">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="#" class="green-but">保存</a>&nbsp;<a href="#" class="black-but">取消</a></div>
+</div>
+
+<!--新增收费项目-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">新增仓库</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+    	<li><i><b>*</b>仓库编号：</i><label><input name="" type="text"></label></li>
+        <li><i><b>*</b>仓库名称：</i><label><input name="" type="text"></label></li>
+        <li><i><b>*</b>所属部门：</i><label><select name=""><option>
+        	所属部门
+        </option></select></label></li>
+        <li><i><b>*</b>负责人：</i><label><select name=""><option>
+        	刘德华
+        </option></select></label></li>
+        <li><i><b>*</b>联系电话：</i><label><input name="" type="text"></label></li>
+        <li><i>状态：</i><label><input name="radio" type="radio" value="">&nbsp;启用&nbsp;&nbsp;<input name="radio" type="radio" value="">&nbsp;禁用</label></li>
+        <li class="error-out"><span class="error-text">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="#" class="green-but">保存</a>&nbsp;<a href="#" class="black-but">取消</a></div>
+</div>
+
+<!--新增供应商-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">新增供应商</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+    	<li><i><b>*</b>供应商编码：</i><label><input name="" type="text"></label></li>
+        <li><i><b>*</b>供应商名称：</i><label><input name="" type="text"></label></li>
+        <li><i><b>*</b>联系电话：</i><label><input name="" type="text"></label></li>
+        <li><i><b>*</b>地区：</i><label><select name=""><option>
+        	省/直辖市
+        </option></select>&nbsp;<select name=""><option>
+        	市/区
+        </option></select></label></li>        
+        <li class="h65"><i>地址：</i><label><textarea name="" cols="" rows="">12323</textarea></label></li>
+        <li><i>传真：</i><label><input name="" type="text"></label></li>
+        <li><i>邮编：</i><label><input name="" type="text"></label></li>
+        <li class="error-out"><span class="error-text">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="#" class="green-but">保存</a>&nbsp;<a href="#" class="black-but">取消</a></div>
+</div>
+
+<!--新增系统参数-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">新增参数</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+    	<li><i><b>*</b>参数名称：</i><label><input name="" type="text"></label></li>
+        <li><i><b>*</b>参数值：</i><label><input name="" type="text"></label></li>
+        <li><i><b>*</b>是否使用：</i><label><input name="radio" type="radio" value="">&nbsp;是&nbsp;&nbsp;<input name="radio" type="radio" value="">&nbsp;否</label></li>
+        <li class="h65"><i>备注：</i><label><textarea name="" cols="" rows="">12323</textarea></label></li>
+        <li class="error-out"><span class="error-text">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="javascript:;" class="green-but" id="determine">保存</a>&nbsp;<a href="javascript:;" class="black-but" id="cancel">取消</a></div>
+</div>
+
+<!--补打发票-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">补打发票</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+    	<li><i>原发票号：</i><label><input name="" type="text"></label></li>        
+        <li><i>选择方式：</i><label><select name=""><option>
+        	使用新发票
+        </option>
+        <option>
+        	使用原发票
+        </option></select></label></li>
+        <li><i>打印内容：</i><label><select name=""><option>
+        	请选择
+        </option>
+        </select></label></li>
+        <li class="error-out"><span class="error-text">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="#" class="green-but">确定</a></div>
+</div>
+
+<!--确认收费-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">确认收费</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+    	<li class="text-c red-font">费用合计：1234567.00</li>
+        <li>
+        	<div class="hr-div">
+                <span>付款方式</span>
+                <hr/>
+        	</div>
+        </li>
+    	<li><i>现金：</i><label><input name="" type="text"></label></li>
+        <li><i>刷卡：</i><label><input name="" type="text"></label></li>
+        <li><i>医保：</i><label><input name="" type="text"></label></li>
+        <li><i>找零：</i><label>123143242.00</label></li>        
+        <li class="error-out"><span class="error-text">123123</span></li>        
+    </ul>
+    <div class="text-c mar-b20"><a href="#" class="green-but">确定</a>&nbsp;<a href="javascript:;" class="black-but" id="cancel">取消</a></div>
+</div>
+
+<!--新增面诊记录-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">新增面诊</i><a href="#" class="f-r"></a></h3>
+	<div class="three-list pop-table">
+    	<table cellpadding="0" cellspacing="1" class="table-list">
+            <thead>
+               <tr>
+                 <td width="76%">模板名称</td>
+                 <td width="24%">操作</td>                            
+               </tr>
+             </thead>
+                <tr class="tr-hover">
+                    <td>任贤齐</td>
+                    <td><a href="#" class="green-but" title="添加模板">添加</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>任贤齐</td>
+                    <td><a href="#" class="green-but" title="添加模板">添加</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>任贤齐</td>
+                    <td><a href="#" class="green-but" title="添加模板">添加</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>任贤齐</td>
+                    <td><a href="#" class="green-but" title="添加模板">添加</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>任贤齐</td>
+                    <td><a href="#" class="green-but" title="添加模板">添加</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>任贤齐</td>
+                    <td><a href="#" class="green-but" title="添加模板">添加</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>任贤齐</td>
+                    <td><a href="#" class="green-but" title="添加模板">添加</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>任贤齐</td>
+                    <td><a href="#" class="green-but" title="添加模板">添加</a></td>
+                </tr>
+        </table>
+    </div>
+</div>
+
+<!--编辑领用票据-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">编辑领用</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+   		<li><i>领用日期：</i><label><input name="" type="text"></label></li>
+    	<li><i>领用人：</i><label><select name=""><option>
+        	刘德华
+        </option></select></label></li>
+        <li><i>票据类型：</i><label><select name=""><option>
+        	刘德华
+        </option></select></label></li>
+        <li><i>起始票号：</i><label><input name="" type="text"></label></li>
+        <li><i>结束票号：</i><label><input name="" type="text"></label></li>
+        <li><i>当前票号：</i><label><input name="" type="text"></label></li>
+        <li><i>单据状态：</i><label><select name=""><option>
+        	刘德华
+        </option></select></label></li>    
+        <li class="error-out"><span class="error-text">123123</span></li>        
+    </ul>
+    <div class="text-c mar-b20"><a href="#" class="green-but">确定</a>&nbsp;<a href="javascript:;" class="black-but" id="cancel">取消</a></div>
+</div>
+
+<!--新增角色-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">新增角色</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+    	<li><i><b>*</b>角色编码：</i><label><input name="" type="text"></label></li>
+        <li><i><b>*</b>角色名称：</i><label><input name="" type="text"></label></li>
+        <li class="h65"><i>备注：</i><label><textarea name="" cols="" rows="">12323</textarea></label></li>
+        <li class="error-out"><span class="error-text">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="javascript:;" class="green-but" id="determine">保存</a>&nbsp;<a href="javascript:;" class="black-but" id="cancel">取消</a></div>
+</div>
+
+<!--绑定员工-->
+<div class="pop-box2 h-auto bg-ff">
+	<h3><i class="f-l">绑定员工</i><a href="#" class="f-r"></a></h3>
+	<div class="binding f-l">
+    	<h4>医院员工</h4>
+        <ul>        	
+            <li><i class="f-l"><a href="#" class="all-close">科室一</a></i></li>
+            <li class="li-open"><i class="f-l"><a href="#" class="all-open">科室二</a></i><em class="f-r"><a href="#" class="green-but" title="选择科室所有员工">全选</a></em>
+            	<p class="all-open-people bg-ff">
+                   <a href="#">员工姓名</a>
+                   <a href="#">员工姓名</a>
+                   <a href="#">员工姓名</a>
+                   <a href="#">员工姓名</a>
+                   <a href="#">员工姓名</a>
+                   <a href="#">员工姓名</a>
+                   <a href="#">员工姓名</a>
+                   <a href="#">员工姓名</a>
+                   <a href="#">员工姓名</a>
+                   <a href="#">员工姓名</a>
+                   <a href="#">员工姓名</a>
+                </p>
+            </li>           
+            <li><i class="f-l"><a href="#" class="all-close">科室一</a></i></li>
+        </ul>
+    </div>
+    <div class="f-l binding-middle"><a href="#"></a></div>
+    <div class="binding f-l">
+    	<h4>已绑定员工</h4>
+        <ul> 
+            <li><i class="f-l">员工姓名</i><em class="f-r"><a href="#" class="red-but" title="删除">&times;</a></em></li>
+            <li><i class="f-l">员工姓名</i></li>
+            <li><i class="f-l">员工姓名</i></li>
+            <li><i class="f-l">员工姓名</i></li>
+            <li><i class="f-l">员工姓名</i></li>
+            <li><i class="f-l">员工姓名</i></li>
+            <li><i class="f-l">员工姓名</i></li>
+            <li><i class="f-l">员工姓名</i></li>
+            <li><i class="f-l">员工姓名</i></li>
+            <li><i class="f-l">员工姓名</i></li>
+            <li><i class="f-l">员工姓名</i></li>
+            <li><i class="f-l">员工姓名</i></li>
+            <li><i class="f-l">员工姓名</i></li>
+            <li><i class="f-l">员工姓名</i></li>
+            <li><i class="f-l">员工姓名</i></li>
+            <li><i class="f-l">员工姓名</i></li>
+        </ul>
+    </div>
+    <div class="text-c mar-b20" style="clear:both;"><a href="javascript:;" class="green-but" id="determine">保存</a>&nbsp;<a href="javascript:;" class="black-but" id="cancel">取消</a></div>
+</div>
+
+<!--新增计划-编辑治疗模板-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">新增计划</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+    	<li><i><b>*</b>处理天：</i><label><input name="" type="text"></label></li>
+        <li><i>时间：</i><label><input name="" type="text" style=" width:80px;">&nbsp;-&nbsp;<input name="" type="text" style=" width:80px;"></label></li>
+        <li><i><b>*</b>治疗类型：</i><label><select name=""><option>
+        	刘德华
+        </option></select></label></li>
+        <li><i><b>*</b>治疗项目：</i><label><select name=""><option>
+        	刘德华
+        </option></select></label></li>
+        <li><i>药剂类型：</i><label><select name=""><option>
+        	刘德华
+        </option></select></label></li>
+        <li><i>用药方法：</i><label><select name=""><option>
+        	刘德华
+        </option></select></label></li>
+        <li><i>用药次数：</i><label><input name="" type="text"></label></li>
+        <li><i>单次剂量：</i><label><input name="" type="text"></label></li>
+        <li><i>单位：</i><label><select name=""><option>
+        	刘德华
+        </option></select></label></li>
+        <li><i>总剂量：</i><label>5500ml</label></li>
+        <li class="h65"><i>备注：</i><label><textarea name="" cols="" rows="">12323</textarea></label></li>
+        <li class="error-out"><span class="error-text">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="javascript:;" class="green-but" id="determine">保存</a>&nbsp;<a href="javascript:;" class="black-but" id="cancel">取消</a></div>
+</div>
+
+<!--新增约诊-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">新增约诊</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+    	<li><i>医疗号：</i><label>1234567890</label></li>
+        <li><i>患者姓名：</i><label>诺尔波斯</label></li>
+    	<li><i><b>*</b>手机号码：</i><label><input name="" type="text"></label></li>
+        <li><i><b>*</b>治疗科室：</i><label><select name=""><option>
+        	刘德华
+        </option></select></label></li>
+        <li><i><b>*</b>主治医生：</i><label><select name=""><option>
+            刘德华
+        </option></select></label></li>
+        <li><i><b>*</b>预约治疗项目：</i><label><select name=""><option>
+        	刘德华
+        </option></select></label></li>
+        <li><i><b>*</b>选择日期：</i><label><input name="" type="text"></label></li>
+        <li><i><b>*</b>开始时间：</i><label><input name="" type="text" class="w60">：<input name="" type="text" class="w60"></label></li>
+        <li><i>结束时间：</i><label><input name="" type="text" class="w60">：<input name="" type="text" class="w60"></label></li>
+        <li class="h65"><i>备注：</i><label><textarea name="" cols="" rows="">12323</textarea></label></li>
+        <li class="error-out"><span class="error-text">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="javascript:;" class="green-but" id="determine">保存</a>&nbsp;<a href="javascript:;" class="black-but" id="cancel">取消</a></div>
+</div>
+
+<!--新增治疗方案-新增项目-编辑项目-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">编辑项目</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+    	<li><i>阶段：</i><label><select name=""><option>
+        	阶段
+        </option></select></label></li>
+        <li><i>日期：</i><label><input name="" type="text"></label></li>
+    	<li><i>处理天：</i><label><input name="" type="text"></label></li>
+        <li><i>时间：</i><label><input name="" type="text" class="w80">&nbsp;-&nbsp;<input name="" type="text" class="w80"></label></li>
+        <li><i>类型：</i><label><select name=""><option>
+        	类型
+        </option></select></label></li>
+        <li><i>项目：</i><label><select name=""><option>
+        	项目
+        </option></select></label></li>
+        <li><i>药剂类型：</i><label><select name=""><option>
+        	刘德华
+        </option></select></label></li>
+        <li><i>用药方法：</i><label><select name=""><option>
+        	刘德华
+        </option></select></label></li>
+        <li><i>用药次数：</i><label><input name="" type="text"></label></li>
+        <li><i>单次剂量：</i><label><input name="" type="text"></label></li>
+        <li><i>单位：</i><label><select name=""><option>
+        	刘德华
+        </option></select></label></li>
+        <li><i>结果/剂量：</i><label>5500ml</label></li>
+        <li class="h65"><i>备注：</i><label><textarea name="" cols="" rows="">12323</textarea></label></li>
+        <li class="error-out"><span class="error-text">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="javascript:;" class="green-but" id="determine">保存</a>&nbsp;<a href="javascript:;" class="black-but" id="cancel">取消</a></div>
+</div>
+
+<!--选择医疗计划模板-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">选择医疗计划模板</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+    	<li><i>治疗阶段：</i><label><select name=""><option>
+        	阶段
+        </option></select></label></li>
+        <li><i>治疗模板：</i><label><select name=""><option>
+        	阶段
+        </option></select></label></li>
+        <li><i>日期：</i><label><input name="" type="text"></label></li>
+        <li class="h65"><i>备注：</i><label><textarea name="" cols="" rows="">12323</textarea></label></li>
+        <li class="error-out"><span class="error-text">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="javascript:;" class="green-but" id="determine">确定</a>&nbsp;<a href="javascript:;" class="black-but" id="cancel">取消</a></div>
+</div>
+
+<!--新增医疗模板-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">新增医疗记录</i><a href="#" class="f-r"></a></h3>
+	<div class="three-list pop-table">
+    	<table cellpadding="0" cellspacing="1" class="table-list">
+            <thead>
+               <tr>
+                 <td width="76%">理疗模板名称</td>
+                 <td width="24%">操作</td>                            
+               </tr>
+             </thead>
+                <tr class="tr-hover">
+                    <td>任贤齐</td>
+                    <td><a href="#" class="green-but" title="添加模板">添加</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>任贤齐</td>
+                    <td><a href="#" class="green-but" title="添加模板">添加</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>任贤齐</td>
+                    <td><a href="#" class="green-but" title="添加模板">添加</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>任贤齐</td>
+                    <td><a href="#" class="green-but" title="添加模板">添加</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>任贤齐</td>
+                    <td><a href="#" class="green-but" title="添加模板">添加</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>任贤齐</td>
+                    <td><a href="#" class="green-but" title="添加模板">添加</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>任贤齐</td>
+                    <td><a href="#" class="green-but" title="添加模板">添加</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>任贤齐</td>
+                    <td><a href="#" class="green-but" title="添加模板">添加</a></td>
+                </tr>
+        </table>
+    </div>
+</div>
+
+<!--新增化验项目-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">编辑项目</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+    	<li><i>阶段：</i><label><select name=""><option>
+        	阶段
+        </option></select></label></li>
+        <li><i>日期：</i><label><input name="" type="text"></label></li>
+        <li><i>时间：</i><label><input name="" type="text" class="w80">&nbsp;-&nbsp;<input name="" type="text" class="w80"></label></li>
+        <li><i>处理天：</i><label><input name="" type="text"></label></li>
+        <li><i>化验项目：</i><label><select name=""><option>
+        	化验项目
+        </option></select></label></li>
+        <li class="h65"><i>结果：</i><label><textarea name="" cols="" rows="">12323</textarea></label></li>
+        <li><i>上传附件：</i><label><input name="" type="file"></label></li>
+        <li class="error-out"><span class="error-text">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="javascript:;" class="green-but" id="determine">保存</a>&nbsp;<a href="javascript:;" class="black-but" id="cancel">取消</a></div>
+</div>
+
+<!--新增治疗药物-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">新增治疗药物</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+    	<li><i>治疗阶段：</i><label><select name=""><option>
+        	阶段
+        </option></select></label></li>
+        <li><i>日期：</i><label><input name="" type="text"></label></li>    	
+        <li><i>时间：</i><label><input name="" type="text" class="w80">&nbsp;-&nbsp;<input name="" type="text" class="w80"></label></li>
+        <li><i>处理天：</i><label><input name="" type="text"></label></li>
+        <li><i>药物名称：</i><label><select name=""><option>
+        	药物名称
+        </option></select></label></li>
+        <li><i>用药次数：</i><label><input name="" type="text"></label></li>
+        <li><i>单次剂量：</i><label><input name="" type="text"></label></li>
+        <li><i>药物单位：</i><label><select name=""><option>
+        	刘德华
+        </option></select></label></li>
+        <li><i>药物总量：</i><label>9999ml</label></li>
+        <li><i>药物类型：</i><label><select name=""><option>
+        	药物类型
+        </option></select></label></li>
+        <li><i>用药方法：</i><label><select name=""><option>
+        	用药方法
+        </option></select></label></li>        
+        <li class="h65"><i>备注：</i><label><textarea name="" cols="" rows="">12323</textarea></label></li>
+        <li class="error-out"><span class="error-text">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="javascript:;" class="green-but" id="determine">保存</a>&nbsp;<a href="javascript:;" class="black-but" id="cancel">取消</a></div>
+</div>
+
+<!--新增B超-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">新增B超</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+    	<li><i>治疗阶段：</i><label><select name=""><option>
+        	阶段
+        </option></select></label></li>
+        <li><i>日期：</i><label><input name="" type="text"></label></li>
+        <li><i>时间：</i><label><input name="" type="text" class="w80">&nbsp;-&nbsp;<input name="" type="text" class="w80"></label></li>
+        <li><i>处理天：</i><label><input name="" type="text"></label></li>
+        <li><i>治疗项目：</i><label><input name="" type="text"></label></li>
+        <li class="h65"><i>备注：</i><label><textarea name="" cols="" rows="">12323</textarea></label></li>
+        <li><i>上传附件：</i><label><input name="" type="file"></label></li>
+        <li class="error-out"><span class="error-text">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="javascript:;" class="green-but" id="determine">保存</a>&nbsp;<a href="javascript:;" class="black-but" id="cancel">取消</a></div>
+</div>
+
+<!--新增样精收集-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">新增样精收集</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">    	
+        <li><i>日期：</i><label><input name="" type="text"></label></li>
+        <li><i>样精号：</i><label><input name="" type="text"></label></li>
+        <li><i>精液类型：</i><label><select name=""><option>
+        	精液类型
+        </option></select></label></li>
+        <li><i>收集方式：</i><label><select name=""><option>
+        	收集方式
+        </option></select></label></li>
+        <li><i>分装数：</i><label><input name="" type="text"></label></li>
+        <li class="h65"><i>备注：</i><label><textarea name="" cols="" rows="">12323</textarea></label></li>
+        <li class="error-out"><span class="error-text">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="javascript:;" class="green-but" id="determine">保存</a>&nbsp;<a href="javascript:;" class="black-but" id="cancel">取消</a></div>
+</div>
+
+<!--新增操作记录-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">新增操作记录</i><a href="#" class="f-r"></a></h3>
+	<div class="three-list pop-table">
+    	<table cellpadding="0" cellspacing="1" class="table-list">
+            <thead>
+               <tr>
+                 <td width="76%">操作类型</td>
+                 <td width="24%">操作</td>                            
+               </tr>
+             </thead>
+                <tr class="tr-hover">
+                    <td>任贤齐</td>
+                    <td><a href="#" class="green-but" title="添加模板">添加</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>任贤齐</td>
+                    <td><a href="#" class="green-but" title="添加模板">添加</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>任贤齐</td>
+                    <td><a href="#" class="green-but" title="添加模板">添加</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>任贤齐</td>
+                    <td><a href="#" class="green-but" title="添加模板">添加</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>任贤齐</td>
+                    <td><a href="#" class="green-but" title="添加模板">添加</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>任贤齐</td>
+                    <td><a href="#" class="green-but" title="添加模板">添加</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>任贤齐</td>
+                    <td><a href="#" class="green-but" title="添加模板">添加</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>任贤齐</td>
+                    <td><a href="#" class="green-but" title="添加模板">添加</a></td>
+                </tr>
+        </table>
+    </div>
+</div>
+
+<!--搜索患者-->
+<div class="pop-box h-auto bg-ff" style="width:720px;">
+	<h3><i class="f-l">搜索患者</i><a href="#" class="f-r"></a></h3>
+	<div class="three-list pop-table">
+    	<table cellpadding="0" cellspacing="1" class="table-list">
+            <thead>
+               <tr>
+               	 <td width="16%">患者姓名</td>
+                 <td width="18%">医保卡号</td>
+                 <td width="9%">性别</td>
+                 <td width="9%">年龄</td>
+                 <td width="18%">联系方式</td>
+                 <td width="17%">最近就诊时间</td>
+                 <td width="13%">操作</td>                            
+               </tr>
+             </thead>
+                <tr class="tr-hover">
+                    <td>患者姓名</td>
+                    <td>12345678901</td>
+                    <td>男</td>
+                    <td>80</td>
+                    <td>13588888888</td>
+                    <td>2012/12/12</td>
+                    <td><a href="#" class="green-but">选择</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>患者姓名</td>
+                    <td>12345678901</td>
+                    <td>男</td>
+                    <td>80</td>
+                    <td>13588888888</td>
+                    <td>2012/12/12</td>
+                    <td><a href="#" class="green-but">选择</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>患者姓名</td>
+                    <td>12345678901</td>
+                    <td>男</td>
+                    <td>80</td>
+                    <td>13588888888</td>
+                    <td>2012/12/12</td>
+                    <td><a href="#" class="green-but">选择</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>患者姓名</td>
+                    <td>12345678901</td>
+                    <td>男</td>
+                    <td>80</td>
+                    <td>13588888888</td>
+                    <td>2012/12/12</td>
+                    <td><a href="#" class="green-but">选择</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>患者姓名</td>
+                    <td>12345678901</td>
+                    <td>男</td>
+                    <td>80</td>
+                    <td>13588888888</td>
+                    <td>2012/12/12</td>
+                    <td><a href="#" class="green-but">选择</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>患者姓名</td>
+                    <td>12345678901</td>
+                    <td>男</td>
+                    <td>80</td>
+                    <td>13588888888</td>
+                    <td>2012/12/12</td>
+                    <td><a href="#" class="green-but">选择</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>患者姓名</td>
+                    <td>12345678901</td>
+                    <td>男</td>
+                    <td>80</td>
+                    <td>13588888888</td>
+                    <td>2012/12/12</td>
+                    <td><a href="#" class="green-but">选择</a></td>
+                </tr>
+                <tr class="tr-hover">
+                    <td>患者姓名</td>
+                    <td>12345678901</td>
+                    <td>男</td>
+                    <td>80</td>
+                    <td>13588888888</td>
+                    <td>2012/12/12</td>
+                    <td><a href="#" class="green-but">选择</a></td>
+                </tr>
+        </table>
+    </div>
+</div>
+
+<!--编辑储存罐类型-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">编辑储存罐类型</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+    	<li><i><b>*</b>类型编号：</i><label><input name="" type="text"></label></li>
+        <li><i><b>*</b>吊桶数：</i><label><input name="" type="text"></label></li>
+        <li><i><b>*</b>套管数：</i><label><cite class="blue-font">吊桶数</cite>&nbsp;&times;&nbsp;<input name="" type="text" class="w40">&nbsp;=&nbsp;<cite class="blue-font">计算总数</cite></label></li>
+        <li><i><b>*</b>麦管数：</i><label><cite class="blue-font">套管数</cite>&nbsp;&times;&nbsp;<input name="" type="text" class="w40">&nbsp;=&nbsp;<cite class="blue-font">计算总数</cite></label></li>
+        <li class="error-out"><span class="error-text">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="#" class="green-but">保存</a>&nbsp;<a href="#" class="black-but">取消</a></div>
+</div>
+
+<!--编辑试剂材料-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">编辑试剂材料</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+    	<li><i><b>*</b>产品名称：</i><label><input name="" type="text"></label></li>
+        <li><i><b>*</b>供应商：</i><label><input name="" type="text"></label></li>
+        <li><i><b>*</b>货号：</i><label><input name="" type="text"></label></li>
+        <li><i><b>*</b>类型：</i><label><input name="" type="text"></label></li>
+        <li><i><b>*</b>规格：</i><label><input name="" type="text"></label></li>
+        <li><i><b>*</b>存放地：</i><label><input name="" type="text"></label></li>
+        <li><i>建议库存量：</i><label><input name="" type="text"></label></li>
+        <li class="error-out"><span class="error-text">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="#" class="green-but">保存</a>&nbsp;<a href="#" class="black-but">取消</a></div>
+</div>
+
+<!--新增产品批号-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">新增产品批号</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+    	<li><i><b>*</b>产品批号：</i><label><input name="" type="text"></label></li>
+        <li><i><b>*</b>到货日期：</i><label><input name="" type="text"></label></li>
+        <li><i><b>*</b>有效日期：</i><label><input name="" type="text"></label></li>
+        <li><i>始用日期：</i><label><input name="" type="text"></label></li>
+        <li><i>结束日期：</i><label><input name="" type="text"></label></li>
+        <li><i>数量：</i><label><input name="" type="text"></label></li>
+        <li class="h65"><i>备注：</i><label><textarea name="" cols="" rows="">12323</textarea></label></li>
+        <li class="error-out"><span class="error-text">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="#" class="green-but">保存</a>&nbsp;<a href="#" class="black-but">取消</a></div>
+</div>
+
+<!--编辑文档-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">编辑文档</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+    	<li><i><b>*</b>文件名：</i><label><input name="" type="text"></label></li>
+        <li><i>上传附件：</i><label><input name="" type="file"></label></li>
+        <li class="error-out"><span class="error-text">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="#" class="green-but">保存</a>&nbsp;<a href="#" class="black-but">取消</a></div>
+</div>
+
+</body>
+</html>

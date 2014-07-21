@@ -1,0 +1,262 @@
+define([
+	'jquery',
+	'app/common',
+	'app/util',
+	'jqtmpl',
+	'pkg/DatePicker/app',
+	'pkg/DateFormat/app',
+	'json'
+], function($, common) {
+
+	"use strict";
+
+	/***********发药*****************************************/
+	var Drugstore = {
+		init: function() {
+
+
+			$(document).delegate('#confirm', 'click', function() {
+				var drug = [];
+				$('.tr-hover').each(function() {
+					var item = {
+						drugId: $(this).attr('data-id'),
+						drugNum: $(this).attr('data-num')
+					};
+					drug.push(item);
+				});
+				var data = JSON.stringify(drug);
+				var api = $(this).attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					type: 'post',
+					data: data,
+					success: function() {
+						$(this).tips('success', '发药成功！');
+						setTimeout(function() {
+							location.href = $('#confirm').attr('data-href');
+						}, 500);
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+		}
+	};
+
+	/*************采购入库********************************************************/
+	var InStorage = {
+		init: function() {
+
+			$('#importdate').datePicker({
+				dateFmt: 'yyyy-MM-dd'
+			});
+			/*var supplier = $('#supplier');
+			if(supplier[0]) {
+				var api = supplier.attr('data-href');
+				$.ajax(common.ajaxCall({
+					url: api,
+					type:'post',
+					success: function(data) {
+						var ds = data.ds,html;
+						for(var i = ds.length-1; i >= 0; i--) {
+							var item = ds[i];
+							html += '<option value="'+ item.userId +'">'+ item.userName +'</option>';
+						}
+						supplier.empty().append(html);
+					}
+				}));
+			}*/
+
+			// 经办人
+			$("#userName").showlist({
+				keyID: 'doctorId',
+				bindSub: $('#userId'),
+				selectCallBack: function(d) {
+					$('#userId').val(d.doctorId);
+				},
+				buildHtml: function(ds) {
+					var html = '<table cellpadding="0" cellspacing="1" class="table-list ab-table-div-title"></tbody>';
+					for (var i = 0; i < ds.length; i++) {
+						var item = ds[i];
+						html += '<tr data-id="' + item.doctorId + '" data-name="' + item.doctorName + '" class="tr-hover"><td>' + item.doctorName + '</td></tr>';
+					}
+					html += '</tbody></table>';
+					return html;
+				}
+			});
+
+			// 品名自动完成
+			$('.midicinesname').showlist({
+				width: 500,
+				keyID: 'medicinesId',
+				bindSub: $($(this).attr('data-id') + '-medicinesId'),
+				selectCallBack: function(d) {
+					if (!d)
+						return;
+					if ($('.demo').parents('.in-storage:first').index() === ($('.in-storage').length - 1)) {
+						var text = $('.storage-item .in-storage:last').clone(true);
+						text.find('.demo').val('').removeClass('demo');
+						text.appendTo($('.storage-item'));
+						$('.validdate').datePicker({
+							dateFmt: 'yyyy-MM-dd'
+						});
+						$('.validdate').val($.formatDate(new Date(), 'yyyy-MM-dd'));
+					}
+					var _parents = $('.demo').parents('.in-storage:first');
+					_parents.find('.micicinesid').val(d.medicinesId);
+					_parents.find('.rule').text(d.rule);
+					_parents.find('.unit').text(d.unit);
+					_parents.find('.unitId').text(d.unitId);
+				},
+				buildHtml: function(ds) {
+					var html = '<table cellpadding="0" cellspacing="1" class="table-list ab-table-div-title"><thead><tr><td width="60%">品名</td><td width="20%">规格</td><td width="20%">单位</td></tr></thead><tbody>';
+					for (var i = 0; i < ds.length; i++) {
+						var item = ds[i];
+						html += '<tr data-id="' + item.medicinesId + '" data-name="' + item.medicinesName + '" class="tr-hover"><td>' + item.medicinesName + '</td><td>' + item.rule + '</td><td>' + item.unit + '</td></tr>';
+					}
+					html += '</tbody></table>';
+					return html;
+				}
+			});
+
+			$('.flag').click(function() {
+				$(this).toggleClass('signImg-a').toggleClass('signImg-b');
+			});
+
+			// 计算总价
+			var count = function(th) {
+				var _parents = $(th).parents('.in-storage:first');
+				var total = parseFloat(_parents.find('.price').val()) * parseFloat(_parents.find('.Num').val());
+				if (!isNaN(total)) {
+					_parents.find('.totalamt').text(total);
+				}
+			};
+			$(document).delegate('.less-text', 'click', function() {
+				var num = $(this).next('.Num');
+				num.val(parseFloat(num.val(), 10) - 1);
+				count(this);
+			})
+				.delegate('.add-text', 'click', function() {
+					var num = $(this).prev('.Num');
+					num.val(parseFloat(num.val(), 10) + 1);
+					count(this);
+				})
+				.delegate('.storage-item .delete-item', 'click', function() {
+					if ($('.in-storage').length === 1)
+						return;
+					$(this).parents('.in-storage:first').remove();
+				})
+				.delegate('.storage-list .delete-item', 'click', function() {
+					var api = $(this).attr('data-action');
+					var callback = function() {
+						$.ajax(common.ajaxCall({
+							url: api,
+							type: 'post',
+							success: function() {
+								top.location.reload();
+							},
+							error: function(msg) {
+								alert(msg);
+							}
+						}));
+					};
+					$(this).dialogConfirm(callback);
+				})
+				.delegate('.price,.Num', 'input propertychange', function() {
+					count(this);
+				});
+
+			$('.validdate').datePicker({
+				dateFmt: 'yyyy-MM-dd'
+			});
+			$('.validdate').val($.formatDate(new Date(), 'yyyy-MM-dd'));
+
+			// 点击保存
+			$('#saveStroage').click(function() {
+				// 药品明细
+				var tarForm = $('#form-add-bill');
+				if (!tarForm.doValidate())
+					return;
+
+				$('.price,.Num').each(function() {
+					if (!$(this).parents('.in-storage:first').find('.midicinesname').val())
+						return false;
+					if (!$(this).val()) {
+						$(this).focus().addClass('error-area');
+						$(this).tips('error', '此处必填');
+					}
+				});
+				// 药品
+				var medicine = [];
+				$('.in-storage').each(function() {
+					var _this = $(this);
+					if (!_this.find('.micicinesid').val())
+						return;
+					var item = {
+						medicinesName: _this.find('.midicinesname').val(),
+						medicinesId: _this.find('.micicinesid').val(),
+						rule: _this.find('.rule').text(),
+						unit: _this.find('.unit').text(),
+						unitId: _this.find('.unitId').val(),
+						price: _this.find('.price').val(),
+						num: _this.find('.Num').val(),
+						totalamt: _this.find('.totalamt').val(),
+						productbatchnum: _this.find('.productbatchnum').val(),
+						validdate: _this.find('.validdate').val()
+					};
+					medicine.push(item);
+				});
+				var data = {
+					processor: $('#userName').val(),
+					processorId: $('#userId').val(),
+					importDate: $('#importdate').val(),
+					warehouseName: $('#warehousename').children('option:selected').text(),
+					warehouseCode: $('#warehousename').children('option:selected').val(),
+					supplierName: $('#supplier').children('option:selected').text(),
+					supplierId: $('#supplier').children('option:selected').val(),
+					invoiceNo: $('#invoiceNo').val(),
+					note: $('#note').val(),
+					medicines: medicine
+				};
+
+				var api = $(this).attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					type: 'post',
+					data: {
+						resultJson: JSON.stringify(data)
+					},
+					success: function() {
+
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+		}
+	};
+
+	/***************库存盘点*******************************/
+	var Storage = {
+		init: function() {
+			$('.endDate').datePicker({
+				dateFmt: 'yyyy-MM-dd'
+			});
+		}
+	};
+
+	/**********入口*****************/
+	var Main = {
+		init: function() {
+			Drugstore.init();
+			InStorage.init();
+			Storage.init();
+		}
+	};
+
+	Main.init();
+
+	$('.numeral').numeral();
+});

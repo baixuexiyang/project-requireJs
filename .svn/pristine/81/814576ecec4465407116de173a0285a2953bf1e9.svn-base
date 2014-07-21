@@ -1,0 +1,45 @@
+{
+  "status": {
+    "code": 0,
+    "msg": "用户名不存在!"
+  },
+  "ds": [
+  	{
+  		"userid": 1,
+      "username": "lisi",
+      "tellphone": "123456",
+      "sex": "男",
+      "age": 50
+  	},{
+  		"userid": 2,
+  		"username": "lisi",
+  		"tellphone": "123456",
+      "sex": "男",
+      "age": 50
+  	},{
+      "userid": 3,
+      "username": "lisi",
+      "tellphone": "123456",
+      "sex": "男",
+      "age": 50
+    },{
+      "userid": 4,
+      "username": "lisi",
+      "tellphone": "123456",
+      "sex": "男",
+      "age": 50
+    },{
+      "userid": 5,
+      "username": "lisi",
+      "tellphone": "123456",
+      "sex": "男",
+      "age": 50
+    },{
+      "userid": 6,
+      "username": "lisi",
+      "tellphone": "123456",
+      "sex": "男",
+      "age": 50
+    }
+  ]
+}

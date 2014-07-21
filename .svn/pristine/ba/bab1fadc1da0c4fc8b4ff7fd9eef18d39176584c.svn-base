@@ -1,0 +1,70 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="admin" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 Structure">
+        	<h2 class="h-auto"><i class="f-l">组织架构配置</i><a href="#" class="yellow-but2 f-r">同步组织架构</a><a href="#" class="green-but f-r">设置组织架构</a></h2>
+            <!--表单开始-->
+            <div class="h-auto mar-t20">
+            	<!--左侧开始-->
+            	<div class="f-l organize-l mag-l75">
+                	<p class="text-c">组织架构</p>
+                    <input type="hidden" id="structure-tree" data-href="js/mock-data/admin-tree.json">
+                    <dl class="organize-tree">                        
+                    	<!-- <dt><span class="tree-more"><a href="#">一级目录</a></span></dt>
+                        <dd><span><a href="#">二级目录</a></span></dd>
+                        <dd>
+                        	<span class="tree-more"><a href="#">二级目录</a></span>
+                        	<cite><a href="#">三级目录</a></cite>
+                            <cite><a href="#">三级目录</a></cite>
+                            <cite><a href="#">三级目录</a></cite>
+                        </dd>
+                        <dd><span><a href="#">二级目录</a></span></dd>
+                        <dt data-cfg='{"name":"一级目录","spell":"yijimulu"}'><span><a href="#">一级目录</a></span></dt>
+                        <dt data-cfg='{"name":"一级目录","spell":"yijimulu"}'><span class="tree-more"><a href="#">一级目录</a></span></dt>
+                        <dd><span data-cfg='{"name":"二级目录","spell":"erjimulu"}'><a href="#">二级目录</a></span></dd>
+                        <dd>
+                            <span class="tree-more" data-cfg='{"name":"二级目录","spell":"erjimulu"}'><a href="#">二级目录</a></span>
+                            <cite data-cfg='{"name":"三级目录","spell":"sanjimulu"}'><a href="#">三级目录</a></cite>
+                            <cite data-cfg='{"name":"三级目录","spell":"sanjimulu"}'><a href="#">三级目录</a></cite>
+                            <cite data-cfg='{"name":"三级目录","spell":"sanjimulu"}'><a href="#">三级目录</a></cite>
+                        </dd>
+                        <dd><span data-cfg='{"name":"二级目录","spell":"erjimulu"}'><a href="#">二级目录</a></span></dd>
+                        <dt data-cfg='{"name":"一级目录","spell":"yijimulu"}'><span><a href="#">一级目录</a></span></dt> -->
+                    </dl>
+                </div>
+                <!--左侧结束-->
+                <!--中间开始-->
+                <div class="f-l organize-c">
+                	<!--<a href="javascript:;" class="green-but" id="addCategory">添加子类别</a>
+                    <a href="javascript:;" class="red-but" id="delete" data-href="include-structure.php" data-action="">删除类别</a>-->
+                </div>
+                <!--中间结束-->
+                <!--右侧开始-->
+                <div class="f-l organize-r">
+                    <form id="form-add-category">
+                        <input type="hidden" id="label" name="label" value="">
+                        <input type="hidden" id="orgId" name="orgId" value="">
+                	<ul class="three-list h-auto mar-t20">
+                    	<li><i>科室名称：</i><label>科室名称</label></li>
+                        <li><i>拼音码：</i><label>sdfsdf</label></li>
+                        <li><i>上级节点：</i><label>波恩生殖</label></li>
+                    </ul>
+                </form>
+                </div>
+                <!--右侧结束-->
+            </div>
+            <!--表单结束-->
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

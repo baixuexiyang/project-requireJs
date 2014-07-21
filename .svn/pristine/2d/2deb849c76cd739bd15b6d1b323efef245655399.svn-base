@@ -1,0 +1,117 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="adjuvant-therapy" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 patientList-assay">
+        	<h2 class="h-auto"><i class="f-l">疗程记录</i></h2>
+            <input type="hidden" class="addTemplate">
+            <!--表单开始-->
+            <div class="h-auto mar-t20">
+            	<!--左侧菜单开始-->
+                <!--#include file="include-static-left.php"-->
+                <!--左侧菜单结束-->
+                <!--右边信息开始-->
+                <div class="h-auto f-r help-doctor-r">
+                    <!--中部模板开始-->
+                    <!--#include file="include-static-middle.php"-->
+                    <!--中部模板结束-->
+                    <div class="h-auto add-lcfa">
+                    	<p class="f-l">
+                        	<span>疗程方案：
+                            <label><select name="" id="choose_scheme" data-action="js/mock-data/include-data-example.json">
+                            <option value="0">请选择疗程方案</option>
+                            <option value="1">疗程方案一</option>
+                            </select></label></span>
+                            <span>疗程次数：1</span>
+                        </p>
+                        <a href="javascript:;" data-href="choose-template-assay.php" id="chooseTemplate" class="green-but f-r">选择治疗计划模板</a><a href="javascript:;" data-href="include-add-assay.php" id="addProject" class="yellow-but f-r">新增项目</a>                        
+                    </div>
+                    <!--bottom表单开始-->
+                    <div class="h-auto mar-t10">
+                        <table cellpadding="0" cellspacing="1" class="table-list add-lcfa-tab">
+                            <thead>
+                                <tr>
+                                    <td width="7%">选择</td>
+                                    <td width="12%">日期</td>
+                                    <td width="7%">处理天</td>
+                                    <td width="15%">化验项目</td>
+                                    <td width="11%">状态</td>
+                                    <td width="15%">阶段</td>
+                                    <td width="8%">结果</td>
+                                    <td width="25%">操作</td>
+                              </tr>
+                            </thead>
+                            <tr class="tr-hover">
+                                <td><input name="" type="checkbox" value="" data-id="1"></td>                                
+                                <td>2012/12/13</td>
+                                <td>99</td>
+                                <td>HIV血液检查<input type="hidden" class="itemid" value="1"></td>
+                                <td>计划</td>
+                                <td class="orange-font text-l"><i class="orange-block"></i>上官云飞</td>
+                                <td>好</td>
+                                <td><a href="#" class="blue-but" title="附件">附件</a><a href="javascript:;" class="green-but edit" data-href="include-add-assay.php" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                             </tr>
+                             <tr class="tr-hover">
+                                <td><input name="" type="checkbox" value="" data-id="1"></td>                                
+                                <td>2012/12/13</td>
+                                <td>99</td>
+                                <td>HIV血液检查<input type="hidden" class="itemid" value="1"></td>
+                                <td></td>
+                                <td class="red-font text-l"><i class="red-block"></i>上官云飞</td>                                                               
+                                <td></td>
+                                <td><a href="#" class="blue-but" title="附件">附件</a><a href="javascript:;" class="green-but edit" data-href="include-add-assay.php" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                             </tr>
+                             <tr class="tr-hover">
+                                <td><input name="" type="checkbox" value="" data-id="1"></td>                                
+                                <td>2012/12/13</td>
+                                <td>99</td>
+                                <td>HIV血液检查<input type="hidden" class="itemid" value="1"></td>
+                                <td></td>
+                                <td class="blue-font text-l"><i class="blue-block"></i>上官云飞</td>                                
+                                <td></td>
+                                <td><a href="#" class="blue-but" title="附件">附件</a><a href="javascript:;" class="green-but edit" data-href="include-add-assay.php" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                             </tr>
+                             <tr class="tr-hover">
+                                <td><input name="" type="checkbox" value="" data-id="1"></td>                                
+                                <td>2012/12/13</td>
+                                <td>99</td>
+                                <td>HIV血液检查<input type="hidden" class="itemid" value="1"></td>              
+                                <td></td>
+                                <td class="blue2-font text-l"><i class="blue2-block"></i>上官云飞</td>
+                                <td></td>
+                                <td><a href="#" class="blue-but" title="附件">附件</a><a href="javascript:;" class="green-but edit" data-href="include-add-assay.php" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                             </tr>
+                             <tr class="tr-hover">
+                                <td><input name="" type="checkbox" value="" data-id="1"></td>                                
+                                <td>2012/12/13</td>
+                                <td>99</td>
+                                <td>HIV血液检查<input type="hidden" class="itemid" value="1"></td>
+                                <td></td>
+                                <td class="blue3-font text-l"><i class="blue3-block"></i>上官云飞</td>                                
+                                <td></td>
+                                <td><a href="#" class="blue-but" title="附件">附件</a><a href="javascript:;" class="green-but edit" data-href="include-add-assay.php" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                             </tr>
+                             <tr>
+                                <td><input name="" id="checkAll" type="checkbox" value="">&nbsp;全选</td>
+                                <td colspan="9" class="text-l"><a href="javascript:;" id="confirm_project" class="green-but w80" data-action="js/mock-data/include-data-example.json">确认项目</a>&nbsp;<a href="javascript:;" id="clinic_bill" data-action="js/mock-data/include-data-example.json" data-href="门诊开单-开单列表.shtml" class="yellow-but w80">门诊开单</a></td>
+                             </tr>
+                        </table>
+                    </div>
+                    <!--bottom表单结束-->                   
+                </div>
+                <!--右边信息结束-->
+            </div>
+            <!--表单结束-->
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

@@ -1,0 +1,556 @@
+define([
+	'jquery',
+	'app/common',
+	'app/util',
+	'jqtmpl',
+	'pkg/DatePicker/app',
+	'pkg/DateFormat/app',
+	'json',
+	'artDialog',
+	'iframe'
+], function($, common) {
+
+	"use strict";
+
+	/****************挂号**********************************/
+	var Loading = {
+		init: function() {
+			var me = this;
+
+			// 若无发票号提示
+			if($('#receiptNo')[0] && !$('#receiptNo').val()) {
+				var url = $('#getReceipt').val();
+				art.dialog.alert('当前无发票号码，请领用发票！', function() {
+					top.location.href = url;
+				});
+			}
+
+			// 搜索-弹窗
+			$('#form-patient-search').on('submit', function() {
+				var url = $(this).attr('action');
+				$.post(url, $(this).serialize(), function(res) {
+					$('#dialogContent').empty().html(res);
+					art.dialog({
+						content: $('#dialogContent').html(),
+						title: '患者查询'
+					});
+				});
+				return false;
+			});
+
+			$(document).delegate('.select', 'click', function() {
+
+				var
+				patientId = $(this).parents('tr:first').data('id'),
+					href = top.location.href;
+
+				if (href.indexOf('patientId') > -1) {
+					top.location.href = href.replace(/patientId=\d*/, 'patientId=' + patientId);
+					return;
+				}
+				if (href.indexOf('?') > -1)
+					top.location.href += '&patientId=' + patientId;
+				else
+					top.location.href += '?patientId=' + patientId;
+			});
+
+			var birthday = $("#birthday");
+			birthday.datePicker({
+				dateFmt: 'yyyy-MM-dd'
+			});
+
+			// 根据出生年月输入年龄
+			birthday.blur(function() {
+				if (this.value) {
+					var year = parseInt(this.value.substring(0, 4), 10);
+					var age = new Date().getFullYear() - year;
+					$('#patient-age').val(age);
+				}
+			});
+
+
+			/*$("#birthday").click(function() {
+				$(this).datePicker();
+			});*/
+
+
+
+			// 根据年龄输入出生年月
+			$(document).delegate('#patient-age', 'blur', function() {
+				var me = $(this),
+					age = parseInt(me.val(), 10);
+				if (!isNaN(age)) {
+					var birthday = (new Date()).getFullYear() - age;
+					birthday = birthday + '-01-01';
+					$("#birthday").val(birthday);
+				}
+			});
+
+
+			// 根据科室选择医生
+			$('#department').change(function() {
+				var api = $(this).attr('data-href');
+				var department = $(this).children('option:selected').text();
+				var departmentId = $(this).children('option:selected').val();
+				$.ajax(common.ajaxCall({
+					url: api,
+					data: {
+						departmentId: departmentId
+					},
+					type: 'post',
+					success: function(data) {
+						var ds = data.ds;
+						var str = '';
+						for (var i = ds.length - 1; i >= 0; i--) {
+							var item = ds[i];
+							if (item.departmentId == departmentId) {
+								if(item.doctorId == $('#doctorId').val()) {
+									str += '<option value="' + item.doctorId + '" selected="selected">' + item.doctorName + '</option>';
+									continue;
+								}
+								str += '<option value="' + item.doctorId + '">' + item.doctorName + '</option>';
+							}
+						}
+						$('#doctor').empty().append(str).trigger('change');
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			}).trigger('change');
+
+			$('#doctor').change(function() {
+				$('#doctorName').val($(this).children('option:selected').text());
+			});
+
+			// 跳号
+			$('.changenumber').click(function() {
+				var num = $.trim($('.num').text());
+				num = parseInt(num, 10) + 1;
+				var max = parseInt($('#max-num').val(), 10);
+				if(max < num)
+					return;
+				$('.num').html(num);
+				$('#receiptNo').val(num);
+			});
+
+
+			// 选择其他费用
+			$('.other-fee input[type="checkbox"]').click(function(evt) {
+				var ev = evt.target.id;
+				if (this.checked)
+					$('.' + ev).show();
+				else
+					$('.' + ev).hide();
+				me.countPrice();
+			});
+
+
+			$('#register-type').change(function() {
+				var _cld = $(this).children('option:selected');
+				$('.registerFell').text(_cld.attr('data-money')).attr('data-id', _cld.attr('data-id')).attr('data-name', _cld.attr('data-name'));
+				me.countPrice();
+			}).trigger('change');
+			
+			$(document).delegate("#saveRegister", "click", function() {
+
+				var tarForm = $("#form-patient-info");
+				if (!tarForm.doValidate())
+					return;
+
+				var fee = [];
+				$('.fee-list li:visible span:not(":last")').each(function() {
+					var ms = {
+						feeitemId: $(this).attr('data-id'),
+						feeCatlogId: $(this).attr('data-feeCatlogId'),
+						feeCatlogName: $(this).attr('data-feeCatlogName'),
+						feeitemName: $(this).attr('data-name'),
+						price: $(this).text()
+					};
+					fee.push(ms);
+				});
+				var
+					totalAmt = $('#total-price').text(),//费用总计
+					num = $('.num').text();//发票号
+				var
+					url = $(this).attr('data-href') + '?totalAmt=' + totalAmt + '&receiptNo=' + num, //弹窗地址
+					api = $(this).attr("data-action");
+				$.ajax(common.ajaxCall({
+					url: api,
+					type: 'post',
+					data: {
+						info: tarForm.serialize(),
+						fee: JSON.stringify(fee)
+					},
+					success: function(data) {
+						art.dialog.open(url + '&patientId=' + data.ds, {
+							width: 380,
+							height: 420,
+							lock: true,
+							title: '确认收费'
+						});
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+
+				}));
+			});
+
+			// 限制输入的小数
+			var controlNum = function() {
+				var _val = $(this).val();
+				var i = _val.indexOf('.');
+				if (i !== -1) {
+					var sub = _val.substr(i + 1);
+					if (sub.length > 2) {
+						$(this).val(_val.substring(0, i + 3));
+						art.dialog({
+							content: "最多只能输入两位小数！",
+							icon: 'face-sad',
+							time: 1,
+							lock: true
+						});
+					}
+				}
+			};
+
+			$('.money').on('input propertychange', controlNum)
+				.blur(function() {
+					var total = parseFloat($('#total').text());
+					var pay = 0;
+					$('.money').each(function() {
+						var num = parseFloat($(this).val());
+						if (isNaN(num))
+							return;
+						pay += num;
+					});
+					if ((pay - total) >= 0) {
+						$('#change').removeClass('red-font').text((pay - total).toFixed(2));
+					} else {
+						$('#change').addClass('red-font').text((pay - total).toFixed(2));
+					}
+				});
+
+			$(document).delegate('#Charge', 'click', function() {
+				var tarForm = $('#form-charge');
+				var change = parseFloat($('#change').text());
+				if (isNaN(change)) {
+					art.dialog.alert("应付款不足，请重新付款！");
+					return;
+				}
+				var api = $(this).attr('data-action');
+				var url = $(this).attr('data-href');
+				$.ajax(common.ajaxCall({
+					url: api,
+					type: 'post',
+					data: tarForm.serialize(),
+					success: function() {
+						art.dialog.tips('挂号成功！');
+						setTimeout(function() {
+							top.location.href = url;
+						},500);
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			})
+				.delegate('#cancel', 'click', function() {
+					art.dialog.close();
+				});
+
+		},
+		countPrice: function() {
+			var total = 0;
+			$('.fee-list li:visible:not(:last)').each(function() {
+				total += parseFloat($(this).find('span').text());
+			});
+			if(isNaN(total))
+				total = 0;
+			total = total.toFixed(2);
+			$('#total-price').html(total);
+			$('#rel-total-price').val(total);
+		}
+	};
+
+	/*****************注册*************************************/
+	var Register = {
+		init: function() {
+
+			var me = this;
+
+			if ($('#avaUpload').length > 0) {
+				$("#avaUpload,#avaPhoto").on("click", function() {
+					var urlUploadHdpic = $(this).attr("data-href");
+					$.ajax({
+						type: "GET",
+						url: urlUploadHdpic,
+						cache: false,
+						success: function(resp) {
+							$("#dialogContent").empty().html(resp);
+							art.dialog({
+								id: "uploadHdpicDialog",
+								lock: true,
+								background: '#000',
+								width: 690,
+								height: 510,
+								esc: true,
+								drag: true,
+								padding: 3,
+								resize: false,
+								opacity: 0.75,
+								title: '上传头像',
+								content: document.getElementById('dialogContent'),
+								cancel: false
+							});
+						},
+						error: function(xhr, s, err) {
+							return false;
+						}
+					});
+				});
+			}
+
+
+			$("#closeDialog").on("click", function() {
+				art.dialog.list["uploadHdpicDialog"].close();
+			});
+
+			var spouseBirthday = $("#spouse-birthday");
+			spouseBirthday.datePicker({
+				dateFmt: 'yyyy-MM-dd'
+			});
+
+			var startDate = $('#start-date');
+			var endDate = $('#end-date');
+			if (startDate.length > 0) {
+				if (!startDate.val()) {
+					var d = (new Date()).getDate() - 7;
+					d = (new Date()).setDate(d);
+					startDate.val($.formatDate(new Date(d), 'yyyy-MM-dd'));
+				}
+				if (endDate.length > 0) {
+					startDate.datePicker({
+						// minDate: '#F{$dp.$D(\'end-date\',{d:-7})}',
+						// maxDate: '#F{$dp.$D(\'end-date\')}',
+						onpicked: function() {
+							if ($('#end-date').val() === "")
+								$dp.$('end-date').focus();
+						},
+						dateFmt: 'yyyy-MM-dd'
+					});
+				} else {
+					startDate.datePicker({
+						dateFmt: 'yyyy-MM-dd'
+					});
+				}
+			}
+
+			if (endDate.length > 0) {
+				if (!endDate.val()) {
+					endDate.val($.formatDate(new Date(), 'yyyy-MM-dd'));
+				}
+				if (startDate.length > 0) {
+					endDate.datePicker({
+						// minDate: '#F{$dp.$D(\'start-date\')}',
+						// maxDate: '#F{$dp.$D(\'start-date\',{d:7})}',
+						onpicked: function() {
+							if ($('#start-date').val() === "")
+								$dp.$('start-date').focus();
+						},
+						dateFmt: 'yyyy-MM-dd'
+					});
+				} else {
+					endDate.datePicker({
+						dateFmt: 'yyyy-MM-dd'
+					});
+				}
+			}
+
+			$(document).delegate('.register', 'click', function() {
+				art.dialog.open($(this).attr('data-href'), {
+					content: '',
+					width: 380,
+					heigth: 220,
+					title: '提示',
+					lock: true,
+					padding: '0 0'
+				});
+			})
+				.delegate('#spouse-register', 'click', function() {
+					var registerNum = $('#registerNum').val();
+					if (registerNum.charAt(registerNum.length - 1) === 'M' || registerNum.charAt(registerNum.length - 1) === 'F')
+						return;
+
+					if (registerNum === '') {
+						if ($('.error-text').is(":hidden")) {
+							$('.error-text').show();
+						}
+						$('.error-text').html("请注册主联系人的注册证号!");
+						$('#registerNum').addClass('error-area');
+					} else {
+						var sex = $('#spouse-sex').children('option:selected').text();
+						var str = '';
+						if (sex === '男') {
+							str = 'M';
+						} else {
+							str = 'F';
+						}
+						$('#spouse-registerNum').val(registerNum + str);
+					}
+				})
+				.delegate('#saveLogin', 'click', function() {
+					var tarForm = $("#form-patient-login");
+					if (!tarForm.doValidate())
+						return;
+
+					if ($("#registerCredentialsNum").validateCredentials('registerCredentials') === false)
+						return;
+
+					if ($('#spouse-registerCredentialsNum').is(':visible')) {
+						if ($('#spouse-registerCredentialsNum').validateCredentials('spouse-registerCredentials') === false)
+							return;
+					}
+
+					$('#doctorName').val($('#doctor').children('option:selected').text());
+
+					var api = $(this).attr("data-action");
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						data: tarForm.serialize(),
+						success: function(data) {
+							$(this).dialogSuccess('注册成功！');
+							setTimeout(function() {
+								top.location.href = $('#saveLogin').attr('data-href');
+							}, 500);
+						},
+						error: function(msg) {
+							$(this).dialogError(msg);
+						}
+
+					}));
+				})
+				.delegate('.add', 'click', function() {
+					$('.spouse-info').show();
+					$('.add-family-but').addClass('bg-f5');
+					$('.delete').show();
+					$('#spouseFlag').val(1);
+				})
+				.delegate('.delete', 'click', function() {
+					$('.spouse-info').hide();
+					$('.add-family-but').removeClass('bg-f5');
+					$('.delete').hide();
+					$('#spouseFlag').val(0);
+				});
+
+			$("#determine").live('click', function() {
+				var len = $('.cen-p label input:radio:checked').length;
+				if (len === 0) {
+					art.dialog.alert('请至少选择一项！');
+				} else {
+					var tarForm = $('#form-register-num');
+					var api = $("#determine").attr('data-action');
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						data: tarForm.serialize(),
+						success: function(data) {
+							var ds = data.ds;
+							$('#registerNum', top.window.document).val(ds[0].registerNum);
+							art.dialog.close();
+						},
+						error: function(msg) {
+							alert(msg);
+						}
+					}));
+				}
+			});
+
+
+			// 出生日期和年龄联动
+			$('#registerCredentials').change(function() {
+				me.linkage('registerCredentials', 'registerCredentialsNum', 'birthday', 'patient_age');
+			});
+			$('#registerCredentialsNum').blur(function() {
+				me.linkage('registerCredentials', 'registerCredentialsNum', 'birthday', 'patient_age');
+			});
+			$('#spouse_registerCredentialsNum').blur(function() {
+				me.linkage('spouse_registerCredentials', 'spouse_registerCredentialsNum', 'spouse_birthday', 'spouse_age');
+			});
+			$('#spouse_registerCredentials').change(function() {
+				me.linkage('spouse_registerCredentials', 'spouse_registerCredentialsNum', 'spouse_birthday', 'spouse_age');
+			});
+			// 注册修改
+			var display = $('#display');
+			if (!display[0])
+				return;
+			var doctorId = $('#doctorId').val();
+			$('#doctor').children('option[value="' + doctorId + '"]').prop('selected', true);
+			var ds = display.val();
+			if (ds === 'true') {
+				$('.add').html('<b></b>&nbsp;编辑配偶信息');
+				$('.add').trigger('click');
+				$('.add-family-but').removeClass('bg-f5');
+				$('.delete').hide();
+				$('.add').die('click');
+			}
+
+
+		},
+		linkage: function(cardType, cardNum, date, age) {
+			var type = $('#' + cardType).children('option:selected').text();
+			var num = $('#' + cardNum).val();
+			if (type !== '居民身份证' || !num)
+				return;
+
+			// 判断身份证号是否存在
+			var api = $('#' + cardNum).attr('data-href');
+			$.ajax(common.ajaxCall({
+				url: api,
+				data: {
+					cardType: $('#' + cardType).children('option:selected').val(),
+					idNumber: num
+				},
+				type: 'post',
+				success: function() {
+					var year, month, day, ages;
+					if (num.length === 18) {
+						year = parseInt(num.substr(6, 4), 10);
+						month = num.substr(10, 2);
+						day = num.substr(12, 2);
+						ages = (new Date()).getFullYear() - year;
+					} else {
+						year = parseInt('19' + num.substr(6, 2), 10);
+						month = num.substr(8, 2);
+						day = num.substr(10, 2);
+						ages = (new Date()).getFullYear() - year;
+					}
+
+					$("#" + age).val(ages);
+					$("#" + date).val(year + '-' + month + '-' + day);
+				},
+				error: function(msg) {
+					alert(msg);
+				}
+			}));
+		}
+	};
+
+	/*****************入口**************************************/
+	var Main = {
+		init: function() {
+			Loading.init();
+			Register.init();
+
+
+
+		}
+	};
+
+	Main.init();
+
+	// textarea  lt9 不支持maxlength属性
+	$('textarea').limitLength();
+});

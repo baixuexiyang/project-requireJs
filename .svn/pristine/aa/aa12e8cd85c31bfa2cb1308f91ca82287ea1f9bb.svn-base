@@ -1,0 +1,191 @@
+define([
+	'jquery',
+	'app/common',
+	'app/util',
+	'jqtmpl',
+	'pkg/DatePicker/app',
+	'pkg/DateFormat/app',
+	'json'
+], function($, common) {
+
+	"use strict";
+
+	/****************系统配置-字典类别配置**************************/
+	var Type = {
+		init: function() {
+
+			// 新增字典类别配置
+			$(document).delegate('#addType', 'click', function() {
+				art.dialog.open($(this).attr("data-href"), {
+					width:380,
+					height:270,
+					title:'新增字典类别配置',
+					lock: true
+				});
+			}).
+			delegate('.edit', 'click', function() {
+				art.dialog.open($(this).attr("data-href"), {
+					width:380,
+					height:270,
+					title:'编辑字典类别',
+					lock: true
+				});
+			});
+			$("#determine").click(function() {
+				var tarForm = $("#add-Type");
+				if(!tarForm.doValidate())
+					return;
+
+				var api = tarForm.attr("data-action");
+				$.ajax(common.ajaxCall({
+					url: api,
+					data: tarForm.serialize(),
+					success: function() {
+						top.location.reload();
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+			// 弹窗取消
+			$("#cancel").click(function() {
+				art.dialog.close();
+			});
+
+			// 点击删除
+			$(document).delegate('.delete-item', 'click', function() {
+				$(this).dialogConfirm();
+			});
+		}
+	};
+
+	/****************系统配置-字典配置*************************/
+	var Configure = {
+		init: function() {
+
+			// 新增字典配置
+			$(document).delegate('#addConfigure', 'click', function() {
+				art.dialog.open($(this).attr("data-href"), {
+					width:380,
+					height:320,
+					title:'新增字典类别配置',
+					lock: true
+				});
+			}).
+			delegate('.edit', 'click', function() {
+				art.dialog.open($(this).attr("data-href"), {
+					width:380,
+					height:320,
+					title:'编辑字典类别',
+					lock: true
+				});
+			});
+			$("#determine").click(function() {
+				var tarForm = $("#add-Dictionary");
+				if(!tarForm.doValidate())
+					return;
+
+				var api = tarForm.attr("data-action");
+				$.ajax(common.ajaxCall({
+					url: api,
+					data: tarForm.serialize(),
+					success: function() {
+						top.location.reload();
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+			// 弹窗取消
+			$("#cancel").click(function() {
+				art.dialog.close();
+			});
+
+			// 点击删除
+			$(document).delegate('.delete-item', 'click', function() {
+				$(this).dialogConfirm();
+			});
+		}
+	};
+
+	/****************系统配置-医疗模板*****************************/
+	var MedicalTemplate = {
+		init: function() {
+
+			$(document).delegate('#next', 'click', function() {
+				var tarForm = $('#form-template');
+				if(!tarForm.doValidate())
+					return false;
+			});
+
+			// 点击删除
+			$(document).delegate('.delete-item', 'click', function() {
+				$(this).dialogConfirm();
+			});
+		}
+	};
+
+	/****************系统配置-用户管理******************************/
+	var UserManagement = {
+		init: function() {
+
+			var birthday = $("#birthday");
+			birthday.datePicker({
+				dateFmt: 'yyyy-MM-dd'
+			});
+
+			$(document).delegate('#saveLogin', 'click', function() {
+				var tarForm = $("#form-add-patient");
+				if (!tarForm.doValidate())
+					return;
+			});
+			
+
+			// 点击删除
+			$(document).delegate('.delete-item', 'click', function() {
+				$(this).dialogConfirm();
+			});
+		}
+	};
+
+	/****************系统配置-组织架构建设************************************/
+	var Structure = {
+		init: function() {
+
+		}
+	};
+
+	/****************入口*****************************************************/
+	var Main = {
+		init: function() {
+			// 字典类别配置
+			if($('.Type').length > 0) {
+				Type.init();
+			}
+
+			// 字典配置
+			if($('.Configure').length > 0) {
+				Configure.init();
+			}
+
+			// 医疗模板
+			if($('.MedicalTemplate').length > 0) {
+				MedicalTemplate.init();
+			}
+
+			// 用户管理
+			if($('.UserManagement').length > 0) {
+				UserManagement.init();
+			}
+
+			// 组织架构建设
+			if($('.Structure').length > 0) {
+				Structure.init();
+			}
+		}
+	};
+
+	Main.init();
+});

@@ -1,0 +1,117 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="doctor-diagnose" />
+    <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20">
+        	<h2 class="h-auto"><i class="f-l">面诊详细</i></h2>
+            <div class="mar-t10 div32">
+            	<span><i>病人姓名：</i><em>詹姆斯</em></span><span><i>性别：</i><em>女</em></span><span><i>年龄：</i><em>28</em></span>
+            </div>
+            <!--医疗记录开始-->
+            <div class="hr-div mar-t10">
+            	<span>医疗记录事件</span>
+            	<hr/>
+            </div>
+            <!--表单开始-->
+            <div class="h-auto">
+            	<table cellpadding="0" cellspacing="1" class="table-list">
+                	<thead>
+                    	<tr>
+                        	<td width="18%">时间</td>
+                            <td width="64%">事件记录</td>
+                            <td width="18%">操作</td>
+                        </tr>
+                    </thead>
+                    <tr class="tr-hover">
+                        <td>2013/12/17</td>
+                        <td width="60%">事件记录</td>
+                        <td><a href="#" class="blue-but" title="附件">附件</a><a href="医生面诊-女性信息诊断表.shtml" class="green-but" title="查看详细">查看</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>2013/12/17</td>
+                        <td width="60%">事件记录</td>
+                        <td><a href="#" class="blue-but" title="附件">附件</a><a href="医生面诊-女性信息诊断表.shtml" class="green-but" title="查看详细">查看</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>2013/12/17</td>
+                        <td width="60%">事件记录</td>
+                        <td><a href="#" class="blue-but" title="附件">附件</a><a href="医生面诊-女性信息诊断表.shtml" class="green-but" title="查看详细">查看</a></td>
+                     </tr>                     
+                </table>
+            </div>
+            <!--表单结束-->
+          <!--医疗记录结束-->
+          
+         <!--开单记录开始-->
+            <div class="hr-div mar-t10">
+            	<span>门诊开单记录</span>
+            	<hr/>
+            </div>
+            <div class="div32-b">
+            	<span><i>诊断时间：</i><em>2013/12/17</em></span><span><i>诊断医生：</i><em>张铁林</em></span><span><i>治疗单号：</i><em>23423423456</em></span>
+            </div>
+            <!--表单开始-->
+            <div class="h-auto">
+            	<table cellpadding="0" cellspacing="1" class="table-list">
+                	<thead>
+                    	<tr>
+                        	<td width="24%">药品名称</td>
+                            <td width="10%">单价（元）</td>
+                            <td width="9%">数量</td>
+                            <td width="12%">总额（元）</td>
+                            <td width="15%">用法</td>
+                            <td width="15%">用药频率</td>
+                          	<td width="15%">单次用量</td>                            
+                      </tr>
+                    </thead>
+                    <tr class="tr-hover">
+                        <td>药品名称药品名称药品名称</td>
+                        <td>12346.00</td>
+                        <td>1234</td>
+                        <td>1234567.00</td>
+                        <td>口服外敷针剂</td>
+                        <td>一日三次</td>
+                        <td>一次300ml</td>
+                     </tr>
+                </table>
+            </div>
+            <!--表单结束-->
+            <div class="div32-b mar-t10">
+            	<span><i>诊断时间：</i><em>2013/12/17</em></span><span><i>诊断医生：</i><em>黄秋生</em></span><span><i>治疗单号：</i><em>2812123123</em></span>
+            </div>
+            <!--表单开始-->
+            <div class="h-auto mar-b20">
+            	<table cellpadding="0" cellspacing="1" class="table-list">
+                	<thead>
+                    	<tr>
+                        	<td width="50%">项目名称</td>
+                          	<td width="12%">单价（元）</td>
+                          	<td width="12%">单位</td>
+                       	  <td width="12%">数量</td>
+                       	  <td width="14%">总额（元）</td>                            
+                   	  </tr>
+                    </thead>
+                    <tr class="tr-hover">
+                        <td>药品名称药品名称药品名称</td>
+                        <td>12346.00</td>
+                        <td>次</td>
+                        <td>1234</td>
+                        <td>1234567.00</td>
+                     </tr>
+                </table>
+            </div>
+            <!--表单结束-->
+         <!--开单记录结束-->
+        </div>
+    <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

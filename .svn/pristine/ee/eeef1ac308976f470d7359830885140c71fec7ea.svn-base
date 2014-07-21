@@ -1,0 +1,265 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="adjuvant-therapy" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 patientList-process">
+            <form id="form-add-terpay">
+        	<h2 class="h-auto"><i class="f-l">新增治疗方案</i></h2>
+            <div class="error-text" style="display:none;"></div>
+            <!--疗程信息-->
+            <div class="h-auto mar-t10 add-ylfa-list">
+            	<h3 class="add-ylfa-hov hov-bg-green">疗程信息</h3>
+                <ul class="h-auto mar-t10 add-ylaf-ul">
+                	<li><cite>配偶：</cite><label>欧阳小柔</label></li>
+                	<li><cite>不孕原因：</cite><label><select name="" class="w160">
+                    	<option>不孕原因不孕原因不孕原因不孕原因不孕原因不孕原因不孕原因</option>
+                        <option>不孕原因不孕原因不孕原因不孕原因不孕原因不孕原因不孕原因</option>
+                        <option>不孕原因不孕原因不孕原因不孕原因不孕原因不孕原因不孕原因</option>
+                    </select></label></li>
+                    <li><cite>不孕次因：</cite><label><select name="" class="w160">
+                    	<option>不孕原因不孕原因不孕原因不孕原因不孕原因不孕原因不孕原因</option>
+                    </select></label></li>
+                    <li><cite>疗程次数：</cite><label><input name="" type="text" class="w160 validate" value="1" readonly="true"></label></li>
+                    <li><cite><b class="red-font">*</b>疗程方案：</cite><label><select name="" id="strategy" class="w160 validate">
+                    	<option value="0">疗程方案</option><option value="1">疗程方案</option>
+                    </select></label></li>
+                    <li><cite><b class="red-font">*</b>开始日期：</cite><label><input name="" id="start_date"  onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" type="text" class="w160 Wdate validate"></label></li>
+                	<li><cite class="v-a-t">备注：</cite><label><textarea name="" cols="" rows=""></textarea></label></li>
+                </ul>
+            </div>
+            <!--配子来源-->
+            <div class="h-auto mar-t10 add-ylfa-list">
+            	<h3 class="add-ylfa-hov bg-f5">配子来源</h3>
+                <ul class="h-auto mar-t10 add-ylaf-ul" style="display:none;">
+                	<li><cite>卵子来源：</cite><label><select name="" class="w160">
+                    	<option>不孕原因不孕原因不孕原因不孕原因不孕原因不孕原因不孕原因</option>
+                    </select></label></li>
+                    <li><cite>精子来源：</cite><label><select name="" class="w160">
+                    	<option>不孕原因不孕原因不孕原因不孕原因不孕原因不孕原因不孕原因</option>
+                    </select></label></li>
+                    <li><cite>采集方法：</cite><label><select name="" class="w160">
+                    	<option>1</option>
+                    </select></label></li>
+                    <li><cite class="v-a-t">备注：</cite><label><textarea name="" cols="" rows=""></textarea></label></li>
+                	
+                </ul>
+            </div>
+            <!--疗程计划-->
+            <div class="h-auto mar-t10 add-ylfa-list">
+            	<h3 class="add-ylfa-hov bg-f5">疗程计划</h3>
+                <ul class="h-auto mar-t10 add-ylaf-ul" style="display:none;">
+                	<li><cite>治疗开始时间：</cite><label><input name="" id="terapy_start_date" type="text" class="w160 Wdate"></label><label><input id="terapy_start_date_hou" name="" type="text" class="w60">&nbsp;:&nbsp;<input name="" id="terapy_start_date_min" type="text" class="w60"></label><i class="blue-font">第1天</i></li>
+                    <li><cite>下调前月经第一天时间：</cite><label><input name="" id="first_day" type="text" class="w160  Wdate"></label><i class="yellow-font">第1天</i></li>
+                    <li><cite>基线检查日期：</cite><label><input name="" id="check_date" type="text" class="w160 Wdate"></label></li>
+                    <li><cite>卵泡期处理开始时间：</cite><label><input name="" id="deal_start_date" type="text" class="w160 Wdate"></label><label><input id="deal_start_date_hou" name="" type="text" class="w60">&nbsp;:&nbsp;<input name="" id="deal_start_date_min" type="text" class="w60"></label><i class="red-font">第1天</i></li>
+                    <li><cite>卵巢刺激日期：</cite><label><input name="" id="effect_date" type="text" class="w160 Wdate"></label></li>
+                    <li><cite>黄体0天：</cite><label><input name="" id="luteal" type="text" class="w160 Wdate"></label><i class="blue3-font">第1天</i></li>
+                    <li><cite>卵收集日期：</cite><label><input name="" id="collect_date" type="text" class="w160 Wdate"></label></li>
+                    <li><cite>胚胎复苏日期：</cite><label><input name="" id="re_live_date" type="text" class="w160 Wdate"></label></li>
+                    <li><cite>胚胎移植日期：</cite><label><input name="" id="move_date" type="text" class="w160 Wdate"></label></li>
+                    <li><cite>妊娠检查日期：</cite><label><input name="" id="pregnant_check_date" type="text" class="w160 Wdate"></label><label><select name="" class="w160">
+                    	<option>什么情况</option>
+                    </select></label></li>
+                    <li><cite>临床妊娠确认日期：</cite><label><input name="" id="pregnant_confirm_date" type="text" class="w160 Wdate"></label></li>
+                    <li><cite>预产期：</cite><label><input name="" id="expected_date" type="text" class="w160 Wdate"></label></li>
+                    <li><cite>取消治疗：</cite><label><input id="cancel_terapy" name="" type="checkbox" value=""></label></li><!--勾选之后才显示线面两项-->
+                    <li><cite>取消日期：</cite><label><input name="" id="cancel_date" type="data" class="w160 Wdate" disabled></label></li>
+                    <li><cite class="v-a-t">原因：</cite><label><textarea id="cancel_reason" name="" cols="" rows="" disabled></textarea></label></li>                	
+                </ul>
+            </div>
+            </form>
+            <!--疗程详情-->
+            <div class="h-auto mar-t10 add-ylfa-list">
+            	<h3 class="add-ylfa-hov bg-f5">疗程详情</h3>
+                <ul style="display:none;">
+                <div class="h-auto mar-t10 text-r">
+                	<a href="javascript:;" id="addProject" data-href="include-add-terapy.php" class="yellow-but">新增项目</a>&nbsp;<a href="javascript:;" id="chooseTemplate" data-href="include-choose-plan.php" class="green-but" style="width:160px;">选择治疗计划模板</a>
+                </div>
+                <!--表单开始-->
+                <div class="h-auto mar-t10">
+                    <table cellpadding="0" cellspacing="1" class="table-list">
+                        <thead>
+                            <tr>
+                                <td width="7%">选择</td>
+                                <td width="13%">阶段</td>
+                                <td width="11%">日期</td>
+                                <td width="7%">处理天</td>
+                                <td width="6%">时间</td>
+                                <td width="8%">类型</td>
+                                <td width="12%">项目</td>
+                                <td width="9%">状态</td>
+                                <td width="12%">结果/剂量</td>
+                                <td width="15%">操作</td>
+                          </tr>
+                        </thead>
+                        <tr class="tr-hover">
+                            <td><input name="" type="checkbox" value=""></td>
+                            <td class="orange-font text-l"><i class="orange-block"></i>上官云飞<input class="stageid" type="hidden" value="2"></td>
+                            <td class="date">2012-12-13</td>
+                            <td class="processday">99</td>
+                            <td><span class="hour">17</span>:<span class="min">00</span></td>
+                            <td>化验<input type="hidden" class="typeid" value="1"></td>
+                            <td>HIV血液检查<input type="hidden" class="itemid" value="1"></td>
+                            <td class="status">计划</td>
+                            <td class="result">好</td>
+                            <td><a href="javascript:;" data-href="include-add-terapy.php" class="green-but editProject" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                            <input type="hidden" class="agentsid" value="1">
+                            <input type="hidden" class="usemethodid" value="">
+                            <input type="hidden" class="drugtimes" value="">
+                            <input type="hidden" class="singledose" value="">
+                            <input type="hidden" class="unitid" value="">
+                            <input type="hidden" class="note" value="">
+                         </tr>
+                         <tr class="tr-hover">
+                            <td><input name="" type="checkbox" value=""></td>
+                            <td class="red-font text-l"><i class="red-block"></i>上官云飞<input class="stageid" type="hidden" value=""></td>
+                            <td class="date">2012-12-13</td>
+                            <td class="processday">99</td>
+                            <td><span class="hour">17</span>:<span class="min">00</span></td>
+                            <td>化验<input type="hidden" class="typeid" value="1"></td>
+                            <td>HIV血液检查<input type="hidden" class="itemid" value="1"></td>
+                            <td class="status">计划</td>
+                            <td class="result">好</td>
+                            <td><a href="javascript:;" data-href="include-add-terapy.php" class="green-but editProject" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                            <input type="hidden" class="agentsid" value="1">
+                            <input type="hidden" class="usemethodid" value="">
+                            <input type="hidden" class="drugtimes" value="">
+                            <input type="hidden" class="singledose" value="">
+                            <input type="hidden" class="unitid" value="">
+                            <input type="hidden" class="note" value="">
+                         </tr>
+                         <tr class="tr-hover">
+                            <td><input name="" type="checkbox" value=""></td>
+                            <td class="blue-font text-l"><i class="blue-block"></i>上官云飞<input class="stageid" type="hidden" value=""></td>
+                            <td class="date">2012-12-13</td>
+                            <td class="processday">99</td>
+                            <td><span class="hour">17</sapn>:<span class="min">00</span></td>
+                            <td>化验<input type="hidden" class="typeid" value="1"></td>
+                            <td>HIV血液检查<input type="hidden" class="itemid" value="1"></td>
+                            <td class="status">计划</td>
+                            <td class="result">好</td>
+                            <td><a href="javascript:;" data-href="include-add-terapy.php" class="green-but editProject" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                            <input type="hidden" class="agentsid" value="1">
+                            <input type="hidden" class="usemethodid" value="">
+                            <input type="hidden" class="drugtimes" value="">
+                            <input type="hidden" class="singledose" value="">
+                            <input type="hidden" class="unitid" value="">
+                            <input type="hidden" class="note" value="">
+                         </tr>
+                         <tr class="tr-hover">
+                            <td><input name="" type="checkbox" value=""></td>
+                            <td class="blue2-font text-l"><i class="blue2-block"></i>上官云飞<input class="stageid" type="hidden" value=""></td>
+                            <td class="date">2012-12-13</td>
+                            <td class="processday">99</td>
+                            <td><span class="hour">17</span>:<span class="min">00</span></td>
+                            <td>化验<input type="hidden" class="typeid" value="1"></td>
+                            <td>HIV血液检查<input type="hidden" class="itemid" value="1"></td>
+                            <td class="status">计划</td>
+                            <td class="result">好</td>
+                            <td><a href="javascript:;" data-href="include-add-terapy.php" class="green-but editProject" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                            <input type="hidden" class="agentsid" value="1">
+                            <input type="hidden" class="usemethodid" value="">
+                            <input type="hidden" class="drugtimes" value="">
+                            <input type="hidden" class="singledose" value="">
+                            <input type="hidden" class="unitid" value="">
+                            <input type="hidden" class="note" value="">
+                         </tr>
+                         <tr class="tr-hover">
+                            <td><input name="" type="checkbox" value=""></td>
+                            <td class="blue3-font text-l"><i class="blue3-block"></i>上官云飞<input class="stageid" type="hidden" value=""></td>
+                            <td class="date">2012-12-13</td>
+                            <td class="processday">99</td>
+                            <td><span class="hour">17</span>:<span class="min">00</span></td>
+                            <td>化验<input type="hidden" class="typeid" value="1"></td>
+                            <td>HIV血液检查<input type="hidden" class="itemid" value="1"></td>
+                            <td class="status">计划</td>
+                            <td class="result">好</td>
+                            <td><a href="javascript:;" data-href="include-add-terapy.php" class="green-but editProject" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                            <input type="hidden" class="agentsid" value="1">
+                            <input type="hidden" class="usemethodid" value="">
+                            <input type="hidden" class="drugtimes" value="">
+                            <input type="hidden" class="singledose" value="">
+                            <input type="hidden" class="unitid" value="">
+                            <input type="hidden" class="note" value="">
+                         </tr>
+                         <tr>
+                            <td><input name="" id="checkAll" type="checkbox" value="">&nbsp;全选</td>
+                            <td colspan="9" class="text-l"><a href="javascript:;" id="confirm_project" class="green-but w80">确认项目</a>&nbsp;<a href="javascript:;" id="clinic_bill" data-action="js/mock-data/include-data-example.json" data-href="门诊开单-开单列表.shtml" class="yellow-but w80">门诊开单</a></td>
+                         </tr>
+                    </table>
+                    <!--分页开始
+                    <div class="page">
+                         <span>共<i>120条/10页</i></span><span><a href="javascript:;" class="now">1</a></span><span><a href="javascript:;">2</a></span><span><a href="javascript:;">3</a></span><span>...</span><span><a href="javascript:;">10</a></span><span><a href="javascript:;">下一页</a></span>
+                    </div>
+                   分页结束---->
+                </div>
+            </ul>
+                <!--表单结束-->
+                
+            </div>
+            <div class="text-r mar-t10 mar-b10 list-bottom-div">
+                <a href="javascript:;" class="green-but" id="saveTerpay" data-href="辅助治疗-患者列表-疗程记录-治疗过程.shtml" data-action="js/mock-data/include-data-example.json">保存</a>&nbsp;<a href="辅助治疗-患者列表-疗程记录-治疗过程.shtml" class="black-but" id="">取消</a>
+            </div>
+        </div>
+        <!--中部结束-->
+</div>
+<script id="compile" type="text/x-jquery-tmpl">
+<tr class="tr-hover">
+    <td><input name="" type="checkbox" value=""></td>
+    <td {{if stageid == '1'}} 
+            class="orange-font text-l" 
+        {{else}} {{if stageid == '2'}} 
+            class="red-font text-l"
+                {{else}} {{if stageid == '3'}}
+                    class="blue-font text-l"
+                        {{else}} {{if stageid == '4'}}
+                            class="blue2-font text-l"
+                                {{else}} {{if stageid == '5'}}
+                                    class="blue3-font text-l"
+                                {{/if}}
+                        {{/if}}
+                {{/if}}
+        {{/if}}
+    {{/if}}
+    ><i {{if stageid == '1'}} 
+            class="orange-block"
+        {{else}} {{if stageid == '2'}} 
+            class="red-block"
+                {{else}} {{if stageid == '3'}}
+                    class="blue-block"
+                        {{else}} {{if stageid == '4'}}
+                            class="blue2-block"
+                                {{else}} {{if stageid == '5'}}
+                                    class="blue3-block"
+                                {{/if}}
+                        {{/if}}
+                {{/if}}
+        {{/if}}
+    {{/if}}
+    ></i>${stage}<input type="hidden" class="stageid" value="${stageid}"></td>
+    <td class="date">${date}</td>
+    <td class="processday">${processday}</td>
+    <td><span class="hour">${hour}</span>:<span class="min">${min}</span></td>
+    <td>${type}<input type="hidden" class="typeid" value="${typeid}"></td>
+    <td>${item}<input type="hidden" class="itemid" value="${itemid}"></td>
+    <td class="status">${status}</td>
+    <td class="result">${result}</td>
+    <td><a href="javascript:;" data-href="include-add-terapy.php" class="green-but editProject" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+    <input type="hidden" class="agentsid" value="${agentsid}">
+    <input type="hidden" class="usemethodid" value="${usemethodid}">
+    <input type="hidden" class="drugtimes" value="${drugtimes}">
+    <input type="hidden" class="singledose" value="${singledose}">
+    <input type="hidden" class="unitid" value="${unitid}">
+    <input type="hidden" class="note" value="${note}">
+</tr>
+</script>
+<!--#include file="include-foot.php"-->

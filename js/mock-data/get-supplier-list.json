@@ -1,0 +1,44 @@
+{
+  "status": {
+    "code": 0,
+    "msg": "something error"
+  },
+  "ds": [
+  	{
+  		"supplierId": "1",
+  		"supplerName": "领用人员342"
+  	},
+  	{
+  		"supplierId": "2",
+  		"supplerName": "领用人员002"
+  	},
+    {
+      "supplierId": "2",
+      "supplerName": "领用人员002"
+    },
+    {
+      "supplierId": "2",
+      "supplerName": "领用人员002"
+    },
+    {
+      "supplierId": "2",
+      "supplerName": "领用人员002"
+    },
+    {
+      "supplierId": "2",
+      "supplerName": "领用人员002"
+    },
+    {
+      "supplierId": "2",
+      "supplerName": "领用人员002"
+    },
+    {
+      "supplierId": "2",
+      "supplerName": "领用人员002"
+    },
+    {
+      "supplierId": "2",
+      "supplerName": "领用人员002"
+    }
+  ]
+}

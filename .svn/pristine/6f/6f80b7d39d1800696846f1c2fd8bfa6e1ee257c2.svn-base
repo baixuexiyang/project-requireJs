@@ -1,0 +1,32 @@
+<?php include("include-dialog-head.php"); ?>
+<input type="hidden" id="dispatcher" value="admin">
+<div class="pop-box h-auto bg-ff Treatment">
+    <form id="form-add-plan">
+	<ul class="three-list">
+    	<li><i><b>*</b>处理天：</i><label><input name="" class="validate" maxlength="3" type="text" id="deal-time"></label></li>
+        <li><i>时间：</i><label><input name="" type="text" style=" width:80px;">&nbsp;-&nbsp;<input name="" type="text" style=" width:80px;"></label></li>
+        <li><i><b>*</b>治疗类型：</i><label><select name="" id="treat-type" class="validate"><option value="0">
+        	请选择
+        </option><option>刘德华</option></select></label></li>
+        <li><i><b>*</b>治疗项目：</i><label><select name="" id="treat-project" class="validate"><option value="0">
+        	请选择
+        </option><option>刘德华</option></select></label></li>
+        <li><i>药剂类型：</i><label><select name=""><option>
+        	刘德华
+        </option></select></label></li>
+        <li><i>用药方法：</i><label><select name=""><option>
+        	刘德华
+        </option></select></label></li>
+        <li><i>用药次数：</i><label><input name="" type="text"></label></li>
+        <li><i>单次剂量：</i><label><input name="" type="text"></label></li>
+        <li><i>单位：</i><label><select name=""><option>
+        	刘德华
+        </option></select></label></li>
+        <li><i>总剂量：</i><label>5500ml</label></li>
+        <li class="h65"><i>备注：</i><label><textarea name="" cols="" rows="">12323</textarea></label></li>
+        <li class="error-out"><span class="error-text" style="display:none;"></span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="javascript:;" data-href="plan-detail.shtml" data-action="js/mock-data/include-data-example.json" class="green-but" id="savePlan">保存</a>&nbsp;<a href="javascript:;" class="black-but" id="cancel">取消</a></div>
+</form>
+</div>
+<?php include("include-dialog-foot.php"); ?>

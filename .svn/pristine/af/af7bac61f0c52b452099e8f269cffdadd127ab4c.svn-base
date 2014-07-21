@@ -1,0 +1,87 @@
+/* globals define, require */
+
+define(['jquery', 'app/common'], function($, common) {
+
+	"use strict";
+
+	var dispatcher = $("#dispatcher").val();
+	switch (dispatcher) {
+		case 'register':
+			require(['app/register']);
+			break;
+		case 'clinic-bill':
+			require(['app/clinic-bill']);
+			break;
+		case 'clinic-charge':
+			require(['app/clinic-charge']);
+			break;
+		case 'clinic-drugstore':
+			require(['app/clinic-drugstore']);
+			break;
+		case 'adjuvant-therapy':
+			require(['adjuvant-therapy']);
+			break;
+		case 'doctor-diagnose':
+			require(['app/doctor-diagnose']);
+			break;
+		case 'admin':
+			require(['app/admin']);
+			break;
+		default:
+			break;
+	}
+
+
+	// 公共代码
+	(function() {
+
+		// 占位字符
+		require(['placeholder']);
+
+		// 显示登录用户名
+		if (!window.CommonAction) {
+			return;
+		}
+		$.ajax(common.ajaxCall({
+			url: window.CommonAction.Login(),
+			success: function(re) {
+				var ds = re.ds;
+				var name = ds[1].username;
+				if (!name) {
+					return;
+				}
+				// $('.user-logined em').html(name);
+			}
+		}));
+
+
+		// 退出
+		$('#logoutBtn').on('click', function(event) {
+			try {
+				window.external.CloseForm();
+			} catch (e) {
+				location.href = $(this).attr('url');
+			}
+			return false;
+		});
+
+		// 跳转到特定页
+		$('.go-page').click(function() {
+			var pageNum = parseInt($.trim($('.page-num').val()), 10);
+			if (!pageNum || isNaN(pageNum) || pageNum === 0) {
+				art.dialog.tips('请输入大于0的数字！', 1.5);
+				return false;
+			} else {
+				var action = $('form[name=paginator]').attr('action');
+				action = action.split(/pageIndex=\d+/g);
+				if(action.length === 0)
+					return;
+				action = action[0] + 'pageIndex=' + pageNum + (action[1]? action[1]: '');
+				location.href = action;
+				return false;
+			}
+		});
+
+	})();
+
+});

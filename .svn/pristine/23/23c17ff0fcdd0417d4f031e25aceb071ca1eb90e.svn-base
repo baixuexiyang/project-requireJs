@@ -1,0 +1,148 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="admin" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 Permission">
+        	<h2 class="h-auto"><i class="f-l">权限配置</i></h2>
+            <!--搜索开始-->
+        	<form method="" action="">
+            <div class=" h-auto list-seach">
+            	<label><i>角色名称：</i><input name="" type="text"></label><input type="submit" class="green-but" value="搜索"/>
+            </div>
+        	</form>
+            <!--搜索结束-->
+            <!--表单开始-->
+            <form id="form_add_permission">
+            <div class="h-auto mar-t20">
+            	<div class="f-l w310">
+                    <table cellpadding="0" cellspacing="1" class="table-list">
+                        <thead>
+                            <tr>
+                                <td width="22%"><input name="" id="check_all_role" type="checkbox" value="">&nbsp;全选</td>
+                                <td width="42%">角色编码</td>
+                                <td width="36%">角色名称</td>
+                                
+                          </tr>
+                        </thead>
+                        <tr class="tr-hover">
+                            <td><input name="" type="checkbox" value=""></td>
+                            <td>123456789-0</td>
+                            <td>医生</td>
+                         </tr>
+                        <tr class="tr-hover">
+                            <td><input name="" type="checkbox" value=""></td>
+                            <td>123456789-0</td>
+                            <td>医生</td>
+                         </tr>
+                         <tr class="tr-hover">
+                            <td><input name="" type="checkbox" value=""></td>
+                            <td>123456789-0</td>
+                            <td>医生</td>
+                         </tr>
+                         <tr class="tr-hover">
+                            <td><input name="" type="checkbox" value=""></td>
+                            <td>123456789-0</td>
+                            <td>医生</td>
+                         </tr>
+                         <tr class="tr-hover">
+                            <td><input name="" type="checkbox" value=""></td>
+                            <td>123456789-0</td>
+                            <td>医生</td>
+                         </tr>
+                         <tr class="tr-hover">
+                            <td><input name="" type="checkbox" value=""></td>
+                            <td>123456789-0</td>
+                            <td>医生</td>
+                         </tr>
+                         <tr class="tr-hover">
+                            <td><input name="" type="checkbox" value=""></td>
+                            <td>123456789-0</td>
+                            <td>医生</td>
+                         </tr>
+                         <tr class="tr-hover">
+                            <td><input name="" type="checkbox" value=""></td>
+                            <td>123456789-0</td>
+                            <td>医生</td>
+                         </tr>
+                         <tr class="tr-hover">
+                            <td><input name="" type="checkbox" value=""></td>
+                            <td>123456789-0</td>
+                            <td>医生</td>
+                         </tr>
+                         
+                    </table>
+                </div>
+                <!--右侧选择开始-->
+                <div class="f-r h-auto permissions mar-b20">
+                	<ul class="f-l">
+                    	<span><label><input name="" type="checkbox" value=""></label><b>登记注册</b></span>
+                        <li>
+                        	<label><input name="" type="checkbox" value=""></label><i>登记</i>
+                        </li>
+                        <li>
+                        	<label><input name="" type="checkbox" value=""></label><i>登记</i>
+                        </li>
+                    </ul>
+                    <ul class="f-l">
+                    	<span><label><input name="" type="checkbox" value=""></label><b>门诊开单</b></span>
+                    </ul>
+                    <ul class="f-l">
+                    	<span><label><input name="" type="checkbox" value=""></label><b>医生面诊</b></span>
+                    </ul>
+                </div>
+                <div class="f-r h-auto permissions mar-b20">
+                	<ul class="f-l">
+                    	<span><label><input name="" type="checkbox" value=""></label><b>门诊收费</b></span>
+                        <li><label><input name="" type="checkbox" value=""></label><i>门诊收费</i></li>
+                        <li><label><input name="" type="checkbox" value=""></label><i>票据领用</i></li>
+                    </ul>
+                    <ul class="f-l">
+                    	<span><label><input name="" type="checkbox" value=""></label><b>辅助治疗</b></span>
+                        <li><label><input name="" type="checkbox" value=""></label><i>疗程记录</i></li>
+                        <li><label><input name="" type="checkbox" value=""></label><i>约诊列表</i></li>
+                    </ul>
+                    <ul class="f-l">
+                    	<span><label><input name="" type="checkbox" value=""></label><b>门诊药房</b></span>
+                        <li><label><input name="" type="checkbox" value=""></label><i>发药</i></li>
+                        <li><label><input name="" type="checkbox" value=""></label><i>采购入库</i></li>
+                        <li><label><input name="" type="checkbox" value=""></label><i>库存报警</i></li>
+                        <li><label><input name="" type="checkbox" value=""></label><i>库存总账</i></li>
+                    </ul>
+                </div>
+                <div class="f-r h-auto permissions mar-b20">
+                	<ul class="f-l">
+                    	<span><label><input name="" type="checkbox" value=""></label><b>基本配置</b></span>
+                        <li><label><input name="" type="checkbox" value=""></label><i>字典配置</i></li>
+                        <li><label><input name="" type="checkbox" value=""></label><i>字典类别配置</i></li>
+                        <li><label><input name="" type="checkbox" value=""></label><i>医疗模板配置</i></li>
+                        <li><label><input name="" type="checkbox" value=""></label><i>用户管理</i></li>
+                        <li><label><input name="" type="checkbox" value=""></label><i>药品管理</i></li>
+                        <li><label><input name="" type="checkbox" value=""></label><i>组织架构设置</i></li>
+                        <li><label><input name="" type="checkbox" value=""></label><i>收费项目</i></li>
+                        <li><label><input name="" type="checkbox" value=""></label><i>治疗模板配置</i></li>
+                        <li><label><input name="" type="checkbox" value=""></label><i>权限管理</i></li>
+                        <li><label><input name="" type="checkbox" value=""></label><i>系统参数配置</i></li>
+                        <li><label><input name="" type="checkbox" value=""></label><i>仓库管理</i></li>
+                        <li><label><input name="" type="checkbox" value=""></label><i>供应商管理</i></li>
+                    </ul>
+                </div>
+               <!--右侧选择结束-->
+            </div>
+        </form>
+            <!--表单结束-->
+            <div class="text-r mar-t10 list-bottom-div">
+                	<a href="javascript:;" class="green-but" id="saveMedicine" data-href="基本配置-药品管理.shtml" data-action="js/mock-data/include-data-example.json">保存</a>&nbsp;<a href="基本配置-药品管理.shtml" class="black-but" id="">取消</a>
+            </div> 
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

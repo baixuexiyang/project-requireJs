@@ -1,0 +1,60 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="register" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20">
+        	<h2>注册<cite>（带&nbsp;<b>*</b>&nbsp;为必填项）</cite></h2>
+            <div class="error-text">错误提示</div>
+        	<div class="h-auto">
+            	<ul class="h-auto three-list">
+                	<p class="reg-headImg f-l"><a href="#" title="上传照片"><img src="images/headImg/00.gif"></a></p>
+                	<li class="w215"><i><b>*</b>姓名：</i><label><input name="" type="text"></label></li>
+                    <li><i><b>*</b>性别：</i><label><select name=""><option>男</option></select></label></li>
+                    <li><i><b>*</b>出生日期：</i><label><input name="" type="text" class="validate Wdate" id="birthday"></label></li>
+                    <li class="w215"><i>职业：</i><label><select name=""><option>程序猿</option></select></label></li>
+                    <li><i>婚否：</i><label><select name=""><option>是</option><option>否</option></select></label></li>
+                    <li><i><b>*</b>注册证号：</i><label class="reg-lab"><input name="" type="text">&nbsp;<a href="#" class="green-but">注册</a></label></li>
+                    <li><i>工作单位：</i><label><input name="" type="text"></label></li>
+                    <li><i>家庭电话：</i><label><input name="" type="text"></label></li>
+                    <li><i><b>*</b>手机号码：</i><label><input name="" type="text"></label></li>
+                    <li><i>家庭住址：</i><label><input name="" type="text"></label></li>            
+                    <li><i><b>*</b>面诊科室：</i><label><select name=""><option>外科</option></select></label></li>
+                    <li><i><b>*</b>面诊医生：</i><label><select name=""><option>刘德华</option></select></label></li>
+                    <li><i><b>*</b>证件类型：</i><label><select name=""><option>电视广告</option></select></label></li>
+                    <li><i><b>*</b>证件号码：</i><label><input name="" type="text"></label></li>
+                    <li><i>过敏史：</i><label><select name=""><option>无</option><option>有</option></select></label></li>
+                    <li class="textarea-li"><i>备注：</i><label><textarea name="" cols="" rows=""></textarea></label></li>
+                </ul>
+                <div class="h-auto add-family">
+                	<span class="add-family-but bg-f5"><a href="#" class="f-l"><b></b>&nbsp;添加配偶信息</a><a href="#" class="f-r" title="关闭"></a></span>
+        			<div class="error-text">错误提示</div>
+                    <ul class="h-auto three-list">
+                		<p class="reg-headImg f-l"><a href="#" title="上传照片"><img src="images/headImg/00.gif"></a></p>
+                        <li class="w215"><i><b>*</b>姓名：</i><label><input name="" type="text"></label></li>
+                        <li><i><b>*</b>性别：</i><label><select name=""><option>男</option></select></label></li>
+                        <li><i><b>*</b>出生日期：</i><label><input name="" type="text" class="validate Wdate" id="birthday"></label></li>
+                        <li class="w215"><i>职业：</i><label><select name=""><option>程序猿</option></select></label></li>
+                        <li><i>婚否：</i><label><select name=""><option>是</option><option>否</option></select></label></li>
+                        <li><i><b>*</b>注册证号：</i><label class="reg-lab"><input name="" type="text">&nbsp;<a href="#" class="green-but">注册</a></label></li>
+                        <li><i>工作单位：</i><label><input name="" type="text"></label></li>
+                        <li><i><b>*</b>证件类型：</i><label><select name=""><option>电视广告</option></select></label></li>
+                        <li><i><b>*</b>证件号码：</i><label><input name="" type="text"></label></li>
+                    </ul>
+                </div>
+                <div class="text-r mar-t10 list-bottom-div mar-b20">
+                	<a href="#" class="green-but">保存</a>&nbsp;<a href="登记注册-登记-列表.shtml" class="black-but">返回</a>
+                </div>
+            </div>
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

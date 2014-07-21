@@ -1,0 +1,13 @@
+<script>
+    var CommonAction = {
+        Login: function($) {
+            return 'js/mock-data/login.json';
+        }
+    };
+</script>
+<script src="js/pkg/artDialog/artDialog.js?skin=green" type="text/javascript"></script>
+<script src="js/pkg/artDialog/plugins/iframeTools.js?t=1.0.0.1" type="text/javascript"></script>
+<script src="js/validate-msg.js"></script>
+<script src="js/lib/require.js" data-main="js/main"></script>
+</body>
+</html>

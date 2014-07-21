@@ -1,0 +1,23 @@
+{
+    // appDir: "../js",
+    baseUrl: "../js",
+    dir: "../dist",
+    optimize: "uglify",
+    optimizeCss: "standard.keepLines",
+    mainConfigFile: "../js/main.js",
+    removeCombined: true,
+    fileExclusionRegExp: /^\./,
+    modules: [
+        {
+            name: "app/dispatcher",
+        },
+        {
+            name: "app/in-storage",
+            exclude: [
+                "jquery",
+                "app/common",
+                "pkg/DatePicker/app"
+            ]
+        }
+    ]
+}

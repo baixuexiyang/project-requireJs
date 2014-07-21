@@ -1,0 +1,98 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="admin" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 Treatment">
+        	<h2>编辑治疗模板<cite>（带&nbsp;<b>*</b>&nbsp;为必填项）</cite></h2>
+            <div class="error-text" style="display:none;"></div>
+        	<div class="h-auto add-user">
+                <!--填写信息开始-->
+                <form action="" method="" id="form-template-info">
+            	<ul class="h-auto three-list">                    
+                    <li><i><b>*</b>模板名称：</i><label><input name="" type="text" id=""></label></li>
+                    <li><i><b>*</b>处理天：</i><label><input name="" type="text" id="" style="width:70px;"></label>&nbsp;-&nbsp;<label><input name="" type="text" id="" style="width:70px;"></label></li>
+                    <li><i><b>*</b>阶段：</i><label><select name="" id="">
+                        <option>阶段1</option>
+                        <option>阶段2</option></select>
+                        </label>
+                    </li>
+                    <li class="textarea-li"><i>备注：</i><label><textarea name="" cols="" rows="" maxlength="500"></textarea></label></li>
+                </ul>
+            </form>
+                <!--填写信息结束-->
+                <!--列表信息开始-->
+                <div class="hr-div mar-t10">
+                    <span>计划明细</span>
+                    <a href="javascript:;" id="addPlan" class="yellow-but f-r" data-href="include-add-plan.php">新增计划</a><input type="hidden" id="plan-detail" value="plan-detail.shtml">
+                    <hr/>
+            	</div>
+            	<!--表单开始-->
+                <div class="h-auto mar-t10 detail">
+                    <table cellpadding="0" cellspacing="1" class="table-list">
+                        <thead>
+                            <tr>
+                            	<td width="8%">处理天</td>
+                                <td width="8%">时间</td>
+                                <td width="11%">治疗类型</td>
+                                <td width="10%">治疗项目</td>
+                                <td width="10%">药剂类型</td>
+                                <td width="9%">用药方法</td>
+                                <td width="8%">用药次数</td>
+                                <td width="8%">单次剂量</td>
+                                <td width="8%">总剂量</td>
+                                <td width="6%">单位</td>                            
+                                <td width="14%">操作</td>
+                          </tr>
+                        </thead>                    
+                        <tr class="tr-hover">
+                        	<td class="deal_day">11</td>
+                            <td><span class="hour">12</span>:<span class="minute">00</span></td>
+                            <td class="type">治疗类型<input type="hidden" class="typeId" value="1"></td>
+                            <td class="terapy_project"><span class="projectName">治疗项目</span><input type="hidden" class="projectId" value="1"></td>
+                            <td class="medicines_type">药剂类型<input type="hidden" class="medicinesId" value="1"></td>
+                            <td class="method">用药方法<input type="hidden" class="methodId" value="1"></td>
+                            <td class="frequency">12</td>
+                            <td class="singledose">12</td>
+                            <td class="totaldose">144</td>
+                            <td class="unit">单位<input type="hidden" class="unitId" value="1"></td>
+                            <td><a href="javascript:;" data-href="include-add-plan.php" class="green-but edit" title="编辑">编辑</a><a href="#" class="red-but delete-item delete" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                            <input type="hidden" class="note" value="测试">
+                         </tr>
+                    </table>                    
+                </div>
+                <!--表单结束-->
+
+                <div class="text-r mar-t10 list-bottom-div mar-b20">
+                	<a href="javascript:;" id="saveInfo" data-href="基本配置-治疗模板配置.shtml" data-action="js/mock-data/include-data-example.json" class="green-but">保存</a>&nbsp;<a href="基本配置-治疗模板配置.shtml" class="black-but">取消</a>
+                </div>
+            </div>
+        </div>
+        <!--中部结束-->
+</div>
+<script id="plan_template" type="text/x-jquery-tmpl">
+<tr class="tr-hover">
+    <td class="deal_day">${dealTime}</td>
+    <td><span class="hour">${hour}</span>:<span class="minute">${minute}</span></td>
+    <td>${treatType}<input type="hidden" class="terapyId" value="${treatId}"></td>
+    <td><span class="projectName">${treatProject}</span><input type="hidden" class="projectId" value="${projectId}"></td>
+    <td>${medicinesType}<input type="hidden" class="medicinesId" value="${medicinesId}"></td>
+    <td>${method}<input type="hidden" class="methodId" value="${methodId}"></td>
+    <td class="frequency">${frequency}</td>
+    <td class="singledose">${singledose}</td>
+    <td class="totaldose">${totaldose}</td>
+    <td>${unit}<input type="hidden" class="unitId" value="${unitId}"></td>
+    <td><a href="javascript:;" data-href="include-add-plan.php" class="green-but edit" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item delete" title="删除">删除</a></td>
+    <input type="hidden" class="note" value="${note}">
+ </tr>
+</script>
+<div id="dialogContent" style="display:none;"></div>
+<!--#include file="include-foot.php"-->

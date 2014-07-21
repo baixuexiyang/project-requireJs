@@ -1,0 +1,83 @@
+{
+	"status": {
+    "code": 0,
+    "msg": "error"
+  },
+  "ds":[
+        {
+            "href":"javascript:;",
+            "modid":1,
+            "name":"登记/注册",
+            "navs":[
+                {
+                    "href":"登记注册-登记.shtml",
+                    "modid":1,
+                    "name":"登记",
+                    "ordernum":1
+                },
+                {
+                    "href":"登记注册-注册.shtml",
+                    "modid":1,
+                    "name":"注册",
+                    "navs":[
+                        
+                    ],
+                    "ordernum":2
+                }
+            ],
+            "ordernum":1
+        },
+        {
+            "href":"user/register",
+            "modid":2,
+            "name":"医生面诊",
+            "navs":[
+            ],
+            "ordernum":1
+        },
+        {
+            "href":"user/register",
+            "modid":3,
+            "name":"基本配置",
+            "navs":[
+                {
+                    "href":"基本配置-字典类别配置.shtml",
+                    "modid":3,
+                    "name":"字典类别配置",
+                    "ordernum":1
+                },
+                {
+                    "href":"基本配置-字典配置.shtml",
+                    "modid":3,
+                    "name":"字典配置",
+                    "navs":[
+                        
+                    ],
+                    "ordernum":2
+                },
+                {
+                    "href":"基本配置-医疗模板配置.shtml",
+                    "modid":3,
+                    "name":"医疗模板配置",
+                    "ordernum":3
+                },
+                {
+                    "href":"基本配置-用户管理.shtml",
+                    "modid":3,
+                    "name":"用户管理",
+                    "navs":[
+                        
+                    ],
+                    "ordernum":4
+                },
+                {
+                    "href":"基本配置-组织架构设置.shtml",
+                    "modid":3,
+                    "name":"组织架构设置",
+                    "ordernum":5
+                }
+            ],
+            "ordernum":3
+        }
+    ]
+}

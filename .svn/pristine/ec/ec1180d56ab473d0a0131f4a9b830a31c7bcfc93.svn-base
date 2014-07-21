@@ -1,0 +1,79 @@
+define([
+	'jquery',
+	'app/common',
+	'app/util',
+	'jqtmpl',
+	'pkg/DatePicker/app',
+	'pkg/DateFormat/app',
+	'json'
+], function($, common) {
+
+	"use strict";
+
+	/****************系统配置-字典类别配置**************************/
+	var Type = {
+		init: function() {
+
+		}
+	};
+
+	/****************系统配置-字典配置*************************/
+	var Configure = {
+		init: function() {
+
+		}
+	};
+
+	/****************系统配置-医疗模板*****************************/
+	var MedicalTemplate = {
+		init: function() {
+
+		}
+	};
+
+	/****************系统配置-用户管理******************************/
+	var UserManagement = {
+		init: function() {
+
+		}
+	};
+
+	/****************系统配置-组织架构建设************************************/
+	var Structure = {
+		init: function() {
+
+		}
+	};
+
+	/****************入口*****************************************************/
+	var Main = {
+		init: function() {
+			// 字典类别配置
+			if($('.Type').length > 0) {
+				Type.init();
+			}
+
+			// 字典配置
+			if($('.Configure').length > 0) {
+				Configure.init();
+			}
+
+			// 医疗模板
+			if($('.MedicalTemplate').length > 0) {
+				MedicalTemplate.init();
+			}
+
+			// 用户管理
+			if($('.UserManagement').length > 0) {
+				UserManagement.init();
+			}
+
+			// 组织架构建设
+			if($('.Structure').length > 0) {
+				Structure.init();
+			}
+		}
+	};
+
+	Main.init();
+});

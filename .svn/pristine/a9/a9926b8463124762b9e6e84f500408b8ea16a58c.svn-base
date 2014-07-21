@@ -1,0 +1,37 @@
+/*globals require*/
+
+require.config({
+    urlArgs: "version=1.0.1",
+    paths: {
+        'jquery': 'lib/jquery.min',
+        'jqtmpl': 'lib/jquery.tmpl.min',
+        'json': 'pkg/JSON/app',
+        'dateformat': 'pkg/DateFormat/app',
+        'placeholder': 'pkg/PlaceHolder/app',
+        'flashAvatar': 'lib/flashAvatar/main',
+        'swfobject': 'lib/swfobject/swfobject',
+        'datepicker': 'pkg/DatePicker/app'
+        /*'upload': 'lib/upload/main',
+        'jcrop': 'lib/jcrop/src/jquery.jcrop.js'*/
+    },
+    shim: {
+        'dateformat': {
+            deps: ['jquery']
+        },
+        'placeholder': {
+            deps: ['jquery']
+        },
+        'jqtmpl': {
+            deps: ['jquery']
+        },
+        'validator': {
+            deps: ['jquery']
+        },
+        'datepicker': {
+            deps: ['jquery']
+        }
+    }
+});
+
+/* placeholder */
+require(['app/dispatcher']);

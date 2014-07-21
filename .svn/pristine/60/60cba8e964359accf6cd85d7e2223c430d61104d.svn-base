@@ -1,0 +1,52 @@
+/* globals define */
+
+define(['jquery', 'app/common', 'app/util'], function($, common) {
+
+	"use strict";
+
+	var center = function() {
+		var marginTop = $(window).height() - $('#content').height();
+		if(marginTop < 0)
+			marginTop = 0;
+		$('#content').css('margin-top', marginTop/2);
+	};
+	center();
+	$(window).resize(center);
+
+	$('#btn-login').click(function() {
+		var me = $(this);
+		var name = $.trim($('#username').val());
+		var pwd = $.trim($('#password').val());
+		var code = $.trim($("#verificationCode").val());
+
+		var tarForm = $("#form-login");
+		if(!tarForm.doValidate())
+			return;
+
+		var api = me.attr("data-href");
+		$.ajax(common.ajaxCall({
+			url: api,
+			type: 'post',
+			data: tarForm.serialize(),
+			success: function(data) {
+				var mess = data.status;
+				if(mess.code !==0) {
+					if($('.error-text').is(":hidden")) {
+						$('.error-text').show();
+					}
+					$('.error-text').html(mess.msg);
+				}else {
+					location.href = me.attr("data-action");
+				}
+			},
+			error: function() {
+				art.dialog({
+					content: 'something error',
+					icon: 'error',
+					time: 1
+				});
+			}
+		}));
+		return false;
+	});
+});

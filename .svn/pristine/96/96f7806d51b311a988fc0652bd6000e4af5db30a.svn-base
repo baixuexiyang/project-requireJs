@@ -1,0 +1,347 @@
+define([
+	'jquery',
+	'app/common',
+	'app/util',
+	'jqtmpl',
+	'pkg/DatePicker/app',
+	'pkg/DateFormat/app',
+	'json'
+], function($, common) {
+
+	"use strict";
+
+	/*****************约诊列表**********************************/
+	var AppointmentList = {
+		init: function() {
+
+			var startDate = $('#start-date');
+			var endDate = $('#end-date');
+			if (startDate.length > 0) {
+				if (!startDate.val()) {
+					/*var d = (new Date()).getDate() - 7;
+					d = (new Date()).setDate(d);*/
+					startDate.val($.formatDate(new Date(), 'yyyy-MM-dd'));
+				}
+				if (endDate.length > 0) {
+					startDate.datePicker({
+						// minDate: '#F{$dp.$D(\'end-date\',{d:-7})}',
+						maxDate: '#F{$dp.$D(\'end-date\')}',
+						onpicked: function() {
+							if ($('#end-date').val() === "")
+								$dp.$('end-date').focus();
+						},
+						dateFmt: 'yyyy-MM-dd'
+					});
+				} else {
+					startDate.datePicker({
+						dateFmt: 'yyyy-MM-dd'
+					});
+				}
+			}
+
+			if (endDate.length > 0) {
+				if (!endDate.val()) {
+					endDate.val($.formatDate(new Date(), 'yyyy-MM-dd'));
+				}
+				if (startDate.length > 0) {
+					endDate.datePicker({
+						minDate: '#F{$dp.$D(\'start-date\')}',
+						// maxDate: '#F{$dp.$D(\'start-date\',{d:7})}',
+						onpicked: function() {
+							if ($('#start-date').val() === "")
+								$dp.$('start-date').focus();
+						},
+						dateFmt: 'yyyy-MM-dd'
+					});
+				} else {
+					endDate.datePicker({
+						dateFmt: 'yyyy-MM-dd'
+					});
+				}
+			}
+
+			$('.edit').click(function() {
+				var url = $(this).attr('data-href');
+				art.dialog.open(url, {
+					title: '编辑约诊',
+					height: 600,
+					widht: 400
+				});
+			});
+
+			$('.appointment').click(function() {
+				var url = $(this).attr('data-href');
+				art.dialog.open(url, {
+					title: '新增约诊',
+					height: 600,
+					widht: 400
+				});
+			});
+
+			$('#date').datePicker({
+				dateFmt: 'yyyy-MM-dd'
+			});
+
+			$(document).delegate('#saveAppointment', 'click', function() {
+				var tarForm = $('#include-edit-appointment');
+				if (!tarForm.doValidate())
+					return;
+
+				var api = $(this).attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					data: tarForm.serialize(),
+					type: 'post',
+					success: function() {
+						top.location.reload();
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			})
+				.delegate('#cancel', 'click', function() {
+					art.dialog.close();
+				})
+				.delegate('.delete-item', 'click', function() {
+					var api = $(this).attr('data-action');
+					var callback = function() {
+						$.ajax(common.ajaxCall({
+							url: api,
+							type: 'post',
+							success: function() {
+								top.location.reload();
+							},
+							error: function(msg) {
+								alert(msg);
+							}
+						}));
+					};
+					$(this).dialogConfirm(callback);
+				});
+		}
+	};
+
+	/****************患者列表********************************/
+	var PatientList = {
+		init: function() {
+
+		},
+		homePage: function() {
+
+		},
+		record: function() {
+
+		},
+		process: function() {
+
+		},
+		assay: function() {
+
+		},
+		medicines: function() {
+
+		},
+		analysis: function() {
+
+		},
+		information: function() { //个人信息
+
+			if ($('#avaUpload').length > 0) {
+				$("#avaUpload,#avaPhoto").on("click", function() {
+					var urlUploadHdpic = $(this).attr("data-href");
+					$.ajax({
+						type: "GET",
+						url: urlUploadHdpic,
+						cache: false,
+						// data : {r : Math.random()},
+						success: function(resp) {
+							$("#dialogContent").empty().html(resp);
+							art.dialog({
+								id: "uploadHdpicDialog",
+								lock: true,
+								background: '#000',
+								width: 690,
+								height: 510,
+								esc: true,
+								drag: true,
+								padding: 3,
+								resize: false,
+								opacity: 0.75,
+								title: '上传头像',
+								content: document.getElementById('dialogContent'),
+								cancel: false
+							});
+						},
+						error: function(xhr, s, err) {
+							return false;
+						}
+					});
+				});
+			}
+
+
+			$("#closeDialog").on("click", function() {
+				art.dialog.list["uploadHdpicDialog"].close();
+			});
+
+			$("#spouse-birthday").datePicker({
+				dateFmt: 'yyyy-MM-dd'
+			});
+			$('#birthday').datePicker({
+				dateFmt: 'yyyy-MM-dd'
+			});
+
+
+
+			$(document).delegate('#spouse-register', 'click', function() {
+				var registerNum = $('#registerNum').val();
+				if (/[MF]{1}/.test(registerNum))
+					return;
+
+				if (registerNum === '') {
+					if ($('.error-text').is(":hidden")) {
+						$('.error-text').show();
+					}
+					$('.error-text').html("请注册主联系人的注册证号!");
+					$('#registerNum').addClass('error-area');
+				} else {
+					var sex = $('#spouse-sex').children('option:selected').text();
+					var str = '';
+					if (sex === '男') {
+						str = 'M';
+					} else {
+						str = 'F';
+					}
+					$('#spouse-registerNum').val(registerNum + str);
+				}
+			})
+				.delegate('#saveInfor', 'click', function() {
+					var tarForm = $("#form-patient-login");
+					if (!tarForm.doValidate())
+						return;
+
+					if ($("#registerCredentialsNum").validateCredentials('registerCredentials') === false)
+						return;
+
+					if ($('#spouse-registerCredentialsNum').is(':visible')) {
+						if ($('#spouse-registerCredentialsNum').validateCredentials('spouse-registerCredentials') === false)
+							return;
+					}
+
+					$('#doctorName').val($('#doctor').children('option:selected').text());
+
+					var api = $(this).attr("data-action");
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						data: tarForm.serialize(),
+						success: function(data) {
+							art.dialog({
+								content: '保存成功',
+								lock: true,
+								width: 200,
+								height: 80,
+								time: 1
+							});
+						},
+						error: function(msg) {
+							$(this).dialogError(msg);
+						}
+
+					}));
+				})
+				.delegate('.add', 'click', function() {
+					$('.spouse-info').show();
+					$('.add-family-but').addClass('bg-f5');
+					$('.delete').show();
+					$('#spouseFlag').val(1);
+					if (!$('#spouse-registerNum').val()) {
+						$('#spouse-register').show();
+					} else {
+						$('#spouse-register').hide();
+					}
+				})
+				.delegate('.delete', 'click', function() {
+					$('.spouse-info').hide();
+					$('.add-family-but').removeClass('bg-f5');
+					$('.delete').hide();
+					$('#spouseFlag').val(0);
+				});
+
+			/*$("#determine").live('click', function() {
+				var len = $('.cen-p label input:radio:checked').length;
+				if (len === 0) {
+					art.dialog.alert('请至少选择一项！');
+				} else {
+					var tarForm = $('#form-register-num');
+					var api = $("#determine").attr('data-action');
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						data: tarForm.serialize(),
+						success: function(data) {
+							var ds = data.ds;
+							$('#registerNum', top.window.document).val(ds[0].registerNum);
+							art.dialog.close();
+						},
+						error: function(msg) {
+							alert(msg);
+						}
+					}));
+				}
+			});*/
+
+
+			$('.relationship').showlist({
+				width: 500,
+				keyID: 'id',
+				bindSub: $('.relationId'),
+				selectCallBack: function(d) {
+					if (!d)
+						return;
+					if (!$('.demo').parents('.tr-hover:first').next('.tr-hover')[0]) {
+						var _text = $('.backups').clone(true).removeClass('backups').show();
+						$('.demo').parents('.table-list:first').append(_text);
+					}
+					$('.demo').parents('.tr-hover:first').find('.relationId').val(d.id);
+				},
+				buildHtml: function(ds) {
+					var html = '<table cellpadding="0" cellspacing="1" class="table-list ab-table-div-title">';
+					for (var i = 0; i < ds.length; i++) {
+						var item = ds[i];
+						html += '<tr data-id="' + item.id + '" data-name="' + item.name + '" class="tr-hover"><td>' + item.name + '</td><td>' + item.medicineNum + '</td><td>' + item.phone + '</td></tr>';
+					}
+					html += '</table>';
+					return html;
+				}
+			});
+
+			$('.delete-item').live('click', function() {
+				if ($('.tr-hover:visible').length === 1)
+					return;
+				$(this).parents('.tr-hover:first').remove();
+			});
+
+		}
+
+
+	};
+
+	/********************入口***********************************/
+	var Main = {
+		init: function() {
+
+			// 约诊列表
+			if ($('.AppointmentList').length > 0)
+				AppointmentList.init();
+
+
+			// 患者列表-个人信息
+			if ($('.Information').length > 0)
+				PatientList.information();
+		}
+	};
+
+	Main.init();
+});

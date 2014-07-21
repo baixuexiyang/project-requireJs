@@ -1,0 +1,23 @@
+{
+  "status": {
+    "code": "0",
+    "msg": "success"
+  },
+  "ds": [
+    {
+      "chargeItemId": 1,
+      "unitPrice": 2.2,
+      "itemName": "专家号"
+    },
+    {
+      "chargeItemId": 2,
+      "unitPrice": 1.2,
+      "itemName": "普通号"
+    },
+    {
+      "chargeItemId": 3,
+      "unitPrice": 9,
+      "itemName": "普通家"
+    }
+  ]
+}

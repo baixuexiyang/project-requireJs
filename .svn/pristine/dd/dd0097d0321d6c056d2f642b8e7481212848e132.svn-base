@@ -1,0 +1,95 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="admin" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 MedicalTemplate">
+        	<h2 class="h-auto"><i class="f-l">疗程记录</i></h2>
+            <input type="hidden" class="addTemplate">
+            <!--表单开始-->
+            <div class="h-auto mar-t20">
+            	<!--左侧菜单开始-->
+                <div class="f-l l-nav text-c">
+                	<a href="#" class="now">首页</a>
+                    <a href="#">医疗记录</a>
+                    <a href="#">治疗过程</a>
+                    <a href="#">化验分析</a>
+                    <a href="#">治疗药物</a>
+                    <a href="#">B超</a>
+                    <a href="#">胚胎学</a>
+                    <a href="#">胚胎冷冻信息</a>
+                    <a href="#">精液分析</a>
+                    <a href="#">治疗结果</a>
+                    <a href="#">门诊开单记录</a>
+                    <a href="#">个人信息</a>
+                    <a href="#" class="last-no go-back">返回患者列表</a>
+                </div>
+                <!--左侧菜单结束-->
+                <!--右边信息开始-->
+                <div class="h-auto f-r help-doctor-r">
+                    <ul class="h-auto three-list help-doc-r-t">
+                        <p class="reg-headImg f-l"><a href="#" title="上传照片" id="avaUpload" data-href="dialog-uploadHdpic-flash.php?id=avatar&imageId=avatarPic"><img src="images/headImg/00.gif" id="avatarPic" class="avatar">
+                            <input type="hidden" id="avatar" value=""></a><input type="hidden" id="closeDialog" value="1"></p>
+                        <li><i>姓名：</i><label>溜儿的话</label></li>
+                        <li><i>性别：</i><label>男</label></li>
+                        <li><i>配偶：</i><label>关之琳琳</label></li>
+                        <li><i>医疗号：</i><label>1234567890</label></li>
+                        <li><i>主治医生：</i><label>张友情谊</label></li>
+                        <li><i>手机号：</i><label>13588888888</label></li>
+                        <li class="w415"><i>邮箱：</i><label>1234567890@qq.com</label></li>
+                    </ul>
+                    <div class="help-doctor-r-chack bg-f5">
+                    	<span><i>治疗方案：</i><label><select name="">
+                        	<option>治疗方案1</option>
+                        </select></label><a href="#" class="green-font">查看疗程</a></span><span><i>主治医生：</i><em>唐僧</em></span><span><i>疗程次数：</i><em>123</em></span>
+                    </div>
+                    <div class="hr-div mar-t10">
+                        <span>约诊</span>
+                        <a href="#" class="yellow-but f-r">新增约诊</a>
+                        <hr/>
+                    </div>
+                    <!--bottom表单开始-->
+                    <div class="h-auto mar-t10">
+                        <table cellpadding="0" cellspacing="1" class="table-list">
+                            <thead>
+                                <tr>                                  
+                                  <td width="14%">开始时间</td>
+                                  <td width="14%">结束时间</td>
+                                  <td width="15%">预约治疗程序</td>
+                                  <td width="11%">治疗部门</td>
+                                  <td width="11%">主治医生</td>
+                                  <td width="15%">操作</td>
+                              </tr>
+                            </thead>
+                            <tr class="tr-hover">
+                                <td>2013/12/13&nbsp;12:12</td>
+                                <td>2013/12/13&nbsp;12:12</td>                        
+                                <td>2000.00</td>
+                                <td>5</td>
+                                <td>10000.00</td>
+                                <td><a href="#" class="green-but" title="编辑">编辑</a><a href="javascript:;" class="red-but delete-item" title="删除">删除</a></td>
+                             </tr>                             
+                        </table>
+                        <!--分页开始-->
+                        <div class="page">
+                             <span>共<i>120条/10页</i></span><span><a href="javascript:;" class="now">1</a></span><span><a href="javascript:;">2</a></span><span><a href="javascript:;">3</a></span><span>...</span><span><a href="javascript:;">10</a></span><span><a href="javascript:;">下一页</a></span>
+                        </div>
+                       <!--分页结束-->
+                    </div>
+                    <!--bottom表单结束-->                   
+                </div>
+                <!--右边信息结束-->
+            </div>
+            <!--表单结束-->
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

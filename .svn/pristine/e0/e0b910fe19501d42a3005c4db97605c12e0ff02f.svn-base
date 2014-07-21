@@ -1,0 +1,165 @@
+define([
+	'jquery',
+	'app/common',
+	'app/util',
+	'jqtmpl',
+	'pkg/DatePicker/app',
+	'pkg/DateFormat/app',
+	'json'
+], function($, common) {
+
+	"use strict";
+
+	/*****************约诊列表**********************************/
+	var AppointmentList = {
+		init: function() {
+
+			var startDate = $('#start-date');
+			var endDate = $('#end-date');
+			if (startDate.length > 0) {
+				if (!startDate.val()) {
+					/*var d = (new Date()).getDate() - 7;
+					d = (new Date()).setDate(d);*/
+					startDate.val($.formatDate(new Date(), 'yyyy-MM-dd'));
+				}
+				if (endDate.length > 0) {
+					startDate.datePicker({
+						// minDate: '#F{$dp.$D(\'end-date\',{d:-7})}',
+						maxDate: '#F{$dp.$D(\'end-date\')}',
+						onpicked: function() {
+							if ($('#end-date').val() === "")
+								$dp.$('end-date').focus();
+						},
+						dateFmt: 'yyyy-MM-dd'
+					});
+				} else {
+					startDate.datePicker({
+						dateFmt: 'yyyy-MM-dd'
+					});
+				}
+			}
+
+			if (endDate.length > 0) {
+				if (!endDate.val()) {
+					endDate.val($.formatDate(new Date(), 'yyyy-MM-dd'));
+				}
+				if (startDate.length > 0) {
+					endDate.datePicker({
+						minDate: '#F{$dp.$D(\'start-date\')}',
+						// maxDate: '#F{$dp.$D(\'start-date\',{d:7})}',
+						onpicked: function() {
+							if ($('#start-date').val() === "")
+								$dp.$('start-date').focus();
+						},
+						dateFmt: 'yyyy-MM-dd'
+					});
+				} else {
+					endDate.datePicker({
+						dateFmt: 'yyyy-MM-dd'
+					});
+				}
+			}
+
+			$('.edit').click(function() {
+				var url = $(this).attr('data-href');
+				art.dialog.open(url, {
+					title: '编辑约诊',
+					height: 600,
+					widht: 400
+				});
+			});
+
+			$('.appointment').click(function() {
+				var url = $(this).attr('data-href');
+				art.dialog.open(url, {
+					title: '新增约诊',
+					height: 600,
+					widht: 400
+				});
+			});
+
+			$('#date').datePicker({
+				dateFmt: 'yyyy-MM-dd'
+			});
+
+			$(document).delegate('#saveAppointment', 'click', function() {
+				var tarForm = $('#include-edit-appointment');
+				if (!tarForm.doValidate())
+					return;
+
+				var api = $(this).attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					data: tarForm.serialize(),
+					type: 'post',
+					success: function() {
+						top.location.reload();
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			})
+				.delegate('#cancel', 'click', function() {
+					art.dialog.close();
+				})
+				.delegate('.delete-item', 'click', function() {
+					var api = $(this).attr('data-action');
+					var callback = function() {
+						$.ajax(common.ajaxCall({
+							url: api,
+							type: 'post',
+							success: function() {
+								top.location.reload();
+							},
+							error: function(msg) {
+								alert(msg);
+							}
+						}));
+					};
+					$(this).dialogConfirm(callback);
+				});
+		}
+	};
+
+	/****************患者列表********************************/
+	var PatientList = {
+		init: function() {
+
+		},
+		homePage: function() {
+
+		},
+		record: function() {
+
+		},
+		process: function() {
+
+		},
+		assay: function() {
+
+		},
+		medicines: function() {
+
+		},
+		analysis: function() {
+
+		},
+
+
+	};
+
+	/********************入口***********************************/
+	var Main = {
+		init: function() {
+
+			// 约诊列表
+			AppointmentList.init();
+
+
+			// 患者列表
+		}
+	};
+
+	Main.init();
+});

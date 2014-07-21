@@ -1,0 +1,144 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="clinic-bill" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20">
+        	<h2 class="h-auto"><i class="f-l">开单列表</i><a href="门诊开单-开单列表-搜索患者.shtml" class="yellow-but f-r" id="addConfigure">新增开单</a></h2>
+            <!--搜索开始-->
+        <form method="" action="">
+            <div class="h-auto list-seach">
+            	<label class="f-l"><i>姓名：</i><input name="" type="text"></label><input type="submit" class="green-but f-l" value="搜索"/><a href="门诊开单-开单列表.shtml" class="green-but f-r">历史单据</a>
+            </div>
+        </form>
+            <!--搜索结束-->
+            <!--表单开始-->
+            <div class="h-auto mar-t20">
+            	<table cellpadding="0" cellspacing="1" class="table-list">
+                	<thead>
+                    	<tr>
+                        	<td width="20%">姓名</td>
+                            <td width="10%">性别</td>
+                            <td width="10%">年龄</td>
+                            <td width="20%">开单医生</td>
+                            <td width="20%">开单时间</td>
+                            <td width="20%">操作</td>
+                        </tr>
+                    </thead>
+                    <tr class="tr-hover">
+                        <td>任贤齐</td>
+                        <td>女</td>
+                        <td>18</td>
+                        <td>张国荣</td>
+                        <td>2013/12/17</td>
+                        <td><a href="门诊开单-开单列表-编辑单据.shtml" class="green-but" title="编辑">编辑</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>任贤齐</td>
+                        <td>女</td>
+                        <td>18</td>
+                        <td>张国荣</td>
+                        <td>2013/12/17</td>
+                        <td><a href="门诊开单-开单列表-编辑单据.shtml" class="green-but" title="编辑">编辑</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>任贤齐</td>
+                        <td>女</td>
+                        <td>18</td>
+                        <td>张国荣</td>
+                        <td>2013/12/17</td>
+                        <td><a href="门诊开单-开单列表-编辑单据.shtml" class="green-but" title="编辑">编辑</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>任贤齐</td>
+                        <td>女</td>
+                        <td>18</td>
+                        <td>张国荣</td>
+                        <td>2013/12/17</td>
+                        <td><a href="门诊开单-开单列表-编辑单据.shtml" class="green-but" title="编辑">编辑</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>任贤齐</td>
+                        <td>女</td>
+                        <td>18</td>
+                        <td>张国荣</td>
+                        <td>2013/12/17</td>
+                        <td><a href="门诊开单-开单列表-编辑单据.shtml" class="green-but" title="编辑">编辑</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>任贤齐</td>
+                        <td>女</td>
+                        <td>18</td>
+                        <td>张国荣</td>
+                        <td>2013/12/17</td>
+                        <td><a href="门诊开单-开单列表-编辑单据.shtml" class="green-but" title="编辑">编辑</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>任贤齐</td>
+                        <td>女</td>
+                        <td>18</td>
+                        <td>张国荣</td>
+                        <td>2013/12/17</td>
+                        <td><a href="门诊开单-开单列表-编辑单据.shtml" class="green-but" title="编辑">编辑</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>任贤齐</td>
+                        <td>女</td>
+                        <td>18</td>
+                        <td>张国荣</td>
+                        <td>2013/12/17</td>
+                        <td><a href="门诊开单-开单列表-编辑单据.shtml" class="green-but" title="编辑">编辑</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>任贤齐</td>
+                        <td>女</td>
+                        <td>18</td>
+                        <td>张国荣</td>
+                        <td>2013/12/17</td>
+                        <td><a href="门诊开单-开单列表-编辑单据.shtml" class="green-but" title="编辑">编辑</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>任贤齐</td>
+                        <td>女</td>
+                        <td>18</td>
+                        <td>张国荣</td>
+                        <td>2013/12/17</td>
+                        <td><a href="#" class="green-but" title="编辑">编辑</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>任贤齐</td>
+                        <td>女</td>
+                        <td>18</td>
+                        <td>张国荣</td>
+                        <td>2013/12/17</td>
+                        <td><a href="#" class="green-but" title="编辑">编辑</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>任贤齐</td>
+                        <td>女</td>
+                        <td>18</td>
+                        <td>张国荣</td>
+                        <td>2013/12/17</td>
+                        <td><a href="#" class="green-but" title="编辑">编辑</a></td>
+                     </tr>
+                </table>
+                <!--分页开始-->
+                <div class="page">
+                     <span>共<i>120条/10页</i></span><span><a href="javascript:;" class="now">1</a></span><span><a href="javascript:;">2</a></span><span><a href="javascript:;">3</a></span><span>...</span><span><a href="javascript:;">10</a></span><span><a href="javascript:;">下一页</a></span>
+                </div>
+               <!--分页结束-->   
+               
+            </div>
+            <!--表单结束-->
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

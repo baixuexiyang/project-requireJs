@@ -1,0 +1,24 @@
+<?php include("include-dialog-head.php"); ?>
+<input type="hidden" id="dispatcher" value="clinic-charge">
+<div class="pop-box h-auto bg-ff">
+    <form id="form-add-ticket">
+	<ul class="three-list">
+   		<li><i>领用日期：</i><label><input name="" id="receive" class="Wdate" type="text"></label></li>
+    	<li><i>领用人：</i><label><select name=""><option>
+        	刘德华
+        </option></select></label></li>
+        <li><i>票据类型：</i><label><select name=""><option>
+        	刘德华
+        </option></select></label></li>
+        <li><i>起始票号：</i><label><input name="" type="text"></label></li>
+        <li><i>结束票号：</i><label><input name="" type="text"></label></li>
+        <li><i>当前票号：</i><label><input name="" type="text"></label></li>
+        <li><i>单据状态：</i><label><select name=""><option>
+        	刘德华
+        </option></select></label></li>    
+        <li class="error-out"><span class="error-text" style="display:none;"></span></li>        
+    </ul>
+    <div class="text-c mar-b20"><a href="javascript:;" data-action="js/mock-data/include-data-example.json" id="saveTicket" class="green-but">确定</a>&nbsp;<a href="javascript:;" class="black-but" id="cancel">取消</a></div>
+    </form>
+</div>
+<?php include("include-dialog-foot.php"); ?>

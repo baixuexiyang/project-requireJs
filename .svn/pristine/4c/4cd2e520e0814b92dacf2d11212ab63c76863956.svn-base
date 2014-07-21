@@ -1,0 +1,77 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="admin" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 Structure">
+        	<h2 class="h-auto"><i class="f-l">组织架构配置</i></h2>
+            <!--表单开始-->
+            <div class="h-auto mar-t20">
+            	<!--左侧开始-->
+            	<div class="f-l organize-l mag-l75">
+                	<p class="text-c">组织架构</p>
+                    <input type="hidden" id="structure-tree" data-href="js/mock-data/admin-tree.json">
+                    <dl class="organize-tree">                        
+                    	<!-- <dt><span class="tree-more"><a href="#">一级目录</a></span></dt>
+                        <dd><span><a href="#">二级目录</a></span></dd>
+                        <dd>
+                        	<span class="tree-more"><a href="#">二级目录</a></span>
+                        	<cite><a href="#">三级目录</a></cite>
+                            <cite><a href="#">三级目录</a></cite>
+                            <cite><a href="#">三级目录</a></cite>
+                        </dd>
+                        <dd><span><a href="#">二级目录</a></span></dd>
+                        <dt data-cfg='{"name":"一级目录","spell":"yijimulu"}'><span><a href="#">一级目录</a></span></dt>
+                        <dt data-cfg='{"name":"一级目录","spell":"yijimulu"}'><span class="tree-more"><a href="#">一级目录</a></span></dt>
+                        <dd><span data-cfg='{"name":"二级目录","spell":"erjimulu"}'><a href="#">二级目录</a></span></dd>
+                        <dd>
+                            <span class="tree-more" data-cfg='{"name":"二级目录","spell":"erjimulu"}'><a href="#">二级目录</a></span>
+                            <cite data-cfg='{"name":"三级目录","spell":"sanjimulu"}'><a href="#">三级目录</a></cite>
+                            <cite data-cfg='{"name":"三级目录","spell":"sanjimulu"}'><a href="#">三级目录</a></cite>
+                            <cite data-cfg='{"name":"三级目录","spell":"sanjimulu"}'><a href="#">三级目录</a></cite>
+                        </dd>
+                        <dd><span data-cfg='{"name":"二级目录","spell":"erjimulu"}'><a href="#">二级目录</a></span></dd>
+                        <dt data-cfg='{"name":"一级目录","spell":"yijimulu"}'><span><a href="#">一级目录</a></span></dt> -->
+                    </dl>
+                </div>
+                <!--左侧结束-->
+                <!--中间开始-->
+                <div class="f-l organize-c">
+                	<a href="javascript:;" class="green-but" id="addCategory">添加子类别</a>
+                    <a href="javascript:;" class="red-but" id="delete" data-href="include-structure.php" data-action="">删除类别</a>
+                </div>
+                <!--中间结束-->
+                <!--右侧开始-->
+                <div class="f-l organize-r">
+                    <form id="form-add-category">
+                        <input type="hidden" id="label" name="label" value="">
+                        <input type="hidden" id="orgId" name="orgId" value="">
+                	<ul class="three-list h-auto">
+                    	<li><i><b>*</b>科室名称：</i><label><input name="" id="name" type="text" class="validate" maxlength="16"></label></li>
+                        <li><i><b>*</b>拼音码：</i><label><input name="" id="spell" type="text" class="validate" maxlength="8"></label></li>
+                        <li><i><b>*</b>上级节点：</i><label><select name="" id="previousNode"><option value="2" data-label="0">
+                        波恩生殖
+                        </option>
+                        <option value="0" data-label="1">二级目录</option>
+                        <option value="1" data-label="0">杭州空腔</option>
+                        </select></label></li>
+                        <li class="organize-r-error"><span class="error-text" style="display:none"></span></li>
+                        <li><input name="" type="submit" class="green-but" id="saveCategory" value="保存" data-action="js/mock-data/add-admin-category.json"></li>
+                    </ul>
+                </form>
+                </div>
+                <!--右侧结束-->
+            </div>
+            <!--表单结束-->
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

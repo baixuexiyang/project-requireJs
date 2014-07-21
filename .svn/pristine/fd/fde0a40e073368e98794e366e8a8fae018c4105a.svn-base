@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>弹出框</title>
+<link type="text/css" rel="stylesheet" href="css/mail.css">
+</head>
+
+<body>
+<!--注册弹出框-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">注册选择</i><a href="#" class="f-r"></a></h3>
+    <p class="cen-p">
+    	<label><input name="radio" type="radio" value="">&nbsp;IVF</label>
+        <label><input name="radio" type="radio" value="">&nbsp;OD（卵供体）</label>
+        <label><input name="radio" type="radio" value="">&nbsp;ICSI</label>
+        <label><input name="radio" type="radio" value="">&nbsp;OD（卵冷冻）</label>
+        <label><input name="radio" type="radio" value="">&nbsp;IU（代孕）</label>
+        <label><input name="radio" type="radio" value="">&nbsp;OT（其他）</label>
+    </p>
+    <div class="text-c mar-b20"><a href="#" class="green-but">确定</a></div>
+</div>
+
+<!--登记结果弹出框-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">提示</i><a href="#" class="f-r"></a></h3>
+    <p class="reg-p h-auto reg-ok text-c">登记成功！</p>
+    <div class="text-c mar-b20"><a href="#" class="black-but">确定</a></div>
+</div>
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">提示</i><a href="#" class="f-r"></a></h3>
+    <p class="reg-p h-auto reg-no text-c">登记失败！</p>
+    <div class="text-c mar-b20"><a href="#" class="black-but">确定</a></div>
+</div>
+
+<!--删除提示-->
+<div class="pop-box h-auto bg-ff">
+    <p class="h-auto reg-p dele-choose text-c">是否确定删除当前记录？</p>
+    <div class="text-c mar-b20"><a href="#" class="green-but">确定</a>&nbsp;<a href="#" class="black-but">取消</a></div>
+</div>
+
+<!--新增字典类别-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">新增字典类别</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+    	<li><i>类别名称：</i><label><input name="" type="text"></label></li>
+        <li><i>类别值：</i><label><input name="" type="text"></label></li>
+        <li><i>是否使用：</i><label><input name="radio" type="radio" value="">&nbsp;是&nbsp;&nbsp;<input name="radio" type="radio" value="">&nbsp;否</label></li>
+        <li class="error-out"><span class="error-text">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="javascript:;" class="green-but" id="determine">保存</a>&nbsp;<a href="javascript:;" class="black-but" id="cancel">取消</a></div>
+</div>
+
+<!--新增字典-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">新增字典</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+    	<li><i>字典名称：</i><label><input name="" type="text"></label></li>
+        <li><i>字典值：</i><label><input name="" type="text"></label></li>
+        <li><i>所属类别：</i><label><select name=""><option>
+        	所属类别
+        </option></select></label></li>
+        <li><i>是否使用：</i><label><input name="radio" type="radio" value="">&nbsp;是&nbsp;&nbsp;<input name="radio" type="radio" value="">&nbsp;否</label></li>
+        <li class="error-out"><span class="error-text">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="#" class="green-but">保存</a>&nbsp;<a href="#" class="black-but">取消</a></div>
+</div>
+
+<!--新增问题-->
+<div class="pop-box h-auto bg-ff">
+	<h3><i class="f-l">新增问题</i><a href="#" class="f-r"></a></h3>
+	<ul class="three-list">
+    	<li class="h65"><i>问题标题：</i><label><textarea name="" cols="" rows="">12323</textarea></label></li>
+        <li><i>所属类别：</i><label><select name=""><option>
+        	所属类别
+        </option></select></label></li>
+        <li><i>答案类别：</i><label><select name=""><option>
+        	答案类别
+        </option></select></label></li>
+        <li class="h65"><i>选择值：</i><label><textarea name="" cols="" rows="">12323</textarea></label></li>
+        <li><i>默认值：</i><label><select name=""><option>
+        	默认值
+        </option></select></label></li>
+        <!--<li><i>默认值：</i><label><input name="" type="text"></label></li>-->
+        <li class="error-out"><span class="error-text">123123</span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="#" class="green-but">保存</a>&nbsp;<a href="#" class="black-but">取消</a></div>
+</div>
+
+</body>
+</html>

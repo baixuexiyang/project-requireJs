@@ -1,0 +1,14 @@
+<div class="pop-box h-auto bg-ff">
+	<form id="form-add-tank">
+		<ul class="three-list">
+	    	<li><i><b>*</b>类型编号：</i><label><input name="type" type="text" id="type"></label></li>
+	        <li><i><b>*</b>吊桶数：</i><label><input name="bucket" type="text" id="bucket"></label></li>
+	        <li><i><b>*</b>套管数：</i>
+	        	<label><cite class="blue-font bucket" style="width:50px;display:inline-block;">吊桶数</cite>&nbsp;×&nbsp;<input name="drivepipe" type="text" class="w40" id="drivepipe">&nbsp;=&nbsp;<cite class="blue-font bucketNum">计算总数</cite></label><input type="hidden" name="" id="bucketNum" value=""></li>
+	        <li><i><b>*</b>麦管数：</i>
+	        	<label><cite class="blue-font drivepipe" style="width:50px;display:inline-block;">套管数</cite>&nbsp;×&nbsp;<input name="" type="text" class="w40" id="straw">&nbsp;=&nbsp;<cite class="blue-font strawNum">计算总数</cite><input type="hidden" name="" id="strawNum" value=""></label></li>
+	        <li class="error-out"><span class="error-text" style="display:none;"></span></li>
+	    </ul>
+	    <div class="text-c mar-b20"><a href="javascript:;" id="saveTank" data-action="js/mock-data/include-data-example.json" class="green-but">保存</a>&nbsp;<a href="javascript:;" id="cancel" class="black-but">取消</a></div>
+	</form>
+</div>

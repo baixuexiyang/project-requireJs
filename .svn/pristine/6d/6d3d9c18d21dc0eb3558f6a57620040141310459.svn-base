@@ -1,0 +1,7 @@
+<div class="pop-box h-auto bg-ff">
+	<ul class="three-list">
+    	<li><i><b>*</b>解冻日期：</i><label><input name="" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="validate Wdate" id="freeze_date"></label></li>
+        <li class="error-out"><span class="error-text" style="display:none;"></span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="javascript:;" data-action="js/mock-data/include-data-example.json" class="green-but" id="determine">确定</a>&nbsp;<a href="javascript:;" class="black-but" id="cancel">取消</a></div>
+</div>

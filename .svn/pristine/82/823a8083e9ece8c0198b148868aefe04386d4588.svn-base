@@ -1,0 +1,230 @@
+define([
+	'jquery',
+	'app/common',
+	'app/util',
+	'jqtmpl',
+	'pkg/DatePicker/app',
+	'pkg/DateFormat/app',
+	'json'
+], function($, common) {
+
+	"use strict";
+
+	/**********收费记录********************************/
+	var Record = {
+		init: function() {
+			$('#patientName').showlist({
+				width: 300,
+				keyID: 'userid',
+				bindSub: $('#patientId'),
+				selectCallback: function(d) {
+
+				},
+				buildHtml: function(ds) {
+					var html = '<table cellpadding="0" cellspacing="1" class="table-list ab-table-div-title"></tbody>';
+					for (var i = 0; i < ds.length; i++) {
+						var item = ds[i];
+						html += '<tr data-name="' + item.username + '" data-id="' + item.userId + '" class="tr-hover"><td style="width:50px;">' + item.username + '</td><td style="width:80px;">' + item.tellphone + '</td><td style="width:20px;">' + item.sex + '</td><td style="width:20px;">' + item.age + '</td></tr>';
+					}
+					html += '</tbody></table>';
+					return html;
+				}
+			});
+
+
+
+			// 限制输入的小数
+			var controlNum = function() {
+				var _val = $(this).val();
+				var i = _val.indexOf('.');
+				if (i !== -1) {
+					var sub = _val.substr(i + 1);
+					if (sub.length > 2) {
+						$(this).val(_val.substring(0, i + 3));
+						art.dialog({
+							content: "最多只能输入两位小数！",
+							icon: 'face-sad',
+							time: 1
+						});
+					}
+				}
+			};
+
+			$('.money').on('input propertychange', controlNum)
+				.blur(function() {
+					var total = parseFloat($('#total').text(), 10);
+					var pay = 0;
+					$('.money').each(function() {
+						var num = parseFloat($(this).val(), 10);
+						if (isNaN(num))
+							return;
+						pay += num;
+					});
+					if ((pay - total) >= 0) {
+						$('#change').text(pay - total);
+					} else {
+						$('#change').text('');
+					}
+				});
+
+
+			$(document).delegate('#confirm-charge', 'click', function() {
+				var api = $(this).attr('data-href');
+				art.dialog.open(api, {
+					width: 380,
+					height: 420,
+					lock: true,
+					title: '确认收费'
+				});
+			})
+				.delegate('#Charge', 'click', function() {
+					var tarForm = $('#form-charge');
+					var change = parseFloat($('#change').text(), 10);
+					if (isNaN(change)) {
+						art.dialog.alert("应付款不足，请重新付款！");
+						return;
+					}
+					var api = $(this).attr('data-action');
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						data: tarForm.serialize(),
+						success: function() {
+							art.dialog.close();
+						},
+						error: function(msg) {
+							alert(msg);
+						}
+					}));
+				})
+				.delegate('#cancel', 'click', function() {
+					art.dialog.close();
+				})
+				.delegate('#Retype', 'click', function() {
+					var api = $(this).attr('data-href');
+					art.dialog.open(api, {
+						width: 400,
+						height: 280,
+						lock: true,
+						title: '补打发票'
+					});
+				})
+				.delegate('#retype-invoice', 'click', function() {
+					var tarForm = $('#form-retype-invoice');
+					if (!tarForm.doValidate())
+						return;
+					var api = $(this).attr('data-action');
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						data: tarForm.serialize(),
+						success: function() {
+							art.dialog.close();
+						},
+						error: function(msg) {
+							alert(msg);
+						}
+					}));
+
+				});
+
+
+			// 发票跳号
+			$('#changeInvoice').click(function() {
+				$('#invoiceNo').text(parseInt($('#invoiceNo').text(), 10) + 1);
+			});
+
+
+
+			var startDate = $('#start-date');
+			var endDate = $('#end-date');
+			startDate.datePicker({
+				dateFmt: 'yyyy-MM-dd'
+			});
+			endDate.datePicker({
+				dateFmt: 'yyyy-MM-dd'
+			});
+
+
+			// 打印
+			$('#print').click(function() {
+				var content = $('body').clone(true);
+				var printContent = $('.print-area').clone().find('.list-bottom-div').remove().end().show();
+				$('body').empty().append(printContent);
+				window.print();
+				$('body').empty().append(content);
+			});
+
+			$('#preview-print').click(function() {
+				var api = $(this).attr('data-href');
+				art.dialog.open(api, {
+					width: 970,
+					height: 800,
+					title: '打印预览',
+					lock: true
+				});
+			});
+			$('#confirm').click(function() {
+				$('.list-bottom-div').remove();
+				window.print();
+				setTimeout(function() {
+					art.dialog.close();
+				});
+			});
+		}
+	};
+
+	/***********票据领用**********************************/
+	var Ticket = {
+		init: function() {
+			$(document).delegate('#addTicket', 'click', function() {
+				var api = $(this).attr('data-href');
+				art.dialog.open(api, {
+					width: 390,
+					height: 520,
+					lock: true,
+					title: '新增票据'
+				});
+			})
+				.delegate('.edit', 'click', function() {
+					var api = $(this).attr('data-href');
+					art.dialog.open(api, {
+						width: 390,
+						height: 520,
+						lock: true,
+						title: '编辑票据'
+					});
+				});
+			$('#receive').datePicker({
+				dateFmt: 'yyyy-MM-dd'
+			});
+
+			$('#saveTicket').click(function() {
+				var tarForm = $('#form-add-ticket');
+				var api = $(this).attr('data-action');
+				$.ajax(common.ajaxCall({
+					url: api,
+					type: 'post',
+					data: tarForm.serialize(),
+					success: function() {
+						top.location.reload();
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+		}
+	};
+
+
+	/******入口****************************************/
+	var Main = {
+		init: function() {
+			Record.init();
+			Ticket.init();
+		}
+	};
+	Main.init();
+	$('.numeral').numeral();
+});

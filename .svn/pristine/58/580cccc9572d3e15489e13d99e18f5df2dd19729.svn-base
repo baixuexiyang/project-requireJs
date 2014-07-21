@@ -1,0 +1,10 @@
+{
+	"status": {
+		"code": 0,
+		"msg": "something error"
+	},
+	"ds": [{
+		"patientname": "张三",
+		"birthday": "2014-6-25"
+	}]
+}

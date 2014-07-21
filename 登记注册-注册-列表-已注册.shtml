@@ -1,0 +1,144 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+<input type="hidden" name="dispatcher" id="dispatcher" value="register" />
+<!--中部开始-->
+<div class="content h-auto mar-t10 top-banner">
+	<ul class="f-l">
+    	<li>今日登记：<i>10</i>人</li>
+		<li>今日预约：<i>10</i>人</li>
+		<li class="last-no">今日注册：<i>10</i>人</li>
+	</ul>
+	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+</div>
+<div class="content h-auto mar-t20">
+	<h2>注册列表</h2>
+    <!--搜索开始-->
+    <div class=" h-auto list-seach">
+        <form method="" action="">
+    	<label><i>姓名：</i><input name="" type="text"></label><label><i>日期：</i><input class="Wdate" id="start-date" name="startDate" type="text" placeholder="起始时间" value="">&nbsp;至&nbsp;<input class="Wdate" id="end-date" name="endDate" type="text" placeholder="结束时间" value=""></label><label><i>注册状态：</i><select name=""><option>已注册</option><option>未注册</option></select></label><input type="submit" class="green-but" value="搜索"/>
+    </form>
+    </div>
+    <!--搜索结束-->
+    <!--表单开始-->
+    <div class="h-auto mar-t20">
+    	<table cellpadding="0" cellspacing="1" class="table-list">
+        	<thead>
+            	<tr>
+                	<td width="18%">姓名</td>
+                    <td width="10%">性别</td>
+                    <td width="10%">年龄</td>
+                    <td width="18%">主治医生</td>
+                    <td width="22%">注册时间</td>
+                    <td width="22%">操作</td>
+                </tr>
+            </thead>
+            <tr class="tr-hover">
+                <td>任贤齐</td>
+                <td>女</td>
+                <td>18</td>
+                <td>张国荣</td>
+                <td>2013/12/17</td>
+                <td><a href="登记注册-注册.shtml" class="green-but" title="编辑">编辑</a></td>
+             </tr>
+             <tr class="tr-hover">
+                <td>任贤齐</td>
+                <td>女</td>
+                <td>18</td>
+                <td>张国荣</td>
+                <td>2013/12/17</td>
+                <td><a href="登记注册-注册.shtml" class="green-but" title="编辑">编辑</a></td>
+             </tr>
+             <tr class="tr-hover">
+                <td>任贤齐</td>
+                <td>女</td>
+                <td>18</td>
+                <td>张国荣</td>
+                <td>2013/12/17</td>
+                <td><a href="登记注册-注册.shtml" class="green-but" title="编辑">编辑</a></td>
+             </tr>
+             <tr class="tr-hover">
+                <td>任贤齐</td>
+                <td>女</td>
+                <td>18</td>
+                <td>张国荣</td>
+                <td>2013/12/17</td>
+                <td><a href="登记注册-注册.shtml" class="green-but" title="编辑">编辑</a></td>
+             </tr>
+             <tr class="tr-hover">
+                <td>任贤齐</td>
+                <td>女</td>
+                <td>18</td>
+                <td>张国荣</td>
+                <td>2013/12/17</td>
+                <td><a href="登记注册-注册.shtml" class="green-but" title="编辑">编辑</a></td>
+             </tr>
+             <tr class="tr-hover">
+                <td>任贤齐</td>
+                <td>女</td>
+                <td>18</td>
+                <td>张国荣</td>
+                <td>2013/12/17</td>
+                <td><a href="登记注册-注册.shtml" class="green-but" title="编辑">编辑</a></td>
+             </tr>
+             <tr class="tr-hover">
+                <td>任贤齐</td>
+                <td>女</td>
+                <td>18</td>
+                <td>张国荣</td>
+                <td>2013/12/17</td>
+                <td><a href="登记注册-注册.shtml" class="green-but" title="编辑">编辑</a></td>
+             </tr>
+             <tr class="tr-hover">
+                <td>任贤齐</td>
+                <td>女</td>
+                <td>18</td>
+                <td>张国荣</td>
+                <td>2013/12/17</td>
+                <td><a href="登记注册-注册.shtml" class="green-but" title="编辑">编辑</a></td>
+             </tr>
+             <tr class="tr-hover">
+                <td>任贤齐</td>
+                <td>女</td>
+                <td>18</td>
+                <td>张国荣</td>
+                <td>2013/12/17</td>
+                <td><a href="登记注册-注册.shtml" class="green-but" title="编辑">编辑</a></td>
+             </tr>
+             <tr class="tr-hover">
+                <td>任贤齐</td>
+                <td>女</td>
+                <td>18</td>
+                <td>张国荣</td>
+                <td>2013/12/17</td>
+                <td><a href="#" class="green-but" title="编辑">编辑</a></td>
+             </tr>
+             <tr class="tr-hover">
+                <td>任贤齐</td>
+                <td>女</td>
+                <td>18</td>
+                <td>张国荣</td>
+                <td>2013/12/17</td>
+                <td><a href="#" class="green-but" title="编辑">编辑</a></td>
+             </tr>
+             <tr class="tr-hover">
+                <td>任贤齐</td>
+                <td>女</td>
+                <td>18</td>
+                <td>张国荣</td>
+                <td>2013/12/17</td>
+                <td><a href="#" class="green-but" title="编辑">编辑</a></td>
+             </tr>
+        </table>
+        <!--分页开始-->
+        <div class="page">
+             <span>共<i>120条/10页</i></span><span><a href="javascript:;" class="now">1</a></span><span><a href="javascript:;">2</a></span><span><a href="javascript:;">3</a></span><span>...</span><span><a href="javascript:;">10</a></span><span><a href="javascript:;">下一页</a></span>
+        </div>
+       <!--分页结束-->   
+        
+    </div>
+    <!--表单结束-->
+</div>
+<!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

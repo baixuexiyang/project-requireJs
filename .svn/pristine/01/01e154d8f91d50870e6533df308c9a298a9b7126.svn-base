@@ -1,0 +1,15 @@
+<div class="pop-box h-auto bg-ff">
+    <form id="form-add-reagent">
+    	<ul class="three-list">
+        	<li><i><b>*</b>产品名称：</i><label><input name="" type="text" id="project_name"></label></li>
+            <li><i><b>*</b>供应商：</i><label><input name="" type="text" id="supplier"></label></li>
+            <li><i><b>*</b>货号：</i><label><input name="" type="text" id="project_num"></label></li>
+            <li><i><b>*</b>类型：</i><label><input name="" type="text" id="type"></label></li>
+            <li><i><b>*</b>规格：</i><label><input name="" type="text" id="standard"></label></li>
+            <li><i><b>*</b>存放地：</i><label><input name="" type="text" id="storage"></label></li>
+            <li><i>建议库存量：</i><label><input name="" type="text"></label></li>
+            <li class="error-out"><span class="error-text" style="display:none;"></span></li>
+        </ul>
+        <div class="text-c mar-b20"><a href="javascript:;" id="saveReagent" data-action="js/mock-data/include-data-example.json" class="green-but">保存</a>&nbsp;<a href="javascript:;" id="cancel" class="black-but">取消</a></div>
+    </form>
+</div>

@@ -1,0 +1,60 @@
+{
+	"status": {
+		"code": 0,
+		"msg": "something error"
+	},
+	"ds": [
+		{
+			"midicinesname": "神经病药",
+			"midicinesid": "0000001",
+			"rule": "不知道",
+			"unit": "吨",
+			"unitid": "100000",
+			"price": "100",
+			"num": "1000",
+			"currentnum": "10000000",
+			"totalamt": "10000",
+			"productbatchnum": "wefdsfgdsg",
+			"validdate": "2014-01-16"
+		},
+		{
+			"midicinesname": "神经病药",
+			"midicinesid": "0000001",
+			"rule": "不知道",
+			"unit": "吨",
+			"unitid": "100000",
+			"price": "100",
+			"num": "1000",
+			"currentnum": "10000000",
+			"totalamt": "10000",
+			"productbatchnum": "wefdsfgdsg",
+			"validdate": "2014-01-16"
+		},
+		{
+			"midicinesname": "神经病药",
+			"midicinesid": "0000001",
+			"rule": "不知道",
+			"unit": "吨",
+			"unitid": "100000",
+			"price": "100",
+			"num": "1000",
+			"currentnum": "10000000",
+			"totalamt": "10000",
+			"productbatchnum": "wefdsfgdsg",
+			"validdate": "2014-01-16"
+		},
+		{
+			"midicinesname": "神经病药",
+			"midicinesid": "0000001",
+			"rule": "不知道",
+			"unit": "吨",
+			"unitid": "100000",
+			"price": "100",
+			"num": "1000",
+			"currentnum": "10000000",
+			"totalamt": "10000",
+			"productbatchnum": "wefdsfgdsg",
+			"validdate": "2014-01-16"
+		}
+	]
+}

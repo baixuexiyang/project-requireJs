@@ -1,0 +1,141 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="adjuvant-freeze" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20">
+        	<h2 class="h-auto"><i class="f-l">疗程记录</i></h2>
+            <!--表单开始-->
+            <div class="h-auto mar-t20">
+            	<!--左侧菜单开始-->
+                <!--#include file="include-static-left.php"-->
+                <!--左侧菜单结束-->
+                <!--右边信息开始-->
+                <div class="h-auto f-r help-doctor-r mar-b20">
+                    <!--中部模板开始-->
+                    <!--#include file="include-static-middle.php"-->
+                    <!--中部模板结束-->
+                    <div class="h-auto add-lcfa">
+                    	<p class="f-l">
+                            <span>疗程方案：
+                            <label><select name="" id="choose_scheme" data-action="js/mock-data/include-data-example.json">
+                            <option value="0">请选择疗程方案</option>
+                            <option value="1">疗程方案一</option>
+                            </select></label></span>
+                            <span>疗程次数：1</span>
+                        </p>                        
+                    </div>
+                     <!--tab切换开始-->
+            <div class="middle-tab mar-t20" style="width:808px;">
+                <span><a href="辅助治疗-患者列表-疗程记录-胚胎冷冻信息.shtml">胚胎冷冻/复苏</a><a href="辅助治疗-患者列表-疗程记录-胚胎冷冻信息-卵子冷冻.shtml">卵子冷冻</a><a href="辅助治疗-患者列表-疗程记录-胚胎冷冻信息-冷冻胚胎移植.shtml" class="now">冷冻胚胎移植</a></span>
+            </div>
+           <!--tab切换结束-->
+                    <!--总体信息开始-->
+                    <div class="hr-div mar-t10 Transplant">
+                        <span>总体信息</span>                        
+                        <hr/>
+                    </div>
+                    <div class="error-text"></div>                    
+                    <div class="h-auto">
+                        <form id="form-total-info" data-action="js/mock-data/include-data-example.json">
+                        <ul class="h-auto three-list mar-t20">
+                            <li><i>治疗周期：</i><label><span class="pre_inf">一年</span><span class="las_inf" style="display:none;"><input name="" type="text" maxlength="64" id="treatment_cycle"></span></label></li>
+                            <li><i>取精日期：</i><label><span class="pre_inf">2014-06-26</span><span class="las_inf" style="display:none;"><input name="" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="validate Wdate" id="take_date"></span></label></li>
+                        </ul>
+                        </form>
+                	</div>
+                    <!--总体信息结束-->
+                    <!--胚胎移植开始-->
+                    <div class="hr-div mar-t10">
+                        <span>胚胎移植</span>                        
+                        <hr/>
+                    </div>                    
+                    <div class="h-auto">
+                        <form id="form-embryo-transplant" data-action="js/mock-data/include-data-example.json">
+                        <ul class="h-auto three-list">                            
+                            <li><i>日期：</i><label><span class="pre">2014-06-26</span><span class="las" style="display:none;"><input name="" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="validate Wdate" id="date"></span></label></li>
+                            <li><i>时间：</i><label><span class="pre">11:11</span><span class="las" style="display:none;"><input name="" type="text" maxlength="64" class="w60" id="hour">&nbsp;:&nbsp;<input name="" type="text" maxlength="64" class="w60" id="minute"></span></label></li>
+                            <li><i>移植耗时：</i><span class="pre">11</span><span class="las" style="display:none;"><label><input id="time_consuming" name="" type="text" maxlength="64"></span></label></li>
+                            <li><i>胚胎专家：</i><span class="pre">张三</span><span class="las" style="display:none;"><label><input id="embryo_expert" name="" type="text" maxlength="64"></span></label></li>
+                            <li><i>记录验证：</i><span class="pre">不知道</span><span class="las" style="display:none;"><label><input id="seccode" name="" type="text" maxlength="64"></span></label></li>
+                            <li><i>培养皿验证：</i><span class="pre">不知道</span><span class="las" style="display:none;"><label><input id="validation" name="" type="text" maxlength="64"></span></label></li>
+                            <li><i>遗弃验证：</i><span class="pre">不知道</span><span class="las" style="display:none;"><label><input name="" type="text" class="validate" id="abandoned_validation"></span></label></li>
+                            <li><i>临床医生：</i><span class="pre">张三</span><span class="las" style="display:none;"><label><input id="clinician" name="" type="text" maxlength="64"></span></label></li>
+                            <li><i>装置批号：</i><span class="pre">123456789</span><span class="las" style="display:none;"><label><input id="device_batch" name="" type="text" maxlength="64"></span></label></li>
+                            <li><i>夫精/供精：</i><span class="pre">不知道</span><span class="las" style="display:none;"><label><input id="extractive" name="" type="text" maxlength="64"></span></label></li>
+                            <li><i>胚胎孵化：</i><span class="pre">不知道</span><span class="las" style="display:none;"><label><select name="" class="w94-100 assisted_hatching">
+                                    <option>选择</option>
+                                    <option>萌芽</option>
+                                    </select></span></label></li>
+                            <li><i>签名时间：</i><span class="pre">2014-06-26</span><span class="las" style="display:none;"><label><input name="" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="validate Wdate" id="signature"></span></label></li>
+                        </ul>
+                        </form>                        
+                	</div>                   
+                    <div class="hr-div">
+                        <a href="javascript:;" id="add_record" class="yellow-but f-r">新增</a>
+                    </div>
+                    <div class="h-auto add-ylfa-list">
+                            <table cellpadding="0" cellspacing="1" class="table-list storage-info">
+                                <thead>
+                                    <tr>
+                                        <td width="25%">编号</td>
+                                        <td width="25%">细胞数</td>
+                                        <td width="25%">级别</td>
+                                        <td width="25%">操作</td>
+                                  </tr>
+                                </thead>
+                                    <tr class="backups" style="display:none;">
+                                        <td><input name="" type="text" class="w94-100 code" value=""></td>
+                                        <td><input name="" type="text" class="w94-100 num" value=""></td>
+                                        <td><input name="" type="text" class="w94-100 level" value=""></td>
+                                        <td><a href="javascript:;" data-action="js/mock-data/include-data-example.json" class="green-but saveBtn" title="保存">保存</a></td>
+                                  </tr>
+                                	<tr>
+                                        <td><span class="sh">123456789</span><span class="hi" style="display: none;"><input name="" type="text" class="w94-100 code" value=""></span></td>
+                                        <td><span class="sh">123456789</span><span class="hi" style="display: none;"><input name="" type="text" class="w94-100 num" value=""></span></td>
+                                        <td><span class="sh">不知道</span><span class="hi" style="display: none;"><input name="" type="text" class="w94-100 level" value=""></span></td>
+                                        <td><span class="sh"><a href="javascript:;" class="green-but editBtn" title="编辑">编辑</a><a href="javascript:;" data-action="js/mock-data/include-data-example.json" class="red-but delete-item" title="删除">删除</a></span><span class="hi" style="display: none;"><a href="javascript:;" data-action="js/mock-data/include-data-example.json" class="green-but saveBtn" title="保存">保存</a><a href="javascript:;" class="red-but cancelBtn" title="取消">取消</a></span></td>
+                                  </tr>
+                    		</table>
+                    </div>
+                    <!--胚胎移植结束-->   
+                                     
+                    <!--复苏信息开始-->
+                    <div class="hr-div mar-t10">
+                        <span>小结</span>                        
+                        <hr/>
+                    </div>
+                    
+                    <div class="h-auto mar-t10">
+                        <form id="form-summary" data-action="js/mock-data/include-data-example.json">
+                        <ul class="h-auto three-list">                       	
+							<li><i>解冻次数：</i><label><span class="sho">1111111</span><span class="hid" style="display:none;"><input name="" type="text" maxlength="64"></label></li>
+                            <li><i>解冻胚胎数：</i><label><span class="sho">2222222222</span><span class="hid" style="display:none;"><input name="" type="text" maxlength="64"></span></label></li>
+                            <li><i>存活原核胚：</i><label><span class="sho">不知道</span><span class="hid" style="display:none;"><input name="" type="text" maxlength="64"></span></label></li>                          
+                            <li><i>存活分裂胚：</i><label><span class="sho">不知道</span><span class="hid" style="display:none;"><input name="" type="text" maxlength="64"></span></label></li>
+                            <li><i>存活胚囊：</i><label><span class="sho">不知道</span><span class="hid" style="display:none;"><input name="" type="text" maxlength="64"></span></label></li>
+                        </ul>
+                        <div class="jy-fx-bottom h-auto mar-b20">
+                            <i>备注：</i>
+                            <label><span class="sho">这是备注，你知道吗？？？你知道吗？？？</span><span class="hid" style="display:none;"><textarea name="" cols="" rows="2" style="width:745px;"></textarea></span></label>
+                    	</div>
+                        </form>
+                	</div>
+                    <!--复苏信息结束-->
+                    
+                </div>
+                <!--右边信息结束-->
+            </div>
+            <!--表单结束-->
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

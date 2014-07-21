@@ -1,0 +1,156 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="admin" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 UserManagement">
+        	<h2 class="h-auto"><i class="f-l">用户管理</i><a href="#" class="yellow-but2 f-r">同步用户</a><a href="#" class="green-but f-r">用户管理</a></h2>
+            <!--搜索开始-->
+        	<form method="" action="">
+            <div class=" h-auto list-seach">
+            	<label><i>姓名：</i><input name="" type="text"></label><input type="submit" class="green-but" value="搜索"/>
+            </div>
+        	</form>
+            <!--搜索结束-->
+            <!--表单开始-->
+            <div class="h-auto mar-t20">
+            	<table cellpadding="0" cellspacing="1" class="table-list">
+                	<thead>
+                    	<tr>
+                        	<td width="10%">姓名</td>
+                            <td width="5%">性别</td>
+                       	  	<td width="16%">帐号</td>
+                          	<td width="14%">所属科室</td>
+                   	  	  	<td width="13%">手机</td>
+                       	  	<td width="32%">邮箱</td>
+                          	<td width="10%">操作</td>
+                      </tr>
+                    </thead>
+                    <tr class="tr-hover">
+                        <td>上官云飞</td>
+                        <td>女</td>
+                        <td>此处最多八个汉字</td>
+                        <td>口腔正畸整形</td>
+                        <td>13588888888</td>
+                        <td><div class="w240 word-wrap">huangqiusheng@yahoo.com.cn</div></td>
+                        <td><a href="3-26修改-基本配置-用户管理-查看.shtml" class="green-but" title="查看" target="_blank">查看</a></td>
+                     </tr>
+					<tr class="tr-hover">
+                        <td>上官云飞</td>
+                        <td>女</td>
+                        <td>此处最多八个汉字</td>
+                        <td>口腔正畸整形</td>
+                        <td>13588888888</td>
+                        <td><div class="w240 word-wrap">huangqiusheng@yahoo.com.cn</div></td>
+                        <td><a href="#" class="green-but" title="查看" target="_blank">查看</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>官云飞</td>
+                        <td>女</td>
+                        <td>此处最多八个汉字</td>
+                        <td>口腔正畸整形</td>
+                        <td>13588888888</td>
+                        <td><div class="w240 word-wrap">huang123123qiusheng@yahoo.com.cn</div></td>
+                        <td><a href="#" class="green-but" title="查看" target="_blank">查看</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>上官云飞</td>
+                        <td>女</td>
+                        <td>此处最多八个汉字</td>
+                        <td>口腔正畸整形</td>
+                        <td>13588888888</td>
+                        <td><div class="w240 word-wrap">huangqiusheng@yahoo.com.cn</div></td>
+                        <td><a href="#" class="green-but" title="查看" target="_blank">查看</a></td>
+                     </tr>
+					<tr class="tr-hover">
+                        <td>上官云飞</td>
+                        <td>女</td>
+                        <td>此处最多八个汉字</td>
+                        <td>口腔正畸整形</td>
+                        <td>13588888888</td>
+                        <td><div class="w240 word-wrap">huangqiusheng@yahoo.com.cn</div></td>
+                        <td><a href="#" class="green-but" title="查看" target="_blank">查看</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>官云飞</td>
+                        <td>女</td>
+                        <td>此处最多八个汉字</td>
+                        <td>口腔正畸整形</td>
+                        <td>13588888888</td>
+                        <td><div class="w240 word-wrap">huang123123qiusheng@yahoo.com.cn</div></td>
+                        <td><a href="#" class="green-but" title="查看" target="_blank">查看</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>上官云飞</td>
+                        <td>女</td>
+                        <td>此处最多八个汉字</td>
+                        <td>口腔正畸整形</td>
+                        <td>13588888888</td>
+                        <td><div class="w240 word-wrap">huangqiusheng@yahoo.com.cn</div></td>
+                        <td><a href="#" class="green-but" title="查看" target="_blank">查看</a></td>
+                     </tr>
+					<tr class="tr-hover">
+                        <td>上官云飞</td>
+                        <td>女</td>
+                        <td>此处最多八个汉字</td>
+                        <td>口腔正畸整形</td>
+                        <td>13588888888</td>
+                        <td><div class="w240 word-wrap">huangqiusheng@yahoo.com.cn</div></td>
+                        <td><a href="#" class="green-but" title="查看" target="_blank">查看</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>官云飞</td>
+                        <td>女</td>
+                        <td>此处最多八个汉字</td>
+                        <td>口腔正畸整形</td>
+                        <td>13588888888</td>
+                        <td><div class="w240 word-wrap">huang123123qiusheng@yahoo.com.cn</div></td>
+                        <td><a href="#" class="green-but" title="查看" target="_blank">查看</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>上官云飞</td>
+                        <td>女</td>
+                        <td>此处最多八个汉字</td>
+                        <td>口腔正畸整形</td>
+                        <td>13588888888</td>
+                        <td><div class="w240 word-wrap">huangqiusheng@yahoo.com.cn</div></td>
+                        <td><a href="#" class="green-but" title="查看" target="_blank">查看</a></td>
+                     </tr>
+					<tr class="tr-hover">
+                        <td>上官云飞</td>
+                        <td>女</td>
+                        <td>此处最多八个汉字</td>
+                        <td>口腔正畸整形</td>
+                        <td>13588888888</td>
+                        <td><div class="w240 word-wrap">huangqiusheng@yahoo.com.cn</div></td>
+                        <td><a href="#" class="green-but" title="查看" target="_blank">查看</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>官云飞</td>
+                        <td>女</td>
+                        <td>此处最多八个汉字</td>
+                        <td>口腔正畸整形</td>
+                        <td>13588888888</td>
+                        <td><div class="w240 word-wrap">huang123123qiusheng@yahoo.com.cn</div></td>
+                        <td><a href="#" class="green-but" title="查看" target="_blank">查看</a></td>
+                     </tr>
+                </table>
+                <!--分页开始-->
+                <div class="page">
+                     <span>共<i>120条/10页</i></span><span><a href="javascript:;" class="now">1</a></span><span><a href="javascript:;">2</a></span><span><a href="javascript:;">3</a></span><span>...</span><span><a href="javascript:;">10</a></span><span><a href="javascript:;">下一页</a></span>
+                </div>
+               <!--分页结束-->
+            </div>
+            <!--表单结束-->
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

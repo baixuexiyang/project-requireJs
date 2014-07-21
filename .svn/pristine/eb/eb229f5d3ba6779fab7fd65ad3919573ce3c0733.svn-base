@@ -1,0 +1,32 @@
+<!--#include file="include-dialog-head.php"-->
+<input type="hidden" name="dispatcher" id="dispatcher" value="clinic-charge" />
+<div class="print">
+            	<table cellpadding="0" cellspacing="1" class="table-list mar-t20">
+                	<thead>
+                    	<tr>
+                        	<td width="15%">液氮罐</td>
+                            <td width="15%">吊桶</td>
+                            <td width="10%">套管颜色</td>
+                        	<td width="16%">医疗号</td>
+                        	<td width="10%">姓名</td>
+                          	<td width="11%">出生日期</td>
+                            <td width="11%">解冻日期</td>
+                            <td width="10%">麦管颜色</td>   
+                      </tr>
+                    </thead>
+                    <tr>
+                    	<td><div class="w94-100">最多12个字</div></td>
+                        <td><div class="w94-100">最多12个字</div></td>
+                        <td>颜色</td>
+                        <td>123456789012</td>
+                        <td>一个姓名</td>
+                        <td>2012/12/12</td>
+                        <td>2012/12/12</td>
+                        <td>一个颜色</td>                        
+					</tr>
+                </table>
+	<div class="text-c mar-t10 list-bottom-div mar-b20">
+     <a href="javascript:;" class="green-but" id="confirm">打印</a>&nbsp;&nbsp;<a href="javascript:;" id="cancel" class="black-but">取消</a>
+	</div>
+</div>
+<!--#include file="include-dialog-foot.php"-->

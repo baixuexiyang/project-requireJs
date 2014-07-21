@@ -1,0 +1,65 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="adjuvant-therapy" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 patientList-process">
+            <form id="form-add-terpay">
+        	<h2 class="h-auto"><i class="f-l">新增治疗方案</i></h2>
+            <div class="error-text">错误提示</div>
+            <!--疗程信息-->
+            <div class="h-auto add-ylfa-list">
+                <ul class="h-auto mar-t10 add-ylaf-ul">
+                	<li><cite>操作事件：</cite><label class="do-event"><a href="#">剥卵</a><a href="#" class="now">IVF</a><a href="#">ICSI</a><a href="#">受精检查</a><a href="#">观察</a><a href="#">冷冻</a><a href="#">胚胎移植</a><a href="#">解冻</a></label></li>
+                	<li><cite>黄体Day0：</cite><label><input name="" id="start_date" type="text" class="w160 Wdate"></label></li>
+                    <li><cite>时间：</cite><label><input name="" id="terapy_start_date" type="text" class="w160 Wdate"></label><label><input id="terapy_start_date_hou" name="" type="text" class="w60">&nbsp;:&nbsp;<input name="" id="terapy_start_date_min" type="text" class="w60"></label></li>
+                    <li><cite>处理天：</cite><label>45</label></li>
+                    <li><cite>实验人员：</cite><label><input name="" type="text" class="w160"></label></li>                    
+                </ul>
+            </div>
+            <!--疗程详情-->
+            <div class="h-auto mar-t10 add-ylfa-list">
+                <!--表单开始-->
+                <div class="h-auto mar-t10">
+                    <table cellpadding="0" cellspacing="1" class="table-list">
+                        <thead>
+                            <tr>
+                                <td width="12%">卵胚编号</td>
+                                <td width="25%">精子浓度</td>
+                                <td width="25%">精子活力</td>
+                                <td width="38%">备注</td>
+                          </tr>
+                        </thead>
+                        <tr class="tr-hover">
+                            <td>1234567890</td>
+                            <td><input name="" type="text" class="w94-100" value="最多输入16个汉字"></td>
+                            <td><input name="" type="text" class="w94-100" value="最多输入16个汉字"></td>
+                            <td><input name="" type="text" class="w94-100" value="最多输入24个汉字"></td>
+                        </tr>
+                        <tr class="tr-hover">
+                            <td>1234567890</td>
+                            <td>一声叹息一声叹息一声叹息一声叹息</td>
+                            <td>一声叹息</td>
+                            <td>一声叹息一声叹息一声叹息一声叹息一声叹息一声叹息</td>
+                        </tr>
+                    </table>
+                </div>
+                <!--表单结束-->
+                
+            </div>
+            <div class="text-r mar-t10 mar-b10 list-bottom-div">
+                <a href="辅助治疗-患者列表-疗程记录-胚胎学-添加卵收集之后.shtml" class="green-but" data-href="#">保存</a>&nbsp;<a href="辅助治疗-患者列表-疗程记录-胚胎学.shtml" class="black-but" id="">取消</a>
+            </div>
+            </form>
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

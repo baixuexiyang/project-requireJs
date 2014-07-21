@@ -1,0 +1,187 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="clinic-charge" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20">
+        	<h2>收费记录</h2>
+            <!--收费项目开始-->
+            <!--表单开始-->
+            <div class="h-auto mar-t10">
+            	<table cellpadding="0" cellspacing="1" class="table-list">
+                	<thead>
+                    	<tr>
+                        	<td width="17%">项目编号</td>
+                       	  <td width="18%">项目名称</td>
+                       	  <td width="7%">单位</td>
+                       	  <td width="12%">单价</td>
+                       	  <td width="8%">数量</td>
+                       	  <td width="12%">总金额</td>
+                       	  <td width="12%">费用类型</td>
+                            <td width="12%">接诊医生</td>
+                      </tr>
+                    </thead>
+                    <tr class="tr-hover">
+                        <td>1234567890</td>
+                        <td>项目名称项目名称</td>
+                        <td>次</td>                        
+                        <td>2000.00</td>
+                        <td>5</td>
+                        <td>10000.00</td>
+                        <td>每次300ml</td>
+                        <td>刘德华</td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>1234567890</td>
+                        <td>项目名称项目名称</td>
+                        <td>次</td>                        
+                        <td>2000.00</td>
+                        <td>5</td>
+                        <td>10000.00</td>
+                        <td>每次300ml</td>
+                        <td>刘德华</td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>1234567890</td>
+                        <td>项目名称项目名称</td>
+                        <td>次</td>                        
+                        <td>2000.00</td>
+                        <td>5</td>
+                        <td>10000.00</td>
+                        <td>每次300ml</td>
+                        <td>刘德华</td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>1234567890</td>
+                        <td>项目名称项目名称</td>
+                        <td>次</td>                        
+                        <td>2000.00</td>
+                        <td>5</td>
+                        <td>10000.00</td>
+                        <td>每次300ml</td>
+                        <td>刘德华</td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>1234567890</td>
+                        <td>项目名称项目名称</td>
+                        <td>次</td>                        
+                        <td>2000.00</td>
+                        <td>5</td>
+                        <td>10000.00</td>
+                        <td>每次300ml</td>
+                        <td>刘德华</td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>1234567890</td>
+                        <td>项目名称项目名称</td>
+                        <td>次</td>                        
+                        <td>2000.00</td>
+                        <td>5</td>
+                        <td>10000.00</td>
+                        <td>每次300ml</td>
+                        <td>刘德华</td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>1234567890</td>
+                        <td>项目名称项目名称</td>
+                        <td>次</td>                        
+                        <td>2000.00</td>
+                        <td>5</td>
+                        <td>10000.00</td>
+                        <td>每次300ml</td>
+                        <td>刘德华</td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>1234567890</td>
+                        <td>项目名称项目名称</td>
+                        <td>次</td>                        
+                        <td>2000.00</td>
+                        <td>5</td>
+                        <td>10000.00</td>
+                        <td>每次300ml</td>
+                        <td>刘德华</td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>1234567890</td>
+                        <td>项目名称项目名称</td>
+                        <td>次</td>                        
+                        <td>2000.00</td>
+                        <td>5</td>
+                        <td>10000.00</td>
+                        <td>每次300ml</td>
+                        <td>刘德华</td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>1234567890</td>
+                        <td>项目名称项目名称</td>
+                        <td>次</td>                        
+                        <td>2000.00</td>
+                        <td>5</td>
+                        <td>10000.00</td>
+                        <td>每次300ml</td>
+                        <td>刘德华</td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>1234567890</td>
+                        <td>项目名称项目名称</td>
+                        <td>次</td>                        
+                        <td>2000.00</td>
+                        <td>5</td>
+                        <td>10000.00</td>
+                        <td>每次300ml</td>
+                        <td>刘德华</td>
+                     </tr>
+                     <tr class="tr-hover">
+                        <td>1234567890</td>
+                        <td>项目名称项目名称</td>
+                        <td>次</td>                        
+                        <td>2000.00</td>
+                        <td>5</td>
+                        <td>10000.00</td>
+                        <td>每次300ml</td>
+                        <td>刘德华</td>
+                     </tr>
+                </table>
+                <!--分页开始-->
+                <div class="page">
+                     <span>共<i>120条/10页</i></span><span><a href="javascript:;" class="now">1</a></span><span><a href="javascript:;">2</a></span><span><a href="javascript:;">3</a></span><span>...</span><span><a href="javascript:;">10</a></span><span><a href="javascript:;">下一页</a></span>
+                </div>
+               <!--分页结束-->
+            </div>
+            <!--表单结束-->
+            	<div class="text-r mar-t10 list-bottom-div mar-b20">
+                	<a href="javascript:;" class="yellow-but" id="print">打印</a>&nbsp;<a href="javascript:;" data-href="打印.shtml" class="green-but" id="preview-print">打印预览</a>&nbsp;<a href="javascript:;" class="black-but">返回</a>
+                </div>
+            <!--收费项目结束-->
+        </div>
+        <!--中部结束-->
+</div>
+<!-- 打开区域开始 -->
+<style type="text/css" media="print">
+*{ margin:0; padding:0;}
+body{ font:12px Arial; color:#000;}
+.print{ width:960px; margin:0 auto;}
+.print .mar-t20{ line-height:26px;}
+.print .mar-t20 b{ font-size:16px;}
+.print .list-bottom-div{ border-top:none;}
+.print-list{ background:#e1e1e1; width:100%; line-height:30px;}
+.print-list td{ background:#fff; text-align:center;}
+.title-mar{ margin:10px 0; font-weight:bold; text-align:left; width:100%;}
+.title-mar span{ margin-right:60px; display:inline-block;}
+.print-area {
+    display: block;
+}
+</style>
+<div class="print-area">
+     <!--#include file="打印.shtml"-->   
+</div>
+<!-- 打开区域结束 -->
+<!--#include file="include-foot.php"-->

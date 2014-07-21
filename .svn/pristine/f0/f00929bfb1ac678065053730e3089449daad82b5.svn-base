@@ -1,0 +1,4 @@
+.error-area {
+	border: 1px solid #F04747;
+	background-color: #FADCDC;
+}

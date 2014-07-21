@@ -1,0 +1,33 @@
+{
+  "status": {
+    "code": "0",
+    "msg": "something error"
+  },
+  "ds": [
+  	{
+  		"msgTemplateId": "1",
+  		"templateName": "模板模板模板模板板板1",
+      "msgContent": "模板内容<br/>1模板内容2模板内容2模板内容2模板内容2"
+  	},
+  	{
+  		"msgTemplateId": "2",
+  		"templateName": "模板2",
+      "msgContent": "模板内容2模板内容2模板内容2模板内容2模板内容2"
+  	},
+    {
+      "msgTemplateId": "3",
+      "templateName": "模板3",
+      "msgContent": "模板内容2模板内容2模板内容2模板内容2模板内容2"
+    },
+    {
+      "msgTemplateId": "4",
+      "templateName": "模板2",
+      "msgContent": "模板内容2模板内容2模板内容2模板内容2模板内容2"
+    },
+    {
+      "msgTemplateId": "5",
+      "templateName": "模板5",
+      "msgContent": "模板内容2模板内容2模板内容2模板内容2模板内容2"
+    }
+  ]
+}

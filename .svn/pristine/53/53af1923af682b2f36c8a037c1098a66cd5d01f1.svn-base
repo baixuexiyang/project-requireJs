@@ -1,0 +1,485 @@
+define([
+	'jquery',
+	'app/common',
+	'app/util',
+	'jqtmpl',
+	'pkg/DatePicker/app',
+	'pkg/DateFormat/app',
+	'json',
+	'artDialog',
+	'iframe'
+], function($, common) {
+
+	"use strict";
+
+	/****************登记**********************************/
+	var Loading = {
+		init: function() {
+			var me = $(this);
+
+			var birthday = $("#birthday");
+			birthday.datePicker({
+				dateFmt: 'yyyy-MM-dd'
+			});
+
+			$('#credentialsNum').blur(function() {
+				me.validateCard();
+			});
+			$('#credentialsType').change(function() {
+				var cardNum = $('#credentialsNum').val();
+				if (cardNum === '')
+					return;
+				me.validateCard();
+			});
+
+
+			// 根据年龄输入出生年月
+			$(document).delegate('#patient-age', 'blur', function() {
+				var me = $(this),
+					age = parseInt(me.val(), 10);
+				if (!isNaN(age)) {
+					var birthday = (new Date()).getFullYear() - age;
+					birthday = birthday + '-01-01';
+					$("#birthday").val(birthday);
+				}
+			});
+
+
+			// 根据科室选择医生
+			$('#department').change(function() {
+				var api = $(this).attr('data-href');
+				var department = $(this).children('option:selected').text();
+				var departmentId = $(this).children('option:selected').val();
+				$.ajax(common.ajaxCall({
+					url: api,
+					data: {
+						departmentId: departmentId
+					},
+					type: 'post',
+					success: function(data) {
+						var ds = data.ds;
+						var str = '';
+						for (var i = ds.length - 1; i >= 0; i--) {
+							var item = ds[i];
+							if (item.departmentId == departmentId) {
+								str += '<option value="' + item.doctorId + '">' + item.doctorName + '</option>';
+							}
+						}
+						$('#doctor').empty().append(str).trigger('change');
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			}).trigger('change');
+
+			$('#doctor').change(function() {
+				var text = $(this).children('option:selected').text();
+				$('#doctorName').val(text);
+
+
+				// 编辑用户
+				var doctor = $("#doctorId");
+				if (!doctor[0])
+					return;
+				var valu = $('#doctorId').val();
+				if (!$(this).attr('data-flag')) {
+					$(this).children('option[value="' + valu + '"]').prop('selected', true);
+					$(this).attr('data-flag', 'true');
+				}
+
+			});
+
+
+
+			$(document).delegate("#saveRegister", "click", function() {
+
+				var tarForm = $("#form_register");
+				if (!tarForm.doValidate())
+					return;
+
+				if (!validateCard())
+					return;
+
+				var api = $(this).attr("data-action");
+				$.ajax(common.ajaxCall({
+					url: api,
+					type: 'post',
+					data: tarForm.serialize(),
+					success: function(data) {
+						$(this).dialogSuccess('登记成功！');
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+
+				}));
+			});
+			// 回车保存
+			$(document).keyup(function(ev) {
+				if (ev.keyCode === 13) {
+					$("#saveRegister").trigger("click");
+				}
+			});
+
+			var startDate = $('#start-date');
+			var endDate = $('#end-date');
+			if (startDate.length > 0) {
+				if (!startDate.val()) {
+					var d = (new Date()).getDate() - 7;
+					d = (new Date()).setDate(d);
+					startDate.val($.formatDate(new Date(d), 'yyyy-MM-dd'));
+				}
+				if (endDate.length > 0) {
+					startDate.datePicker({
+						// minDate: '#F{$dp.$D(\'end-date\',{d:-7})}',
+						// maxDate: '#F{$dp.$D(\'end-date\')}',
+						onpicked: function() {
+							if ($('#end-date').val() === "")
+								$dp.$('end-date').focus();
+						},
+						dateFmt: 'yyyy-MM-dd'
+					});
+				} else {
+					startDate.datePicker({
+						dateFmt: 'yyyy-MM-dd'
+					});
+				}
+			}
+
+			if (endDate.length > 0) {
+				if (!endDate.val()) {
+					endDate.val($.formatDate(new Date(), 'yyyy-MM-dd'));
+				}
+				if (startDate.length > 0) {
+					endDate.datePicker({
+						// minDate: '#F{$dp.$D(\'start-date\')}',
+						// maxDate: '#F{$dp.$D(\'start-date\',{d:7})}',
+						onpicked: function() {
+							if ($('#start-date').val() === "")
+								$dp.$('start-date').focus();
+						},
+						dateFmt: 'yyyy-MM-dd'
+					});
+				} else {
+					endDate.datePicker({
+						dateFmt: 'yyyy-MM-dd'
+					});
+				}
+			}
+
+
+			// 点击删除
+			$(document).delegate('.delete-item', 'click', function() {
+				var api = $(this).attr('data-href');
+				var callback = function() {
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						success: function() {
+							top.location.reload();
+						},
+						error: function(msg) {
+							alert(msg);
+						}
+					}));
+				};
+				$(this).dialogConfirm(callback);
+			});
+
+		},
+		validateCard: function() {
+			var credentialsType = $('#credentialsType').children('option:selected').text();
+			if (credentialsType === '居民身份证') {
+				var num = $('#credentialsNum').val();
+				if (!/^\d{15}$|^\d{17}([0-9]|X)$/.test(num)) {
+					if ($('.error-text').is(":hidden")) {
+						$('.error-text').show();
+					}
+					$('.error-text').html("请输入正确的证件号码！");
+					// $("#credentialsNum").val('');
+					return false;
+				}
+				var patientId = $('#patientId').val();
+				var item;
+				var api = $('#credentialsNum').attr("data-href");
+				var type = $('#credentialsType').children('option:selected').val();
+				var number = $('#credentialsNum').val();
+				if (!patientId) {
+					item = {
+						cardType: type,
+						idNumber: number
+					};
+				} else {
+					item = {
+						cardType: type,
+						idNumber: number,
+						patientId: patientId
+					};
+				}
+				$.ajax(common.ajaxCall({
+					url: api,
+					data: item,
+					type: 'post',
+					success: function(data) {
+						/*var ds = data.ds;
+							if (ds.length === 0)
+								return;
+							for (var i = ds.length - 1; i >= 0; i--) {
+								var item = ds[i];
+								if(item.cardNum == num) {
+									art.dialog.alert("此证件已经登记！",function() {
+										$("#credentialsNum").val('');
+										return;
+									});
+								}
+							}*/
+						var year, month, day, age;
+						if (number.length == 18) {
+							year = parseInt(number.substr(6, 4), 10);
+							month = number.substr(10, 2);
+							day = number.substr(12, 2);
+							age = (new Date()).getFullYear() - year;
+						} else {
+							year = parseInt('19' + number.substr(6, 2), 10);
+							month = number.substr(8, 2);
+							day = number.substr(10, 2);
+							age = (new Date()).getFullYear() - year;
+						}
+
+						$("#patient-age").val(age);
+						$("#birthday").val(year + '-' + month + '-' + day);
+					},
+					error: function(msg) {
+						art.dialog.alert(msg, function() {
+							$("#credentialsNum").val('');
+							return;
+						});
+					}
+				}));
+			}
+			return true;
+		}
+	};
+
+	/*****************注册*************************************/
+	var Register = {
+		init: function() {
+
+			var me = this;
+
+			if ($('#avaUpload').length > 0) {
+				$("#avaUpload,#avaPhoto").on("click", function() {
+					var urlUploadHdpic = $(this).attr("data-href");
+					$.ajax({
+						type: "GET",
+						url: urlUploadHdpic,
+						cache: false,
+						// data : {r : Math.random()},
+						success: function(resp) {
+							$("#dialogContent").empty().html(resp);
+							art.dialog({
+								id: "uploadHdpicDialog",
+								lock: true,
+								background: '#000',
+								width: 690,
+								height: 510,
+								esc: true,
+								drag: true,
+								padding: 3,
+								resize: false,
+								opacity: 0.75,
+								title: '上传头像',
+								content: document.getElementById('dialogContent'),
+								cancel: false
+							});
+						},
+						error: function(xhr, s, err) {
+							return false;
+						}
+					});
+				});
+			}
+
+
+			$("#closeDialog").on("click", function() {
+				art.dialog.list["uploadHdpicDialog"].close();
+			});
+
+			var spouseBirthday = $("#spouse-birthday");
+			spouseBirthday.datePicker({
+				dateFmt: 'yyyy-MM-dd'
+			});
+
+
+
+			$(document).delegate('.register', 'click', function() {
+				art.dialog.open($(this).attr('data-href'), {
+					content: '',
+					width: 380,
+					heigth: 220,
+					title: '提示',
+					lock: true,
+					padding: '0 0'
+				});
+			})
+				.delegate('#spouse-register', 'click', function() {
+					var registerNum = $('#registerNum').val();
+					if (registerNum.charAt(registerNum.length - 1) === 'M' || registerNum.charAt(registerNum.length - 1) === 'F')
+						return;
+
+					if (registerNum === '') {
+						if ($('.error-text').is(":hidden")) {
+							$('.error-text').show();
+						}
+						$('.error-text').html("请注册主联系人的注册证号!");
+						$('#registerNum').addClass('error-area');
+					} else {
+						var sex = $('#spouse-sex').children('option:selected').text();
+						var str = '';
+						if (sex === '男') {
+							str = 'M';
+						} else {
+							str = 'F';
+						}
+						$('#spouse-registerNum').val(registerNum + str);
+					}
+				})
+				.delegate('#saveLogin', 'click', function() {
+					var tarForm = $("#form-patient-login");
+					if (!tarForm.doValidate())
+						return;
+
+					if ($("#registerCredentialsNum").validateCredentials('registerCredentials') === false)
+						return;
+
+					if ($('#spouse-registerCredentialsNum').is(':visible')) {
+						if ($('#spouse-registerCredentialsNum').validateCredentials('spouse-registerCredentials') === false)
+							return;
+					}
+
+					$('#doctorName').val($('#doctor').children('option:selected').text());
+
+					var api = $(this).attr("data-action");
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						data: tarForm.serialize(),
+						success: function(data) {
+							$(this).dialogSuccess('注册成功！');
+							setTimeout(function() {
+								top.location.href = $('#saveLogin').attr('data-href');
+							}, 500);
+						},
+						error: function(msg) {
+							$(this).dialogError(msg);
+						}
+
+					}));
+				})
+				.delegate('.add', 'click', function() {
+					$('.spouse-info').show();
+					$('.add-family-but').addClass('bg-f5');
+					$('.delete').show();
+					$('#spouseFlag').val(1);
+				})
+				.delegate('.delete', 'click', function() {
+					$('.spouse-info').hide();
+					$('.add-family-but').removeClass('bg-f5');
+					$('.delete').hide();
+					$('#spouseFlag').val(0);
+				});
+
+			$("#determine").live('click', function() {
+				var len = $('.cen-p label input:radio:checked').length;
+				if (len === 0) {
+					art.dialog.alert('请至少选择一项！');
+				} else {
+					var tarForm = $('#form-register-num');
+					var api = $("#determine").attr('data-action');
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						data: tarForm.serialize(),
+						success: function(data) {
+							var ds = data.ds;
+							$('#registerNum', top.window.document).val(ds[0].registerNum);
+							art.dialog.close();
+						},
+						error: function(msg) {
+							alert(msg);
+						}
+					}));
+				}
+			});
+
+
+			// 出生日期和年龄联动
+			$('#registerCredentials').change(function() {
+				me.linkage('registerCredentials', 'registerCredentialsNum', 'birthday', 'patient_age');
+			});
+			$('#registerCredentialsNum').blur(function() {
+				me.linkage('registerCredentials', 'registerCredentialsNum', 'birthday', 'patient_age');
+			});
+			$('#spouse_registerCredentialsNum').blur(function() {
+				me.linkage('spouse_registerCredentials', 'spouse_registerCredentialsNum', 'spouse_birthday', 'spouse_age');
+			});
+			$('#spouse_registerCredentials').change(function() {
+				me.linkage('spouse_registerCredentials', 'spouse_registerCredentialsNum', 'spouse_birthday', 'spouse_age');
+			});
+			// 注册修改
+			var display = $('#display');
+			if (!display[0])
+				return;
+			var doctorId = $('#doctorId').val();
+			$('#doctor').children('option[value="' + doctorId + '"]').prop('selected', true);
+			var ds = display.val();
+			if (ds === 'true') {
+				$('.add').html('<b></b>&nbsp;编辑配偶信息');
+				$('.add').trigger('click');
+				$('.add-family-but').removeClass('bg-f5');
+				$('.delete').hide();
+				$('.add').die('click');
+			}
+
+
+		},
+		linkage: function(cardType, cardNum, date, age) {
+			var type = $('#' + cardType).children('option:selected').text();
+			var num = $('#' + cardNum).val();
+			if (type !== '居民身份证' || !num)
+				return;
+
+			var year, month, day, ages;
+			if (num.length === 18) {
+				year = parseInt(num.substr(6, 4), 10);
+				month = num.substr(10, 2);
+				day = num.substr(12, 2);
+				ages = (new Date()).getFullYear() - year;
+			} else {
+				year = parseInt('19' + num.substr(6, 2), 10);
+				month = num.substr(8, 2);
+				day = num.substr(10, 2);
+				ages = (new Date()).getFullYear() - year;
+			}
+
+			$("#" + age).val(ages);
+			$("#" + date).val(year + '-' + month + '-' + day);
+		}
+	};
+
+	/*****************入口**************************************/
+	var Main = {
+		init: function() {
+			Loading.init();
+			Register.init();
+
+
+
+		}
+	};
+
+
+
+	Main.init();
+});

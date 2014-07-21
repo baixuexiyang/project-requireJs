@@ -1,0 +1,12 @@
+{
+	"status": {
+		"code": 0,
+		"msg": "something error"
+	},
+	"ds": [{
+		"resultStr": "001液氮罐>001吊桶，红色>001套管，黄色",
+		"tankDetailId": 0000,
+		"strawName": 123456789,
+		"strawColorList": ["红", "绿", "黄", "蓝", "黑"]
+	}]
+}

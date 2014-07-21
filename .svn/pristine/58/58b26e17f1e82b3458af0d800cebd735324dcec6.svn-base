@@ -1,0 +1,484 @@
+/* globals define, require */
+
+define([
+	'jquery',
+	'app/common'
+], function($, common) {
+
+	"use strict";
+
+	$.fn.extend({
+		// 统计字符数
+		countCharNum: function() {
+			var me = $(this);
+			var maxLength = me.attr('maxlength');
+			if (!maxLength) {
+				return;
+			}
+			/*var ctl = $('<div>还可以输入<span style="color: red">' + maxLength + '</span>个字符</div>').insertAfter(me).css({
+				position: 'absolute',
+				left: me.offset().left,
+				top: me.offset().top + me.height()
+			});*/
+			me.bind('input propertychange', function(event) {
+				var curValue = $(this).val();
+				var curLength = curValue.length;
+				if (curLength > maxLength) {
+					$(this).val(curValue.substr(0, maxLength));
+					// ctl.find('span').text('0');
+				} else {
+					// ctl.find('span').text(maxLength - curLength);
+				}
+			});
+		},
+		// 统计总额
+		countPrice: function(ctx) {
+			if ($(this).length === 0)
+				return;
+			ctx = ctx || $('body');
+			var total = 0;
+			ctx.find('.tab-content').find('.price-area').each(function() {
+				total += parseFloat($(this).text());
+			});
+			$(this).html(total.toFixed(4));
+		},
+		// 只能输入数字
+		numeral: function() {
+			$(this).css("ime-mode", "disabled");
+			this.bind("keypress", function() {
+				if (event.keyCode === 46) {
+					if (this.value.indexOf(".") !== -1) {
+						return false;
+					}
+				} else {
+					return event.keyCode >= 46 && event.keyCode <= 57;
+				}
+			});
+			this.bind("blur", function() {
+				if (this.value.lastIndexOf(".") === (this.value.length - 1)) {
+					this.value = this.value.substr(0, this.value.length - 1);
+				} else if (isNaN(this.value)) {
+					this.value = "";
+				}
+			});
+			this.bind("paste", function() {
+				var s = window.clipboardData.getData('text');
+				if (!/\D/.test(s));
+				this.value = s.replace(/^0*/, '');
+				return false;
+			});
+			this.bind("dragenter", function() {
+				return false;
+			});
+			//this.bind("keyup", function() {
+			//	if (/(^0+)/.test(this.value))
+			//		this.value = this.value.replace(/^0*/, '');
+			//});
+		},
+		// 自动完成功能
+		showlist: function(options) {
+			var me = $(this);
+			if (me.length === 0)
+				return;
+			me.attr('autocomplete', 'off');
+			var dsUrl = me.attr('data-ds');
+			var keyID = options.keyID;
+			var ctlID = this[0].id;
+			var ctl = $('.' + ctlID + '-panel');
+			var cacheData = null;
+			// 记录选择的值
+			var selectedValue = null;
+
+			var getData = function(keyword, callback) {
+				var params = {
+					kw: keyword
+				};
+				$.extend(params, (options.extraParams && options.extraParams()) || {});
+				$.ajax(common.ajaxCall({
+					url: dsUrl,
+					data: params,
+					success: function(re) {
+						cacheData = re.ds;
+						callback(re.ds);
+					}
+				}));
+			};
+			var getDataByID = function(id) {
+				for (var i = 0; i < cacheData.length; i++) {
+					var d = cacheData[i];
+					if (d[keyID] == id) {
+						return d;
+					}
+				}
+			};
+			var showPanel = function(ds) {
+				if (!ds || ds.length === 0) {
+					ctl.empty().hide();
+					return;
+				}
+
+				if (ctl.length === 0) {
+					ctl = $('<div class="' + ctlID + '-panel auto-list"></div>').appendTo($('body'));
+				}
+				var html = options.buildHtml(ds);
+				ctl.css({
+					position: 'absolute',
+					left: me.offset().left,
+					top: me.offset().top + me.height() + 2.5,
+					width: options.width || me.width() + 8
+				});
+				if (ds.length > 5) {
+					ctl.css({
+						height: 150,
+						overflowY: 'scroll'
+					});
+				}
+				ctl.empty().append(html).show();
+			};
+
+			var oldTime = 0;
+			var timer = null;
+			me.bind('input propertychange', function(event) {
+				var ev = event.originalEvent;
+				if ($.browser.msie && (ev.propertyName && ev.propertyName.toLowerCase() !== "value"))
+					return;
+
+				var keyWord = $(this).val();
+				// 没有内容或者和上次选择的值一样则不处理
+				if (keyWord == selectedValue)
+					return;
+
+				// 内容有变化则清除ID
+				if (options.bindSub) {
+					options.bindSub.val('');
+				}
+
+				if (timer)
+					clearTimeout(timer);
+				var newTime = (new Date()).getTime();
+				if (oldTime > 0 && (newTime - oldTime) < 300) {
+					timer = setTimeout(function() {
+						getData(keyWord, function(ds) {
+							showPanel(ds);
+						});
+					}, 300);
+					return;
+				}
+
+				oldTime = (new Date()).getTime();
+				getData(keyWord, function(ds) {
+					showPanel(ds);
+				});
+			});
+			/*me.bind('keydown', function(event) {
+				var ctn = $('.auto-list');
+				var ctnHeight = ctn.height();
+				var cur = $('.selected-item');
+				var next = cur.next();
+				var prev = cur.prev();
+				var tar;
+				if (event.keyCode === 40) {
+					cur.removeClass('selected-item');
+					tar = next;
+					if (tar.length === 0 || cur.length === 0) {
+						tar = $('.auto-list a:first');
+					}
+				} else if (event.keyCode === 38) {
+					cur.removeClass('selected-item');
+					tar = prev;
+					if (tar.length === 0 || cur.length === 0) {
+						tar = $('.auto-list a:last');
+					}
+
+				}
+				if (tar) {
+					tar.addClass('selected-item');
+					var diff = tar.attr('data-idx') * tar.height() - ctnHeight;
+					if (diff < 0) {
+						diff = 0;
+					}
+					ctn.scrollTop(diff);
+				}
+
+			});*/
+			// 点击选择
+			$(document).delegate('.auto-list a', 'click', function() {
+				var text = $(this).text();
+				// selectedValue = text;
+				var orgName = $(this).attr('data-name');
+				if (orgName) {
+					selectedValue = orgName;
+					me.val(orgName);
+
+				} else {
+					selectedValue = text;
+					// me.val(text);
+					me.val('');
+					$('#unit').html('');
+					$('#standard').html('');
+				}
+
+				if (options.selectCallBack) {
+					options.selectCallBack(getDataByID($(this).attr('data-id')));
+				}
+				ctl.hide();
+			});
+			$('body').click(function() {
+				ctl.hide();
+			});
+		},
+		printPreview: function(options) {
+			var preview = function() {
+				var changed = false;
+				if ($('.print-area').height() > 600) {
+					$('<div class="preview-container"></div>').appendTo('body');
+					$('.print-area').clone().appendTo($('.preview-container')).css({
+						height: 600,
+						overflowY: 'scroll',
+						paddingLeft: 50,
+						paddingRight: 50
+					}).addClass('preview-content noprint');
+					changed = true;
+				}
+				var tar = changed ? $('.preview-content') : $('.print-area');
+				art.dialog({
+					width: 1000,
+					height: '75%',
+					title: options.tit,
+					lock: true,
+					content: tar[0],
+					okVal: '打印',
+					ok: function() {
+						setTimeout(function() {
+							$('.preview-container').empty();
+							window.print();
+						}, 500);
+					},
+					cancel: true,
+					close: function(){
+						setTimeout(function() {
+							$('.preview-container').empty();
+						}, 300);
+					}
+				});
+			};
+			$(this).live('click', function() {
+				if($(this).attr("data-href")){
+					$.get(common.refreshPage($(this).attr("data-href")),function(html) {
+						$(".print-area").empty().append(html);
+						preview();
+					});
+				} else {
+					preview();
+				}
+				
+			});
+		},
+		// 选择财务分类
+		selectFinance: function() {
+			var cacheData;
+			var me = $(this);
+			if (me.length === 0)
+				return;
+			var ctl = $('.finance-list');
+
+			// 弹出弹出层
+			var showPanel = function(ds) {
+				if (!ds || ds.length === 0) {
+					ctl.empty().hide();
+					return;
+				}
+				// 有则直接显示
+				if (ctl.length > 0) {
+					ctl.show();
+					return;
+				}
+				// 没有则创建
+				ctl = $('<div class="finance-list"></div>').appendTo($('body'));
+				ctl.css({
+					position: 'absolute',
+					left: me.offset().left,
+					top: me.offset().top + me.height() + 3,
+					width: me.width() + 8
+				});
+				if (ds.length > 5) {
+					ctl.css({
+						height: 150,
+						overflowY: 'scroll'
+					});
+				}
+				var html = '';
+				html += '<div class="item"><input type="checkbox" class="sel-all" style="margin-left:10px"/>全选</div>';
+				for (var i = 0; i < ds.length; i++) {
+					var item = ds[i];
+					html += '<div class="item"><input type="checkbox" value="' + item.financialClassId + '" style="margin-left:25px" class="sel"/>' + item.financialClassName + '</div>';
+				}
+				ctl.empty().append(html);
+				var initValue = $('#finances').val();
+				if (initValue) {
+					initValue = initValue.split(',');
+					for (var j = 0; j < initValue.length; j++) {
+						$('.finance-list input[value=' + initValue[j] + ']').prop('checked', true);
+					}
+					// 全选
+					if (initValue.length === cacheData.length) {
+						$('.finance-list .sel-all').prop('checked', true);
+					}
+				}
+				ctl.show();
+			};
+
+			// 绑定事件
+			me.on('click', function() {
+				if ($('.finance-list').is(':visible'))
+					return;
+				if (cacheData) {
+					showPanel(cacheData);
+				} else {
+					$.ajax(common.ajaxCall({
+						url: me.attr('data-ds'),
+						success: function(re) {
+							cacheData = re.ds;
+							showPanel(re.ds);
+						}
+					}));
+				}
+			});
+
+			// 选择
+			$(document).delegate('.finance-list .sel', 'change', function() {
+				var str = [];
+				var ids = [];
+				$('.finance-list .sel:checked').each(function() {
+					str.push($(this).parent().text());
+					ids.push($(this).val());
+				});
+				me.val(str.join(','));
+				$('#finances').val(ids.join(','));
+
+				$('.finance-list .sel-all').prop('checked', ids.length === cacheData.length);
+			});
+
+			// 全选
+			$(document).delegate('.finance-list .sel-all', 'click', function() {
+				$('.finance-list .sel').prop('checked', this.checked);
+				$('.finance-list .sel').trigger('change');
+			});
+
+			// 隐藏
+			$('body').on('click', function(e) {
+				var $tar = $(e.target);
+				var pnt = $tar.parent();
+				if ($tar.is(me) || pnt.is(ctl) || pnt.parent().is(ctl))
+					return;
+				ctl.hide();
+			});
+		},
+		// 表单校验
+		doValidate: function() {
+			var formID = $(this)[0].id;
+			$('.validate').removeClass('error-area');
+			$('.error-text').empty();
+			if (!window.SuperValidator) {
+				return true;
+			}
+
+			var showError = function(obj, msg) {
+				obj.focus();
+				obj.addClass('error-area');
+				if($('.error-text').is(":hidden")) {
+					$('.error-text').show();
+				}
+				$('.error-text').html(msg);
+				return false;
+			}
+			var valids = window.SuperValidator[formID];
+			if (valids) {
+				for (var id in valids) {
+					var validator = valids[id];
+					if (!validator) {
+						continue;
+					}
+					var obj = $('#' + id);
+					if(obj.is(":hidden")) {
+						continue;
+					}
+					var msg = '';
+					for (var k in validator) {
+
+						if (k === "required") {
+							if (!$.trim(obj.val())) {
+								msg = validator[k];
+								if (typeof(msg) === "string") {
+									showError(obj, msg);
+									return;
+								}
+							}
+						} else if ($.isFunction(validator[k])) {
+							msg = (validator[k])(obj.val());
+							if (typeof(msg) === "string") {
+								showError(obj, msg);
+								return;
+							}
+						}
+					}
+				}
+			}
+
+			return true;
+		},
+		// confirm
+		dialogConfirm: function(callback) {
+			var theArt = art.dialog({
+				content: '<div class="pop-box h-auto bg-ff"><p class="h-auto reg-p dele-choose text-c">是否确定删除当前记录？</p><div class="text-c mar-b20"><a href="javascript:;" class="green-but" id="determine">确定</a>&nbsp;<a href="javascript:;" class="black-but" id="cancel">取消</a></div></div>',
+				width: 300,
+				heigth: 134,
+				title: '提示',
+				lock: true,
+				padding: '0 0'
+			});
+			//点击确定
+			$("#determine").live('click', function() {
+				if($.isFunction(callback)) {
+					callback();
+				}
+				// top.location.reload();
+				theArt.close();
+			});
+			//点击取消
+			$("#cancel").live('click', function() {
+				theArt.close();
+			});
+		},
+		//error
+		dialogError: function() {
+			var theArt = art.dialog({
+				content: '<div class="pop-box h-auto bg-ff"><p class="reg-p h-auto reg-no text-c">登记失败！</p><div class="text-c mar-b20"><a href="#" class="black-but" id="determine">确定</a></div></div>',
+				width: 300,
+				heigth: 134,
+				title: '提示',
+				lock: true,
+				padding: '0 0'
+			});
+			$("#determine").live('click', function() {
+				theArt.close();
+			});
+		},
+		dialogSuccess: function(callback) {
+				var theArt = art.dialog({
+					content: '<div class="pop-box h-auto bg-ff"><p class="reg-p h-auto reg-ok text-c">登记成功！</p><div class="text-c mar-b20"><a href="#" class="black-but" id="determine">确定</a></div></div>',
+					width: 300,
+					heigth: 134,
+					title: '提示',
+					lock: true,
+					padding: '0 0'
+				});
+				$("#determine").live('click', function() {
+					top.location.reload();
+					theArt.close();
+				});
+			
+		}
+	});
+
+});

@@ -1,0 +1,481 @@
+define([
+	'jquery',
+	'app/common',
+	'app/util',
+	'jqtmpl',
+	'pkg/DatePicker/app',
+	'pkg/DateFormat/app',
+	'pkg/Dtree/dtree',
+	'json'
+], function($, common) {
+
+	"use strict";
+
+	/****************系统配置-字典类别配置**************************/
+	var Type = {
+		init: function() {
+
+			// 新增字典类别配置
+			$(document).delegate('#addType', 'click', function() {
+				art.dialog.open($(this).attr("data-href"), {
+					width:380,
+					height:270,
+					title:'新增字典类别配置',
+					lock: true
+				});
+			}).
+			delegate('.edit', 'click', function() {
+				art.dialog.open($(this).attr("data-href"), {
+					width:380,
+					height:270,
+					title:'编辑字典类别',
+					lock: true
+				});
+			});
+			$("#determine").click(function() {
+				var tarForm = $("#add-Type");
+				if(!tarForm.doValidate())
+					return;
+
+				var api = $(this).attr("data-action");
+				$.ajax(common.ajaxCall({
+					url: api,
+					type: 'post',
+					data: tarForm.serialize(),
+					success: function() {
+						top.location.reload();
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+			// 弹窗取消
+			$("#cancel").click(function() {
+				art.dialog.close();
+			});
+
+			// 点击删除
+			$(document).delegate('.delete-item', 'click', function() {
+				var api = $(this).attr('data-href');
+				var callback = function() {
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						success: function() {
+							top.location.reload();
+						},
+						error: function(msg) {
+							alert(msg);
+						}
+					}));
+				};
+				$(this).dialogConfirm(callback);
+			});
+		}
+	};
+
+	/****************系统配置-字典配置*************************/
+	var Configure = {
+		init: function() {
+
+			// 新增字典配置
+			$(document).delegate('#addConfigure', 'click', function() {
+				art.dialog.open($(this).attr("data-href"), {
+					width:380,
+					height:320,
+					title:'新增字典配置',
+					lock: true
+				});
+			}).
+			delegate('.edit', 'click', function() {
+				art.dialog.open($(this).attr("data-href"), {
+					width:380,
+					height:320,
+					title:'编辑字典配置',
+					lock: true
+				});
+			});
+			$("#determine").click(function() {
+				var tarForm = $("#add-Dictionary");
+				if(!tarForm.doValidate())
+					return;
+
+				var api = $(this).attr("data-action");
+				$.ajax(common.ajaxCall({
+					url: api,
+					type: 'post',
+					data: tarForm.serialize(),
+					success: function() {
+						top.location.reload();
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+			// 弹窗取消
+			$("#cancel").click(function() {
+				art.dialog.close();
+			});
+
+			// 点击删除
+			$(document).delegate('.delete-item', 'click', function() {
+				var api = $(this).attr('data-href');
+				var callback = function() {
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						success: function() {
+							top.location.reload();
+						},
+						error: function(msg) {
+							alert(msg);
+						}
+					}));
+				};
+				$(this).dialogConfirm(callback);
+			});
+		}
+	};
+
+	/****************系统配置-医疗模板*****************************/
+	var MedicalTemplate = {
+		init: function() {
+
+
+			// 树形结构
+			var api = $('#structure-tree').attr('data-href');
+			$.ajax(common.ajaxCall({
+				url: api,
+				type: 'post',
+				success: function(data) {
+					var orgInfo = data.orgInfo;
+					var a = [];
+					var b = [];
+					var c = [];
+					for(var i = 0; i < orgInfo.length; i++) {
+						var item = orgInfo[i];
+						switch(item.label) {
+							case 0:
+								a.push(item);
+								break;
+							case 1:
+								b.push(item);
+								break;
+							case 2:
+								c.push(item);
+								break;
+							default:
+								break;
+						}
+					}
+					for (var j = 0; j < a.length; j++) {
+						$('.organize-tree').append('<dt data-id="'+ a[j].orgId +'" data-cfg={"name":"'+a[j].orgName+'","spell":"'+ a[j].charCode +'"}><span class="tree-more"><a href="javascript:;">'+ a[j].orgName +'</a></span></dt>');
+					}
+					for(var m = 0; m < b.length; m++) {
+						$('.organize-tree dt[data-id='+ b[m].preOrgId +']').after('<dd data-id="'+ b[m].orgId +'"><span class="tree-more" data-cfg={"name":"'+ b[m].orgName +'","spell":"'+ b[m].charCode +'"}><a href="javascript:;">'+ b[m].orgName +'</a></span>');
+					}
+					for(var n = 0; n < c.length; n++) {
+						$('.organize-tree dd[data-id='+ c[n].preOrgId +']').append('<cite data-id="'+ c[n].orgId +'" data-cfg={"name":"'+ c[n].orgName +'","spell":"'+ c[n].charCode +'"}><a href="javascript:;">'+ c[n].orgName +'</a></cite>');
+					}
+				},
+				error: function(msg) {
+					alert(msg);
+				}
+			}));
+			$(document).delegate('.organize-tree dt,.organize-tree dd span,.organize-tree dd cite', 'click', function() {
+				$('.organize-tree dt').removeClass('mark');
+				$('.organize-tree dd').removeClass('mark');
+			}).
+			delegate('.organize-tree dt', 'click', function() {
+				$(this).addClass('mark').find('span').toggleClass('tree-more');
+				var dd = $(this).nextUntil('dt');
+				dd.toggle();
+				
+			}).
+			delegate('.organize-tree dd span', 'click', function() {
+				$(this).toggleClass('tree-more').parent('dd').addClass('mark');
+				var cite = $(this).siblings('cite');
+				cite.toggle();
+			}).
+			delegate('.organize-tree dd cite', 'click', function() {
+				$('.organize-tree dd cite a').removeClass('now');
+				$(this).children('a').addClass('now');
+			});
+
+			$(document).delegate('#addCategory', 'click', function() {
+				$('#name').val('');
+				var mark = $('.organize-tree').find('.mark');
+				if(mark.length > 0) {
+					var text = mark.children('span').children('a').text();
+					$('#previousNode').children('option:contains('+ text +')').prop('selected',true);
+				}
+			}).delegate('#delete', 'click', function() {
+				var callback = function() {
+					var api = $("#delete").attr("data-href");
+					var url = $('#delete').attr('data-action');
+					$.ajax(common.ajaxCall({
+						url: url,
+						type: 'post',
+						success: function() {
+							$.get(common.refreshPage(api), function(html) {
+								$('.organize-tree').empty().html(html);
+							});
+						},
+						error: function(msg) {
+							alert(msg);
+						}
+					}));
+					
+				};
+				$(this).dialogConfirm(callback);
+			});
+
+
+			$(document).delegate('#second-next,#saveProblem', 'click', function() {
+				var tarForm = $('#form-add-template');
+				if(!tarForm.doValidate())
+					return false;
+			});
+
+			$(document).delegate('#first-next', 'click', function() {
+				var tarForm = $('#form-template');
+				if(!tarForm.doValidate())
+					return false;
+			});
+
+			$(document).delegate('#saveName', 'click', function() {
+				var tarForm = $('#form-add-templateName');
+				if(!tarForm.doValidate())
+					return false;
+			});
+
+			// 点击删除
+			$(document).delegate('.delete-item', 'click', function() {
+				var api = $(this).attr('data-href');
+				var callback = function() {
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						success: function() {
+							top.location.reload();
+						},
+						error: function(msg) {
+							alert(msg);
+						}
+					}));
+				};
+				$(this).dialogConfirm(callback);
+			});
+
+
+			// 编辑问题
+			$('.edit').click(function() {
+				art.dialog.open($(this).attr("data-href"), {
+					width:380,
+					height:420,
+					title:'编辑问题',
+					lock: true
+				});
+			});
+			$('.add-problem').click(function() {
+				art.dialog.open($(this).attr("data-href"), {
+					width:380,
+					height:420,
+					title:'新增问题',
+					lock: true
+				});
+			});
+		}
+	};
+
+	/****************系统配置-用户管理******************************/
+	var UserManagement = {
+		init: function() {
+
+			var birthday = $("#birthday");
+			birthday.datePicker({
+				dateFmt: 'yyyy-MM-dd'
+			});
+
+			$(document).delegate('#saveLogin', 'click', function() {
+				var tarForm = $("#form-add-patient");
+				if (!tarForm.doValidate())
+					return;
+				
+				var text = $('#department').children('option:selected').text();
+				$('#departmentName').val(text);
+
+				var api = $(this).attr('data-action');
+				$.ajax(common.ajaxCall({
+					url:api,
+					type:'post',
+					data: tarForm.serialize(),
+					success: function() {
+						$(this).dialogSuccess();
+					},
+					error: function(msg) {
+						alert(msg);
+					}
+				}));
+			});
+			
+
+			// 点击删除
+			$(document).delegate('.delete-item', 'click', function() {
+				var api = $(this).attr('data-href');
+				var callback = function() {
+					$.ajax(common.ajaxCall({
+						url: api,
+						type: 'post',
+						success: function() {
+							top.location.reload();
+						},
+						error: function(msg) {
+							alert(msg);
+						}
+					}));
+				};
+				$(this).dialogConfirm(callback);
+			});
+		}
+	};
+
+	/****************系统配置-组织架构建设************************************/
+	var Structure = {
+		init: function() {
+
+
+			// 树形结构
+			var api = $('#structure-tree').attr('data-href');
+			$.ajax(common.ajaxCall({
+				url: api,
+				type: 'post',
+				success: function(data) {
+					var orgInfo = data.ds;
+					var a = [];
+					var b = [];
+					var c = [];
+					for(var i = 0; i < orgInfo.length; i++) {
+						var item = orgInfo[i];
+						switch(item.label) {
+							case 0:
+								a.push(item);
+								break;
+							case 1:
+								b.push(item);
+								break;
+							case 2:
+								c.push(item);
+								break;
+							default:
+								break;
+						}
+					}
+					for (var j = 0; j < a.length; j++) {
+						$('.organize-tree').append('<dt data-id="'+ a[j].orgId +'" data-cfg={"name":"'+a[j].orgName+'","spell":"'+ a[j].charCode +'"}><span class="tree-more"><a href="javascript:;">'+ a[j].orgName +'</a></span></dt>');
+					}
+					for(var m = 0; m < b.length; m++) {
+						$('.organize-tree dt[data-id='+ b[m].preOrgId +']').after('<dd data-id="'+ b[m].orgId +'"><span class="tree-more" data-cfg={"name":"'+ b[m].orgName +'","spell":"'+ b[m].charCode +'"}><a href="javascript:;">'+ b[m].orgName +'</a></span>');
+					}
+					for(var n = 0; n < c.length; n++) {
+						$('.organize-tree dd[data-id='+ c[n].preOrgId +']').append('<cite data-id="'+ c[n].orgId +'" data-cfg={"name":"'+ c[n].orgName +'","spell":"'+ c[n].charCode +'"}><a href="javascript:;">'+ c[n].orgName +'</a></cite>');
+					}
+				},
+				error: function(msg) {
+					alert(msg);
+				}
+			}));
+			$(document).delegate('.organize-tree dt,.organize-tree dd span,.organize-tree dd cite', 'click', function() {
+				$('.organize-tree dt').removeClass('mark');
+				$('.organize-tree dd').removeClass('mark');
+				var message = $.parseJSON($(this).attr("data-cfg"));
+				$('#name').val(message.name);
+				$('#spell').val(message.spell);
+			}).
+			delegate('.organize-tree dt', 'click', function() {
+				$(this).addClass('mark').find('span').toggleClass('tree-more');
+				var dd = $(this).nextUntil('dt');
+				dd.toggle();
+				
+			}).
+			delegate('.organize-tree dd span', 'click', function() {
+				$(this).toggleClass('tree-more').parent('dd').addClass('mark');
+				var cite = $(this).siblings('cite');
+				cite.toggle();
+			}).
+			delegate('.organize-tree dd cite', 'click', function() {
+				$('.organize-tree dd cite a').removeClass('now');
+				$(this).children('a').addClass('now');
+			});
+
+			// 添加子类别
+			$(document).delegate('#addCategory', 'click', function() {
+				var mark = $('.organize-tree').find('.mark');
+				if(mark.length > 0) {
+					var text = mark.children('span').children('a').text();
+					$('#previousNode').children('option:contains('+ text +')').prop('selected',true);
+				}
+			})//保存
+			.delegate('#saveCategory', 'click', function() {
+				var tarForm = $('#form-add-category');
+				if(!tarForm.doValidate())
+					return false;
+			})//删除
+			.delegate('#delete', 'click', function() {
+				var callback = function() {
+					var api = $("#delete").attr("data-href");
+					var url = $('#delete').attr('data-action');
+					$.ajax(common.ajaxCall({
+						url: url,
+						type: 'post',
+						success: function() {
+							$.get(common.refreshPage(api), function(html) {
+								$('.organize-tree').empty().html(html);
+							});
+						},
+						error: function(msg) {
+							alert(msg);
+						}
+					}));
+					
+				};
+				$(this).dialogConfirm(callback);
+			});
+
+		}
+	};
+
+	/****************入口*****************************************************/
+	var Main = {
+		init: function() {
+			// 字典类别配置
+			if($('.Type').length > 0) {
+				Type.init();
+			}
+
+			// 字典配置
+			if($('.Configure').length > 0) {
+				Configure.init();
+			}
+
+			// 医疗模板
+			if($('.MedicalTemplate').length > 0) {
+				MedicalTemplate.init();
+			}
+
+			// 用户管理
+			if($('.UserManagement').length > 0) {
+				UserManagement.init();
+			}
+
+			// 组织架构建设
+			if($('.Structure').length > 0) {
+				Structure.init();
+			}
+		}
+	};
+
+	Main.init();
+});

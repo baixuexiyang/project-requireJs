@@ -1,0 +1,117 @@
+/* globals define, $ */
+
+define(['json'], function() {
+
+	"use strict";
+
+	/* Ajax接口配置 */
+	var api = window.AjaxApi || {};
+	var page = window.AjaxPage || {};
+	var Config = {
+		debugMode: false
+	};
+
+	// 刷新页面
+	var refreshPage = function(url) {
+		if (url.indexOf('?') > -1) {
+			url = url + '&t=' + (new Date()).getTime();
+		} else {
+			url = url + '?t=' + (new Date()).getTime();
+		}
+		return url;
+	};
+
+	/* 调试日志 */
+	var log = function(msg) {
+		return;
+		/*if (Config.debugMode && console && console.log)
+			console.log(msg);*/
+	};
+
+	/* 动态加载样式 */
+	var loadCss = function(url) {
+		var link = document.createElement('link');
+		link.type = 'text/css';
+		link.rel = 'stylesheet';
+		link.href = require.toUrl(url);
+		document.getElementsByTagName('head')[0].appendChild(link);
+	};
+
+	/* Ajax 请求通用参数 */
+	var ajaxCall = function(options) {
+		var url = options.url;
+		var href = location.href;
+		if (url.indexOf('http://') === -1) {
+			var idx = href.lastIndexOf('/');
+			url = (idx > -1 ? href.substring(0, idx) : href) + '/' + options.url;
+		}
+		var requestType = 'jsonp';
+		if (url.indexOf(location.host) > -1)
+			requestType = 'json';
+		requestType = options.dataType || requestType;
+
+		var async = (options.async === undefined ? true : options.async);
+		return {
+			url: url,
+			async: async,
+			type: options.type || 'get',
+			dataType: requestType,
+			cache: false,
+			data: options.data,
+			success: function(data, textStatus, xhr) {
+				if(data) {
+					if (typeof(data) === "string") {
+						data = JSON.parse(data);
+					}
+					if (requestType === "json" || requestType === "jsonp") {
+						if (data.status.code == 0) {
+							options.success(data);
+						} else {
+							// log(data.status.msg);
+							if (options.error)
+								options.error(data.status.msg);
+						}
+					} else {
+						options.success(data);
+					}
+				}	
+			},
+			error: function(xhr, status, handler) {
+				// log(options.url + ' : ' + status);
+				if (options.error)
+					options.error();
+			}
+		};
+	};
+
+	/* 获取URL参数 */
+	var urlParams = {};
+	var getParams = function(key) {
+		if (key && !$.isEmptyObject(urlParams))
+			return urlParams[key];
+		var url = location.href;
+		var idx = url.indexOf('?');
+		if (idx === -1)
+			return;
+		var params = url.substring(url.indexOf('?') + 1);
+		params = params.split('&');
+		for (var i = 0; i < params.length; i++) {
+			var item = params[i];
+			item = item.split('=');
+			urlParams[item[0]] = item[1];
+		}
+		if (key)
+			return urlParams[key];
+		else
+			return urlParams;
+	};
+
+	return {
+		// log: log,
+		refreshPage: refreshPage,
+		loadCss: loadCss,
+		ajaxCall: ajaxCall,
+		getParams: getParams
+	};
+
+});

@@ -1,0 +1,145 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="admin" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 Supplier">
+        	<h2 class="h-auto"><i class="f-l">供应商管理</i><a href="javascript:;" class="yellow-but f-r" id="addSupplier" data-href="include-add-supplier.php">新增供应商</a></h2>
+            <!--搜索开始-->
+        	<form method="" action="">
+            <div class=" h-auto list-seach">
+            	<label><i>供应商编码：</i><input name="" type="text"></label><label><i>供应商名称：</i><input name="" type="text"></label><label><i>地区：</i><select name="" id="outProvince" value="" data-href="js/mock-data/adc-tree-pretty.json"><option value="0">
+                请选择
+                </option></select></label><input type="submit" class="green-but" value="搜索"/>
+            </div>
+        	</form>
+            <!--搜索结束-->
+            <!--表单开始-->
+            <div class="h-auto mar-t20">
+            	<table cellpadding="0" cellspacing="1" class="table-list">
+                	<thead>
+                    	<tr>
+                        	<td width="12%">编码</td>
+                        	<td width="18%">供应商名称</td>
+                            <td width="14%">联系电话</td>
+                            <td width="10%">地区</td>
+                            <td width="29%">地址</td>
+                          	<td width="17%">操作</td>
+                      </tr>
+                    </thead>
+                    <tr class="tr-hover">
+						<td>1234567890</td>
+                        <td>仓库名称仓库名称</td>
+                        <td>0571-8888888</td>
+                        <td>刘德华的</td>
+                        <td><div class="white-space">地址地址地址地址地址地址地址地址地址地址地址地址地址地址地址</div></td>
+                        <td><a href="javascript:;" class="green-but edit" title="编辑" data-href='include-add-supplier.php'>编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+						<td>1234567890</td>
+                        <td>仓库名称仓库名称</td>
+                        <td>0571-8888888</td>
+                        <td>呼和浩特</td>
+                        <td>13588888888</td>
+                        <td><a href="javascript:;" class="green-but edit" title="编辑" data-href='include-add-supplier.php'>编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+						<td>1234567890</td>
+                        <td>仓库名称仓库名称</td>
+                        <td>0571-8888888</td>
+                        <td>刘德华的</td>
+                        <td>13588888888</td>
+                        <td><a href="javascript:;" class="green-but edit" title="编辑" data-href='include-add-supplier.php'>编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+						<td>1234567890</td>
+                        <td>仓库名称仓库名称</td>
+                        <td>0571-8888888</td>
+                        <td>刘德华的</td>
+                        <td>13588888888</td>
+                        <td><a href="javascript:;" class="green-but edit" title="编辑" data-href='include-add-supplier.php'>编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+						<td>1234567890</td>
+                        <td>仓库名称仓库名称</td>
+                        <td>0571-8888888</td>
+                        <td>刘德华的</td>
+                        <td>13588888888</td>
+                        <td><a href="javascript:;" class="green-but edit" title="编辑" data-href='include-add-supplier.php'>编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+						<td>1234567890</td>
+                        <td>仓库名称仓库名称</td>
+                        <td>0571-8888888</td>
+                        <td>刘德华的</td>
+                        <td>13588888888</td>
+                        <td><a href="javascript:;" class="green-but edit" title="编辑" data-href='include-add-supplier.php'>编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+						<td>1234567890</td>
+                        <td>仓库名称仓库名称</td>
+                        <td>0571-8888888</td>
+                        <td>刘德华的</td>
+                        <td>13588888888</td>
+                        <td><a href="javascript:;" class="green-but edit" title="编辑" data-href='include-add-supplier.php'>编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+						<td>1234567890</td>
+                        <td>仓库名称仓库名称</td>
+                        <td>0571-8888888</td>
+                        <td>刘德华的</td>
+                        <td>13588888888</td>
+                        <td><a href="javascript:;" class="green-but edit" title="编辑" data-href='include-add-supplier.php'>编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+						<td>1234567890</td>
+                        <td>仓库名称仓库名称</td>
+                        <td>0571-8888888</td>
+                        <td>刘德华的</td>
+                        <td>13588888888</td>
+                        <td><a href="javascript:;" class="green-but edit" title="编辑" data-href='include-add-supplier.php'>编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+						<td>1234567890</td>
+                        <td>仓库名称仓库名称</td>
+                        <td>0571-8888888</td>
+                        <td>刘德华的</td>
+                        <td>13588888888</td>
+                        <td><a href="javascript:;" class="green-but edit" title="编辑" data-href='include-add-supplier.php'>编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+						<td>1234567890</td>
+                        <td>仓库名称仓库名称</td>
+                        <td>0571-8888888</td>
+                        <td>刘德华的</td>
+                        <td>13588888888</td>
+                        <td><a href="javascript:;" class="green-but edit" title="编辑" data-href='include-add-supplier.php'>编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                     </tr>
+                     <tr class="tr-hover">
+						<td>1234567890</td>
+                        <td>仓库名称仓库名称</td>
+                        <td>0571-8888888</td>
+                        <td>刘德华的</td>
+                        <td>13588888888</td>
+                        <td><a href="javascript:;" class="green-but edit" title="编辑" data-href='include-add-supplier.php'>编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                     </tr>
+                </table>
+                <!--分页开始-->
+                <div class="page">
+                     <span>共<i>120条/10页</i></span><span><a href="javascript:;" class="now">1</a></span><span><a href="javascript:;">2</a></span><span><a href="javascript:;">3</a></span><span>...</span><span><a href="javascript:;">10</a></span><span><a href="javascript:;">下一页</a></span>
+                </div>
+               <!--分页结束-->
+            </div>
+            <!--表单结束-->
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

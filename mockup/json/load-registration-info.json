@@ -1,0 +1,12 @@
+{
+  "status": {
+    "code": "0",
+    "msg": "something error"
+  },
+  "ds": {
+      "appointmentNo": "81312040030",
+      "regOffice": "15",
+      "regDoctor": "277",
+      "diagnoseType": 1
+    }
+}

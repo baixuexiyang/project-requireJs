@@ -1,0 +1,55 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="clinic-charge" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20">
+        	<h2 class="h-auto"><i class="f-l">门诊收费</i></h2>
+            <!--搜索开始-->
+        <form method="post" action="">
+            <input type="hidden" id="offset" name="offset" value="">
+            <div class=" h-auto list-seach">
+            	<label><i>发票类型：</i><select name=""><option>
+                请选择
+                </option></select></label><label><i>原发票号：</i><input name="" id="oldreceipt" type="text"></label><label><i>选择发票：</i><select name=""><option>
+                使用原发票
+                </option><option>
+                使用新发票
+                </option></select></label><input type="submit" class="green-but" data-action="js/mock-data/include-data-recipt.json" value="查看" id="form-submit" />
+            </div>
+        </form>
+            <!--搜索结束-->
+            <!--表单开始-->
+            <div class="h-auto mar-t10">
+            	<table cellpadding="0" cellspacing="1" class="table-list">
+                	<thead>
+                    	<tr>
+                        	<td width="12%">项目编号</td>
+                       	  <td width="17%">项目名称</td>
+                       	  <td width="8%">单位</td>
+                       	  <td width="8%">单价</td>
+                       	  <td width="8%">数量</td>
+                          <td width="12%">总金额</td>
+                          <td width="12%">费用类型</td>
+                       	  <td width="12%">接诊医生</td>
+                       	  <td width="11%">接诊时间</td>
+                      </tr>
+                    </thead>
+                     
+                </table>
+                <div class="text-r mar-t10"><a href="javascript:;" data-action="js/mock-data/include-data-example.json" id="reprint" class="green-but w80">确认补打</a></div>
+            </div>
+            <!--表单结束-->
+            <!--收费项目结束-->
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

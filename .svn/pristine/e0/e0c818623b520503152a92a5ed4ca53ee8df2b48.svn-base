@@ -1,0 +1,202 @@
+<div class="pop-box h-auto bg-ff" id="content" style="width:660px;margin-top: 0px;padding-top: 0px;">
+    <form id="form-add-iquid">
+    <div class="add-ytg"><i>选择液态罐：</i><label><select name="" id="selectTank" data-action="page-add-tank.shtml">
+    <option>A-1</option>
+    <option>A-2</option>
+    <option>A-3</option>
+    <option>最多可以为十二个汉字汉字</option>
+    </select></label><a href="javascript:;" id="addTank" class="green-but">添加液态罐</a></div>        
+    <div class="add-ytg" style="display:none;" id="chooseType"><i>选择类型：</i><label><select name="" id="typeId">
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+        </select><input type="hidden" id="type_name" value=""></label><a href="javascript:;" id="confirmAdd" data-action="page-add-tank.shtml" class="green-but">确定添加</a>
+    </div>
+    </form>
+    <div class="add-ytg-list" id="list">
+    	<table cellpadding="0" cellspacing="1" class="table-list">
+        	<thead>
+        	<tr>
+            	<td style="width:79%;"><form class="form-edit-data"><a href="javascript:;" title="收缩" class="but-20-20B first"></a><label>液态罐名称-最多12个字</label><input type="text" class="edit" style="display:none"></form></td>
+                <td style="width:21%;" class="text-l"><span class="operator"><a href="javascript:;" data-edit="false" class="green-but editName">编辑</a></span><span class="save" style="display: none;"><a href="javascript:;" class="green-but saveBtn" data-href="page-add-tank.shtml">保存</a><a href="javascript:;" class="red-but cancel">取消</a></span></td>
+            </tr>
+            </thead>
+            <tbody><tr class="two">
+            	<td class="two-line"><form class="form-edit-data"><a href="javascript:;" title="展开" class="but-20-20B second"></a><label>套管名称-最多12个字</label><input type="text" class="edit" style="display:none"></form></td>
+                <td class="text-l"><span class="operator"><a href="javascript:;" data-edit="true" class="green-but editName">编辑</a></span><span class="save" style="display: none;"><a href="javascript:;" class="green-but saveBtn" data-href="page-add-tank.shtml">保存</a><a href="javascript:;" class="red-but cancel">取消</a></span></td>
+            </tr>
+            <tr class="three">
+                <td class="three-line"><form class="form-edit-data"><label>套管名称最多12个字最<label><b>红色</b></label></label><span class="edit" style="display:none"><label><input name="" type="text" value="套管名称-最多12个字"></label><label><select name="">
+                    <option>颜色</option>
+                    <option>红</option>
+                    <option>白</option>
+                    <option>蓝</option>
+                    </select></label></span></form>
+                </td><td class="text-l"><span class="operator"><a href="javascript:;" data-edit="true" class="green-but editName">选择</a></span><span class="save" style="display: none;"><a href="javascript:;" data-action="js/mock-data/include-add-tank.json" class="blue-but select" title="保存">保存</a><a href="javascript:;" title="取消" class="red-but cancel">取消</a></span></td>
+            </tr>
+            <tr class="three">
+                <td class="three-line"><form class="form-edit-data"><label>套管名称最多12个字最<label><b>红色</b></label></label><span class="edit" style="display:none"><label><input name="" type="text" value="套管名称-最多12个字"></label><label><select name="">
+                    <option>颜色</option>
+                    <option>红</option>
+                    <option>白</option>
+                    <option>蓝</option>
+                    </select></label></span></form>
+                </td><td class="text-l"><span class="operator"><a href="javascript:;" data-edit="true" class="green-but editName">选择</a></span><span class="save" style="display: none;"><a href="javascript:;" data-action="js/mock-data/include-add-tank.json" class="blue-but select">保存</a><a href="javascript:;" class="red-but cancel">取消</a></span></td>
+            </tr>
+            <tr class="three">
+                <td class="three-line"><form class="form-edit-data"><label>套管名称最多12个字最<label><b>红色</b></label></label><span class="edit" style="display:none"><label><input name="" type="text" value="套管名称-最多12个字"></label><label><select name="">
+                    <option>颜色</option>
+                    <option>红</option>
+                    <option>白</option>
+                    <option>蓝</option>
+                    </select></label></span></form>
+                </td><td class="text-l"><span class="operator"><a href="javascript:;" data-edit="true" class="green-but editName">选择</a></span><span class="save" style="display: none;"><a href="javascript:;" data-action="js/mock-data/include-add-tank.json" class="blue-but select">保存</a><a href="javascript:;" class="red-but cancel">取消</a></span></td>
+            </tr>
+            <tr class="three">
+                <td class="three-line"><form class="form-edit-data"><label>套管名称最多12个字最<label><b>红色</b></label></label><span class="edit" style="display:none"><label><input name="" type="text" value="套管名称-最多12个字"></label><label><select name="">
+                    <option>颜色</option>
+                    <option>红</option>
+                    <option>白</option>
+                    <option>蓝</option>
+                    </select></label></span></form>
+                </td><td class="text-l"><span class="operator"><a href="javascript:;" data-edit="true" class="green-but editName">选择</a></span><span class="save" style="display: none;"><a href="javascript:;" data-action="js/mock-data/include-add-tank.json" class="blue-but select">保存</a><a href="javascript:;" class="red-but cancel">取消</a></span></td>
+            </tr>
+            <tr class="three">
+                <td class="three-line"><form class="form-edit-data"><label>套管名称最多12个字最<label><b>红色</b></label></label><span class="edit" style="display:none"><label><input name="" type="text" value="套管名称-最多12个字"></label><label><select name="">
+                    <option>颜色</option>
+                    <option>红</option>
+                    <option>白</option>
+                    <option>蓝</option>
+                    </select></label></span></form>
+                </td><td class="text-l"><span class="operator"><a href="javascript:;" data-edit="true" class="green-but editName">选择</a></span><span class="save" style="display: none;"><a href="javascript:;" data-action="js/mock-data/include-add-tank.json" class="blue-but select">保存</a><a href="javascript:;" class="red-but cancel">取消</a></span></td>
+            </tr>
+            <tr class="three">
+                <td class="three-line"><form class="form-edit-data"><label>套管名称最多12个字最<label><b>红色</b></label></label><span class="edit" style="display:none"><label><input name="" type="text" value="套管名称-最多12个字"></label><label><select name="">
+                    <option>颜色</option>
+                    <option>红</option>
+                    <option>白</option>
+                    <option>蓝</option>
+                    </select></label></span></form>
+                </td><td class="text-l"><span class="operator"><a href="javascript:;" data-edit="true" class="green-but editName">选择</a></span><span class="save" style="display: none;"><a href="javascript:;" data-action="js/mock-data/include-add-tank.json" class="blue-but select">保存</a><a href="javascript:;" class="red-but cancel">取消</a></span></td>
+            </tr>
+            <tr class="three">
+                <td class="three-line"><form class="form-edit-data"><label>套管名称最多12个字最<label><b>红色</b></label></label><span class="edit" style="display:none"><label><input name="" type="text" value="套管名称-最多12个字"></label><label><select name="">
+                    <option>颜色</option>
+                    <option>红</option>
+                    <option>白</option>
+                    <option>蓝</option>
+                    </select></label></span></form>
+                </td><td class="text-l"><span class="operator"><a href="javascript:;" data-edit="true" class="green-but editName">选择</a></span><span class="save" style="display: none;"><a href="javascript:;" data-action="js/mock-data/include-add-tank.json" class="blue-but select">保存</a><a href="javascript:;" class="red-but cancel">取消</a></span></td>
+            </tr>
+            <tr class="three">
+                <td class="three-line"><form class="form-edit-data"><label>套管名称最多12个字最<label><b>红色</b></label></label><span class="edit" style="display:none"><label><input name="" type="text" value="套管名称-最多12个字"></label><label><select name="">
+                    <option>颜色</option>
+                    <option>红</option>
+                    <option>白</option>
+                    <option>蓝</option>
+                    </select></label></span></form>
+                </td><td class="text-l"><span class="operator"><a href="javascript:;" data-edit="true" class="green-but editName">选择</a></span><span class="save" style="display: none;"><a href="javascript:;" data-action="js/mock-data/include-add-tank.json" class="blue-but select">保存</a><a href="javascript:;" class="red-but cancel">取消</a></span></td>
+            </tr>
+            <tr class="three">
+                <td class="three-line"><form class="form-edit-data"><label>套管名称最多12个字最<label><b>红色</b></label></label><span class="edit" style="display:none"><label><input name="" type="text" value="套管名称-最多12个字"></label><label><select name="">
+                    <option>颜色</option>
+                    <option>红</option>
+                    <option>白</option>
+                    <option>蓝</option>
+                    </select></label></span></form>
+                </td><td class="text-l"><span class="operator"><a href="javascript:;" data-edit="true" class="green-but editName">选择</a></span><span class="save" style="display: none;"><a href="javascript:;" data-action="js/mock-data/include-add-tank.json" class="blue-but select">保存</a><a href="javascript:;" class="red-but cancel">取消</a></span></td>
+            </tr>
+
+            <!-- 第一个结束 -->
+            <!-- 第二个开始 -->
+
+
+
+            <tr class="two">
+                <td class="two-line"><form class="form-edit-data"><a href="javascript:;" title="展开" class="but-20-20B second"></a><label>套管名称-最多12个字</label><input type="text" class="edit" style="display:none"></form></td>
+                <td class="text-l"><span class="operator"><a href="javascript:;" data-edit="true" class="green-but editName">编辑</a></span><span class="save" style="display: none;"><a href="javascript:;" class="green-but saveBtn" data-href="page-add-tank.shtml">保存</a><a href="javascript:;" class="red-but cancel">取消</a></span></td>
+            </tr>
+            <tr class="three">
+                <td class="three-line"><form class="form-edit-data"><label>套管名称最多12个字最<label><b>红色</b></label></label><span class="edit" style="display:none"><label><input name="" type="text" value="套管名称-最多12个字"></label><label><select name="">
+                    <option>颜色</option>
+                    <option>红</option>
+                    <option>白</option>
+                    <option>蓝</option>
+                    </select></label></span></form>
+                </td><td class="text-l"><span class="operator"><a href="javascript:;" data-edit="true" class="green-but editName">选择</a></span><span class="save" style="display: none;"><a href="javascript:;" data-action="js/mock-data/include-add-tank.json" class="blue-but select">保存</a><a href="javascript:;" class="red-but cancel">取消</a></span></td>
+            </tr>
+            <tr class="three">
+                <td class="three-line"><form class="form-edit-data"><label>套管名称最多12个字最<label><b>红色</b></label></label><span class="edit" style="display:none"><label><input name="" type="text" value="套管名称-最多12个字"></label><label><select name="">
+                    <option>颜色</option>
+                    <option>红</option>
+                    <option>白</option>
+                    <option>蓝</option>
+                    </select></label></span></form>
+                </td><td class="text-l"><span class="operator"><a href="javascript:;" data-edit="true" class="green-but editName">选择</a></span><span class="save" style="display: none;"><a href="javascript:;" data-action="js/mock-data/include-add-tank.json" class="blue-but select">保存</a><a href="javascript:;" class="red-but cancel">取消</a></span></td>
+            </tr>
+            <tr class="three">
+                <td class="three-line"><form class="form-edit-data"><label>套管名称最多12个字最<label><b>红色</b></label></label><span class="edit" style="display:none"><label><input name="" type="text" value="套管名称-最多12个字"></label><label><select name="">
+                    <option>颜色</option>
+                    <option>红</option>
+                    <option>白</option>
+                    <option>蓝</option>
+                    </select></label></span></form>
+                </td><td class="text-l"><span class="operator"><a href="javascript:;" data-edit="true" class="green-but editName">选择</a></span><span class="save" style="display: none;"><a href="javascript:;" data-action="js/mock-data/include-add-tank.json" class="blue-but select">保存</a><a href="javascript:;" class="red-but cancel">取消</a></span></td>
+            </tr>
+            <tr class="three">
+                <td class="three-line"><form class="form-edit-data"><label>套管名称最多12个字最<label><b>红色</b></label></label><span class="edit" style="display:none"><label><input name="" type="text" value="套管名称-最多12个字"></label><label><select name="">
+                    <option>颜色</option>
+                    <option>红</option>
+                    <option>白</option>
+                    <option>蓝</option>
+                    </select></label></span></form>
+                </td><td class="text-l"><span class="operator"><a href="javascript:;" data-edit="true" class="green-but editName">编辑</a><a href="javascript:;" data-action="js/mock-data/include-add-tank.json" class="blue-but select">选择</a></span><span class="save" style="display: none;"><a href="javascript:;" class="green-but saveBtn" data-href="page-add-tank.shtml">保存</a><a href="javascript:;" class="red-but cancel">取消</a></span></td>
+            </tr>
+            <tr class="three">
+                <td class="three-line"><form class="form-edit-data"><label>套管名称最多12个字最<label><b>红色</b></label></label><span class="edit" style="display:none"><label><input name="" type="text" value="套管名称-最多12个字"></label><label><select name="">
+                    <option>颜色</option>
+                    <option>红</option>
+                    <option>白</option>
+                    <option>蓝</option>
+                    </select></label></span></form>
+                </td><td class="text-l"><span class="operator"><a href="javascript:;" data-edit="true" class="green-but editName">编辑</a><a href="javascript:;" data-action="js/mock-data/include-add-tank.json" class="blue-but select">选择</a></span><span class="save" style="display: none;"><a href="javascript:;" class="green-but saveBtn" data-href="page-add-tank.shtml">保存</a><a href="javascript:;" class="red-but cancel">取消</a></span></td>
+            </tr>
+            <tr class="three">
+                <td class="three-line"><form class="form-edit-data"><label>套管名称最多12个字最<label><b>红色</b></label></label><span class="edit" style="display:none"><label><input name="" type="text" value="套管名称-最多12个字"></label><label><select name="">
+                    <option>颜色</option>
+                    <option>红</option>
+                    <option>白</option>
+                    <option>蓝</option>
+                    </select></label></span></form>
+                </td><td class="text-l"><span class="operator"><a href="javascript:;" data-edit="true" class="green-but editName">编辑</a><a href="javascript:;" data-action="js/mock-data/include-add-tank.json" class="blue-but select">选择</a></span><span class="save" style="display: none;"><a href="javascript:;" class="green-but saveBtn" data-href="page-add-tank.shtml">保存</a><a href="javascript:;" class="red-but cancel">取消</a></span></td>
+            </tr>
+            <tr class="three">
+                <td class="three-line"><form class="form-edit-data"><label>套管名称最多12个字最<label><b>红色</b></label></label><span class="edit" style="display:none"><label><input name="" type="text" value="套管名称-最多12个字"></label><label><select name="">
+                    <option>颜色</option>
+                    <option>红</option>
+                    <option>白</option>
+                    <option>蓝</option>
+                    </select></label></span></form>
+                </td><td class="text-l"><span class="operator"><a href="javascript:;" data-edit="true" class="green-but editName">编辑</a><a href="javascript:;" data-action="js/mock-data/include-add-tank.json" class="blue-but select">选择</a></span><span class="save" style="display: none;"><a href="javascript:;" class="green-but saveBtn" data-href="page-add-tank.shtml">保存</a><a href="javascript:;" class="red-but cancel">取消</a></span></td>
+            </tr>
+            <tr class="three">
+                <td class="three-line"><form class="form-edit-data"><label>套管名称最多12个字最<label><b>红色</b></label></label><span class="edit" style="display:none"><label><input name="" type="text" value="套管名称-最多12个字"></label><label><select name="">
+                    <option>颜色</option>
+                    <option>红</option>
+                    <option>白</option>
+                    <option>蓝</option>
+                    </select></label></span></form>
+                </td><td class="text-l"><span class="operator"><a href="javascript:;" data-edit="true" class="green-but editName">编辑</a><a href="javascript:;" data-action="js/mock-data/include-add-tank.json" class="blue-but select">选择</a></span><span class="save" style="display: none;"><a href="javascript:;" class="green-but saveBtn" data-href="page-add-tank.shtml">保存</a><a href="javascript:;" class="red-but cancel">取消</a></span></td>
+            </tr>
+            <tr class="three">
+                <td class="three-line"><form class="form-edit-data"><label>套管名称最多12个字最<label><b>红色</b></label></label><span class="edit" style="display:none"><label><input name="" type="text" value="套管名称-最多12个字"></label><label><select name="">
+                    <option>颜色</option>
+                    <option>红</option>
+                    <option>白</option>
+                    <option>蓝</option>
+                    </select></label></span></form>
+                </td><td class="text-l"><span class="operator"><a href="javascript:;" data-edit="true" class="green-but editName">编辑</a><a href="javascript:;" data-action="js/mock-data/include-add-tank.json" class="blue-but select">选择</a></span><span class="save" style="display: none;"><a href="javascript:;" class="green-but saveBtn" data-href="page-add-tank.shtml">保存</a><a href="javascript:;" class="red-but cancel">取消</a></span></td>
+            </tr>
+        </tbody></table>
+    </div>
+</div>

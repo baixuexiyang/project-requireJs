@@ -1,0 +1,124 @@
+define([
+	'jquery',
+	'app/common',
+	'app/util',
+	'jqtmpl',
+	'pkg/DatePicker/app',
+	'pkg/DateFormat/app',
+	'json'
+], function($, common) {
+
+	"use strict";
+
+	/**********收费记录********************************/
+	var Record = {
+		init: function() {
+			$('#patientName').showlist({
+				width: 300,
+				keyID: 'userid',
+				bindSub: $('#patientId'),
+				selectCallback: function(d) {
+
+				},
+				buildHtml: function(ds) {
+					var html = '<table cellpadding="0" cellspacing="1" class="table-list ab-table-div-title"></tbody>';
+					for(var i = 0; i < ds.length; i++) {
+						var item = ds[i];
+						html += '<tr data-name="'+ item.username +'" class="tr-hover"><td style="width:50px;">'+ item.username +'</td><td style="width:80px;">'+ item.tellphone +'</td><td style="width:20px;">'+ item.sex +'</td><td style="width:20px;">'+ item.age +'</td></tr>';
+					}
+					html += '</tbody></table>';
+					return html;
+				}
+			});
+
+			$(document).delegate('#confirm-charge', 'click', function() {
+				var api = $(this).attr('data-href');
+				art.dialog.open(api,{
+					width: 380,
+					height: 420,
+					lock: true,
+					title: '确认收费'
+				});
+			})
+			.delegate('#Charge', 'click', function() {
+				art.dialog.close();
+			})
+			.delegate('#cancel', 'click', function() {
+				art.dialog.close();
+			})
+			.delegate('#Retype', 'click', function() {
+				var api = $(this).attr('data-href');
+				art.dialog.open(api,{
+					width: 380,
+					height: 250,
+					lock: true,
+					title: '补打发票'
+				});
+			})
+			.delegate('#retype-invoice', 'click', function() {
+				art.dialog.close();
+			});
+
+
+			// 发票跳号
+			$('#changeInvoice').click(function() {
+				$('#invoiceNo').text(parseInt($('#invoiceNo').text(), 10) + 1);
+			});
+
+
+
+
+
+			var startDate = $('#start-date');
+			var endDate = $('#end-date');
+			if (startDate.length > 0) {
+				if (!startDate.val()) {
+					startDate.val($.formatDate(new Date(), 'yyyy-MM-dd'));
+				}
+				if (endDate.length > 0) {
+					startDate.datePicker({
+						// minDate: '#F{$dp.$D(\'end-date\',{d:-7})}',
+						// maxDate: '#F{$dp.$D(\'end-date\')}',
+						onpicked: function() {
+							if ($('#end-date').val() === "")
+								$dp.$('end-date').focus();
+						},
+						dateFmt: 'yyyy-MM-dd'
+					});
+				} else {
+					startDate.datePicker({
+						dateFmt: 'yyyy-MM-dd'
+					});
+				}
+			}
+
+			if (endDate.length > 0) {
+				if (!endDate.val()) {
+					endDate.val($.formatDate(new Date(), 'yyyy-MM-dd'));
+				}
+				if (startDate.length > 0) {
+					endDate.datePicker({
+						// minDate: '#F{$dp.$D(\'start-date\')}',
+						// maxDate: '#F{$dp.$D(\'start-date\',{d:7})}',
+						onpicked: function() {
+							if ($('#start-date').val() === "")
+								$dp.$('start-date').focus();
+						},
+						dateFmt: 'yyyy-MM-dd'
+					});
+				} else {
+					endDate.datePicker({
+						dateFmt: 'yyyy-MM-dd'
+					});
+				}
+			}
+		}
+	};
+	/******入口****************************************/
+	var Main = {
+		init: function() {
+			Record.init();
+		}
+	};
+	Main.init();
+});

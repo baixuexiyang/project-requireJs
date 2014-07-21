@@ -1,0 +1,56 @@
+<!--#include file="include-dialog-head.php"-->
+<input type="hidden" name="dispatcher" id="dispatcher" value="clinic-charge" />
+<div class="print">
+<div class="mar-t20 mar-b20">
+	<li class="text-c"><b>通策医疗入库单</b></li>
+    <li class="text-r">打印日期：2013年12月12日</li>
+</div>
+<table cellpadding="0" cellspacing="0" class="title-mar">
+	<tr>
+    	<td><span>姓名：<cite>欧阳正华</cite></span>
+        <span>性别：<cite>男</cite></span>
+        <span>年龄：<cite>48</cite></span>
+        <span>收费日期：<cite>2013/12/13--2014/01/01</cite></span>
+        </td>
+    </tr>
+</table>
+<table cellpadding="0" cellspacing="1" class="print-list text-c mar-t20">
+    <tr>
+    	<th width="16%">诊疗单号</th>
+        <th width="26%">名称</th>
+        <th width="8%">单位</th>
+        <th width="8%">单价</th>
+        <th width="8%">数量</th>
+        <th width="12%">总金额</th>
+        <th width="11%">费用类型</th>
+        <th width="11%">接诊医生</th>
+    </tr>
+    <tr>
+    	<td>1234567890</td>
+        <td><div class="white-space">名称名称名称名称名称名称名称名称名称名称名称名称</div></td>
+        <td>盒</td>
+        <td>100.00</td>
+        <td>1000</td>
+        <td>100000.00</td>
+        <td>费用类型</td>
+        <td>接诊医生</td>
+    </tr>
+    <tr>
+    	<td>1234567890</td>
+        <td><div class="white-space">名称名称名称名称名称名称名称名称名称名称名称名称</div></td>
+        <td>盒</td>
+        <td>100.00</td>
+        <td>1000</td>
+        <td>100000.00</td>
+        <td>费用类型</td>
+        <td>接诊医生</td>
+    </tr>
+    <tr>
+    	<td colspan="8"><br/><strong>费用总计：123123</strong></td>
+    </tr>
+ </table>
+	<div class="text-c mar-t10 list-bottom-div mar-b20">
+     <a href="javascript:;" class="green-but" id="confirm">打印</a>&nbsp;&nbsp;<a href="javascript:;" id="cancel" class="black-but">取消</a>
+	</div>
+</div>
+<!--#include file="include-dialog-foot.php"-->

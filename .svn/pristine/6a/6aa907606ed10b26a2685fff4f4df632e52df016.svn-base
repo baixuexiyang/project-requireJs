@@ -1,0 +1,130 @@
+/* globals define, require */
+
+define(['jquery', 'app/common'], function($, common) {
+
+	"use strict";
+
+	var dispatcher = $("#dispatcher").val();
+	switch (dispatcher) {
+		case 'register':
+			require(['app/register']);
+			break;
+		case 'clinic-bill':
+			require(['app/clinic-bill']);
+			break;
+		case 'clinic-charge':
+			require(['app/clinic-charge']);
+			break;
+		case 'clinic-drugstore':
+			require(['app/clinic-drugstore']);
+			break;
+		case 'adjuvant-therapy':
+			require(['adjuvant-therapy']);
+			break;
+		case 'doctor-diagnose':
+			require(['app/doctor-diagnose']);
+			break;
+		case 'admin':
+			require(['app/admin']);
+			break;
+		case 'login':
+			require(['app/login']);
+			break;
+		default:
+			break;
+	}
+
+
+	// 公共代码
+	(function() {
+
+		// 占位字符
+		require(['placeholder']);
+
+		// 显示登录用户名
+		if (!window.CommonAction) {
+			return;
+		}
+		$.ajax(common.ajaxCall({
+			url: window.CommonAction.Login(),
+			success: function(re) {
+				var ds = re.ds;
+				var name = ds[1].username;
+				if (!name) {
+					return;
+				}
+				// $('.user-logined em').html(name);
+			}
+		}));
+
+
+		// 退出
+		$('#logoutBtn').on('click', function(event) {
+			try {
+				window.external.CloseForm();
+			} catch (e) {
+				location.href = $(this).attr('url');
+			}
+			return false;
+		});
+
+		// 跳转到特定页
+		$('.go-page').click(function() {
+			var pageNum = parseInt($.trim($('.page-num').val()), 10);
+			if (!pageNum || isNaN(pageNum) || pageNum === 0) {
+				art.dialog.tips('请输入大于0的数字！', 1.5);
+				return false;
+			} else {
+				var action = $('form[name=paginator]').attr('action');
+				action = action.split(/pageIndex=\d+/g);
+				if(action.length === 0)
+					return;
+				action = action[0] + 'pageIndex=' + pageNum + (action[1]? action[1]: '');
+				location.href = action;
+				return false;
+			}
+		});
+
+
+		// 导航条
+		/*var api = $("#navigate").attr('data-href');
+		$.ajax({
+			url: api,
+			cache: false,
+			type: 'post',
+			success: function(data) {
+				var ds = data.ds,
+					html = '',
+					top = '';
+				var len = ds.length;
+				for (var i = 0; i < len; i++) {
+					var item = ds[i];
+					var child = item.children;
+					var span = '';
+					if(!child) {
+						top += '<a href="'+ item.href +'" id="'+ item.id +'">'+ item.navname +'</a>';
+						continue;
+					}
+					var leng = child.length;
+					for (var j = 0; j < leng; j++) {
+						var list = child[j];
+						span += '<span><a href="'+ list.href +'">'+ list.tabname +'</a></span>&nbsp;';
+					}
+					html += '<div class="content '+ item.id +'" style="display:none">'+ span +'</div>';
+					top += '<a href="javascript:;" id="'+ item.id +'">'+ item.navname +'</a>';
+				}
+				$('#top-tab').empty().append(top);
+				$('#list-item').empty().append(html);
+			}
+		});
+
+		
+		$('#top-tab a').live('mouseover', function() {
+			var order = $(this).attr('id');
+			$('#list-item .content').hide();
+			$('#list-item .'+ order +'').show();
+		});*/
+
+	})();
+
+});

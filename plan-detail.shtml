@@ -1,0 +1,71 @@
+<table cellpadding="0" cellspacing="1" class="table-list">
+        <thead>
+            <tr>
+            	<td width="8%">处理天</td>
+                <td width="8%">时间</td>
+                <td width="11%">治疗类型</td>
+                <td width="10%">治疗项目</td>
+                <td width="10%">药剂类型</td>
+                <td width="9%">用药方法</td>
+                <td width="8%">用药次数</td>
+                <td width="8%">单次剂量</td>
+                <td width="8%">总剂量</td>
+                <td width="6%">单位</td>                            
+                <td width="14%">操作</td>
+          </tr>
+        </thead>                    
+        <tbody>
+            <tr class="tr-hover">
+        	<td>1</td>
+            <td>12:00</td>
+            <td></td>
+            <td>盒</td>
+            <td>药剂类型A</td>
+            <td>注射</td>
+            <td>11</td>
+            <td>500ml</td>
+            <td>5500ml</td>
+            <td>ml</td>
+            <td><a href="javascript:;" data-href="include-add-plan.php" class="green-but edit" title="编辑">编辑</a><a href="#" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+         </tr>
+         <tr class="tr-hover">
+            <td>2</td>
+            <td>12:00</td>
+            <td></td>
+            <td>盒</td>
+            <td>药剂类型A</td>
+            <td>注射</td>
+            <td>11</td>
+            <td>500ml</td>
+            <td>5500ml</td>
+            <td>ml</td>
+            <td><a href="javascript:;" data-href="include-add-plan.php" class="green-but edit" title="编辑">编辑</a><a href="#" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+         </tr>
+         <tr class="tr-hover">
+            <td>3</td>
+            <td>12:00</td>
+            <td></td>
+            <td>盒</td>
+            <td>药剂类型A</td>
+            <td>注射</td>
+            <td>11</td>
+            <td>500ml</td>
+            <td>5500ml</td>
+            <td>ml</td>
+            <td><a href="javascript:;" data-href="include-add-plan.php" class="green-but edit" title="编辑">编辑</a><a href="#" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+         </tr>
+         <tr class="tr-hover">
+            <td>4</td>
+            <td>12:00</td>
+            <td></td>
+            <td>盒</td>
+            <td>药剂类型A</td>
+            <td>注射</td>
+            <td>11</td>
+            <td>500ml</td>
+            <td>5500ml</td>
+            <td>ml</td>
+            <td><a href="javascript:;" data-href="include-add-plan.php" class="green-but edit" title="编辑">编辑</a><a href="#" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+         </tr>
+    </tbody>
+</table>

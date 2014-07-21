@@ -1,0 +1,68 @@
+{
+  "status": {
+    "code": "0",
+    "msg": "something error"
+  },
+  "ds": [
+    {
+      "appointmentId": 1,
+      "patientId": "12",
+      "patientName": "林小小",
+      "patientSex": "1",
+      "patientAge": "26",
+      "officeId":"234234",
+      "officeName":"科室名称",
+      "userId":"233223",
+      "userName": "医生啊",
+      "patientMobi": "15888888888",
+      "appointmentContent": "预约内容",
+      "appointmentTime": "1386202800000",
+      "appointmentDuration": "30分钟"
+    },
+    {
+      "appointmentId": 2,
+      "patientId": "12",
+      "patientName": "有钱人",
+      "patientSex": "1",
+      "patientAge": "26",
+      "officeId":"234234",
+      "officeName":"科室名称",
+      "userId":"233223",
+      "userName": "医生啊",
+      "patientMobi": "15888888888",
+      "appointmentContent": "预约内容",
+      "appointmentTime": "1386202800000",
+      "appointmentDuration": "30分钟"
+    },
+    {
+      "appointmentId": 3,
+      "patientId": "12",
+      "patientName": "吴大大",
+      "patientSex": "1",
+      "patientAge": "26",
+      "officeId":"234234",
+      "officeName":"科室名称",
+      "userId":"233223",
+      "userName": "医生啊",
+      "patientMobi": "15888888888",
+      "appointmentContent": "预约内容啊啊啊啊",
+      "appointmentTime": "1385778600000",
+      "appointmentDuration": "30分钟"
+    },
+    {
+      "appointmentId": 4,
+      "patientId": "12",
+      "patientName": "新小信",
+      "patientSex": "1",
+      "patientAge": "26",
+      "officeId":"234234",
+      "officeName":"科室名称",
+      "userId":"233223",
+      "userName": "医生啊",
+      "patientMobi": "15888888888",
+      "appointmentContent": "预约内容啊啊啊啊",
+      "appointmentTime": "1385702168744",
+      "appointmentDuration": "30分钟"
+    }
+  ]
+}

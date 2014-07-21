@@ -1,0 +1,67 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="admin" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 UserManagement">
+            <form action="" method="" id="form-add-patient">
+        	<h2>个人信息</h2>
+            <div class="error-text" style="display:none;"></div>
+        	<div class="h-auto add-user">
+            	<!--个人信息开始-->
+                <div class="hr-div mar-t20">
+                    <span>个人资料</span>
+                    <hr/>
+            	</div>
+            	<ul class="h-auto three-list">
+                	<p class="reg-headImg f-l"><img src="images/headImg/00.gif"></p>
+                    <li class="w215"><i>姓名：</i><label>刘德华</label></li>
+                    <li><i>性别：</i><label>女</label></li>
+                    <li><i>出生日期：</i><label>2010/10/10</label></li>
+                    <li class="w215"><i>手机：</i><label>13588888888</label></li>
+                    <li><i>办公电话：</i><label>0571-8888888</label></li>
+                    <li><i>电子邮箱：</i><label>fengyingzai@163.com</label></li>
+                    <li class="textarea-li"><i>家庭住址：</i><label>浙江省杭州市西湖区天目山路309号</label></li>
+                </ul>
+                <!--科室信息开始-->
+                <div class="hr-div">
+                    <span>科室信息</span>
+                    <hr/>
+            	</div>
+            	<ul class="h-auto three-list">
+                    <li><i>所属科室：</i><label>科室名称</label></li>
+                    <li><i>人员编码：</i><label>12344545</label></li>
+                    <li><i>职务：</i><label>科员</label></li>
+                    <li class="textarea-li"><i>备注：</i><label>12313123123123123121233333333333333333</label></li>
+                </ul>
+                <!--科室信息结束-->
+            	<!--修改密码开始-->
+            	<div class="hr-div">
+                    <span>修改密码</span>
+                    <hr/>
+            	</div>
+            	<ul class="h-auto three-list add-user-system">
+                	<li><i>帐号：</i><label>账号名称</label></li>
+                    <li><i><b>*</b>旧密码：</i><label><input name="" type="text" id="account" class="validate"></label></li>
+					<li><i><b>*</b>新密码：</i><label><input name="" type="text" id="password" class="validate"></label></li>
+                    <li><i><b>*</b>确认密码：</i><label><input name="" type="text" id="repassword" class="validate"></label></li>
+                </ul>
+                <!--修改密码结束-->
+
+                <div class="text-r mar-t10 list-bottom-div mar-b20">
+                	<a href="javascript:;" class="green-but" id="saveLogin" data-action="js/mock-data/add-patient-register.json">保存</a>&nbsp;<a href="#" class="black-but">取消</a>
+                </div>
+            </div>
+        </form>
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

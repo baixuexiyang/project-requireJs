@@ -1,0 +1,39 @@
+{
+	"status": {
+    "code": 0,
+    "msg": "error"
+  },
+  "ds": [
+  	{
+  		"id":"one",
+  		"navname": "登记注册",
+  		"children": [
+  			{
+  				"tabname": "登记",
+  				"href": "登记注册-登记.shtml"
+  			},{
+  				"tabname": "注册",
+  				"href": "登记注册-注册.shtml"
+  			}
+  		]
+  	},
+  	{
+  		"id":"two",
+  		"navname": "门诊开单",
+  		"children": [
+  			{
+  				"tabname": "登记",
+  				"href": "登记注册-登记.shtml"
+  			},{
+  				"tabname": "注册",
+  				"href": "登记注册-注册.shtml"
+  			}
+  		]
+  	},
+  	{
+  		"id": "three",
+  		"navname": "医生面诊",
+  		"href": "医生面诊-面诊.shtml"
+  	}
+  ]
+}

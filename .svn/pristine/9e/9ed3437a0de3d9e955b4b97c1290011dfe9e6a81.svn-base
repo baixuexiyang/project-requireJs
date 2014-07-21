@@ -1,0 +1,22 @@
+/*
+日期选择模块
+lihongbo@eetop.com
+*/
+require(['jquery', './pkg/DatePicker/source/WdatePicker'],function() {
+  $.fn.extend({
+    datePicker: function(options) {
+      var settings = {
+        dateFmt: 'yyyy-MM-dd'
+      };
+      settings = $.extend(settings, options);
+      /*$(this).focus(function() {
+        WdatePicker(setttings);
+      });
+      $(this).click(function() {
+        WdatePicker(setttings);
+      });*/
+      WdatePicker(settings);
+    }
+  });
+
+});

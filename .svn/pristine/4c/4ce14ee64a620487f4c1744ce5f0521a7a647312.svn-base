@@ -1,0 +1,35 @@
+define([
+	'jquery',
+	'app/common',
+	'app/util',
+	'jqtmpl',
+	'pkg/DatePicker/app',
+	'pkg/DateFormat/app',
+	'json'
+], function($, common) {
+
+	"use strict";
+
+	/*******************开单**********************************/
+	var Bill = {
+		init: function() {
+
+		}
+	};
+
+	/********************开单列表*************************************/
+	var BillList = {
+		init: function() {
+			
+		}
+	};
+
+	/***********************入口********************************************/
+	var Main = {
+		init: function() {
+			Bill.init();
+			BillList.init();
+		}
+	};
+	Main.init();
+});

@@ -1,0 +1,128 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="admin" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 MedicalTemplate">
+        	<h2 class="h-auto"><i class="f-l">疗程记录</i></h2>
+            <input type="hidden" class="addTemplate">
+            <!--表单开始-->
+            <div class="h-auto mar-t20">
+            	<!--左侧菜单开始-->
+                <div class="f-l l-nav text-c">
+                	<a href="#">首页</a>
+                    <a href="#">医疗记录</a>
+                    <a href="#">治疗过程</a>
+                    <a href="#">化验分析</a>
+                    <a href="#">治疗药物</a>
+                    <a href="#">B超</a>
+                    <a href="#">胚胎学</a>
+                    <a href="#">胚胎冷冻信息</a>
+                    <a href="#">精液分析</a>
+                    <a href="#">治疗结果</a>
+                    <a href="#">门诊开单记录</a>
+                    <a href="#" class="now">个人信息</a>
+                    <a href="#" class="last-no go-back">返回患者列表</a>
+                </div>
+                <!--左侧菜单结束-->
+                <!--右边信息开始-->
+                <div class="h-auto f-r help-doctor-r">
+                    <ul class="h-auto three-list">
+                        <p class="reg-headImg f-l"><a href="#" title="上传照片" id="avaUpload" data-href="dialog-uploadHdpic-flash.php?id=avatar&imageId=avatarPic"><img src="images/headImg/00.gif" id="avatarPic" class="avatar">
+                            <input type="hidden" id="avatar" value=""></a><input type="hidden" id="closeDialog" value="1"></p>
+                        <li class="w215"><i><b>*</b>姓名：</i><label><input name="" type="text" id="name" maxlength="5" class="validate"></label></li>
+                        <li><i><b>*</b>性别：</i><label><select name="" id="sex" class="validate"><option>男</option><option>女</option></select></label></li>
+                        <li><i><b>*</b>出生日期：</i><label><input name="" type="text" class="validate Wdate" id="birthday"></label></li>
+                        <li class="w215"><i>职业：</i><label><select name=""><option>程序猿</option></select></label></li>
+                        <li><i>婚否：</i><label><select name=""><option>是</option><option>否</option></select></label></li>
+                        <li><i><b>*</b>注册证号：</i><label class="reg-lab"><input name="" type="text" id="registerNum" class="validate" readonly>&nbsp;<a href="javascript:;" class="green-but register" data-href="include-add-register.php">注册</a></label></li>
+                        <li><i>工作单位：</i><label><input name="" type="text" maxlength="64"></label></li>
+                        <li><i>家庭电话：</i><label><input name="" type="text"></label></li>
+                        <li><i><b>*</b>手机号码：</i><label><input name="" type="text" id="phone" class="validate"></label></li>
+                        <li><i>家庭住址：</i><label><input name="" type="text" maxlength="64"></label></li>            
+                        <li><i><b>*</b>面诊科室：</i><label><select name="" id="department" data-href="js/mock-data/add-department-doctor.json"><option>外科</option><option>杭州空腔</option></select></label></li>
+                        <li><i><b>*</b>面诊医生：</i><label><input type="hidden" name="doctorName" id="doctorName" value=""><select name="" id="doctor" class="validate"></select></label></li>
+                        <li><i><b>*</b>证件类型：</i><label><select name="" id="registerCredentials"><option>电视广告</option><option>居民身份证</option></select></label></li>
+                        <li><i><b>*</b>证件号码：</i><label><input name="" type="text" id="registerCredentialsNum" class="validate"></label></li>
+                        <li><i>过敏史：</i><label><select name=""><option>无</option><option>有</option></select></label></li>
+                        <li class="textarea-li"><i>备注：</i><label><textarea name="" cols="" rows="" maxlength="500"></textarea></label></li>
+                    </ul>
+                    <!--上下分隔线-->
+                    <div class="h-auto add-family">
+                        <span class="add-family-but bg-f5"><a href="#" class="f-l add"><b></b>&nbsp;添加配偶信息</a><a href="#" class="f-r delete" title="关闭"></a></span>
+                        <div class="spouse-info mar-t10">
+                            <ul class="h-auto three-list">
+                                <p class="reg-headImg f-l"><a href="#" title="上传照片" id="avaPhoto" data-href="dialog-uploadHdpic-flash.php?id=spouseAvatar&imageId=spuoseAvatarPic"><img src="images/headImg/00.gif" id="spuoseAvatarPic"><input type="hidden" id="spouseAvatar" value=""></a></p>
+                                <li class="w215"><i><b>*</b>姓名：</i><label><input name="" type="text" id="spouse-name" class="validate" maxlength="5"></label></li>
+                                <li><i><b>*</b>性别：</i><label><select name="" id="spouse-sex"><option>男</option><option>女</option></select></label></li>
+                                <li><i><b>*</b>出生日期：</i><label><input name="" type="text" class="validate Wdate" id="spouse-birthday"></label></li>
+                                <li class="w215"><i>职业：</i><label><select name=""><option>程序猿</option></select></label></li>
+                                <li><i>婚否：</i><label><select name=""><option>是</option><option>否</option></select></label></li>
+                                <li><i><b>*</b>注册证号：</i><label class="reg-lab"><input name="" type="text" id="spouse-registerNum" class="validate" readonly>&nbsp;<a href="javascript:;" class="green-but" id="spouse-register">注册</a></label></li>
+                                <li><i>名族：</i><label><select name="" id="department" data-href="js/mock-data/add-department-doctor.json">
+                                <option>汉族</option>
+                                <option>满族</option></select></label></li>
+                                <li><i><b>*</b>手机号码：</i><label><input name="" type="text" maxlength="11"></label></li>
+                                <li><i>工作单位：</i><label><input name="" type="text" maxlength="64"></label></li>
+                                <li><i><b>*</b>证件类型：</i><label><select name="" id="spouse-registerCredentials"><option>电视广告</option></select></label></li>
+                                <li><i><b>*</b>证件号码：</i><label><input name="" type="text" id="spouse-registerCredentialsNum" class="validate"></label></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--分隔线-->
+                    <div class="hr-div">
+                        <span>治疗关系人</span>
+                        <hr/>
+            		</div>
+                    <div class="h-auto">
+                        <table cellpadding="0" cellspacing="1" class="table-list">
+                            <thead>
+                                <tr>
+                                    <td width="33%">关系人姓名</td>
+                                    <td width="33%">关系类型</td>
+                                    <td width="34%">操作</td>
+                              </tr>
+                            </thead>
+                            <tr class="tr-hover">
+                                <td class="pos-re"><div class="help-relation-name bg-ff">
+                                	<label><input name="" type="text" class="validate"></label>
+                                </div>                                
+                                </td>                                
+                                <td><select name="" id="spouse-sex">
+                                <option>关系类型1</option>
+                                <option>关系类型2</option></select>
+                                </td>
+                                <td><a href="javascript:;" class="red-but delete-item" title="删除">删除</a></td>
+                             </tr>
+                        </table>
+                        <!--弹出框开始-->
+                        <div class="help-seach-people">
+                        	<table cellpadding="0" cellspacing="1" class="table-list">
+                              <tr class="tr-hover">
+                                <td>刘德花花</td>
+                                <td>1234567890</td>
+                                <td>1358888888</td>
+                              </tr>
+                            </table>
+                        </div>
+                        <!--弹出框结束-->     
+                    </div>
+                    <div class="text-r mar-t10 list-bottom-div mar-b20">
+                        <a href="javascript:;" class="green-but" id="saveLogin">保存</a>
+                    </div>
+                </div>
+                <!--右边信息结束-->
+            </div>
+            <!--表单结束-->
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

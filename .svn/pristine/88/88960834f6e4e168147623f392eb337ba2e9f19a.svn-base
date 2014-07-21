@@ -1,0 +1,180 @@
+define([
+	'jquery',
+	'app/common',
+	'app/util',
+	'jqtmpl',
+	'pkg/DatePicker/app',
+	'pkg/DateFormat/app',
+	'json'
+], function($, common) {
+
+	"use strict";
+
+	/****************登记**********************************/
+	var Loading = {
+		init: function() {
+			var me =$(this);
+
+			var birthday = $("#birthday");
+			birthday.datePicker({
+				dateFmt: 'yyyy-MM-dd'
+			});
+
+			//根据身份证输入出生日期、年龄
+			$(document).delegate('#credentialsNum', 'blur', function() {
+				var num = $(this).val();
+				if(!/^\d{15}$|^\d{17}([0-9]|X)$/.test(num)) {
+					return;
+				}
+				var api = $(this).attr("data-href");
+				$.ajax(common.ajaxCall({
+					url: api,
+					success: function(data) {
+						var ds = data.ds;
+						if (ds.length === 0)
+							return;
+						for (var i = ds.length - 1; i >= 0; i--) {
+							var item = ds[i];
+							if(item.cardNum == num) {
+								art.dialog.alert("此证件已经登记！",function() {
+									$("#credentialsNum").val('');
+									return;
+								});
+							}
+						}
+						var year = num.substr(6,4);
+						var month = num.substr(10,2);
+						var day = num.substr(12,2);
+						console.log(year);
+						var age = (new Date()).getFullYear() - year;
+						$("#patient-age").val(age);
+						$("#birthday").val(year + '-' + month + '-' + day);
+					},
+					error: function() {
+						alert("something error");
+					}
+				}));
+			});
+
+			$(document).delegate("#saveRegister", "click", function() {
+				var tarForm = $("#form_register");
+				if (!tarForm.doValidate())
+					return;
+
+				var api = $(this).attr("data-action");
+				$.ajax(common.ajaxCall({
+					url: api,
+					data: tarForm.serialize(),
+					success: function(data) {
+						if (data.status.code == 0) {
+							art.dialog({
+								content: '操作成功！',
+								icon: 'face-smile',
+								time: 1
+							});
+							location.reload();
+						} else {
+							art.dialog({
+								content: '操作成功！',
+								icon: 'face-sad',
+								time: 1
+							});
+						}
+					},
+					error: function(xhr, status, handler) {
+						art.dialog({
+								content: '操作成功！',
+								icon: 'face-sad',
+								time: 1
+						});
+					}
+					
+				}));
+			});
+			// 回车保存
+			$(document).keyup(function(ev) {
+				if(ev.keyCode === 13) {
+					$("#saveRegister").trigger("click");
+				}
+			});
+
+			var startDate = $('#start-date');
+			var endDate = $('#end-date');
+			if (startDate.length > 0) {
+				if (!startDate.val()) {
+					var d = (new Date()).setDate(1);
+					startDate.val($.formatDate(new Date(d), 'yyyy-MM-dd'));
+				}
+				if (endDate.length > 0) {
+					startDate.datePicker({
+						minDate: '#F{$dp.$D(\'end-date\',{M:-2, d:0})}',
+						maxDate: '#F{$dp.$D(\'end-date\')}',
+						onpicked: function() {
+							if ($('#end-date').val() === "")
+								$dp.$('end-date').focus();
+						},
+						dateFmt: 'yyyy-MM-dd'
+					});
+				} else {
+					startDate.datePicker({
+						dateFmt: 'yyyy-MM-dd'
+					});
+				}
+			}
+
+			if (endDate.length > 0) {
+				if (!endDate.val()) {
+					endDate.val($.formatDate(new Date(), 'yyyy-MM-dd'));
+				}
+				if (startDate.length > 0) {
+					endDate.datePicker({
+						minDate: '#F{$dp.$D(\'start-date\')}',
+						maxDate: '#F{$dp.$D(\'start-date\',{M:2, d:0})}',
+						onpicked: function() {
+							if ($('#start-date').val() === "")
+								$dp.$('start-date').focus();
+						},
+						dateFmt: 'yyyy-MM-dd'
+					});
+				} else {
+					endDate.datePicker({
+						dateFmt: 'yyyy-MM-dd'
+					});
+				}
+			}
+			// 点击删除
+			$(document).delegate('.delete-item', 'click', function() {
+				art.dialog.confirm("确定删除吗？",function() {
+					location.reload();
+				});
+			});
+			
+		}
+	};
+
+	/*****************注册*************************************/
+	var Register = {
+		init: function() {
+
+			$(document).delegate('.add', 'click', function() {
+				$('.spouse-info').show();
+			})
+			.delegate('.delete', 'click', function() {
+				$('.spouse-info').hide();
+			});
+		}
+	};
+
+	/*****************入口**************************************/
+	var Main = {
+		init: function() {
+			Loading.init();
+			Register.init();
+
+			// 只能输入数字
+			$('.numeral').numeral();
+		}
+	};
+
+	Main.init();
+});

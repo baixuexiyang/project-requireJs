@@ -1,0 +1,266 @@
+// 表单校验提示信息
+var SuperValidator = {
+    // 登记注册-登记
+    'form_register': {
+        'patientName': {
+            required: "请输入病人姓名" ,
+            registerValidate: function(v) {
+                if(v && v.length > 5) {
+                    return '姓名长度不超过5个！';
+                }
+                return true;
+            }
+        },
+        'credentialsType': { required: "请选择证件类型"},
+        'credentialsNum': {
+            required: "请输入证件号码！"
+        },
+        'phone': {
+            registerValidate: function(v) {
+                if (v && !/^[1]([3458][0-9]{1})[0-9]{8}$|^[(]\d{3,4}[)]\d{7,8}$|^\d{3,4}[-]\d{7,8}$/.test(v)) {
+                    return "请输入正确的手机号！";
+                }
+                return true;
+            }
+        },
+        'birthday': {
+            required: "请输入出生日期！",
+            registerValidate: function(v) {
+                if(v && !/^[0-9\-]*$/.test(v)) {
+                    return "日期格式不对！";
+                }
+                return true;
+            }
+        },
+        'doctor': {required: "请选择面诊医生！"}
+    },
+    'form-login': {
+        'username': {required: "请输入用户名！"},
+        'password': {required: "请输入密码！"},
+        'verificationCode': {required: "请输入验证码！"}
+    },
+    'form-patient-login': {
+        'name': {
+            required: '请输入姓名！',
+            registerValidate: function(v) {
+                if(v && v.length > 5) {
+                    return '姓名长度不超过5个！';
+                }
+                return true;
+            }
+        },
+        'birthday': { required: "请输入出生日期！"},
+        'registerNum': {required: '请输入注册证号'},
+        'phone': {
+            required: "请输入联系电话",
+            customValidate: function(v) {
+                if (v && !/^[1]([3458][0-9]{1})[0-9]{8}$|^[(]\d{3,4}[)]\d{7,8}$|^\d{3,4}[-]\d{7,8}$/.test(v)) {
+                    return "格式不对，只能输入数字、特殊字符-、(、)";
+                }
+                return true;
+            }
+        },
+        'registerCredentialsNum': {
+            required: '请输入证件号码！'
+        },
+        'doctor': {required: "请选择面诊医生！"},
+        'spouse-name': {required: '请输入配偶姓名！'},
+        'spouse-birthday': {required: '请输入配偶出生日期！'},
+        'spouse-registerNum': {required: '请输入配偶注册证号！'},
+        'spouse-registerCredentialsNum': {
+            required: '请输入配偶证件号码！'
+        },
+        'spouse-phone': {
+            required: '请输入配偶手机号',
+            customValidate: function(v) {
+                if (v && !/^[1]([3458][0-9]{1})[0-9]{8}$|^[(]\d{3,4}[)]\d{7,8}$|^\d{3,4}[-]\d{7,8}$/.test(v)) {
+                    return "格式不对，只能输入数字、特殊字符-、(、)";
+                }
+                return true;
+            }
+        }
+    },
+    'add-Type': {
+        'typeName': {required: '请输入字典类别名称！'},
+        'typeValue': {required: '请输入字典类别值！'}
+    },
+    'add-Dictionary':{
+        'dictionaryName': {required: '请输入字典名称！'},
+        'dictionaryValue': {required: '请输入字典值！'}
+    },
+    'form-template': {
+        'credentialsNum': {required: '请输入模板名称！'}
+    },
+    'form-add-patient': {
+        'account': {required: '请输入账号！'},
+        'password': {required: '请输入密码！'},
+        'repassword': {required: '请再次输入密码！'},
+        'name': {required: '请输入姓名！'},
+        'tellphone': {
+            patientPhone: function(v) {
+                if (v && !/^[1]([3458][0-9]{1})[0-9]{8}$|^[(]\d{3,4}[)]\d{7,8}$|^\d{3,4}[-]\d{7,8}$/.test(v)) {
+                    return "请输入正确的手机号！";
+                }
+                return true;
+            }
+        },
+        'phone': {
+            officePhone: function(v) {
+                if(v && !/^[(]\d{3,4}[)]\d{7,8}$|^\d{3,4}[-]\d{7,8}$/.test(v)) {
+                    return "格式不对，只能输入数字、特殊字符-、(、)！";
+                }
+                return true;
+            }
+        },
+        'email': {
+            patientEmail: function(v) {
+                if(v && !/^[a-z]([a-z0-9]*[-_\.]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[\.][a-z]{2,3}([\.][a-z]{2})?$/.test(v)) {
+                    return "请输入正确格式的电子邮箱！";
+                }
+                return true;
+            }
+        },
+        'address': {required: '请输入家庭住址！'}
+    },
+    'form-add-category': {
+        'name': {required: '请输入科室名称！'},
+        'spell': {
+            required: '请输入拼音码！'
+        }
+    },
+    'form-add-template': {
+        'name': {required: '请输入问题类别！'},
+        'orderNum': {
+            required: '请输入类别排序！',
+            number: function(v) {
+                if(v && !/^[0-9]+$/.test(v)) {
+                    return "类别排序只能输入数字";
+                }
+                return true;
+            }
+        }
+    },
+    'form-add-templateName': {
+        'templateName': {required: '请输入模板名称！'}
+    },
+    'form-add-problem': {
+        'title': {required: '请输入问题标题！'}
+    },
+    'form-edit-patient': {
+        'name': {required: '请输入姓名！'},
+        'address': {required: '请输入家庭住址！'}
+    },
+    'form-add-medicine': {
+        'medicineName': {required: '请输入药品名称！'},
+        'standard': {required: '请输入规格！'},
+        'retail-price': {required: '请输入零售价！'},
+        'trade-price': {required: '请输入批发价！'},
+        'producing-area': {required: '请输入药品产地！'},
+        'vendor': {required: '请输入生产厂商！'},
+        'code': {
+            validata: function(v) {
+                if(v && !/^[a-zA-Z]+$/.test(v)) {
+                    return '格式输入错误';
+                }
+                return true;
+            }
+        },
+        'max': {
+            required: '请输入库存上限！',
+            validate: function(v) {
+                if(v && !/^[1-9]{1}[0-9]*$/.test(v)) {
+                    return '只能输入数字！';
+                }
+                return true;
+            }
+        },
+        'min': {
+            required: '请输入库存上限！',
+            validate: function(v) {
+                if(v && !/^[1-9]{1}[0-9]*$/.test(v)) {
+                    return '只能输入数字！';
+                }
+                return true;
+            }
+        }
+    },
+    'form-edit-info': {
+        'account': {required: '请输入旧密码！'},
+        'password': {required: '请输入新密码！'},
+        'repassword': {required: '请输入旧密码！'}
+    },
+    'form-add-charge': {
+        'chargeName': {required: '请输入收费名称！'},
+        'price': {
+            required: '请输入单价！'
+        }
+    },
+    'form-add-storage': {
+        'storageNum': {required: '请输入仓库编号！'},
+        'storageName': {required: '请输入仓库名称！'},
+        'phone': {required: '请输入联系电话！',
+
+            validate: function(v) {
+                if (v && !/^[1]([3458][0-9]{1})[0-9]{8}$|^[(]\d{3,4}[)]\d{7,8}$|^\d{3,4}[-]\d{7,8}$/.test(v)) {
+                    return "请输入正确的手机号！";
+                }
+                return true;
+            }
+        }
+    },
+    'form-add-parameter': {
+        'paramName': {required: '请输入参数名称！'},
+        'paramValue': {required: '请输入参数值！'}
+    },
+    'form-add-supplier': {
+        'supplierCode': {required: '请输入供应商编码！'},
+        'supplierName': {required: '请输入供应商名称！'},
+        'phone': {
+            required: "请输入联系电话",
+            supplierValidate: function(v) {
+                if (v && !/^[1]([3458][0-9]{1})[0-9]{8}$|^[(]\d{3,4}[)]\d{7,8}$|^\d{3,4}[-]\d{7,8}$/.test(v)) {
+                    return "格式不对，只能输入数字、特殊字符-、(、)";
+                }
+                return true;
+            }
+        },
+        'province': {
+            required: "请选择省份！",
+            dovalidate: function(v) {
+                if(v && v === 0) {
+                    return "请选择省份！";
+                }
+                return true;
+            }
+        },
+        'city': {
+            required: "请选择城市！",
+            dovalidate: function(v) {
+                if(v && v === 0) {
+                    return "请选择城市！";
+                }
+                return true;
+            }
+        }
+    },
+    'form-add-bill': {
+        'userName': {required: "请输入经办人！"},
+        'importdate': {required: "请输入入库日期！"},
+        'warehousename': {
+            dovalidate: function(v) {
+                if(v && v === '-') {
+                    return "请选择仓库！";
+                }
+                return true;
+            }
+        },
+        'supplier': {
+            dovalidate: function(v) {
+                if(v && v === '-') {
+                    return "请选择供应商！";
+                }
+                return true;
+            }
+        }
+    }
+};

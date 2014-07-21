@@ -1,0 +1,235 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="clinic-bill" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20">
+        	<h2 class="h-auto"><i class="f-l">门诊开单</i></h2>
+            <!--搜索开始-->
+        	<form method="" action="">
+            <div class="h-auto list-seach">
+            	<label class="f-l"><i>患者姓名：</i><input name="" type="text" id="patientName" data-href="js/mock-data/include-patient-list.json"><input type="hidden" id="patientId" value=""></label><input type="submit" class="green-but f-l" value="搜索"/>
+            </div>
+        	</form>
+            <!--搜索结束-->
+            <!--患者信息开始-->
+            <div class="hr-div mar-t10">
+                <span>患者信息</span>
+                <hr/>
+            </div>         
+            <ul class="h-auto three-list three-list-b">
+                    <li><i>姓名：</i><label>赵本山</label></li>
+                    <li><i>性别：</i><label>男</label></li>
+                    <li><i>年龄：</i><label>55</label></li>
+                    <li><i>手机号码：</i><label>123123123</label></li>
+                    <li><i>登记时间：</i><label>2013/12/12</label></li>                    
+            </ul>
+            <!--患者信息结束-->
+            <!--tab切换开始-->
+            <div class="middle-tab mar-t10">
+            	<span><a href="#" class="now">药物处方</a><a href="#">生化检验</a><a href="#">治疗项目</a><a href="#">其他项目</a></span>
+            </div>
+            <!--tab切换结束-->
+            <div class="h-auto mar-t10 together-add"><i class="f-l">共<b class="green-font">2</b>单</i><a href="#" class="f-r yellow-but">新增处方单</a></div>
+            <!--处方单开始-->
+            <div class="h-auto mar-t10 w958-border">
+            	<div class="bill-list-title">
+                	<a href="javascript:;" class="f-l close" title="点击收缩"></a>
+                    <span class="f-l"><i>诊疗单号：</i><em>123456789</em></span>
+                    <span class="f-l"><i>开单日期：</i><em>2013/12/13</em></span>
+                    <span class="f-l"><i>应缴费用：</i><em>10000.00</em></span>
+                    <span class="f-l"><i>缴费状态：</i><em class="red-font">未交费</em></span>
+                    <a href="#" class="f-r red-but">删除</a>
+                </div>
+            	<!--表单开始-->
+            	<div class="h-auto pad5">                	
+                    <table cellpadding="0" cellspacing="1" class="table-list">
+                        <thead>
+                            <tr>
+                                <td width="34%">项目名称</td>
+                                <td width="14%">单价</td>
+                                <td width="12%">数量</td>                                
+                                <td width="14%">单位</td>
+                                <td width="14%">总金额</td>                                
+                                <td width="12%">操作</td>
+                          </tr>
+                        </thead>
+                        <tr class="tr-hover">
+                            <td><div class="white-space">品名品名品名品名品名品名品名品名品名品名品名品名</div></td>
+                            <td>123132.00</td>
+                            <td>100</td>
+                            <td>12345678</td>
+                            <td>31231312.00</td>
+                            <td><a href="javascript:;" class="red-but delete-item" title="删除">删除</a></td>
+                         </tr>
+                         <tr class="tr-hover pos-re">
+                            <td><label><input name="" type="text" id="" class="w94-100 input-add"></label>
+                            	<!--品名弹出框-->
+                            	<div class="ab-table-div" style="display:none;">
+                                	<table cellpadding="0" cellspacing="1" class="table-list ab-table-div-title">
+                                        <thead>
+                                            <tr>
+                                                <td width="60%">品名</td>
+                                                <td width="20%">规格</td>
+                                                <td width="20%">单位</td>
+                                          	</tr>
+                                        </thead>
+                                        	<tr class="tr-hover">
+                                            	<td><div class="white-space">品名品名品名品名品名品名品名品名品名品名品名品名品名品名品名品名品名品名品名品名品名</div></td>
+                                                <td>规格</td>
+                                                <td>单位</td>
+                                            </tr>
+                                            <tr class="tr-hover">
+                                            	<td>品名</td>
+                                                <td >规格</td>
+                                                <td>单位</td>
+                                            </tr>
+                                            <tr class="tr-hover">
+                                            	<td>品名</td>
+                                                <td >规格</td>
+                                                <td>单位</td>
+                                            </tr>
+                                            <tr class="tr-hover">
+                                            	<td>品名</td>
+                                                <td >规格</td>
+                                                <td>单位</td>
+                                            </tr>
+                                            <tr class="tr-hover">
+                                            	<td>品名</td>
+                                                <td >规格</td>
+                                                <td>单位</td>
+                                            </tr>
+                                            <tr class="tr-hover">
+                                            	<td>品名</td>
+                                                <td>规格</td>
+                                                <td>单位</td>
+                                            </tr>
+                                        </table>
+                                </div>
+                                <!--弹出框结束-->
+                            </td>
+                            <td>-</td>                            
+                            <td class="quantity-text"><a href="#" class="less-text" title="减少"></a><label><input name="" type="text" id="" class="input-add" style="width:55px;"></label><a href="#" class="add-text" title="增加"></a></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td><a href="javascript:;" class="red-but delete-item" title="删除" style="display:none;">删除</a></td>
+                         </tr>
+                    </table>                
+                </div>
+                <!--表单结束-->
+                <div class="h-auto bill-list-save pad5">
+                	<span class="f-l">
+                    	<i>备注：</i><label><textarea name="" cols="" rows=""></textarea></label>
+                    </span>
+                    <a href="#" class="green-but f-r mar-t10">保存</a>
+                </div>
+            </div>
+			<!--处方单结束-->
+            
+            <!--处方单开始-->
+            <div class="h-auto mar-t10 w958-border">
+            	<div class="bill-list-title">
+                	<a href="javascropt:;" class="f-l open" title="点击展开"></a>
+                    <span class="f-l"><i>诊疗单号：</i><em>123456789</em></span>
+                    <span class="f-l"><i>开单日期：</i><em>2013/12/13</em></span>
+                    <span class="f-l"><i>应缴费用：</i><em>10000.00</em></span>
+                    <span class="f-l"><i>缴费状态：</i><em class="green-font">已交费</em></span>
+                    <a href="#" class="f-r red-but">删除</a>
+                </div>
+            	<!--表单开始-->
+            	<div class="h-auto pad5" style="display:none;">              	
+                    <table cellpadding="0" cellspacing="1" class="table-list">
+                        <thead>
+                            <tr>
+                                <td width="34%">项目名称</td>
+                                <td width="14%">单价</td>
+                                <td width="12%">数量</td>                                
+                                <td width="14%">单位</td>
+                                <td width="14%">总金额</td>                                
+                                <td width="12%">操作</td>
+                          </tr>
+                        </thead>
+                        <tr class="tr-hover">
+                            <td><div class="white-space">品名品名品名品名品名品名品名品名品名品名品名品名</div></td>
+                            <td>123132.00</td>
+                            <td>100</td>
+                            <td>12345678</td>
+                            <td>31231312.00</td>                            
+                            <td><a href="javascript:;" class="red-but delete-item" title="删除">删除</a></td>
+                         </tr>
+                         <tr class="tr-hover pos-re">
+                            <td><label><input name="" type="text" id="" class="w94-100 input-add"></label>
+                            	<!--品名弹出框-->
+                            	<div class="ab-table-div">
+                                	<table cellpadding="0" cellspacing="1" class="table-list ab-table-div-title">
+                                        <thead>
+                                            <tr>
+                                                <td width="60%">品名</td>
+                                                <td width="20%">规格</td>
+                                                <td width="20%">单位</td>
+                                          	</tr>
+                                        </thead>
+                                        	<tr class="tr-hover">
+                                            	<td><div class="white-space">品名品名品名品名品名品名品名品名品名品名品名品名品名品名品名品名品名品名品名品名品名</div></td>
+                                                <td>规格</td>
+                                                <td>单位</td>
+                                            </tr>
+                                            <tr class="tr-hover">
+                                            	<td>品名</td>
+                                                <td >规格</td>
+                                                <td>单位</td>
+                                            </tr>
+                                            <tr class="tr-hover">
+                                            	<td>品名</td>
+                                                <td >规格</td>
+                                                <td>单位</td>
+                                            </tr>
+                                            <tr class="tr-hover">
+                                            	<td>品名</td>
+                                                <td >规格</td>
+                                                <td>单位</td>
+                                            </tr>
+                                            <tr class="tr-hover">
+                                            	<td>品名</td>
+                                                <td >规格</td>
+                                                <td>单位</td>
+                                            </tr>
+                                            <tr class="tr-hover">
+                                            	<td>品名</td>
+                                                <td>规格</td>
+                                                <td>单位</td>
+                                            </tr>
+                                        </table>
+                                </div>
+                                <!--弹出框结束-->
+                            </td>
+                            <td>-</td>                            
+                            <td class="quantity-text"><a href="#" class="less-text" title="减少"></a><label><input name="" type="text" id="" class="input-add" style="width:55px;"></label><a href="#" class="add-text" title="增加"></a></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td><a href="javascript:;" class="red-but delete-item" title="删除" style="display:none;">删除</a></td>
+                         </tr>
+                    </table>                
+                </div>
+                <!--表单结束-->
+                <div class="h-auto bill-list-save pad5" style="display:none;">
+                	<span class="f-l">
+                    	<i>备注：</i><label><textarea name="" cols="" rows=""></textarea></label>
+                    </span>
+                    <a href="#" class="green-but f-r mar-t10">保存</a>
+                </div>
+            </div>
+			<!--处方单结束-->
+            
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

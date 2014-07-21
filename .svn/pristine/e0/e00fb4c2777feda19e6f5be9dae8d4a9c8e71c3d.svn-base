@@ -1,0 +1,49 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="adjuvant-therapy" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 patientList-analysis">
+        	<h2 class="h-auto"><i class="f-l">受精养制备</i></h2>
+            <!--表单开始-->
+            <form id="form-sperm-analysis">
+            <div class="jy-fx-title mar-t10">
+            	<cite>精液编号：1234567890</cite>
+                <span><i><b>*</b>时间：</i><label><input name="" type="text" class="w160 Wdate" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">&nbsp;<input name="" type="text" value="" class="w60">&nbsp;：&nbsp;<input name="" type="text" value="" class="w60"></label></span><span><i><b>*</b>分析员：</i><label><select name=""><option>分析员1</option></select></label></span><span><i><b>*</b>制备方法：</i><label><select name=""><option>方案1</option></select></label></span>
+            </div>
+            <div class="jy-fx-content h-auto mar-t20 bg-f5">
+            	<ul>
+                    <li><i>最终样本体积(ml)：</i><label><input name="" type="text"></label></li>
+                    <li><i>样本精液浓度(M/ml)：</i><label><input name="" type="text"></label></li>
+                	<li><i>运动精子浓度(M/ml)：</i><label><input name="" type="text"></label></li>
+                    <li></li>
+                    <li><i>快速直线运动精子(%)：</i><label><input name="" type="text"></label></li>
+                    <li><i>慢速直线运动精子(%)：</i><label><input name="" type="text"></label></li>
+                   	<li><i>不动精子(%)：</i><label><input name="" type="text"></label></li>
+                    <li></li>
+                    <li><i>总运动精子(%)：</i><label><input name="" type="text"></label></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="jy-fx-scfj mar-t20">
+            	<i>附件：</i><label><input name="" type="text">&nbsp;<input name="" type="button" class="green-but" value="浏览.."></label>
+            </div>
+            <div class="jy-fx-bottom h-auto mar-t20">
+            	<i>备注：</i><label><textarea name="" cols="" rows=""></textarea></label>
+            </div>
+            </form>
+            <div class="text-r mar-t10 mar-b10 list-bottom-div">
+                        <a href="javascript:;" id="saveInfo" class="green-but" data-href="辅助治疗-患者列表-疗程记录-精液分析-查看.shtml" data-action="js/mock-data/include-data-example.json">保存</a>&nbsp;&nbsp;<a href="javascript:;" id="" class="black-but" >取消</a>
+                    </div>
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

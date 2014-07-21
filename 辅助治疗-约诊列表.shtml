@@ -1,0 +1,67 @@
+<!--#include file="include-head.php"-->
+<div class="body">
+    <input type="hidden" name="dispatcher" id="dispatcher" value="adjuvant-therapy" />
+        <!--中部开始-->
+        <div class="content h-auto mar-t10 top-banner">
+        	<ul class="f-l">
+            	<li>今日登记：<i>10</i>人</li>
+        		<li>今日预约：<i>10</i>人</li>
+        		<li class="last-no">今日注册：<i>10</i>人</li>
+        	</ul>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        	<p class="f-l"><a href="#" target="_blank"><img src="images/topBanner/banner01.jpg" alt="广告"></a></p>
+        </div>
+        <div class="content h-auto mar-t20 AppointmentList">
+        	<h2 class="h-auto"><i class="f-l">约诊列表</i></h2>
+            <!--搜索开始-->
+        	<form method="" action="">
+            <div class=" h-auto list-seach">
+            	<label><i>医疗号码：</i>
+            	<input name="" type="text"></label>
+            	<label><i>患者姓名：</i>
+            	<input name="" type="text"></label><label><i>预约日期：</i><input class="Wdate" id="start-date" name="startDate" type="text" placeholder="起始时间">&nbsp;至&nbsp;<input class="Wdate" id="end-date" name="endDate" type="text" placeholder="结束时间"></label><input type="submit" class="green-but" value="搜索"/>
+            </div>
+        	</form>
+            <!--搜索结束-->
+            <!--表单开始-->
+            <div class="h-auto mar-t20">
+            	<table cellpadding="0" cellspacing="1" class="table-list">
+                	<thead>
+                    	<tr>
+                        	<td width="4%"></td>
+                            <td width="12%">医疗号码</td>
+                       	  	<td width="10%">姓名</td>
+                            <td width="13%">手机号码</td>
+                            <td width="16%">预约项目</td>
+                            <td width="10%">主治医生</td>
+                            <td width="12%">预约日期</td>
+                            <td width="8%">状态</td>
+                       	  	<td width="15%">操作</td>
+                      </tr>
+                    </thead>
+                    <tr class="tr-hover">
+                    	<td><input name="" type="checkbox" value=""></td>
+                        <td>1234567890</td>
+                        <td>上官云飞</td>
+                        <td>1358888888</td>
+                        <td><div class="white-space">预约项目预约项目预约项目预约项目</div></td>
+                        <td>上官云飞</td>
+                        <td>2012/12/13</td>
+                        <td>计划</td>
+                        <td><a href="javascript:;" class="green-but edit" title="编辑" data-href="include-edit-appointment.php">编辑</a><a href="javascript:;" class="red-but delete-item" title="删除" data-action="js/mock-data/include-data-example.json">删除</a></td>
+                     </tr>
+					<tr>
+						<td colspan="9" class="text-l"><input name="" type="checkbox" id="checkAll" value="" style="margin-left:12px;">&nbsp;全选&nbsp;&nbsp;<a href="javascript:;" id="confirm" data-action="js/mock-data/include-data-example.json" class="green-but" title="确认">确认</a></td>
+                    </tr>
+                </table>
+                <!--分页开始-->
+                <div class="page">
+                     <span>共<i>120条/10页</i></span><span><a href="javascript:;" class="now">1</a></span><span><a href="javascript:;">2</a></span><span><a href="javascript:;">3</a></span><span>...</span><span><a href="javascript:;">10</a></span><span><a href="javascript:;">下一页</a></span>
+                </div>
+               <!--分页结束-->
+            </div>
+            <!--表单结束-->
+        </div>
+        <!--中部结束-->
+</div>
+<!--#include file="include-foot.php"-->

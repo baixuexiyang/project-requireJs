@@ -1,0 +1,21 @@
+<?php include("include-dialog-head.php"); ?>
+<input type="hidden" id="dispatcher" value="adjuvant-therapy">
+<div class="pop-box h-auto bg-ff patientList-analysis">
+	<form id="form-collect-sperm">
+	<ul class="three-list">    	
+        <li><i><b>*</b>日期：</i><label><input name="" type="text" id="date" class="Wdate"></label></li>
+        <li><i><b>*</b>样精号：</i><label><input name="" type="text" id="number"></label></li>
+        <li><i><b>*</b>精液类型：</i><label><select name="" id="type"><option>
+        	精液类型
+        </option></select></label></li>
+        <li><i><b>*</b>收集方式：</i><label><select name="" id="methods"><option>
+        	收集方式
+        </option></select></label></li>
+        <li><i><b>*</b>分装数：</i><label><input name="" type="text" id="shipments"></label></li>
+        <li class="h65"><i>备注：</i><label><textarea name="" cols="" rows="">12323</textarea></label></li>
+        <li class="error-out"><span class="error-text" style="display: none;"></span></li>
+    </ul>
+    <div class="text-c mar-b20"><a href="javascript:;" data-action="js/mock-data/include-data-example.json" class="green-but" id="saveSperm">保存</a>&nbsp;<a href="javascript:;" class="black-but" id="cancel">取消</a></div>
+</form>
+</div>
+<?php include("include-dialog-foot.php"); ?>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ARIS 1.0</title>
+<link type="text/css" rel="stylesheet" href="css/mail.css">
+</head>
+
+<body>
+<input type="hidden" id="dispatcher" value="login">
+<div class="head content">
+<a href="javascript:;"  class="f-l"><img src="images/logo.png" alt="logo"></a>        
+</div>
+<div class="indexBg">
+    <form action="" method="" id="form-login">
+    	<div class="content">
+                <ul class="h-auto ind-cen f-r">
+                    <li>
+                        <i>用户名：</i><br/>
+                        <label><input name="" class="validate" type="text" id="username" value=""></label>
+                    </li>
+                    <li>
+                        <i>密码：</i><br/>
+                        <label><input name="" class="validate" type="password" id="password" value=""></label>
+                    </li>
+                    <li class="ind-yzm">
+                        <i>验证码：</i><br/>
+                        <label><input name="" type="text" id="verificationCode" class="validate" value=""></label><label><img src="images/yzm.gif"><a href="#">换一张</a></label>
+                    </li>
+                    <li><label><input name="radio" type="radio" value=""></label>&nbsp;<i>一天内免登录</i></li>
+                    <span><cite class="error-text" style="display:none">错误提示</cite></span>
+                    <li><input name="" type="button" value="登录" class="green-but" id="btn-login" data-action="登记注册-登记.shtml" data-href="js/mock-data/login.json"></li>
+                </ul>
+        </div>
+    </form>
+</div>
+<script src="js/pkg/artDialog/artDialog.js?skin=green" type="text/javascript"></script>
+<script src="js/pkg/artDialog/plugins/iframeTools.js?t=1.0.0.0" type="text/javascript"></script>
+<script src="js/validate-msg.js"></script>
+<script src="js/lib/require.js" data-main="js/main"></script>
+</body>
+</html>
